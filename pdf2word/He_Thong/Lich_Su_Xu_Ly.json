@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-10-03 14:15:00",
-  "total_files": 3,
-  "completed_files": 3,
+  "updated_at": "2026-10-03 14:45:00",
+  "total_files": 4,
+  "completed_files": 4,
   "pending_files": 0,
   "records": {
     "De_Thi_Goc_2009.pdf": {
@@ -80,6 +80,29 @@
         "He_Thong/LaTeX/Nguyen_Hue_10/PHY10_Nguyen_Hue_HDG_101.tex"
       ],
       "note": "KIỂM TRA GIỮA KỲ I VẬT LÍ 10 - THPT NGUYỄN HUỆ (2024 - 2025) - MÃ ĐỀ 101. Đề thi gốc từ 4 ảnh chụp máy ảnh gộp PDF: (1) Vẽ lại 100% toàn bộ 7 hình vẽ, đồ thị vật lý bằng TikZ vector siêu sắc nét (kết xuất PNG 300 DPI nhúng Word); (2) Biên dịch pdflatex 0 lỗi, bản Đề vừa khít đúng 4 trang chuẩn thi cử, bản HDG 9 trang giải chi tiết từng bước theo yêu cầu 'GIẢI CHI TIẾT LUÔN NHÉ', không thừa lặp nhãn 'Đáp án:'; (3) Khắc phục triệt để lỗi đè footer (căn chỉnh lề an toàn cách mép 1cm); (4) Xuất bản Word (.docx) đồng bộ chuẩn Macro BTPro với 100% công thức Word Math OMML, bảng side-by-side, ô trả lời ngắn Phần III."
+    },
+    "TN9-KNTT-CHƯƠNG 5-BÀI 17_ Vị trí tương đối của hai đường tròn -phan đình quân.docx": {
+      "file_name": "TN9-KNTT-CHƯƠNG 5-BÀI 17_ Vị trí tương đối của hai đường tròn -phan đình quân.docx",
+      "file_relpath": "De_Goc/TN9-KNTT-CHƯƠNG 5-BÀI 17_ Vị trí tương đối của hai đường tròn -phan đình quân.docx",
+      "sha256": "68836EF9A38D30D3CBC2F0FB440126D8653A5B01C4D0A08E525762946A4B8728",
+      "size_bytes": 125123,
+      "date_added": "2026-10-03 14:22:00",
+      "date_processed": "2026-10-03 14:45:00",
+      "status": "HOAN_THANH",
+      "current_code": "101",
+      "output_docx": [
+        "San_Pham/TN9_Chuong5_Bai17_De.docx",
+        "San_Pham/TN9_Chuong5_Bai17_HDG.docx"
+      ],
+      "output_pdf": [
+        "San_Pham/TN9_Chuong5_Bai17_De.pdf",
+        "San_Pham/TN9_Chuong5_Bai17_HDG.pdf"
+      ],
+      "source_tex": [
+        "He_Thong/LaTeX/TN9_Chuong5_Bai17/TN9_Chuong5_Bai17_De.tex",
+        "He_Thong/LaTeX/TN9_Chuong5_Bai17/TN9_Chuong5_Bai17_HDG.tex"
+      ],
+      "note": "THỬ THÁCH ĐỀ GỐC LÀ WORD (TOÁN 9 - KẾT NỐI TRI THỨC - CHƯƠNG V - BÀI 17: VỊ TRÍ TƯƠNG ĐỐI CỦA HAI ĐƯỜNG TRÒN). Đề gốc chứa 100 ảnh công thức web rời rạc (math formulas as inline web images). Đã giải quyết xuất sắc: (1) Phục hồi và chuyển đổi 100% công thức toán học sang Word Math OMML bản địa (không dán ảnh công thức); (2) Vẽ lại toàn bộ 9 hình hình học minh họa bằng TikZ vector siêu sắc nét (xuất PNG 300 DPI nhúng Word); (3) Biên soạn Hướng dẫn giải chi tiết 15 câu trắc nghiệm với lập luận hình học chặt chẽ, phát hiện và hiệu đính lỗi sai số liệu trong đề gốc (Câu 7); (4) Biên dịch pdflatex 0 lỗi, bản Đề vừa khít đúng 2 trang, bản HDG 9 trang; (5) Xuất bản Word (.docx) chuẩn Macro BTPro với tiêu đề Lớp Toán Cô Thúy, bảng đáp án trắc nghiệm chuẩn mực."
     }
   }
 }

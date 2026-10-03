@@ -1,0 +1,212 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[vietnamese]{babel}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{calc,angles,quotes}
+\usepackage[top=1.0cm,bottom=1.8cm,left=1.4cm,right=1.4cm,footskip=0.8cm]{geometry}
+\setlength{\headheight}{16pt}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{tabularx}
+\usepackage{ex_test}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\fancyhead[L]{\small \textbf{TOÁN 9 - KẾT NỐI TRI THỨC VỚI CUỘC SỐNG}}
+\fancyhead[R]{\small \textbf{CHƯƠNG V - BÀI 17}}
+\fancyfoot[L]{\small \textit{Sưu tầm \& biên soạn: Phan Đình Quân}}
+\fancyfoot[R]{\small Trang \thepage/\pageref{LastPage}}
+
+\begin{document}
+
+% HEADER BOX
+\noindent
+\begin{tabularx}{\textwidth}{|>{\centering\arraybackslash}p{6.8cm}|>{\centering\arraybackslash}X|}
+\hline
+\textbf{CHƯƠNG V: ĐƯỜNG TRÒN} & \textbf{PHIẾU BÀI TẬP TRẮC NGHIỆM} \\
+\textbf{BÀI 17: VỊ TRÍ TƯƠNG ĐỐI CỦA HAI ĐƯỜNG TRÒN} & \textbf{Môn: TOÁN 9 (Bộ sách Kết nối tri thức)} \\
+\textit{Thời gian làm bài: 45 phút} & \textit{Họ và tên: ...........................................................} \\
+\hline
+\end{tabularx}
+
+\vspace{0.3cm}
+
+\begin{flushleft}
+	{\color{blue!50!green}\fbox{\fontfamily{qag}\bfseries\selectfont PHẦN 1. Câu trắc nghiệm 4 phương án}}
+\end{flushleft}
+\setcounter{ex}{0}
+
+\begin{ex}
+Nếu hai đường tròn không cắt nhau thì số điểm chung của hai đường tròn là
+\choice
+{$1$}
+{$2$}
+{$3$}
+{\True $0$}
+\loigiai{}
+\end{ex}
+
+\begin{ex}
+Cho hai đường tròn $(O_1)$ và $(O_2)$ tiếp xúc ngoài tại $A$ và một đường thẳng $\mathrm{d}$ tiếp xúc với $(O_1)$ và $(O_2)$ lần lượt tại $B, C$. Tam giác $ABC$ là
+\choice
+{Tam giác cân}
+{Tam giác đều}
+{\True Tam giác vuông}
+{Tam giác vuông cân}
+\loigiai{}
+\end{ex}
+
+\begin{ex}
+Cho đoạn thẳng $OO'$ và điểm $A$ nằm trên đoạn $OO'$ sao cho $OA = 2O'A$. Vị trí tương đối của đường tròn tâm $O$ bán kính $OA$ và đường tròn tâm $O'$ bán kính $O'A$ là
+\choice
+{Nằm ngoài nhau}
+{Cắt nhau}
+{\True Tiếp xúc ngoài}
+{Tiếp xúc trong}
+\loigiai{}
+\end{ex}
+
+\begin{ex}
+Cho hai đường tròn $(O), (O')$ cắt nhau tại $A, B$ trong đó $O' \in (O)$. Kẻ đường kính $O'C$ của đường tròn $(O)$. Chọn khẳng định \textbf{sai}.
+\choice
+{$AC = CB$}
+{$\widehat{CBO'} = 90^\circ$}
+{$CA, CB$ là hai tiếp tuyến của $(O')$}
+{\True $CA, CB$ là hai cát tuyến của $(O')$}
+\loigiai{}
+\end{ex}
+
+\begin{ex}
+Cho hai đường tròn tiếp xúc ngoài $(O; R)$ và $(O'; r)$ với $R > r$ và khoảng cách giữa hai tâm $OO' = \mathrm{d}$. Khi đó
+\choice
+{$\mathrm{d} = R - r$}
+{$\mathrm{d} > R + r$}
+{$R - r < \mathrm{d} < R + r$}
+{\True $\mathrm{d} = R + r$}
+\loigiai{}
+\end{ex}
+
+\begin{ex}
+Cho đường tròn $(O_1; 3\text{ cm})$ tiếp xúc ngoài với đường tròn $(O_2; 1\text{ cm})$. Vẽ bán kính $O_1B$ và $O_2C$ song song với nhau cùng thuộc nửa mặt phẳng bờ $O_1O_2$. Gọi $D$ là giao điểm của $BC$ và $O_1O_2$. Tính số đo góc $\widehat{BAC}$ (với $A$ là tiếp điểm của $(O_1)$ và $(O_2)$).
+\choice
+{\True $90^\circ$}
+{$60^\circ$}
+{$100^\circ$}
+{$80^\circ$}
+\loigiai{}
+\end{ex}
+
+\begin{ex}
+Cho hai đường tròn $(O; 10\text{ cm})$ và $(O'; 5\text{ cm})$ cắt nhau tại $A, B$. Tính độ dài đoạn thẳng $OO'$ biết $AB = 8\text{ cm}$ và $O, O'$ nằm cùng phía đối với $AB$ (làm tròn kết quả đến chữ số thập phân thứ nhất).
+\choice
+{$OO' \approx 6{,}5\text{ cm}$}
+{$OO' \approx 6{,}1\text{ cm}$}
+{$OO' \approx 6{,}3\text{ cm}$}
+{\True $OO' \approx 6{,}2\text{ cm}$}
+\loigiai{}
+\end{ex}
+
+\begin{ex}
+Cho hai đường tròn $(O; 20\text{ cm})$ và $(O'; 15\text{ cm})$ cắt nhau tại $A, B$. Tính độ dài đoạn thẳng $OO'$ biết $AB = 24\text{ cm}$ và $O, O'$ nằm cùng phía đối với $AB$.
+\choice
+{\True $OO' = 7\text{ cm}$}
+{$OO' = 8\text{ cm}$}
+{$OO' = 9\text{ cm}$}
+{$OO' = 25\text{ cm}$}
+\loigiai{}
+\end{ex}
+
+\newpage
+
+\begin{ex}
+Cho hai đường tròn $(O), (O')$ tiếp xúc ngoài tại $A$. Kẻ tiếp tuyến chung ngoài $MN$ với $M \in (O), N \in (O')$. Gọi $P, Q$ lần lượt là điểm đối xứng với $M, N$ qua đường nối tâm $OO'$. Khi đó tứ giác $MNPQ$ là hình gì?
+\choice
+{\True Hình thang cân}
+{Hình thang}
+{Hình thang vuông}
+{Hình bình hành}
+\loigiai{}
+\end{ex}
+
+\begin{ex}
+Cho đường tròn $(O; 6\text{ cm})$ và $(O'; 2\text{ cm})$ cắt nhau tại $A, B$ sao cho $OA$ là tiếp tuyến của $(O')$. Độ dài dây chung $AB$ bằng
+\choice
+{$AB = 3\sqrt{10}\text{ cm}$}
+{\True $AB = \dfrac{6\sqrt{10}}{5}\text{ cm}$}
+{$AB = \dfrac{3\sqrt{10}}{5}\text{ cm}$}
+{$AB = \dfrac{\sqrt{10}}{5}\text{ cm}$}
+\loigiai{}
+\end{ex}
+
+\begin{ex}
+Cho các đường tròn $(O_1; 10\text{ cm})$, $(O_2; 15\text{ cm})$ và $(O_3; 15\text{ cm})$ tiếp xúc ngoài với nhau đôi một. Hai đường tròn $(O_2)$ và $(O_3)$ tiếp xúc nhau tại điểm $A$. Đường tròn $(O_1)$ tiếp xúc với $(O_2)$ và $(O_3)$ lần lượt tại $C$ và $B$. Khẳng định nào sau đây là đúng?
+\choice
+{\True $O_1A$ là tiếp tuyến chung của đường tròn $(O_2)$ và $(O_3)$}
+{$O_1A = 25\text{ cm}$}
+{$O_1A = 15\text{ cm}$}
+{Cả A và B đều đúng}
+\loigiai{}
+\end{ex}
+
+\begin{ex}
+Cho hai đường tròn $(O), (O')$ tiếp xúc ngoài tại $A$. Kẻ các đường kính $AB$ của $(O)$ và $AC$ của $(O')$, gọi $DE$ là tiếp tuyến chung ngoài của hai đường tròn $(D \in (O), E \in (O'))$. Gọi $M$ là giao điểm của $BD$ và $CE$. Tính diện tích tứ giác $ADME$ biết $\widehat{DOA} = 60^\circ$ và $OA = 6\text{ cm}$.
+\choice
+{\True $12\sqrt{3}\text{ cm}^2$}
+{$12\text{ cm}^2$}
+{$16\text{ cm}^2$}
+{$24\text{ cm}^2$}
+\loigiai{}
+\end{ex}
+
+\begin{ex}
+Cho hai đường tròn $(O), (O')$ tiếp xúc ngoài tại $A$. Kẻ các đường kính $AB$ của $(O)$ và $AC$ của $(O')$, gọi $DE$ là tiếp tuyến chung ngoài của hai đường tròn $(D \in (O), E \in (O'))$. Gọi $M$ là giao điểm của $BD$ và $CE$. Tính diện tích tứ giác $ADME$ biết $\widehat{DOA} = 60^\circ$ và $OA = 8\text{ cm}$.
+\choice
+{$12\sqrt{3}\text{ cm}^2$}
+{\True $\dfrac{64\sqrt{3}}{3}\text{ cm}^2$}
+{$\dfrac{32\sqrt{3}}{3}\text{ cm}^2$}
+{$36\text{ cm}^2$}
+\loigiai{}
+\end{ex}
+
+\begin{ex}
+Cho các đường tròn $(O_1; 10\text{ cm})$, $(O_2; 15\text{ cm})$ và $(O_3; 15\text{ cm})$ tiếp xúc ngoài với nhau đôi một. Hai đường tròn $(O_2)$ và $(O_3)$ tiếp xúc nhau tại điểm $A$. Đường tròn $(O_1)$ tiếp xúc với $(O_2)$ và $(O_3)$ lần lượt tại $C$ và $B$. Tính diện tích tam giác $ABC$.
+\choice
+{$36\text{ cm}^2$}
+{\True $72\text{ cm}^2$}
+{$144\text{ cm}^2$}
+{$96\text{ cm}^2$}
+\loigiai{}
+\end{ex}
+
+\begin{ex}
+Cho hai đường tròn $(O; R)$ và $(O'; r)$ với $R > r$ tiếp xúc ngoài tại $A$. Vẽ các bán kính $OB \parallel O'D$ với $B, D$ cùng thuộc nửa mặt phẳng bờ $OO'$. Đường thẳng $DB$ và $OO'$ cắt nhau tại $I$. Tiếp tuyến chung ngoài $GH$ của $(O)$ và $(O')$ với $G, H$ nằm ở nửa mặt phẳng bờ $OO'$ không chứa $B, D$. Tính $OI$ theo $R$ và $r$.
+\choice
+{$OI = \dfrac{R+r}{R-r}$}
+{$OI = \dfrac{R-r}{R+r}$}
+{$OI = \dfrac{R(R-r)}{R+r}$}
+{\True $OI = \dfrac{R(R+r)}{R-r}$}
+\loigiai{}
+\end{ex}
+
+\vspace{0.4cm}
+\begin{center}
+\textbf{BẢNG ĐÁP ÁN TRẮC NGHIỆM} \\[0.2cm]
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+\textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} & \textbf{9} & \textbf{10} & \textbf{11} & \textbf{12} & \textbf{13} & \textbf{14} & \textbf{15} \\
+\hline
+\textbf{D} & \textbf{C} & \textbf{C} & \textbf{D} & \textbf{D} & \textbf{A} & \textbf{D} & \textbf{A} & \textbf{A} & \textbf{B} & \textbf{A} & \textbf{A} & \textbf{B} & \textbf{B} & \textbf{D} \\
+\hline
+\end{tabular}
+\end{center}
+
+\vspace{0.3cm}
+\begin{center}
+\textbf{--- HẾT ---}
+\end{center}
+
+\end{document}
