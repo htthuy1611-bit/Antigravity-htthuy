@@ -22,7 +22,8 @@ OUTPUT_DOCX = os.path.join(SAN_PHAM_DIR, "De_Thi_2009.docx")
 
 os.makedirs(SAN_PHAM_DIR, exist_ok=True)
 
-# 1. SOẠN THẢO MÃ NGUỒN CHO PANDOC VỚI CÁC TOKEN ĐÁNH DẤU CHUẨN
+# 1. SOẠN THẢO MÃ NGUỒN CHO PANDOC VỚI CÁC TOKEN ĐÁNH DẤU CHUẨN FORM GIÁO VIÊN
+# Chuẩn: Dấu @@TAB@@ ở đầu mỗi dòng phương án và giữa các phương án
 tex_content = r"""\documentclass[12pt,a4paper]{article}
 \usepackage[utf8]{vietnam}
 \usepackage{amsmath,amssymb}
@@ -35,65 +36,65 @@ tex_content = r"""\documentclass[12pt,a4paper]{article}
 
 @@SECTION_1_HEADER@@
 
-% CÂU 1 (4 dòng riêng biệt cho A, B, C, D)
+% CÂU 1 (4 dòng riêng biệt cho A, B, C, D có TAB đầu dòng)
 \textbf{Câu 1.} Cho hàm số $y = f(x)$ có đạo hàm trên $\mathbb{R}$ thỏa $f'(x) < 0$, $\forall x \in (1; 2)$ và $f'(x) > 0$, $\forall x \in (2; 3)$. Phát biểu nào sau đây là đúng?
 
-\textbf{A.} Hàm số $y = f(x)$ đồng biến trên cả hai khoảng $(1; 2)$ và $(2; 3)$.
+@@TAB@@\textbf{A.} Hàm số $y = f(x)$ đồng biến trên cả hai khoảng $(1; 2)$ và $(2; 3)$.
 
-\textbf{B.} Hàm số $y = f(x)$ nghịch biến trên cả hai khoảng $(1; 2)$ và $(2; 3)$.
+@@TAB@@\textbf{B.} Hàm số $y = f(x)$ nghịch biến trên cả hai khoảng $(1; 2)$ và $(2; 3)$.
 
-\textbf{C.} Hàm số $y = f(x)$ đồng biến trên khoảng $(1; 2)$ và nghịch biến trên khoảng $(2; 3)$.
+@@TAB@@\textbf{C.} Hàm số $y = f(x)$ đồng biến trên khoảng $(1; 2)$ và nghịch biến trên khoảng $(2; 3)$.
 
-\textbf{D.} Hàm số $y = f(x)$ nghịch biến trên khoảng $(1; 2)$ và đồng biến trên khoảng $(2; 3)$.
+@@TAB@@\textbf{D.} Hàm số $y = f(x)$ nghịch biến trên khoảng $(1; 2)$ và đồng biến trên khoảng $(2; 3)$.
 
 % CÂU 2 (1 dòng 4 phương án dùng TAB chuẩn xác)
 \textbf{Câu 2.} Giá trị cực đại của hàm số $f(x) = 2x^3 - 9x^2 - 24x + 1$ là
 
-\textbf{A.} $-1$.@@TAB@@\textbf{B.} $14$.@@TAB@@\textbf{C.} $4$.@@TAB@@\textbf{D.} $-111$.
+@@TAB@@\textbf{A.} $-1$.@@TAB@@\textbf{B.} $14$.@@TAB@@\textbf{C.} $4$.@@TAB@@\textbf{D.} $-111$.
 
 % CÂU 3 (2 dòng x 2 phương án dùng TAB chuẩn xác)
 \textbf{Câu 3.} Cho lăng trụ $ABC.A'B'C'$. Khẳng định nào sau đây đúng?
 
-\textbf{A.} $\overrightarrow{BA} + \overrightarrow{A'C'} = \overrightarrow{BC}$.@@TAB@@\textbf{B.} $\overrightarrow{BA} + \overrightarrow{A'C'} = \overrightarrow{BC'}$.
+@@TAB@@\textbf{A.} $\overrightarrow{BA} + \overrightarrow{A'C'} = \overrightarrow{BC}$.@@TAB@@\textbf{B.} $\overrightarrow{BA} + \overrightarrow{A'C'} = \overrightarrow{BC'}$.
 
-\textbf{C.} $\overrightarrow{BA} + \overrightarrow{A'C'} = \overrightarrow{C'B}$.@@TAB@@\textbf{D.} $\overrightarrow{BA} + \overrightarrow{A'C'} = \overrightarrow{B'C}$.
+@@TAB@@\textbf{C.} $\overrightarrow{BA} + \overrightarrow{A'C'} = \overrightarrow{C'B}$.@@TAB@@\textbf{D.} $\overrightarrow{BA} + \overrightarrow{A'C'} = \overrightarrow{B'C}$.
 
 % CÂU 4 (Bên trái: đề + 2 dòng phương án TAB; Bên phải: hình ảnh đồ thị)
 @@START_SIDE_BY_SIDE_CAU4@@
 
 \textbf{Câu 4.} Hàm số $y = f(x)$ xác định trên đoạn $[-1; 6]$ và có đồ thị như hình vẽ. Hàm số đã cho nghịch biến trên khoảng nào sau đây?
 
-\textbf{A.} $(-1; 2)$.@@TAB@@\textbf{B.} $(0; 2)$.
+@@TAB@@\textbf{A.} $(-1; 2)$.@@TAB@@\textbf{B.} $(0; 2)$.
 
-\textbf{C.} $(2; 6)$.@@TAB@@\textbf{D.} $(-2; 0)$.
+@@TAB@@\textbf{C.} $(2; 6)$.@@TAB@@\textbf{D.} $(-2; 0)$.
 
 @@END_SIDE_BY_SIDE_CAU4@@
 
 % CÂU 5 (2 dòng x 2 phương án dùng TAB chuẩn xác)
 \textbf{Câu 5.} Cho tứ diện $ABCD$. Lấy $G$ là trọng tâm của tam giác $ABC$. Phát biểu nào sau đây là sai?
 
-\textbf{A.} $\overrightarrow{GA} + \overrightarrow{GB} + \overrightarrow{GC} = \overrightarrow{0}$.@@TAB@@\textbf{B.} $\overrightarrow{GA} + \overrightarrow{GB} + \overrightarrow{GC} + \overrightarrow{GD} = \overrightarrow{0}$.
+@@TAB@@\textbf{A.} $\overrightarrow{GA} + \overrightarrow{GB} + \overrightarrow{GC} = \overrightarrow{0}$.@@TAB@@\textbf{B.} $\overrightarrow{GA} + \overrightarrow{GB} + \overrightarrow{GC} + \overrightarrow{GD} = \overrightarrow{0}$.
 
-\textbf{C.} $\overrightarrow{GD} - \overrightarrow{GA} = \overrightarrow{AD}$.@@TAB@@\textbf{D.} $\overrightarrow{DA} + \overrightarrow{DB} + \overrightarrow{DC} = 3\overrightarrow{DG}$.
+@@TAB@@\textbf{C.} $\overrightarrow{GD} - \overrightarrow{GA} = \overrightarrow{AD}$.@@TAB@@\textbf{D.} $\overrightarrow{DA} + \overrightarrow{DB} + \overrightarrow{DC} = 3\overrightarrow{DG}$.
 
 % CÂU 6 (1 dòng 4 phương án dùng TAB)
 \textbf{Câu 6.} Một chiếc hộp hình lập phương $ABCD.A'B'C'D'$ có cạnh bằng $12\text{ cm}$, mặt trên $A'B'C'D'$ không nắp. Có một con kiến ở đỉnh $A$ bên ngoài hộp và một miếng mồi của kiến tại điểm $O$ là tâm đáy $ABCD$ ở bên trong hộp. Quãng đường ngắn nhất mà con kiến tìm đến miếng mồi (làm tròn đến hai chữ số thập phân) là
 
-\textbf{A.} $32{,}49\text{ (cm)}$.@@TAB@@\textbf{B.} $36{,}29\text{ (cm)}$.@@TAB@@\textbf{C.} $12\text{ (cm)}$.@@TAB@@\textbf{D.} $30{,}59\text{ (cm)}$.
+@@TAB@@\textbf{A.} $32{,}49\text{ (cm)}$.@@TAB@@\textbf{B.} $36{,}29\text{ (cm)}$.@@TAB@@\textbf{C.} $12\text{ (cm)}$.@@TAB@@\textbf{D.} $30{,}59\text{ (cm)}$.
 
 % CÂU 7 (1 dòng 4 phương án dùng TAB)
 \textbf{Câu 7.} Giá trị nhỏ nhất của hàm số $f(x) = x^4 - 8x^2 + a$, ($a \in \mathbb{R}$) trên đoạn $[-1; 3]$ bằng
 
-\textbf{A.} $-6$.@@TAB@@\textbf{B.} $a$.@@TAB@@\textbf{C.} $-16 + a$.@@TAB@@\textbf{D.} $9 + a$.
+@@TAB@@\textbf{A.} $-6$.@@TAB@@\textbf{B.} $a$.@@TAB@@\textbf{C.} $-16 + a$.@@TAB@@\textbf{D.} $9 + a$.
 
 % CÂU 8 (Bên trái: đề + 2 dòng phương án TAB; Bên phải: hình ảnh đồ thị)
 @@START_SIDE_BY_SIDE_CAU8@@
 
 \textbf{Câu 8.} Hàm số $y = f(x)$ xác định trên đoạn $[-1; 5]$ và có đồ thị như hình vẽ. Tập giá trị của hàm số $y = f(x)$ trên đoạn $[-1; 5]$ là
 
-\textbf{A.} $[-1; 5]$.@@TAB@@\textbf{B.} $[1; 3]$.
+@@TAB@@\textbf{A.} $[-1; 5]$.@@TAB@@\textbf{B.} $[1; 3]$.
 
-\textbf{C.} $[-1; 3]$.@@TAB@@\textbf{D.} $[1; 5]$.
+@@TAB@@\textbf{C.} $[-1; 3]$.@@TAB@@\textbf{D.} $[1; 5]$.
 
 @@END_SIDE_BY_SIDE_CAU8@@
 
@@ -114,24 +115,24 @@ tex_content = r"""\documentclass[12pt,a4paper]{article}
 
 Khoảng biến thiên của mẫu số liệu ghép nhóm trên bằng
 
-\textbf{A.} $1{,}2$.@@TAB@@\textbf{B.} $0{,}362$.@@TAB@@\textbf{C.} $3{,}39$.@@TAB@@\textbf{D.} $1{,}5$.
+@@TAB@@\textbf{A.} $1{,}2$.@@TAB@@\textbf{B.} $0{,}362$.@@TAB@@\textbf{C.} $3{,}39$.@@TAB@@\textbf{D.} $1{,}5$.
 
 % CÂU 10
 \textbf{Câu 10.} Trong không gian $Oxyz$, cho hai điểm $A(1; 1; 2)$ và $B(3; 1; 0)$. Trung điểm của đoạn thẳng $AB$ có toạ độ là
 
-\textbf{A.} $(2; 1; 1)$.@@TAB@@\textbf{B.} $(4; 2; 2)$.@@TAB@@\textbf{C.} $(2; 0; -2)$.@@TAB@@\textbf{D.} $(1; 0; -1)$.
+@@TAB@@\textbf{A.} $(2; 1; 1)$.@@TAB@@\textbf{B.} $(4; 2; 2)$.@@TAB@@\textbf{C.} $(2; 0; -2)$.@@TAB@@\textbf{D.} $(1; 0; -1)$.
 
 % CÂU 11
 \textbf{Câu 11.} Đường tiệm cận xiên của đồ thị hàm số $y = \dfrac{x^2 + 2x - 2}{x - 2}$ là
 
-\textbf{A.} $y = -x + 3$.@@TAB@@\textbf{B.} $y = x + 3$.@@TAB@@\textbf{C.} $y = x - 3$.@@TAB@@\textbf{D.} $y = x + 4$.
+@@TAB@@\textbf{A.} $y = -x + 3$.@@TAB@@\textbf{B.} $y = x + 3$.@@TAB@@\textbf{C.} $y = x - 3$.@@TAB@@\textbf{D.} $y = x + 4$.
 
 % CÂU 12
 \textbf{Câu 12.} Trong không gian $Oxyz$, cho điểm $A(-3; 1; -4)$, $B(1; -5; 2)$. Đường thẳng $AB$ cắt mặt phẳng $(Oxy)$ tại điểm
 
-\textbf{A.} $M\left(-\dfrac{1}{3}; -3; 0\right)$.@@TAB@@\textbf{B.} $N\left(\dfrac{1}{3}; 3; 0\right)$.
+@@TAB@@\textbf{A.} $M\left(-\dfrac{1}{3}; -3; 0\right)$.@@TAB@@\textbf{B.} $N\left(\dfrac{1}{3}; 3; 0\right)$.
 
-\textbf{C.} $P(0; 3; 1)$.@@TAB@@\textbf{D.} $Q(-3; 1; 0)$.
+@@TAB@@\textbf{C.} $P(0; 3; 1)$.@@TAB@@\textbf{D.} $Q(-3; 1; 0)$.
 
 @@SECTION_2_HEADER@@
 
@@ -140,13 +141,13 @@ Khoảng biến thiên của mẫu số liệu ghép nhóm trên bằng
 
 @@CENTER_IMAGE_BBT@@
 
-\textbf{a)} Đồ thị hàm số đã cho có hai đường tiệm cận ngang.
+@@TAB@@\textbf{a)} Đồ thị hàm số đã cho có hai đường tiệm cận ngang.
 
-\textbf{b)} Giá trị nhỏ nhất của hàm số trên $(-\infty; +\infty)$ bằng $8$.
+@@TAB@@\textbf{b)} Giá trị nhỏ nhất của hàm số trên $(-\infty; +\infty)$ bằng $8$.
 
-\textbf{c)} Hàm số đồng biến trên $(8; 38)$.
+@@TAB@@\textbf{c)} Hàm số đồng biến trên $(8; 38)$.
 
-\textbf{d)} Giá trị lớn nhất của hàm số trên $\mathbb{R}$ bằng $142$.
+@@TAB@@\textbf{d)} Giá trị lớn nhất của hàm số trên $\mathbb{R}$ bằng $142$.
 
 \newpage
 % TRANG 3
@@ -155,13 +156,13 @@ Khoảng biến thiên của mẫu số liệu ghép nhóm trên bằng
 
 \textbf{Câu 2.} Xét tam giác $ABC$ có $AC = 2AB$ và $BC = 10\text{ cm}$. Trên cạnh $AC$ lấy điểm $D$ sao cho $AD = \dfrac{1}{4}AC$, trên cạnh $AB$ lấy điểm $E$ sao cho $AE = \dfrac{1}{4}AB$, trên cạnh $AD$ lấy điểm $F$ sao cho $AF = \dfrac{1}{4}AD$ và tiếp tục lấy các điểm $G, H, I, J\dots$ (vô hạn lần) theo quy luật đó. Xét tính đúng sai các mệnh đề sau:
 
-\textbf{a)} $\dfrac{AB}{AC} = \dfrac{AD}{AB}$.
+@@TAB@@\textbf{a)} $\dfrac{AB}{AC} = \dfrac{AD}{AB}$.
 
-\textbf{b)} Tam giác $ABD$ đồng dạng với tam giác $ABC$.
+@@TAB@@\textbf{b)} Tam giác $ABD$ đồng dạng với tam giác $ABC$.
 
-\textbf{c)} $BD = 5\text{ cm}$; $DE = 3\text{ cm}$.
+@@TAB@@\textbf{c)} $BD = 5\text{ cm}$; $DE = 3\text{ cm}$.
 
-\textbf{d)} Độ dài đường gấp khúc $CBDEFGH\dots$ bằng $20\text{ cm}$.
+@@TAB@@\textbf{d)} Độ dài đường gấp khúc $CBDEFGH\dots$ bằng $20\text{ cm}$.
 
 @@END_SIDE_BY_SIDE_TAMGIAC@@
 
@@ -170,13 +171,13 @@ Khoảng biến thiên của mẫu số liệu ghép nhóm trên bằng
 
 \textbf{Câu 3.} Hình vẽ sau mô tả vị trí của máy bay vào thời điểm 9h30 phút. Biết các đơn vị trên hình tính theo đơn vị $\text{km}$. Trong các khẳng định sau đây, khẳng định nào đúng, khẳng định nào sai?
 
-\textbf{a)} Máy bay đang ở độ cao $9\text{ km}$.
+@@TAB@@\textbf{a)} Máy bay đang ở độ cao $9\text{ km}$.
 
-\textbf{b)} Tọa độ của máy bay $(300; 150; 9)$.
+@@TAB@@\textbf{b)} Tọa độ của máy bay $(300; 150; 9)$.
 
-\textbf{c)} Phi công để máy bay ở chế độ tự động với vận tốc theo hướng đông là $750\text{ km/h}$, độ cao không đổi. Biết rằng gió thổi theo hướng đông với vận tốc $10\text{ m/s}$. Giả sử vận tốc và hướng gió không đổi thì lúc 10h30 phút máy bay ở tọa độ $(150; 1086; 9)$.
+@@TAB@@\textbf{c)} Phi công để máy bay ở chế độ tự động với vận tốc theo hướng đông là $750\text{ km/h}$, độ cao không đổi. Biết rằng gió thổi theo hướng đông với vận tốc $10\text{ m/s}$. Giả sử vận tốc và hướng gió không đổi thì lúc 10h30 phút máy bay ở tọa độ $(150; 1086; 9)$.
 
-\textbf{d)} Sau khi bay đến vị trí lúc 10h30 thì máy bay bay theo hướng ngược lại với vận tốc $800\text{ km/h}$ với độ cao không đổi, biết lúc đó trời lặng gió thì lúc 11h máy bay ở tọa độ $(686; 150; 9)$.
+@@TAB@@\textbf{d)} Sau khi bay đến vị trí lúc 10h30 thì máy bay bay theo hướng ngược lại với vận tốc $800\text{ km/h}$ với độ cao không đổi, biết lúc đó trời lặng gió thì lúc 11h máy bay ở tọa độ $(686; 150; 9)$.
 
 @@END_SIDE_BY_SIDE_MAYBAY@@
 
@@ -193,13 +194,13 @@ Khoảng biến thiên của mẫu số liệu ghép nhóm trên bằng
 \end{tabular}
 \end{center}
 
-\textbf{a)} Gọi $x_1; x_2; \dots; x_{20}$ là mẫu số liệu gốc gồm chiều cao của 20 học sinh trên được xếp theo thứ tự không giảm. Khi đó, $x_3 \in [165; 170)$ và $x_9 \in [170; 175)$.
+@@TAB@@\textbf{a)} Gọi $x_1; x_2; \dots; x_{20}$ là mẫu số liệu gốc gồm chiều cao của 20 học sinh trên được xếp theo thứ tự không giảm. Khi đó, $x_3 \in [165; 170)$ và $x_9 \in [170; 175)$.
 
-\textbf{b)} Tứ phân vị thứ ba của mẫu số liệu ghép nhóm đã cho bằng $175$.
+@@TAB@@\textbf{b)} Tứ phân vị thứ ba của mẫu số liệu ghép nhóm đã cho bằng $175$.
 
-\textbf{c)} Khoảng tứ phân vị của mẫu số liệu ghép nhóm đã cho là $\Delta Q = Q_3 - Q_1 = 8{,}5$.
+@@TAB@@\textbf{c)} Khoảng tứ phân vị của mẫu số liệu ghép nhóm đã cho là $\Delta Q = Q_3 - Q_1 = 8{,}5$.
 
-\textbf{d)} Chọn ngẫu nhiên một học sinh trong nhóm khảo sát nói trên, xác suất chọn được học sinh có chiều cao từ $175\text{ cm}$ trở lên bằng $0{,}25$.
+@@TAB@@\textbf{d)} Chọn ngẫu nhiên một học sinh trong nhóm khảo sát nói trên, xác suất chọn được học sinh có chiều cao từ $175\text{ cm}$ trở lên bằng $0{,}25$.
 
 \newpage
 % TRANG 4
@@ -241,7 +242,7 @@ Khoảng biến thiên của mẫu số liệu ghép nhóm trên bằng
 
 \vspace{0.4cm}
 \begin{center}
-\textbf{---------- HẾT ----------}
+\textbf{------ HẾT ------}
 \end{center}
 
 \end{document}
@@ -286,7 +287,6 @@ for s in doc.sections:
     r_r.italic = True
     r_r.font.color.rgb = RGBColor(80, 80, 80)
 
-# Cấu hình style Normal Times New Roman 12pt
 style = doc.styles['Normal']
 style.font.name = 'Times New Roman'
 style.font.size = Pt(12)
@@ -295,124 +295,121 @@ rPr = style.element.get_or_add_rPr()
 rFonts = parse_xml(r'<w:rFonts %s w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>' % nsdecls('w'))
 rPr.append(rFonts)
 
-# Helper function tạo bảng Header chuyên nghiệp
+# Helper function tạo bảng Header đúng mẫu giáo viên gửi (2 hàng, bảng có viền chuẩn)
 def insert_header_and_code(target_p):
-    # 1. Bảng Header 1 hàng 2 cột
-    tbl = doc.add_table(rows=1, cols=2)
-    tbl.alignment = WD_TABLE_ALIGNMENT.CENTER
+    table = doc.add_table(rows=2, cols=3)
+    table.alignment = WD_TABLE_ALIGNMENT.CENTER
     
-    cell_0 = tbl.rows[0].cells[0]
-    cell_1 = tbl.rows[0].cells[1]
-    cell_0.width = Cm(8.6)
-    cell_1.width = Cm(8.9)
-    cell_0.vertical_alignment = WD_ALIGN_VERTICAL.CENTER
-    cell_1.vertical_alignment = WD_ALIGN_VERTICAL.CENTER
+    # Hàng 1: Merge ô 1 và 2 thành ô phải
+    row0 = table.rows[0]
+    cell_left = row0.cells[0]
+    cell_right = row0.cells[1]
+    cell_right.merge(row0.cells[2])
     
-    # Viền xanh navy sang trọng và đường kẻ dọc giữa
-    tblPr = tbl._tbl.tblPr
+    cell_left.width = Cm(9.5)
+    cell_right.width = Cm(8.0)
+    
+    # Cột Trái: Thông tin lớp
+    p_l = cell_left.paragraphs[0]
+    p_l.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    p_l.paragraph_format.line_spacing = 1.15
+    p_l.paragraph_format.space_before = Pt(2)
+    p_l.paragraph_format.space_after = Pt(2)
+    r1 = p_l.add_run("LỚP TOÁN CÔ THÚY\n")
+    r1.bold = True
+    r1.font.name = "Times New Roman"
+    r1.font.size = Pt(12)
+    r1.font.color.rgb = RGBColor(31, 73, 125)
+    
+    r2 = p_l.add_run("SĐT: 0935.322.328  •  50/2C Phạm Thị Liên\n--------------------")
+    r2.font.name = "Times New Roman"
+    r2.font.size = Pt(10)
+    
+    # Cột Phải: Thông tin môn thi
+    p_r = cell_right.paragraphs[0]
+    p_r.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    p_r.paragraph_format.line_spacing = 1.15
+    p_r.paragraph_format.space_before = Pt(2)
+    p_r.paragraph_format.space_after = Pt(2)
+    r3 = p_r.add_run("ĐỀ ÔN TẬP TOÁN -- KHỐI LỚP: 12\n")
+    r3.bold = True
+    r3.font.name = "Times New Roman"
+    r3.font.size = Pt(12)
+    r3.font.color.rgb = RGBColor(192, 0, 0)
+    
+    r4 = p_r.add_run("Thời gian làm bài: 90 phút (không kể phát đề)")
+    r4.italic = True
+    r4.font.name = "Times New Roman"
+    r4.font.size = Pt(10.5)
+    
+    # Hàng 2: Họ tên, Số báo danh, Mã đề (chuẩn như mẫu người dùng gửi)
+    row1 = table.rows[1]
+    c_hoten = row1.cells[0]
+    c_sbd = row1.cells[1]
+    c_made = row1.cells[2]
+    
+    c_hoten.width = Cm(10.5)
+    c_sbd.width = Cm(4.0)
+    c_made.width = Cm(3.0)
+    
+    p_hoten = c_hoten.paragraphs[0]
+    p_hoten.paragraph_format.space_before = Pt(2)
+    p_hoten.paragraph_format.space_after = Pt(2)
+    r_ht = p_hoten.add_run("Họ và tên: ............................................................................")
+    r_ht.font.name = "Times New Roman"
+    r_ht.font.size = Pt(11)
+    
+    p_sbd = c_sbd.paragraphs[0]
+    p_sbd.paragraph_format.space_before = Pt(2)
+    p_sbd.paragraph_format.space_after = Pt(2)
+    r_sb = p_sbd.add_run("Số báo danh: .......")
+    r_sb.font.name = "Times New Roman"
+    r_sb.font.size = Pt(11)
+    
+    p_md = c_made.paragraphs[0]
+    p_md.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    p_md.paragraph_format.space_before = Pt(2)
+    p_md.paragraph_format.space_after = Pt(2)
+    r_md = p_md.add_run("Mã đề 2009")
+    r_md.bold = True
+    r_md.font.name = "Times New Roman"
+    r_md.font.size = Pt(11)
+    
+    # Viền bảng
+    tblPr = table._tbl.tblPr
     tblBorders = parse_xml(
         r'<w:tblBorders %s>'
-        r'<w:top w:val="single" w:sz="12" w:space="0" w:color="1F497D"/>'
-        r'<w:left w:val="single" w:sz="12" w:space="0" w:color="1F497D"/>'
-        r'<w:bottom w:val="single" w:sz="12" w:space="0" w:color="1F497D"/>'
-        r'<w:right w:val="single" w:sz="12" w:space="0" w:color="1F497D"/>'
-        r'<w:insideH w:val="none"/>'
-        r'<w:insideV w:val="single" w:sz="6" w:space="0" w:color="1F497D"/>'
+        r'<w:top w:val="single" w:sz="8" w:space="0" w:color="000000"/>'
+        r'<w:left w:val="single" w:sz="8" w:space="0" w:color="000000"/>'
+        r'<w:bottom w:val="single" w:sz="8" w:space="0" w:color="000000"/>'
+        r'<w:right w:val="single" w:sz="8" w:space="0" w:color="000000"/>'
+        r'<w:insideH w:val="single" w:sz="6" w:space="0" w:color="000000"/>'
+        r'<w:insideV w:val="single" w:sz="6" w:space="0" w:color="000000"/>'
         r'</w:tblBorders>' % nsdecls('w')
     )
     tblPr.append(tblBorders)
     
-    # Shading nhẹ cho Header
-    for cell in [cell_0, cell_1]:
-        tcPr = cell._tc.get_or_add_tcPr()
-        shd = parse_xml(r'<w:shd %s w:fill="F4F7FA"/>' % nsdecls('w'))
-        tcPr.append(shd)
-        
-    # Nội dung Cột Trái
-    p0 = cell_0.paragraphs[0]
-    p0.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    p0.paragraph_format.line_spacing = 1.15
-    p0.paragraph_format.space_before = Pt(3)
-    p0.paragraph_format.space_after = Pt(2)
-    r = p0.add_run("LỚP TOÁN CÔ THÚY\n")
-    r.bold = True
-    r.font.name = "Times New Roman"
-    r.font.size = Pt(13)
-    r.font.color.rgb = RGBColor(31, 73, 125)
-    
-    r2 = p0.add_run("SĐT: 0935.322.328\n")
-    r2.bold = True
-    r2.font.name = "Times New Roman"
-    r2.font.size = Pt(11)
-    
-    r3 = p0.add_run("Đ/c: 50/2C Phạm Thị Liên")
-    r3.bold = True
-    r3.font.name = "Times New Roman"
-    r3.font.size = Pt(11)
-    
-    # Nội dung Cột Phải
-    p1 = cell_1.paragraphs[0]
-    p1.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    p1.paragraph_format.line_spacing = 1.15
-    p1.paragraph_format.space_before = Pt(3)
-    p1.paragraph_format.space_after = Pt(2)
-    r4 = p1.add_run("ĐỀ ÔN TẬP TOÁN\n")
-    r4.bold = True
-    r4.font.name = "Times New Roman"
-    r4.font.size = Pt(13)
-    r4.font.color.rgb = RGBColor(192, 0, 0)
-    
-    r5 = p1.add_run("MÔN: TOÁN – KHỐI LỚP: 12\n")
-    r5.bold = True
-    r5.font.name = "Times New Roman"
-    r5.font.size = Pt(11)
-    
-    r6 = p1.add_run("Thời gian làm bài: 90 phút (không kể phát đề)")
-    r6.italic = True
-    r6.font.name = "Times New Roman"
-    r6.font.size = Pt(10.5)
-    
-    target_p._p.addprevious(tbl._tbl)
-    
-    # 2. Hộp Mã đề thi 2009 căn phải
-    p_ma = doc.add_paragraph()
-    p_ma.alignment = WD_ALIGN_PARAGRAPH.RIGHT
-    p_ma.paragraph_format.space_before = Pt(4)
-    p_ma.paragraph_format.space_after = Pt(6)
-    r_ma = p_ma.add_run("  MÃ ĐỀ THI 2009  ")
-    r_ma.bold = True
-    r_ma.font.name = "Times New Roman"
-    r_ma.font.size = Pt(11)
-    r_maPr = r_ma._r.get_or_add_rPr()
-    r_maPr.append(parse_xml(r'<w:bdr %s w:val="single" w:sz="8" w:space="3" w:color="000000"/>' % nsdecls('w')))
-    
-    target_p._p.addprevious(p_ma._p)
+    target_p._p.addprevious(table._tbl)
     target_p._p.getparent().remove(target_p._p)
 
-# Helper function tạo Section header banner
-def insert_section_header(target_p, sec_num, title_text, desc_text):
+# Helper function tạo Section header chuẩn mẫu
+def insert_section_header(target_p, sec_title, sec_desc):
     p_sec = doc.add_paragraph()
     p_sec.paragraph_format.space_before = Pt(8)
     p_sec.paragraph_format.space_after = Pt(2)
-    r_sec = p_sec.add_run(f"  {title_text}  ")
-    r_sec.bold = True
-    r_sec.font.name = "Times New Roman"
-    r_sec.font.size = Pt(12)
-    r_sec.font.color.rgb = RGBColor(0, 80, 160)
-    rPr = r_sec._r.get_or_add_rPr()
-    rPr.append(parse_xml(r'<w:bdr %s w:val="single" w:sz="8" w:space="3" w:color="0050A0"/>' % nsdecls('w')))
-    rPr.append(parse_xml(r'<w:shd %s w:fill="EDF3F8"/>' % nsdecls('w')))
+    r_title = p_sec.add_run(sec_title)
+    r_title.bold = True
+    r_title.font.name = "Times New Roman"
+    r_title.font.size = Pt(12)
     
-    p_desc = doc.add_paragraph()
-    p_desc.paragraph_format.space_before = Pt(0)
-    p_desc.paragraph_format.space_after = Pt(4)
-    r_desc = p_desc.add_run(desc_text)
-    r_desc.italic = True
-    r_desc.font.name = "Times New Roman"
-    r_desc.font.size = Pt(11)
-    
+    if sec_desc:
+        r_desc = p_sec.add_run(" " + sec_desc)
+        r_desc.font.name = "Times New Roman"
+        r_desc.font.size = Pt(11)
+        r_desc.italic = True
+        
+    p_sec.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
     target_p._p.addprevious(p_sec._p)
-    target_p._p.addprevious(p_desc._p)
     target_p._p.getparent().remove(target_p._p)
 
 # Helper function tạo ô trả lời ngắn 4 ô vuông chuẩn THPT 2025
@@ -421,10 +418,11 @@ def create_answer_box_table():
     tbl.alignment = WD_TABLE_ALIGNMENT.LEFT
     
     cell_kq = tbl.rows[0].cells[0]
-    cell_kq.width = Cm(1.1)
+    cell_kq.width = Cm(1.8) # Đủ rộng để có thụt lề tab
     p_kq = cell_kq.paragraphs[0]
     p_kq.paragraph_format.space_before = Pt(0)
     p_kq.paragraph_format.space_after = Pt(0)
+    p_kq.add_run("\t")
     r = p_kq.add_run("KQ:")
     r.bold = True
     r.font.name = "Times New Roman"
@@ -468,11 +466,11 @@ for p in list(doc.paragraphs):
     if "@@DOCUMENT_HEADER@@" in p.text:
         insert_header_and_code(p)
     elif "@@SECTION_1_HEADER@@" in p.text:
-        insert_section_header(p, 1, "PHẦN 1. Câu trắc nghiệm 4 phương án", "Thí sinh trả lời từ câu 1 đến câu 12. Mỗi câu hỏi thí sinh chỉ chọn một phương án.")
+        insert_section_header(p, "PHẦN I. Câu trắc nghiệm nhiều phương án lựa chọn.", "Thí sinh trả lời từ câu 1 đến câu 12. Mỗi câu hỏi thí sinh chỉ chọn một phương án.")
     elif "@@SECTION_2_HEADER@@" in p.text:
-        insert_section_header(p, 2, "PHẦN 2. Câu trắc nghiệm đúng sai", "Thí sinh trả lời từ câu 1 đến câu 4. Trong mỗi ý a), b), c), d) ở mỗi câu, thí sinh chọn đúng hoặc sai.")
+        insert_section_header(p, "PHẦN II. Câu trắc nghiệm đúng sai.", "Thí sinh trả lời từ câu 1 đến câu 4. Trong mỗi ý a), b), c), d) ở mỗi câu, thí sinh chọn đúng hoặc sai.")
     elif "@@SECTION_3_HEADER@@" in p.text:
-        insert_section_header(p, 3, "PHẦN 3. Câu trắc nghiệm trả lời ngắn", "Thí sinh trả lời từ câu 1 đến câu 6.")
+        insert_section_header(p, "PHẦN III. Câu trắc nghiệm yêu cầu trả lời ngắn.", "Thí sinh trả lời từ câu 1 đến câu 6.")
 
 # 4. XỬ LÝ CÁC KHỐI SIDE-BY-SIDE (ĐỒ THỊ/HÌNH VẼ BÊN PHẢI)
 print("[4/5] Đang định dạng các khối đồ thị & hình vẽ bên phải...")
@@ -577,7 +575,7 @@ def format_doc_paragraph(p, inside_table_cell=False):
     p_xml = p._p.xml
     text = p.text.strip()
     
-    # 5.1. XỬ LÝ CANH TAB CHO CÁC PHƯƠNG ÁN TRẮC NGHIỆM
+    # 5.1. XỬ LÝ CANH TAB CHO CÁC PHƯƠNG ÁN TRẮC NGHIỆM VÀ MỆNH ĐỀ
     if "@@TAB@@" in p_xml:
         tab_count = p_xml.count("@@TAB@@")
         new_xml = p_xml.replace("@@TAB@@", '</w:t><w:tab/><w:t>')
@@ -585,54 +583,83 @@ def format_doc_paragraph(p, inside_table_cell=False):
         p._p.getparent().replace(p._p, new_p)
         
         pPr = new_p.get_or_add_pPr()
-        # Set alignment: LEFT để Tab Stops căn cột thẳng tắp trên Ruler
-        for jc in pPr.findall(qn('w:jc')):
-            pPr.remove(jc)
-        pPr.append(parse_xml(r'<w:jc %s w:val="left"/>' % nsdecls('w')))
         
-        # Set tab stops
+        # Cấu hình Tab stops và alignment
         for tabs in pPr.findall(qn('w:tabs')):
             pPr.remove(tabs)
-        if inside_table_cell:
-            # Trong ô bảng 2 cột: Tab tại 5.8 cm
-            tabs_xml = r'<w:tabs %s><w:tab w:val="left" w:pos="3289"/></w:tabs>' % nsdecls('w')
-        elif tab_count >= 3:
-            # 4 phương án trên 1 dòng: Tab tại 4.4 cm, 8.8 cm, 13.2 cm
-            tabs_xml = r'<w:tabs %s><w:tab w:val="left" w:pos="2495"/><w:tab w:val="left" w:pos="4990"/><w:tab w:val="left" w:pos="7484"/></w:tabs>' % nsdecls('w')
-        else:
-            # 2 phương án trên 1 dòng: Tab tại 8.8 cm
-            tabs_xml = r'<w:tabs %s><w:tab w:val="left" w:pos="4990"/></w:tabs>' % nsdecls('w')
-        pPr.append(parse_xml(tabs_xml))
-        
-        # Set spacing
+            
+        if tab_count >= 4:
+            # 4 phương án trên 1 dòng với Tab đầu dòng (Câu 2, 6, 7, 9, 10, 11)
+            # Mốc: Tab1=0.75cm (A), Tab2=4.75cm (B), Tab3=9.0cm (C), Tab4=13.25cm (D)
+            tabs_xml = (
+                r'<w:tabs %s>'
+                r'<w:tab w:val="left" w:pos="425"/>'
+                r'<w:tab w:val="left" w:pos="2693"/>'
+                r'<w:tab w:val="left" w:pos="5103"/>'
+                r'<w:tab w:val="left" w:pos="7512"/>'
+                r'</w:tabs>' % nsdecls('w')
+            )
+            pPr.append(parse_xml(tabs_xml))
+            for jc in pPr.findall(qn('w:jc')):
+                pPr.remove(jc)
+            pPr.append(parse_xml(r'<w:jc %s w:val="left"/>' % nsdecls('w')))
+            
+        elif tab_count == 2:
+            # 2 phương án trên 1 dòng với Tab đầu dòng
+            if inside_table_cell:
+                # Trong ô 11.8cm (Câu 4, 8): Tab1=0.5cm (A/C), Tab2=6.0cm (B/D)
+                tabs_xml = (
+                    r'<w:tabs %s>'
+                    r'<w:tab w:val="left" w:pos="283"/>'
+                    r'<w:tab w:val="left" w:pos="3402"/>'
+                    r'</w:tabs>' % nsdecls('w')
+                )
+            else:
+                # Toàn trang (Câu 3, 5, 12): Tab1=0.75cm (A/C), Tab2=9.0cm (B/D)
+                tabs_xml = (
+                    r'<w:tabs %s>'
+                    r'<w:tab w:val="left" w:pos="425"/>'
+                    r'<w:tab w:val="left" w:pos="5103"/>'
+                    r'</w:tabs>' % nsdecls('w')
+                )
+            pPr.append(parse_xml(tabs_xml))
+            for jc in pPr.findall(qn('w:jc')):
+                pPr.remove(jc)
+            pPr.append(parse_xml(r'<w:jc %s w:val="left"/>' % nsdecls('w')))
+            
+        elif tab_count == 1:
+            # 1 phương án / 1 dòng có Tab đầu dòng (Câu 1 và các ý a, b, c, d Phần II)
+            # Thụt dòng Tab=0.75cm, dòng tiếp theo thụt bằng lề (hanging indent)
+            tabs_xml = r'<w:tabs %s><w:tab w:val="left" w:pos="425"/></w:tabs>' % nsdecls('w')
+            pPr.append(parse_xml(tabs_xml))
+            
+            # Căn đều 2 bên (Justified) cho câu dài
+            for jc in pPr.findall(qn('w:jc')):
+                pPr.remove(jc)
+            pPr.append(parse_xml(r'<w:jc %s w:val="both"/>' % nsdecls('w')))
+            
+            # Hanging indent 0.75 cm
+            for ind in pPr.findall(qn('w:ind')):
+                pPr.remove(ind)
+            ind_xml = r'<w:ind %s w:left="425" w:hanging="425"/>' % nsdecls('w')
+            pPr.append(parse_xml(ind_xml))
+            
+        # Spacing
         for sp in pPr.findall(qn('w:spacing')):
             pPr.remove(sp)
-        sp_xml = r'<w:spacing %s w:before="0" w:after="70" w:line="276" w:lineRule="auto"/>' % nsdecls('w')
+        sp_xml = r'<w:spacing %s w:before="0" w:after="50" w:line="276" w:lineRule="auto"/>' % nsdecls('w')
         pPr.append(parse_xml(sp_xml))
         return
 
-    # 5.2. CĂN ĐỀU 2 BÊN (JUSTIFY) CHO CÂU HỎI VÀ MỆNH ĐỀ ĐÚNG SAI
+    # 5.2. CĂN ĐỀU 2 BÊN (JUSTIFY) CHO CÂU HỎI
     pPr = p._p.get_or_add_pPr()
-    if text.startswith("Câu ") or text.startswith("a)") or text.startswith("b)") or text.startswith("c)") or text.startswith("d)"):
-        for jc in pPr.findall(qn('w:jc')):
-            pPr.remove(jc)
-        pPr.append(parse_xml(r'<w:jc %s w:val="both"/>' % nsdecls('w')))
-        
-        for sp in pPr.findall(qn('w:spacing')):
-            pPr.remove(sp)
-        if text.startswith("Câu "):
-            sp_xml = r'<w:spacing %s w:before="60" w:after="40" w:line="276" w:lineRule="auto"/>' % nsdecls('w')
-        else:
-            sp_xml = r'<w:spacing %s w:before="0" w:after="40" w:line="276" w:lineRule="auto"/>' % nsdecls('w')
-        pPr.append(parse_xml(sp_xml))
-    elif text.startswith("A.") or text.startswith("B.") or text.startswith("C.") or text.startswith("D."):
-        # Trường hợp 4 dòng riêng biệt (Câu 1)
+    if text.startswith("Câu "):
         for jc in pPr.findall(qn('w:jc')):
             pPr.remove(jc)
         pPr.append(parse_xml(r'<w:jc %s w:val="both"/>' % nsdecls('w')))
         for sp in pPr.findall(qn('w:spacing')):
             pPr.remove(sp)
-        sp_xml = r'<w:spacing %s w:before="0" w:after="40" w:line="276" w:lineRule="auto"/>' % nsdecls('w')
+        sp_xml = r'<w:spacing %s w:before="60" w:after="40" w:line="276" w:lineRule="auto"/>' % nsdecls('w')
         pPr.append(parse_xml(sp_xml))
     elif "HẾT" in text:
         for jc in pPr.findall(qn('w:jc')):
@@ -687,7 +714,6 @@ for table in doc.tables:
                     p.paragraph_format.space_before = Pt(2)
                     p.paragraph_format.space_after = Pt(2)
 
-    # Format text trong mọi ô của bảng
     for row in table.rows:
         for cell in row.cells:
             for p in list(cell.paragraphs):
@@ -702,11 +728,9 @@ compat = parse_xml(
 )
 settings.append(compat)
 
-# Lưu tệp Word cuối cùng vào thư mục San_Pham
 doc.save(OUTPUT_DOCX)
-print(f"[THÀNH CÔNG RỰC RỠ] Đã xuất bản file Word đạt chuẩn giáo viên: {OUTPUT_DOCX}")
+print(f"[THÀNH CÔNG RỰC RỠ] Đã xuất bản file Word đạt chuẩn mẫu giáo viên: {OUTPUT_DOCX}")
 
-# Xóa file tạm
 if os.path.exists(temp_tex):
     os.remove(temp_tex)
 if os.path.exists(temp_docx):

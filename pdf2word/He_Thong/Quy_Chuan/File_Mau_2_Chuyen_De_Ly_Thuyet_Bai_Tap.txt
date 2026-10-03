@@ -1,0 +1,231 @@
+22CHƯƠNG"
+start_2 = full_text.find("22CHƯƠNG", start_1)
+
+# Find end of Sample 2 (end of prompt or before closing tag/metadata)
+end_2 = full_text.find('", "thinking"', start_2)
+if end_2 == -1:
+    end_2 = full_text.find('","thinking"', start_2)
+
+print("start_1:", start_1)
+print("start_2:", start_2)
+print("end_2:", end_2)
+
+# Unescape JSON text if needed
+sample_1 = full_text[start_1:start_2].strip()
+sample_2 = full_text[start_2:end_2 if end_2 != -1 else len(full_text)].strip()
+
+# Clean up json escaping like \
+, \	
+def clean_json_str(s):
+    # s is part of json string
+    # Let's decode unicode escapes and json escapes
+    try:
+        # Wrap in quotes and json decode
+        decoded = json.loads('"' + s.replace('"', '\\\\"').replace('\
+', '\\\
+').replace('\\r', '\\\\r').replace('\	', '\\\	') + '"')
+        return decoded
+    except Exception:
+        return s.replace('\\\
+', '\
+').replace('\\\	', '\	').replace('\\\\"', '"').replace('\\\\\\\\', '\\\\')
+
+# Note that in the raw text, it might already have \
+ or \\\
+
+print("sample_1 raw len:", len(sample_1))
+print("sample_2 raw len:", len(sample_2))
+
+with open(r"c:\\AnTiGraViTy-htthuy\\pdf2word\\He_Thong\\Quy_Chuan\\File_Mau_1_De_Kiem_Tra_Trac_Nghiem.txt", "w", encoding="utf-8") as f:
+    f.write(clean_json_str(sample_1))
+
+with open(r"c:\\AnTiGraViTy-htthuy\\pdf2word\\He_Thong\\Quy_Chuan\\File_Mau_2_Chuyen_De_Ly_Thuyet_Bai_Tap.txt", "w", encoding="utf-8") as f:
+    f.write(clean_json_str(sample_2))
+
+print("Both sample files saved to He_Thong/Quy_Chuan successfully!")
+","Description":"Extract and save both sample files accurately","Overwrite":true,"TargetFile":"C:\\Users\\user\\.gemini\\antigravity\\brain\\bd035255-37c1-4545-9eea-d9028737b8e8\\scratch\\extract_and_save_samples.py","toolAction":"Writing extractor script","toolSummary":"Extract and save both sample files to Quy_Chuan"}}]}
+{"step_index":658,"source":"MODEL","type":"GENERIC","status":"DONE","created_at":"2026-10-03T01:44:24Z","content":"Created At: 2026-10-03T08:44:24+07:00
+Completed At: 2026-10-03T08:44:25+07:00
+Created file file:///C:/Users/user/.gemini/antigravity/brain/bd035255-37c1-4545-9eea-d9028737b8e8/scratch/extract_and_save_samples.py with requested content.
+If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission."}
+{"step_index":659,"source":"MODEL","type":"PLANNER_RESPONSE","status":"DONE","created_at":"2026-10-03T01:44:25Z","tool_calls":[{"name":"run_command","args":{"CommandLine":"python C:\\Users\\user\\.gemini\\antigravity\\brain\\bd035255-37c1-4545-9eea-d9028737b8e8\\scratch\\extract_and_save_samples.py","Cwd":"c:\\AnTiGraViTy-htthuy\\pdf2word","IsDaemon":false,"WaitMsBeforeAsync":5000,"toolAction":"Running extract_and_save_samples.py","toolSummary":"Save both sample files to He_Thong/Quy_Chuan"}}]}
+{"step_index":660,"source":"MODEL","type":"GENERIC","status":"DONE","created_at":"2026-10-03T01:44:33Z","content":"Created At: 2026-10-03T08:44:33+07:00
+Completed At: 2026-10-03T08:44:34+07:00
+
+The command exited with code 0.
+Output:
+start_1: 118100\r
+start_2: 158481\r
+end_2: -1\r
+sample_1 raw len: 40381\r
+sample_2 raw len: 2913\r
+Both sample files saved to He_Thong/Quy_Chuan successfully!\r
+
+"}
+{"step_index":661,"source":"MODEL","type":"PLANNER_RESPONSE","status":"DONE","created_at":"2026-10-03T01:44:34Z","tool_calls":[{"name":"run_command","args":{"CommandLine":"Get-ChildItem "C:\\Users\\user\\.gemini\\antigravity\\brain\\bd035255-37c1-4545-9eea-d9028737b8e8\\.system_generated\\logs\\chunks\	ranscript_full\\"","Cwd":"c:\\AnTiGraViTy-htthuy\\pdf2word","IsDaemon":false,"WaitMsBeforeAsync":5000,"toolAction":"Listing transcript chunks","toolSummary":"List all transcript chunks"}}]}
+{"step_index":662,"source":"MODEL","type":"GENERIC","status":"DONE","created_at":"2026-10-03T01:44:41Z","content":"Created At: 2026-10-03T08:44:41+07:00
+Completed At: 2026-10-03T08:44:42+07:00
+
+The command exited with code 0.
+Output:
+\r
+\r
+    Directory: C:\\Users\\user\\.gemini\\antigravity\\brain\\bd035255-37c1-4545-9eea-d9028737b8e8\\.system_generated\\logs\\chun\r
+    ks\	ranscript_full\r
+\r
+\r
+Mode                 LastWriteTime         Length Name                                                                 \r
+----                 -------------         ------ ----                                                                 \r
+-a----         10/3/2026   7:15 AM         102400 00000000.jsonl                                                       \r
+-a----         10/3/2026   7:20 AM         102400 00000001.jsonl                                                       \r
+-a----         10/3/2026   7:26 AM         102400 00000002.jsonl                                                       \r
+-a----         10/3/2026   8:13 AM         102400 00000003.jsonl                                                       \r
+-a----         10/3/2026   8:18 AM         102400 00000004.jsonl                                                       \r
+-a----         10/3/2026   8:22 AM         102400 00000005.jsonl                                                       \r
+-a----         10/3/2026   8:25 AM         102400 00000006.jsonl                                                       \r
+-a----         10/3/2026   8:29 AM         102400 00000007.jsonl                                                       \r
+-a----         10/3/2026   8:33 AM         102400 00000008.jsonl                                                       \r
+-a----         10/3/2026   8:39 AM         102400 00000009.jsonl                                                       \r
+-a----         10/3/2026   8:44 AM          69924 00000010.jsonl                                                       \r
+\r
+\r
+
+"}
+{"step_index":663,"source":"MODEL","type":"PLANNER_RESPONSE","status":"DONE","created_at":"2026-10-03T01:44:42Z","tool_calls":[{"name":"write_to_file","args":{"CodeContent":"trans_path = r"C:\\Users\\user\\.gemini\\antigravity\\brain\\bd035255-37c1-4545-9eea-d9028737b8e8\\.system_generated\\logs\	ranscript_full.jsonl"
+with open(trans_path, "r", encoding="utf-8", errors="ignore") as f:
+    text = f.read()
+
+pos1 = text.find("| ĐỀ KIỂM TRA 45 PHÚT")
+pos2 = text.find("22CHƯƠNG")
+
+print("Pos 1:", pos1)
+print("Pos 2:", pos2)
+if pos2 != -1:
+    # Find end of user turn
+    # usually ends with '</USER_REQUEST>' or json step boundary
+    pos_end = text.find('", "thinking"', pos2)
+    if pos_end == -1:
+        pos_end = text.find('","thinking"', pos2)
+    print("Pos end:", pos_end)
+    
+    sample1 = text[pos1:pos2].strip()
+    sample2 = text[pos2:pos_end if pos_end != -1 else len(text)].strip()
+    print("Sample 1 len:", len(sample1))
+    print("Sample 2 len:", len(sample2))
+    
+    # Save both
+    with open(r"c:\\AnTiGraViTy-htthuy\\pdf2word\\He_Thong\\Quy_Chuan\\File_Mau_1_De_Kiem_Tra_Trac_Nghiem.txt", "w", encoding="utf-8") as f1:
+        f1.write(sample1.replace("\\\
+", "\
+").replace("\\\	", "\	").replace('\\\\"', '"'))
+        
+    with open(r"c:\\AnTiGraViTy-htthuy\\pdf2word\\He_Thong\\Quy_Chuan\\File_Mau_2_Chuyen_De_Ly_Thuyet_Bai_Tap.txt", "w", encoding="utf-8") as f2:
+        f2.write(sample2.replace("\\\
+", "\
+").replace("\\\	", "\	").replace('\\\\"', '"'))
+    print("Successfully saved both full files from transcript_full.jsonl!")
+","Description":"Extract full samples from transcript_full.jsonl","Overwrite":true,"TargetFile":"C:\\Users\\user\\.gemini\\antigravity\\brain\\bd035255-37c1-4545-9eea-d9028737b8e8\\scratch\\extract_from_full.py","toolAction":"Writing extractor script","toolSummary":"Extract full samples from transcript_full.jsonl"}}]}
+{"step_index":664,"source":"MODEL","type":"GENERIC","status":"DONE","created_at":"2026-10-03T01:44:50Z","content":"Created At: 2026-10-03T08:44:50+07:00
+Completed At: 2026-10-03T08:44:50+07:00
+Created file file:///C:/Users/user/.gemini/antigravity/brain/bd035255-37c1-4545-9eea-d9028737b8e8/scratch/extract_from_full.py with requested content.
+If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission."}
+{"step_index":665,"source":"MODEL","type":"PLANNER_RESPONSE","status":"DONE","created_at":"2026-10-03T01:44:51Z","tool_calls":[{"name":"run_command","args":{"CommandLine":"python C:\\Users\\user\\.gemini\\antigravity\\brain\\bd035255-37c1-4545-9eea-d9028737b8e8\\scratch\\extract_from_full.py","Cwd":"c:\\AnTiGraViTy-htthuy\\pdf2word","IsDaemon":false,"WaitMsBeforeAsync":5000,"toolAction":"Running extract_from_full.py","toolSummary":"Extract both sample files from transcript_full"}}]}
+{"step_index":666,"source":"MODEL","type":"GENERIC","status":"DONE","created_at":"2026-10-03T01:44:58Z","content":"Created At: 2026-10-03T08:44:58+07:00
+Completed At: 2026-10-03T08:44:59+07:00
+
+The command exited with code 0.
+Output:
+Pos 1: 1003925\r
+Pos 2: 1044306\r
+Pos end: -1\r
+Sample 1 len: 40381\r
+Sample 2 len: 8770\r
+Successfully saved both full files from transcript_full.jsonl!\r
+
+"}
+{"step_index":667,"source":"MODEL","type":"PLANNER_RESPONSE","status":"DONE","created_at":"2026-10-03T01:44:59Z","tool_calls":[{"name":"run_command","args":{"CommandLine":"python -c "
+with open(r'c:\\AnTiGraViTy-htthuy\\pdf2word\\He_Thong\\Quy_Chuan\\File_Mau_2_Chuyen_De_Ly_Thuyet_Bai_Tap.txt', 'r', encoding='utf-8') as f:
+    lines = f.readlines()
+print('Sample 2 total lines:', len(lines))
+print('First 5 lines:', lines[:5])
+print('Last 5 lines:', lines[-5:])
+"","Cwd":"c:\\AnTiGraViTy-htthuy\\pdf2word","IsDaemon":false,"WaitMsBeforeAsync":5000,"toolAction":"Checking sample 2 lines","toolSummary":"Check line count and content of Sample 2"}}]}
+{"step_index":668,"source":"MODEL","type":"GENERIC","status":"DONE","created_at":"2026-10-03T01:45:07Z","content":"Created At: 2026-10-03T08:45:07+07:00
+Completed At: 2026-10-03T08:45:07+07:00
+
+The command exited with code 1.
+Output:
+Traceback (most recent call last):\r
+  File "<string>", line 5, in <module>\r
+  File "C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\encodings\\cp1252.py", line 19, in encode\r
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]\r
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r
+UnicodeEncodeError: 'charmap' codec can't encode characters in position 6-7: character maps to <undefined>\r
+Sample 2 total lines: 132\r
+First 5 lines: 
+"}
+{"step_index":669,"source":"MODEL","type":"PLANNER_RESPONSE","status":"DONE","created_at":"2026-10-03T01:45:07Z","thinking":"The discrepancy between the reported line count and the initial prompt length suggests that the logging mechanism flushes data periodically rather than continuously.  The full prompt text was directly available for analysis. Further investigation of the prompt text is required.
+
+
+","tool_calls":[{"name":"run_command","args":{"CommandLine":"python -c "
+import os
+base = r'C:\\Users\\user\\.gemini\\antigravity'
+for root, dirs, files in os.walk(base):
+    for f in files:
+        if f.endswith(('.json', '.jsonl', '.txt', '.log')):
+            fp = os.path.join(root, f)
+            try:
+                with open(fp, 'r', encoding='utf-8', errors='ignore') as in_f:
+                    s = in_f.read()
+                    if 'anhiđrit axetit' in s:
+                        print('Found in:', fp, 'Length:', len(s))
+            except Exception:
+                pass
+"","Cwd":"c:\\AnTiGraViTy-htthuy\\pdf2word","IsDaemon":false,"WaitMsBeforeAsync":5000,"toolAction":"Searching for full text","toolSummary":"Search for full text in antigravity directory"}}]}
+{"step_index":670,"source":"MODEL","type":"GENERIC","status":"DONE","created_at":"2026-10-03T01:45:17Z","content":"Created At: 2026-10-03T08:45:17+07:00
+Completed At: 2026-10-03T08:45:18+07:00
+
+The command exited with code 0.
+Output:
+Found in: C:\\Users\\user\\.gemini\\antigravity\\brain\\bd035255-37c1-4545-9eea-d9028737b8e8\\.system_generated\\logs\	ranscript.jsonl Length: 723040\r
+Found in: C:\\Users\\user\\.gemini\\antigravity\\brain\\bd035255-37c1-4545-9eea-d9028737b8e8\\.system_generated\\logs\	ranscript_full.jsonl Length: 1056088\r
+Found in: C:\\Users\\user\\.gemini\\antigravity\\brain\\bd035255-37c1-4545-9eea-d9028737b8e8\\.system_generated\\logs\\chunks\	ranscript\\00000007.jsonl Length: 22940\r
+Found in: C:\\Users\\user\\.gemini\\antigravity\\brain\\bd035255-37c1-4545-9eea-d9028737b8e8\\.system_generated\\logs\\chunks\	ranscript_full\\00000010.jsonl Length: 73166\r
+
+"}
+{"step_index":671,"source":"MODEL","type":"PLANNER_RESPONSE","status":"DONE","created_at":"2026-10-03T01:45:18Z","tool_calls":[{"name":"run_command","args":{"CommandLine":"python C:\\Users\\user\\.gemini\\antigravity\\brain\\bd035255-37c1-4545-9eea-d9028737b8e8\\scratch\\extract_from_full.py","Cwd":"c:\\AnTiGraViTy-htthuy\\pdf2word","IsDaemon":false,"WaitMsBeforeAsync":5000,"toolAction":"Re-running extractor","toolSummary":"Extract complete sample files from transcript_full"}}]}
+{"step_index":672,"source":"MODEL","type":"GENERIC","status":"DONE","created_at":"2026-10-03T01:45:27Z","content":"Created At: 2026-10-03T08:45:27+07:00
+Completed At: 2026-10-03T08:45:27+07:00
+
+The command exited with code 0.
+Output:
+Pos 1: 1003925\r
+Pos 2: 1044306\r
+Pos end: 1054997\r
+Sample 1 len: 40381\r
+Sample 2 len: 10691\r
+Successfully saved both full files from transcript_full.jsonl!\r
+
+"}
+{"step_index":673,"source":"MODEL","type":"PLANNER_RESPONSE","status":"DONE","created_at":"2026-10-03T01:45:27Z","tool_calls":[{"name":"write_to_file","args":{"CodeContent":"import sys
+
+if sys.stdout.encoding.lower() != 'utf-8':
+    try: sys.stdout.reconfigure(encoding='utf-8')
+    except Exception: pass
+
+trans_path = r"C:\\Users\\user\\.gemini\\antigravity\\brain\\bd035255-37c1-4545-9eea-d9028737b8e8\\.system_generated\\logs\	ranscript_full.jsonl"
+with open(trans_path, "r", encoding="utf-8", errors="ignore") as f:
+    text = f.read()
+
+pos_anhidrit = text.find("anhiđrit axetit")
+print("pos_anhidrit:", pos_anhidrit)
+pos2 = text.find("22CHƯƠNG")
+print("pos2:", pos2)
+print("Distance:", pos_anhidrit - pos2)
+
+# Find where the user turn ends after pos_anhidrit
+pos_end = text.find('", "thinking"', pos_anhidrit)
+if pos_end == -1:
+    pos_end = text.find('","thinking"', pos_anhidrit)
+if pos_end == -1:
+    pos_end = text.find('
