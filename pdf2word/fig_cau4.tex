@@ -1,0 +1,18 @@
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage{amsmath,amssymb}
+\usetikzlibrary{calc,arrows.meta}
+\begin{document}
+\begin{tikzpicture}[scale=0.55, font=\footnotesize, >=stealth]
+	\draw[->] (-1.8,0) -- (6.8,0) node[below] {$x$};
+	\draw[->] (0,-3.2) -- (0,4.8) node[left] {$y$};
+	\fill (0,0) circle (1.5pt) node[below right] {$O$};
+	\draw[dashed] (-1,0) node[below] {$-1$} -- (-1,1);
+	\draw[dashed] (2,0) node[above] {$2$} -- (2,-2);
+	\draw[dashed] (6,0) node[below] {$6$} -- (6,4);
+	\draw[dashed] (0,-2) -- (2,-2);
+	\draw[dashed] (0,2) node[left] {$2$} -- (0,2);
+	\draw[thick, smooth, domain=-1:2] plot (\x, {-\x*\x + 2});
+	\draw[thick, smooth, domain=2:6] plot (\x, {1.5*\x - 5});
+	\fill (-1,1) circle (1.5pt) (2,-2) circle (1.5pt) (6,4) circle (1.5pt) (0,2) circle (1.5pt);
+\end{tikzpicture}
+\end{document}
