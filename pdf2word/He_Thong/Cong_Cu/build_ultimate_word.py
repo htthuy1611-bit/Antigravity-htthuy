@@ -295,7 +295,7 @@ rPr = style.element.get_or_add_rPr()
 rFonts = parse_xml(r'<w:rFonts %s w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>' % nsdecls('w'))
 rPr.append(rFonts)
 
-# Helper function tạo bảng Header đúng mẫu giáo viên gửi (2 hàng, bảng có viền chuẩn)
+# Helper function tạo bảng Header đúng mẫu tối ưu giáo viên gửi (2 hàng, viền đen sắc nét)
 def insert_header_and_code(target_p):
     table = doc.add_table(rows=2, cols=3)
     table.alignment = WD_TABLE_ALIGNMENT.CENTER
@@ -306,77 +306,83 @@ def insert_header_and_code(target_p):
     cell_right = row0.cells[1]
     cell_right.merge(row0.cells[2])
     
-    cell_left.width = Cm(9.5)
-    cell_right.width = Cm(8.0)
+    cell_left.width = Cm(9.8)
+    cell_right.width = Cm(7.7)
     
     # Cột Trái: Thông tin lớp
     p_l = cell_left.paragraphs[0]
     p_l.alignment = WD_ALIGN_PARAGRAPH.CENTER
     p_l.paragraph_format.line_spacing = 1.15
-    p_l.paragraph_format.space_before = Pt(2)
-    p_l.paragraph_format.space_after = Pt(2)
+    p_l.paragraph_format.space_before = Pt(3)
+    p_l.paragraph_format.space_after = Pt(3)
     r1 = p_l.add_run("LỚP TOÁN CÔ THÚY\n")
     r1.bold = True
     r1.font.name = "Times New Roman"
     r1.font.size = Pt(12)
-    r1.font.color.rgb = RGBColor(31, 73, 125)
+    r1.font.color.rgb = RGBColor(31, 73, 125) # Xanh đậm trang trọng
     
-    r2 = p_l.add_run("SĐT: 0935.322.328  •  50/2C Phạm Thị Liên\n--------------------")
+    r2 = p_l.add_run("SĐT: 0935.322.328\nĐịa chỉ: 50/2C Phạm Thị Liên")
     r2.font.name = "Times New Roman"
-    r2.font.size = Pt(10)
+    r2.font.size = Pt(10.5)
     
-    # Cột Phải: Thông tin môn thi
+    # Cột Phải: Thông tin môn thi chuẩn tối ưu
     p_r = cell_right.paragraphs[0]
     p_r.alignment = WD_ALIGN_PARAGRAPH.CENTER
     p_r.paragraph_format.line_spacing = 1.15
-    p_r.paragraph_format.space_before = Pt(2)
-    p_r.paragraph_format.space_after = Pt(2)
-    r3 = p_r.add_run("ĐỀ ÔN TẬP TOÁN -- KHỐI LỚP: 12\n")
+    p_r.paragraph_format.space_before = Pt(3)
+    p_r.paragraph_format.space_after = Pt(3)
+    r3 = p_r.add_run("ĐỀ ÔN TẬP TOÁN -- LỚP: 12\n")
     r3.bold = True
     r3.font.name = "Times New Roman"
     r3.font.size = Pt(12)
-    r3.font.color.rgb = RGBColor(192, 0, 0)
+    r3.font.color.rgb = RGBColor(192, 0, 0) # Đỏ đậm nổi bật
     
-    r4 = p_r.add_run("Thời gian làm bài: 90 phút (không kể phát đề)")
+    r4 = p_r.add_run("Thời gian làm bài: 90 phút")
     r4.italic = True
     r4.font.name = "Times New Roman"
     r4.font.size = Pt(10.5)
     
-    # Hàng 2: Họ tên, Số báo danh, Mã đề (chuẩn như mẫu người dùng gửi)
+    # Hàng 2: Họ tên, Số báo danh, Mã đề
     row1 = table.rows[1]
     c_hoten = row1.cells[0]
     c_sbd = row1.cells[1]
     c_made = row1.cells[2]
     
-    c_hoten.width = Cm(10.5)
-    c_sbd.width = Cm(4.0)
+    c_hoten.width = Cm(10.2)
+    c_sbd.width = Cm(4.3)
     c_made.width = Cm(3.0)
     
     p_hoten = c_hoten.paragraphs[0]
-    p_hoten.paragraph_format.space_before = Pt(2)
-    p_hoten.paragraph_format.space_after = Pt(2)
+    p_hoten.paragraph_format.space_before = Pt(3)
+    p_hoten.paragraph_format.space_after = Pt(3)
     r_ht = p_hoten.add_run("Họ và tên: ............................................................................")
     r_ht.font.name = "Times New Roman"
     r_ht.font.size = Pt(11)
     
     p_sbd = c_sbd.paragraphs[0]
-    p_sbd.paragraph_format.space_before = Pt(2)
-    p_sbd.paragraph_format.space_after = Pt(2)
+    p_sbd.paragraph_format.space_before = Pt(3)
+    p_sbd.paragraph_format.space_after = Pt(3)
     r_sb = p_sbd.add_run("Số báo danh: .......")
     r_sb.font.name = "Times New Roman"
     r_sb.font.size = Pt(11)
     
     p_md = c_made.paragraphs[0]
     p_md.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    p_md.paragraph_format.space_before = Pt(2)
-    p_md.paragraph_format.space_after = Pt(2)
+    p_md.paragraph_format.space_before = Pt(3)
+    p_md.paragraph_format.space_after = Pt(3)
     r_md = p_md.add_run("Mã đề 2009")
     r_md.bold = True
     r_md.font.name = "Times New Roman"
     r_md.font.size = Pt(11)
     
-    # Viền bảng
+    for row in table.rows:
+        for cell in row.cells:
+            cell.vertical_alignment = WD_ALIGN_VERTICAL.CENTER
+            
+    # Viền bảng đen đơn sắc nét
     tblPr = table._tbl.tblPr
+    for b in tblPr.findall(qn('w:tblBorders')):
+        tblPr.remove(b)
     tblBorders = parse_xml(
         r'<w:tblBorders %s>'
         r'<w:top w:val="single" w:sz="8" w:space="0" w:color="000000"/>'
@@ -412,13 +418,47 @@ def insert_section_header(target_p, sec_title, sec_desc):
     target_p._p.addprevious(p_sec._p)
     target_p._p.getparent().remove(target_p._p)
 
-# Helper function tạo ô trả lời ngắn 4 ô vuông chuẩn THPT 2025
+# Helper function tạo ô trả lời ngắn 4 ô vuông chuẩn THPT 2025 (loại bỏ triệt để viền thừa)
 def create_answer_box_table():
     tbl = doc.add_table(rows=1, cols=5)
     tbl.alignment = WD_TABLE_ALIGNMENT.LEFT
     
+    tblPr = tbl._tbl.tblPr
+    for look in tblPr.findall(qn('w:tblLook')):
+        tblPr.remove(look)
+    tblLook = parse_xml(r'<w:tblLook %s w:val="0000" w:firstRow="0" w:lastRow="0" w:firstColumn="0" w:lastColumn="0" w:noHBand="0" w:noVBand="0"/>' % nsdecls('w'))
+    
+    for b in tblPr.findall(qn('w:tblBorders')):
+        tblPr.remove(b)
+    tblBorders = parse_xml(
+        r'<w:tblBorders %s>'
+        r'<w:top w:val="none"/>'
+        r'<w:left w:val="none"/>'
+        r'<w:bottom w:val="none"/>'
+        r'<w:right w:val="none"/>'
+        r'<w:insideH w:val="none"/>'
+        r'<w:insideV w:val="none"/>'
+        r'</w:tblBorders>' % nsdecls('w')
+    )
+    tblPr.append(tblBorders)
+    tblPr.append(tblLook)
+    
+    # Ô 0: KQ: tuyệt đối không có bất kỳ đường viền nào
     cell_kq = tbl.rows[0].cells[0]
-    cell_kq.width = Cm(1.8) # Đủ rộng để có thụt lề tab
+    cell_kq.width = Cm(1.8)
+    cell_kq.vertical_alignment = WD_ALIGN_VERTICAL.CENTER
+    tcPr0 = cell_kq._tc.get_or_add_tcPr()
+    for b in tcPr0.findall(qn('w:tcBorders')):
+        tcPr0.remove(b)
+    tcPr0.append(parse_xml(
+        r'<w:tcBorders %s>'
+        r'<w:top w:val="none"/>'
+        r'<w:left w:val="none"/>'
+        r'<w:bottom w:val="none"/>'
+        r'<w:right w:val="none"/>'
+        r'</w:tcBorders>' % nsdecls('w')
+    ))
+    
     p_kq = cell_kq.paragraphs[0]
     p_kq.paragraph_format.space_before = Pt(0)
     p_kq.paragraph_format.space_after = Pt(0)
@@ -428,10 +468,14 @@ def create_answer_box_table():
     r.font.name = "Times New Roman"
     r.font.size = Pt(12)
     
+    # Ô 1..4: 4 ô vuông điền số
     for col_idx in range(1, 5):
         cell = tbl.rows[0].cells[col_idx]
         cell.width = Cm(0.65)
+        cell.vertical_alignment = WD_ALIGN_VERTICAL.CENTER
         tcPr = cell._tc.get_or_add_tcPr()
+        for b in tcPr.findall(qn('w:tcBorders')):
+            tcPr.remove(b)
         borders = parse_xml(
             r'<w:tcBorders %s>'
             r'<w:top w:val="single" w:sz="8" w:space="0" w:color="000000"/>'
@@ -445,19 +489,6 @@ def create_answer_box_table():
     trPr = tbl.rows[0]._tr.get_or_add_trPr()
     trHeight = parse_xml(r'<w:trHeight %s w:val="380" w:hRule="exact"/>' % nsdecls('w'))
     trPr.append(trHeight)
-    
-    tblPr = tbl._tbl.tblPr
-    tblBorders = parse_xml(
-        r'<w:tblBorders %s>'
-        r'<w:top w:val="none"/>'
-        r'<w:left w:val="none"/>'
-        r'<w:bottom w:val="none"/>'
-        r'<w:right w:val="none"/>'
-        r'<w:insideH w:val="none"/>'
-        r'<w:insideV w:val="none"/>'
-        r'</w:tblBorders>' % nsdecls('w')
-    )
-    tblPr.append(tblBorders)
     return tbl
 
 # 3. THAY THẾ HEADER VÀ CÁC SECTION BANNERS
@@ -472,7 +503,7 @@ for p in list(doc.paragraphs):
     elif "@@SECTION_3_HEADER@@" in p.text:
         insert_section_header(p, "PHẦN III. Câu trắc nghiệm yêu cầu trả lời ngắn.", "Thí sinh trả lời từ câu 1 đến câu 6.")
 
-# 4. XỬ LÝ CÁC KHỐI SIDE-BY-SIDE (ĐỒ THỊ/HÌNH VẼ BÊN PHẢI)
+# 4. XỬ LÝ CÁC KHỐI SIDE-BY-SIDE (ĐỒ THỊ/HÌNH VẼ BÊN PHẢI) - LOẠI BỎ TOÀN BỘ VIỀN THỪA
 print("[4/5] Đang định dạng các khối đồ thị & hình vẽ bên phải...")
 side_by_side_configs = [
     ("CAU4", "fig_cau4.png", 4.6),
@@ -508,6 +539,11 @@ for tag, img_name, img_width_cm in side_by_side_configs:
         tbl.alignment = WD_TABLE_ALIGNMENT.CENTER
         
         tblPr = tbl._tbl.tblPr
+        for look in tblPr.findall(qn('w:tblLook')):
+            tblPr.remove(look)
+        tblLook = parse_xml(r'<w:tblLook %s w:val="0000" w:firstRow="0" w:lastRow="0" w:firstColumn="0" w:lastColumn="0" w:noHBand="0" w:noVBand="0"/>' % nsdecls('w'))
+        for b in tblPr.findall(qn('w:tblBorders')):
+            tblPr.remove(b)
         tblBorders = parse_xml(
             r'<w:tblBorders %s>'
             r'<w:top w:val="none"/>'
@@ -519,6 +555,7 @@ for tag, img_name, img_width_cm in side_by_side_configs:
             r'</w:tblBorders>' % nsdecls('w')
         )
         tblPr.append(tblBorders)
+        tblPr.append(tblLook)
         
         cell_0 = tbl.rows[0].cells[0]
         cell_1 = tbl.rows[0].cells[1]
@@ -527,6 +564,20 @@ for tag, img_name, img_width_cm in side_by_side_configs:
         cell_0.vertical_alignment = WD_ALIGN_VERTICAL.CENTER
         cell_1.vertical_alignment = WD_ALIGN_VERTICAL.CENTER
         
+        # Xóa sạch viền ở mức ô (cell level tcBorders)
+        for c in [cell_0, cell_1]:
+            tcPr = c._tc.get_or_add_tcPr()
+            for b in tcPr.findall(qn('w:tcBorders')):
+                tcPr.remove(b)
+            tcPr.append(parse_xml(
+                r'<w:tcBorders %s>'
+                r'<w:top w:val="none"/>'
+                r'<w:left w:val="none"/>'
+                r'<w:bottom w:val="none"/>'
+                r'<w:right w:val="none"/>'
+                r'</w:tcBorders>' % nsdecls('w')
+            ))
+            
         start_p._p.addprevious(tbl._tbl)
         cell_0._tc.remove(cell_0.paragraphs[0]._p)
         
@@ -534,6 +585,8 @@ for tag, img_name, img_width_cm in side_by_side_configs:
             if "@@ANSWER_BOX_2@@" in p.text:
                 box_tbl = create_answer_box_table()
                 cell_0._tc.append(box_tbl._tbl)
+                trailing_p = parse_xml(r'<w:p %s><w:pPr><w:spacing w:before="0" w:after="0" w:line="0" w:lineRule="auto"/></w:pPr></w:p>' % nsdecls('w'))
+                cell_0._tc.append(trailing_p)
                 p._p.getparent().remove(p._p)
             else:
                 cell_0._tc.append(p._p)
@@ -718,6 +771,13 @@ for table in doc.tables:
         for cell in row.cells:
             for p in list(cell.paragraphs):
                 format_doc_paragraph(p, inside_table_cell=True)
+
+# Tẩy sạch toàn bộ thuộc tính tblStylePr (firstRow bottom border) trong doc.styles để loại bỏ hoàn toàn các đường ngang dưới
+for s in doc.styles:
+    if s.type == docx.enum.style.WD_STYLE_TYPE.TABLE:
+        for child in list(s._element):
+            if child.tag.endswith('tblStylePr'):
+                s._element.remove(child)
 
 # Tắt Compatibility Mode để kích hoạt engine Word 2013-2024
 settings = doc.settings.element
