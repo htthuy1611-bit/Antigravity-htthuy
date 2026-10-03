@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-10-03 13:45:00",
-  "total_files": 2,
-  "completed_files": 2,
+  "updated_at": "2026-10-03 14:15:00",
+  "total_files": 3,
+  "completed_files": 3,
   "pending_files": 0,
   "records": {
     "De_Thi_Goc_2009.pdf": {
@@ -57,6 +57,29 @@
         "He_Thong/LaTeX/Bao_Thang_3/0104/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_HDG_0104.tex"
       ],
       "note": "TOÀN BỘ 4 MÃ ĐỀ (0101, 0102, 0103, 0104) ĐÃ HOÀN THIỆN ĐẲNG CẤP 11/10: (1) Vẽ lại 100% BBT bằng TikZ vector siêu sắc nét, xuất PNG 300 DPI cho Word; (2) Đồ thị hàm số recrop chuẩn xác, không dính chữ rác; (3) Build pdflatex 0 lỗi, bản Đề vừa khít đúng 4 trang, bản HDG 7 trang không rớt dòng/tách câu; (4) Khắc phục triệt để lỗi đè footer (căn chỉnh lề an toàn cách mép 1cm); (5) Không thừa chữ 'Đáp án:' ở phần III; (6) Xuất bản Word (.docx) đồng bộ chuẩn Macro BTPro."
+    },
+    "PHY10-GIUA KY 1 - NGUYEN HUE 2526.pdf": {
+      "file_name": "PHY10-GIUA KY 1 - NGUYEN HUE 2526.pdf",
+      "file_relpath": "De_Goc/PHY10-GIUA KY 1 - NGUYEN HUE 2526.pdf",
+      "sha256": "22E474752050373124A8862F2835D9158A5B8225052CF13E38622A53789487C3",
+      "size_bytes": 6054426,
+      "date_added": "2026-10-03 13:48:00",
+      "date_processed": "2026-10-03 14:15:00",
+      "status": "HOAN_THANH",
+      "current_code": "101",
+      "output_docx": [
+        "San_Pham/PHY10_Nguyen_Hue_De_101.docx",
+        "San_Pham/PHY10_Nguyen_Hue_HDG_101.docx"
+      ],
+      "output_pdf": [
+        "San_Pham/PHY10_Nguyen_Hue_De_101.pdf",
+        "San_Pham/PHY10_Nguyen_Hue_HDG_101.pdf"
+      ],
+      "source_tex": [
+        "He_Thong/LaTeX/Nguyen_Hue_10/PHY10_Nguyen_Hue_De_101.tex",
+        "He_Thong/LaTeX/Nguyen_Hue_10/PHY10_Nguyen_Hue_HDG_101.tex"
+      ],
+      "note": "KIỂM TRA GIỮA KỲ I VẬT LÍ 10 - THPT NGUYỄN HUỆ (2024 - 2025) - MÃ ĐỀ 101. Đề thi gốc từ 4 ảnh chụp máy ảnh gộp PDF: (1) Vẽ lại 100% toàn bộ 7 hình vẽ, đồ thị vật lý bằng TikZ vector siêu sắc nét (kết xuất PNG 300 DPI nhúng Word); (2) Biên dịch pdflatex 0 lỗi, bản Đề vừa khít đúng 4 trang chuẩn thi cử, bản HDG 9 trang giải chi tiết từng bước theo yêu cầu 'GIẢI CHI TIẾT LUÔN NHÉ', không thừa lặp nhãn 'Đáp án:'; (3) Khắc phục triệt để lỗi đè footer (căn chỉnh lề an toàn cách mép 1cm); (4) Xuất bản Word (.docx) đồng bộ chuẩn Macro BTPro với 100% công thức Word Math OMML, bảng side-by-side, ô trả lời ngắn Phần III."
     }
   }
 }
