@@ -6,7 +6,7 @@ from docx.shared import Pt, Cm, Inches, RGBColor
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.enum.table import WD_TABLE_ALIGNMENT, WD_ALIGN_VERTICAL
 from docx.oxml import parse_xml
-from docx.oxml.ns import nsdecls
+from docx.oxml.ns import nsdecls, qn
 
 if sys.stdout.encoding.lower() != 'utf-8':
     try:
@@ -14,136 +14,88 @@ if sys.stdout.encoding.lower() != 'utf-8':
     except Exception:
         pass
 
-# File LaTeX được thiết kế chuẩn xác từng chi tiết theo PDF gốc
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = os.path.abspath(os.path.join(CURRENT_DIR, "..", ".."))
+HINH_ANH_DIR = os.path.join(BASE_DIR, "He_Thong", "Hinh_Anh")
+SAN_PHAM_DIR = os.path.join(BASE_DIR, "San_Pham")
+OUTPUT_DOCX = os.path.join(SAN_PHAM_DIR, "De_Thi_2009.docx")
+
+os.makedirs(SAN_PHAM_DIR, exist_ok=True)
+
+# 1. SOẠN THẢO MÃ NGUỒN CHO PANDOC VỚI CÁC TOKEN ĐÁNH DẤU CHUẨN
 tex_content = r"""\documentclass[12pt,a4paper]{article}
 \usepackage[utf8]{vietnam}
 \usepackage{amsmath,amssymb}
 \usepackage{graphicx}
-\usepackage{tcolorbox}
-\usepackage[top=1.6cm,bottom=1.6cm,left=1.8cm,right=1.5cm]{geometry}
+\usepackage[top=1.6cm,bottom=1.6cm,left=2.0cm,right=1.5cm]{geometry}
 
 \begin{document}
 
-% 1. HEADER CHUYÊN NGHIỆP LỚP TOÁN CÔ THÚY
-\noindent
-\begin{tabular}{|p{8.5cm}|p{8.5cm}|}
-\hline
-\centering \textbf{\large LỚP TOÁN CÔ THÚY} \tabularnewline
-\centering \textbf{SĐT: 0935.322.328} \tabularnewline
-\centering \textbf{Đ/c: 50/2C Phạm Thị Liên} &
-\centering \textbf{\large ĐỀ ÔN TẬP TOÁN} \tabularnewline
-\centering \textbf{MÔN: TOÁN -- KHỐI LỚP: 12} \tabularnewline
-\centering \textit{Thời gian làm bài: 90 phút (không kể phát đề)} \tabularnewline
-\hline
-\end{tabular}
+@@DOCUMENT_HEADER@@
 
-\vspace{0.15cm}
-\noindent \hfill \fbox{\textbf{MÃ ĐỀ THI 2009}}
+@@SECTION_1_HEADER@@
 
-\vspace{0.25cm}
-% TIÊU ĐỀ PHẦN 1
-\noindent\fbox{\textbf{\large PHẦN 1. Câu trắc nghiệm 4 phương án}}
-
-\vspace{0.15cm}
-\noindent\textit{Thí sinh trả lời từ câu 1 đến câu 12. Mỗi câu hỏi thí sinh chỉ chọn một phương án.}
-
-\vspace{0.25cm}
 % CÂU 1 (4 dòng riêng biệt cho A, B, C, D)
 \textbf{Câu 1.} Cho hàm số $y = f(x)$ có đạo hàm trên $\mathbb{R}$ thỏa $f'(x) < 0$, $\forall x \in (1; 2)$ và $f'(x) > 0$, $\forall x \in (2; 3)$. Phát biểu nào sau đây là đúng?
 
-\vspace{0.1cm}
-\noindent\textbf{A.} Hàm số $y = f(x)$ đồng biến trên cả hai khoảng $(1; 2)$ và $(2; 3)$.
+\textbf{A.} Hàm số $y = f(x)$ đồng biến trên cả hai khoảng $(1; 2)$ và $(2; 3)$.
 
-\vspace{0.1cm}
-\noindent\textbf{B.} Hàm số $y = f(x)$ nghịch biến trên cả hai khoảng $(1; 2)$ và $(2; 3)$.
+\textbf{B.} Hàm số $y = f(x)$ nghịch biến trên cả hai khoảng $(1; 2)$ và $(2; 3)$.
 
-\vspace{0.1cm}
-\noindent\textbf{C.} Hàm số $y = f(x)$ đồng biến trên khoảng $(1; 2)$ và nghịch biến trên khoảng $(2; 3)$.
+\textbf{C.} Hàm số $y = f(x)$ đồng biến trên khoảng $(1; 2)$ và nghịch biến trên khoảng $(2; 3)$.
 
-\vspace{0.1cm}
-\noindent\textbf{D.} Hàm số $y = f(x)$ nghịch biến trên khoảng $(1; 2)$ và đồng biến trên khoảng $(2; 3)$.
+\textbf{D.} Hàm số $y = f(x)$ nghịch biến trên khoảng $(1; 2)$ và đồng biến trên khoảng $(2; 3)$.
 
-\vspace{0.25cm}
-% CÂU 2 (1 dòng 4 phương án căn cột đều tăm tắp)
+% CÂU 2 (1 dòng 4 phương án dùng TAB chuẩn xác)
 \textbf{Câu 2.} Giá trị cực đại của hàm số $f(x) = 2x^3 - 9x^2 - 24x + 1$ là
 
-\vspace{0.1cm}
-\noindent
-\begin{tabular}{@{}p{4.2cm}p{4.2cm}p{4.2cm}p{4.2cm}@{}}
-\textbf{A.} $-1$. & \textbf{B.} $14$. & \textbf{C.} $4$. & \textbf{D.} $-111$.
-\end{tabular}
+\textbf{A.} $-1$.@@TAB@@\textbf{B.} $14$.@@TAB@@\textbf{C.} $4$.@@TAB@@\textbf{D.} $-111$.
 
-\vspace{0.25cm}
-% CÂU 3 (2 dòng, mỗi dòng 2 phương án)
+% CÂU 3 (2 dòng x 2 phương án dùng TAB chuẩn xác)
 \textbf{Câu 3.} Cho lăng trụ $ABC.A'B'C'$. Khẳng định nào sau đây đúng?
 
-\vspace{0.1cm}
-\noindent
-\begin{tabular}{@{}p{8.5cm}p{8.5cm}@{}}
-\textbf{A.} $\overrightarrow{BA} + \overrightarrow{A'C'} = \overrightarrow{BC}$. & \textbf{B.} $\overrightarrow{BA} + \overrightarrow{A'C'} = \overrightarrow{BC'}$. \tabularnewline
-\textbf{C.} $\overrightarrow{BA} + \overrightarrow{A'C'} = \overrightarrow{C'B}$. & \textbf{D.} $\overrightarrow{BA} + \overrightarrow{A'C'} = \overrightarrow{B'C}$.
-\end{tabular}
+\textbf{A.} $\overrightarrow{BA} + \overrightarrow{A'C'} = \overrightarrow{BC}$.@@TAB@@\textbf{B.} $\overrightarrow{BA} + \overrightarrow{A'C'} = \overrightarrow{BC'}$.
 
-\vspace{0.25cm}
-% CÂU 4 (Bên trái: Đề bài + 4 phương án, Bên phải: Hình ảnh)
-\noindent
-\begin{tabular}{@{}p{11.8cm}p{5.2cm}@{}}
+\textbf{C.} $\overrightarrow{BA} + \overrightarrow{A'C'} = \overrightarrow{C'B}$.@@TAB@@\textbf{D.} $\overrightarrow{BA} + \overrightarrow{A'C'} = \overrightarrow{B'C}$.
+
+% CÂU 4 (Bên trái: đề + 2 dòng phương án TAB; Bên phải: hình ảnh đồ thị)
+@@START_SIDE_BY_SIDE_CAU4@@
+
 \textbf{Câu 4.} Hàm số $y = f(x)$ xác định trên đoạn $[-1; 6]$ và có đồ thị như hình vẽ. Hàm số đã cho nghịch biến trên khoảng nào sau đây?
 
-\vspace{0.15cm}
-\begin{tabular}{@{}p{5.8cm}p{5.8cm}@{}}
-\textbf{A.} $(-1; 2)$. & \textbf{B.} $(0; 2)$. \tabularnewline
-\textbf{C.} $(2; 6)$. & \textbf{D.} $(-2; 0)$.
-\end{tabular}
-&
-\centering \includegraphics[width=4.6cm]{fig_cau4.png}
-\end{tabular}
+\textbf{A.} $(-1; 2)$.@@TAB@@\textbf{B.} $(0; 2)$.
 
-\vspace{0.25cm}
-% CÂU 5 (2 dòng x 2 phương án)
+\textbf{C.} $(2; 6)$.@@TAB@@\textbf{D.} $(-2; 0)$.
+
+@@END_SIDE_BY_SIDE_CAU4@@
+
+% CÂU 5 (2 dòng x 2 phương án dùng TAB chuẩn xác)
 \textbf{Câu 5.} Cho tứ diện $ABCD$. Lấy $G$ là trọng tâm của tam giác $ABC$. Phát biểu nào sau đây là sai?
 
-\vspace{0.1cm}
-\noindent
-\begin{tabular}{@{}p{8.5cm}p{8.5cm}@{}}
-\textbf{A.} $\overrightarrow{GA} + \overrightarrow{GB} + \overrightarrow{GC} = \overrightarrow{0}$. & \textbf{B.} $\overrightarrow{GA} + \overrightarrow{GB} + \overrightarrow{GC} + \overrightarrow{GD} = \overrightarrow{0}$. \tabularnewline
-\textbf{C.} $\overrightarrow{GD} - \overrightarrow{GA} = \overrightarrow{AD}$. & \textbf{D.} $\overrightarrow{DA} + \overrightarrow{DB} + \overrightarrow{DC} = 3\overrightarrow{DG}$.
-\end{tabular}
+\textbf{A.} $\overrightarrow{GA} + \overrightarrow{GB} + \overrightarrow{GC} = \overrightarrow{0}$.@@TAB@@\textbf{B.} $\overrightarrow{GA} + \overrightarrow{GB} + \overrightarrow{GC} + \overrightarrow{GD} = \overrightarrow{0}$.
 
-\vspace{0.25cm}
-% CÂU 6 (1 dòng 4 phương án)
+\textbf{C.} $\overrightarrow{GD} - \overrightarrow{GA} = \overrightarrow{AD}$.@@TAB@@\textbf{D.} $\overrightarrow{DA} + \overrightarrow{DB} + \overrightarrow{DC} = 3\overrightarrow{DG}$.
+
+% CÂU 6 (1 dòng 4 phương án dùng TAB)
 \textbf{Câu 6.} Một chiếc hộp hình lập phương $ABCD.A'B'C'D'$ có cạnh bằng $12\text{ cm}$, mặt trên $A'B'C'D'$ không nắp. Có một con kiến ở đỉnh $A$ bên ngoài hộp và một miếng mồi của kiến tại điểm $O$ là tâm đáy $ABCD$ ở bên trong hộp. Quãng đường ngắn nhất mà con kiến tìm đến miếng mồi (làm tròn đến hai chữ số thập phân) là
 
-\vspace{0.1cm}
-\noindent
-\begin{tabular}{@{}p{4.2cm}p{4.2cm}p{4.2cm}p{4.2cm}@{}}
-\textbf{A.} $32{,}49\text{ (cm)}$. & \textbf{B.} $36{,}29\text{ (cm)}$. & \textbf{C.} $12\text{ (cm)}$. & \textbf{D.} $30{,}59\text{ (cm)}$.
-\end{tabular}
+\textbf{A.} $32{,}49\text{ (cm)}$.@@TAB@@\textbf{B.} $36{,}29\text{ (cm)}$.@@TAB@@\textbf{C.} $12\text{ (cm)}$.@@TAB@@\textbf{D.} $30{,}59\text{ (cm)}$.
 
-\vspace{0.25cm}
-% CÂU 7 (1 dòng 4 phương án)
+% CÂU 7 (1 dòng 4 phương án dùng TAB)
 \textbf{Câu 7.} Giá trị nhỏ nhất của hàm số $f(x) = x^4 - 8x^2 + a$, ($a \in \mathbb{R}$) trên đoạn $[-1; 3]$ bằng
 
-\vspace{0.1cm}
-\noindent
-\begin{tabular}{@{}p{4.2cm}p{4.2cm}p{4.2cm}p{4.2cm}@{}}
-\textbf{A.} $-6$. & \textbf{B.} $a$. & \textbf{C.} $-16 + a$. & \textbf{D.} $9 + a$.
-\end{tabular}
+\textbf{A.} $-6$.@@TAB@@\textbf{B.} $a$.@@TAB@@\textbf{C.} $-16 + a$.@@TAB@@\textbf{D.} $9 + a$.
 
-\vspace{0.25cm}
-% CÂU 8 (Bên trái đề + phương án, Bên phải hình)
-\noindent
-\begin{tabular}{@{}p{11.8cm}p{5.2cm}@{}}
+% CÂU 8 (Bên trái: đề + 2 dòng phương án TAB; Bên phải: hình ảnh đồ thị)
+@@START_SIDE_BY_SIDE_CAU8@@
+
 \textbf{Câu 8.} Hàm số $y = f(x)$ xác định trên đoạn $[-1; 5]$ và có đồ thị như hình vẽ. Tập giá trị của hàm số $y = f(x)$ trên đoạn $[-1; 5]$ là
 
-\vspace{0.15cm}
-\begin{tabular}{@{}p{5.8cm}p{5.8cm}@{}}
-\textbf{A.} $[-1; 5]$. & \textbf{B.} $[1; 3]$. \tabularnewline
-\textbf{C.} $[-1; 3]$. & \textbf{D.} $[1; 5]$.
-\end{tabular}
-&
-\centering \includegraphics[width=4.6cm]{fig_cau8.png}
-\end{tabular}
+\textbf{A.} $[-1; 5]$.@@TAB@@\textbf{B.} $[1; 3]$.
+
+\textbf{C.} $[-1; 3]$.@@TAB@@\textbf{D.} $[1; 5]$.
+
+@@END_SIDE_BY_SIDE_CAU8@@
 
 \newpage
 % TRANG 2
@@ -162,112 +114,73 @@ tex_content = r"""\documentclass[12pt,a4paper]{article}
 
 Khoảng biến thiên của mẫu số liệu ghép nhóm trên bằng
 
-\vspace{0.1cm}
-\noindent
-\begin{tabular}{@{}p{4.2cm}p{4.2cm}p{4.2cm}p{4.2cm}@{}}
-\textbf{A.} $1{,}2$. & \textbf{B.} $0{,}362$. & \textbf{C.} $3{,}39$. & \textbf{D.} $1{,}5$.
-\end{tabular}
+\textbf{A.} $1{,}2$.@@TAB@@\textbf{B.} $0{,}362$.@@TAB@@\textbf{C.} $3{,}39$.@@TAB@@\textbf{D.} $1{,}5$.
 
-\vspace{0.25cm}
 % CÂU 10
 \textbf{Câu 10.} Trong không gian $Oxyz$, cho hai điểm $A(1; 1; 2)$ và $B(3; 1; 0)$. Trung điểm của đoạn thẳng $AB$ có toạ độ là
 
-\vspace{0.1cm}
-\noindent
-\begin{tabular}{@{}p{4.2cm}p{4.2cm}p{4.2cm}p{4.2cm}@{}}
-\textbf{A.} $(2; 1; 1)$. & \textbf{B.} $(4; 2; 2)$. & \textbf{C.} $(2; 0; -2)$. & \textbf{D.} $(1; 0; -1)$.
-\end{tabular}
+\textbf{A.} $(2; 1; 1)$.@@TAB@@\textbf{B.} $(4; 2; 2)$.@@TAB@@\textbf{C.} $(2; 0; -2)$.@@TAB@@\textbf{D.} $(1; 0; -1)$.
 
-\vspace{0.25cm}
 % CÂU 11
 \textbf{Câu 11.} Đường tiệm cận xiên của đồ thị hàm số $y = \dfrac{x^2 + 2x - 2}{x - 2}$ là
 
-\vspace{0.1cm}
-\noindent
-\begin{tabular}{@{}p{4.2cm}p{4.2cm}p{4.2cm}p{4.2cm}@{}}
-\textbf{A.} $y = -x + 3$. & \textbf{B.} $y = x + 3$. & \textbf{C.} $y = x - 3$. & \textbf{D.} $y = x + 4$.
-\end{tabular}
+\textbf{A.} $y = -x + 3$.@@TAB@@\textbf{B.} $y = x + 3$.@@TAB@@\textbf{C.} $y = x - 3$.@@TAB@@\textbf{D.} $y = x + 4$.
 
-\vspace{0.25cm}
 % CÂU 12
 \textbf{Câu 12.} Trong không gian $Oxyz$, cho điểm $A(-3; 1; -4)$, $B(1; -5; 2)$. Đường thẳng $AB$ cắt mặt phẳng $(Oxy)$ tại điểm
 
-\vspace{0.1cm}
-\noindent
-\begin{tabular}{@{}p{8.5cm}p{8.5cm}@{}}
-\textbf{A.} $M\left(-\dfrac{1}{3}; -3; 0\right)$. & \textbf{B.} $N\left(\dfrac{1}{3}; 3; 0\right)$. \tabularnewline
-\textbf{C.} $P(0; 3; 1)$. & \textbf{D.} $Q(-3; 1; 0)$.
-\end{tabular}
+\textbf{A.} $M\left(-\dfrac{1}{3}; -3; 0\right)$.@@TAB@@\textbf{B.} $N\left(\dfrac{1}{3}; 3; 0\right)$.
 
-\vspace{0.35cm}
-% TIÊU ĐỀ PHẦN 2
-\noindent\fbox{\textbf{\large PHẦN 2. Câu trắc nghiệm đúng sai}}
+\textbf{C.} $P(0; 3; 1)$.@@TAB@@\textbf{D.} $Q(-3; 1; 0)$.
 
-\vspace{0.15cm}
-\noindent\textit{Thí sinh trả lời từ câu 1 đến câu 4. Trong mỗi ý a), b), c), d) ở mỗi câu, thí sinh chọn đúng hoặc sai.}
+@@SECTION_2_HEADER@@
 
-\vspace{0.25cm}
-% CÂU 1 PHẦN 2
+% CÂU 1 PHẦN 2 (Bảng biến thiên crop chuẩn gốc)
 \textbf{Câu 1.} Hàm số $y = f(x)$ liên tục trên $\mathbb{R}$ và có bảng biến thiên như sau:
 
-\begin{center}
-\includegraphics[width=11cm]{fig_bbt.png}
-\end{center}
+@@CENTER_IMAGE_BBT@@
 
-\noindent\textbf{a)} Đồ thị hàm số đã cho có hai đường tiệm cận ngang.
+\textbf{a)} Đồ thị hàm số đã cho có hai đường tiệm cận ngang.
 
-\vspace{0.08cm}
-\noindent\textbf{b)} Giá trị nhỏ nhất của hàm số trên $(-\infty; +\infty)$ bằng $8$.
+\textbf{b)} Giá trị nhỏ nhất của hàm số trên $(-\infty; +\infty)$ bằng $8$.
 
-\vspace{0.08cm}
-\noindent\textbf{c)} Hàm số đồng biến trên $(8; 38)$.
+\textbf{c)} Hàm số đồng biến trên $(8; 38)$.
 
-\vspace{0.08cm}
-\noindent\textbf{d)} Giá trị lớn nhất của hàm số trên $\mathbb{R}$ bằng $142$.
-
-\vspace{0.25cm}
-% CÂU 2 PHẦN 2 (Tam giác)
-\noindent
-\begin{tabular}{@{}p{12.2cm}p{4.8cm}@{}}
-\textbf{Câu 2.} Xét tam giác $ABC$ có $AC = 2AB$ và $BC = 10\text{ cm}$. Trên cạnh $AC$ lấy điểm $D$ sao cho $AD = \dfrac{1}{4}AC$, trên cạnh $AB$ lấy điểm $E$ sao cho $AE = \dfrac{1}{4}AB$, trên cạnh $AD$ lấy điểm $F$ sao cho $AF = \dfrac{1}{4}AD$ và tiếp tục lấy các điểm $G, H, I, J\dots$ (vô hạn lần) theo quy luật đó. Xét tính đúng sai các mệnh đề sau:
-
-\vspace{0.1cm}
-\noindent\textbf{a)} $\dfrac{AB}{AC} = \dfrac{AD}{AB}$.
-
-\vspace{0.08cm}
-\noindent\textbf{b)} Tam giác $ABD$ đồng dạng với tam giác $ABC$.
-
-\vspace{0.08cm}
-\noindent\textbf{c)} $BD = 5\text{ cm}$; $DE = 3\text{ cm}$.
-
-\vspace{0.08cm}
-\noindent\textbf{d)} Độ dài đường gấp khúc $CBDEFGH\dots$ bằng $20\text{ cm}$. &
-\centering \includegraphics[width=4.4cm]{fig_tamgiac.png}
-\end{tabular}
+\textbf{d)} Giá trị lớn nhất của hàm số trên $\mathbb{R}$ bằng $142$.
 
 \newpage
 % TRANG 3
+% CÂU 2 PHẦN 2 (Tam giác)
+@@START_SIDE_BY_SIDE_TAMGIAC@@
+
+\textbf{Câu 2.} Xét tam giác $ABC$ có $AC = 2AB$ và $BC = 10\text{ cm}$. Trên cạnh $AC$ lấy điểm $D$ sao cho $AD = \dfrac{1}{4}AC$, trên cạnh $AB$ lấy điểm $E$ sao cho $AE = \dfrac{1}{4}AB$, trên cạnh $AD$ lấy điểm $F$ sao cho $AF = \dfrac{1}{4}AD$ và tiếp tục lấy các điểm $G, H, I, J\dots$ (vô hạn lần) theo quy luật đó. Xét tính đúng sai các mệnh đề sau:
+
+\textbf{a)} $\dfrac{AB}{AC} = \dfrac{AD}{AB}$.
+
+\textbf{b)} Tam giác $ABD$ đồng dạng với tam giác $ABC$.
+
+\textbf{c)} $BD = 5\text{ cm}$; $DE = 3\text{ cm}$.
+
+\textbf{d)} Độ dài đường gấp khúc $CBDEFGH\dots$ bằng $20\text{ cm}$.
+
+@@END_SIDE_BY_SIDE_TAMGIAC@@
+
 % CÂU 3 PHẦN 2 (Máy bay)
-\noindent
-\begin{tabular}{@{}p{11.8cm}p{5.2cm}@{}}
+@@START_SIDE_BY_SIDE_MAYBAY@@
+
 \textbf{Câu 3.} Hình vẽ sau mô tả vị trí của máy bay vào thời điểm 9h30 phút. Biết các đơn vị trên hình tính theo đơn vị $\text{km}$. Trong các khẳng định sau đây, khẳng định nào đúng, khẳng định nào sai?
 
-\vspace{0.1cm}
-\noindent\textbf{a)} Máy bay đang ở độ cao $9\text{ km}$.
+\textbf{a)} Máy bay đang ở độ cao $9\text{ km}$.
 
-\vspace{0.08cm}
-\noindent\textbf{b)} Tọa độ của máy bay $(300; 150; 9)$.
+\textbf{b)} Tọa độ của máy bay $(300; 150; 9)$.
 
-\vspace{0.08cm}
-\noindent\textbf{c)} Phi công để máy bay ở chế độ tự động với vận tốc theo hướng đông là $750\text{ km/h}$, độ cao không đổi. Biết rằng gió thổi theo hướng đông với vận tốc $10\text{ m/s}$. Giả sử vận tốc và hướng gió không đổi thì lúc 10h30 phút máy bay ở tọa độ $(150; 1086; 9)$.
+\textbf{c)} Phi công để máy bay ở chế độ tự động với vận tốc theo hướng đông là $750\text{ km/h}$, độ cao không đổi. Biết rằng gió thổi theo hướng đông với vận tốc $10\text{ m/s}$. Giả sử vận tốc và hướng gió không đổi thì lúc 10h30 phút máy bay ở tọa độ $(150; 1086; 9)$.
 
-\vspace{0.08cm}
-\noindent\textbf{d)} Sau khi bay đến vị trí lúc 10h30 thì máy bay bay theo hướng ngược lại với vận tốc $800\text{ km/h}$ với độ cao không đổi, biết lúc đó trời lặng gió thì lúc 11h máy bay ở tọa độ $(686; 150; 9)$. &
-\centering \includegraphics[width=5cm]{fig_maybay.png}
-\end{tabular}
+\textbf{d)} Sau khi bay đến vị trí lúc 10h30 thì máy bay bay theo hướng ngược lại với vận tốc $800\text{ km/h}$ với độ cao không đổi, biết lúc đó trời lặng gió thì lúc 11h máy bay ở tọa độ $(686; 150; 9)$.
 
-\vspace{0.25cm}
-% CÂU 4 PHẦN 2
+@@END_SIDE_BY_SIDE_MAYBAY@@
+
+% CÂU 4 PHẦN 2 (Bảng chiều cao)
 \textbf{Câu 4.} Khảo sát chiều cao của 20 học sinh nam lớp 12A của một trường THPT X, người ta được kết quả thống kê trong bảng sau:
 
 \begin{center}
@@ -280,72 +193,53 @@ Khoảng biến thiên của mẫu số liệu ghép nhóm trên bằng
 \end{tabular}
 \end{center}
 
-\noindent\textbf{a)} Gọi $x_1; x_2; \dots; x_{20}$ là mẫu số liệu gốc gồm chiều cao của 20 học sinh trên được xếp theo thứ tự không giảm. Khi đó, $x_3 \in [165; 170)$ và $x_9 \in [170; 175)$.
+\textbf{a)} Gọi $x_1; x_2; \dots; x_{20}$ là mẫu số liệu gốc gồm chiều cao của 20 học sinh trên được xếp theo thứ tự không giảm. Khi đó, $x_3 \in [165; 170)$ và $x_9 \in [170; 175)$.
 
-\vspace{0.08cm}
-\noindent\textbf{b)} Tứ phân vị thứ ba của mẫu số liệu ghép nhóm đã cho bằng $175$.
+\textbf{b)} Tứ phân vị thứ ba của mẫu số liệu ghép nhóm đã cho bằng $175$.
 
-\vspace{0.08cm}
-\noindent\textbf{c)} Khoảng tứ phân vị của mẫu số liệu ghép nhóm đã cho là $\Delta Q = Q_3 - Q_1 = 8{,}5$.
+\textbf{c)} Khoảng tứ phân vị của mẫu số liệu ghép nhóm đã cho là $\Delta Q = Q_3 - Q_1 = 8{,}5$.
 
-\vspace{0.08cm}
-\noindent\textbf{d)} Chọn ngẫu nhiên một học sinh trong nhóm khảo sát nói trên, xác suất chọn được học sinh có chiều cao từ $175\text{ cm}$ trở lên bằng $0{,}25$.
-
-\vspace{0.35cm}
-% TIÊU ĐỀ PHẦN 3
-\noindent\fbox{\textbf{\large PHẦN 3. Câu trắc nghiệm trả lời ngắn}}
-
-\vspace{0.15cm}
-\noindent\textit{Thí sinh trả lời từ câu 1 đến câu 6.}
-
-\vspace{0.25cm}
-% CÂU 1 PHẦN 3
-\textbf{Câu 1.} Một doanh nghiệp dự kiến sản xuất không quá $2000$ sản phẩm cùng loại. Giả sử rằng doanh thu của doanh nghiệp khi sản xuất $x$ sản phẩm ($x \in \mathbb{N}$; $0 \leqslant x \leqslant 2000$) là $R(x) = 16x - 0{,}005x^2$ (triệu đồng) và doanh nghiệp phải nộp một khoản thuế là $5\%$ của doanh thu $R(x)$. Chi phí để sản xuất mỗi sản phẩm là bốn triệu đồng. Lợi nhuận của doanh nghiệp (khi sản xuất $x$ sản phẩm) được tính theo công thức: Lợi nhuận bằng doanh thu trừ đi thuế và chi phí. Doanh nghiệp phải sản xuất bao nhiêu sản phẩm để thu được lợi nhuận lớn nhất?
-
-\vspace{0.1cm}
-\noindent\textbf{KQ:} \begin{tabular}{|p{0.55cm}|p{0.55cm}|p{0.55cm}|p{0.55cm}|} \hline \phantom{0} & \phantom{0} & \phantom{0} & \phantom{0} \tabularnewline \hline \end{tabular}
-
-\vspace{0.25cm}
-% CÂU 2 PHẦN 3 (Shipper)
-\noindent
-\begin{tabular}{@{}p{11.8cm}p{5.2cm}@{}}
-\textbf{Câu 2.} Một bác Shipper giao hàng xuất phát từ kho $A$ để lấy hàng và đi giao tất cả các con đường sau đó lại trở về kho $A$ để trả lại những hàng hóa mà khách hàng chưa nhận. Con đường có sơ đồ và thời gian giao hàng (phút) trên mỗi con đường được mô tả trong hình sau. Thời gian ngắn nhất để bác Shipper hoàn thành công việc trên là bao nhiêu phút?
-
-\vspace{0.15cm}
-\noindent\textbf{KQ:} \begin{tabular}{|p{0.55cm}|p{0.55cm}|p{0.55cm}|p{0.55cm}|} \hline \phantom{0} & \phantom{0} & \phantom{0} & \phantom{0} \tabularnewline \hline \end{tabular} &
-\centering \includegraphics[width=5cm]{fig_shipper.png}
-\end{tabular}
-
-\vspace{0.25cm}
-% CÂU 3 PHẦN 3
-\textbf{Câu 3.} Trong không gian $Oxyz$, cho tam giác $ABC$ có $A(-4; -1; 2)$, $B(3; 5; -6)$ và $C(a; b; c)$. Biết trung điểm cạnh $AC$ thuộc trục tung, trung điểm cạnh $BC$ thuộc mặt phẳng $(Oxz)$. Tính $T = 2a + b - c$.
-
-\vspace{0.1cm}
-\noindent\textbf{KQ:} \begin{tabular}{|p{0.55cm}|p{0.55cm}|p{0.55cm}|p{0.55cm}|} \hline \phantom{0} & \phantom{0} & \phantom{0} & \phantom{0} \tabularnewline \hline \end{tabular}
+\textbf{d)} Chọn ngẫu nhiên một học sinh trong nhóm khảo sát nói trên, xác suất chọn được học sinh có chiều cao từ $175\text{ cm}$ trở lên bằng $0{,}25$.
 
 \newpage
 % TRANG 4
+@@SECTION_3_HEADER@@
+
+% CÂU 1 PHẦN 3
+\textbf{Câu 1.} Một doanh nghiệp dự kiến sản xuất không quá $2000$ sản phẩm cùng loại. Giả sử rằng doanh thu của doanh nghiệp khi sản xuất $x$ sản phẩm ($x \in \mathbb{N}$; $0 \leqslant x \leqslant 2000$) là $R(x) = 16x - 0{,}005x^2$ (triệu đồng) và doanh nghiệp phải nộp một khoản thuế là $5\%$ của doanh thu $R(x)$. Chi phí để sản xuất mỗi sản phẩm là bốn triệu đồng. Lợi nhuận của doanh nghiệp (khi sản xuất $x$ sản phẩm) được tính theo công thức: Lợi nhuận bằng doanh thu trừ đi thuế và chi phí. Doanh nghiệp phải sản xuất bao nhiêu sản phẩm để thu được lợi nhuận lớn nhất?
+
+@@ANSWER_BOX_1@@
+
+% CÂU 2 PHẦN 3 (Shipper)
+@@START_SIDE_BY_SIDE_SHIPPER@@
+
+\textbf{Câu 2.} Một bác Shipper giao hàng xuất phát từ kho $A$ để lấy hàng và đi giao tất cả các con đường sau đó lại trở về kho $A$ để trả lại những hàng hóa mà khách hàng chưa nhận. Con đường có sơ đồ và thời gian giao hàng (phút) trên mỗi con đường được mô tả trong hình bên. Thời gian ngắn nhất để bác Shipper hoàn thành công việc trên là bao nhiêu phút?
+
+@@ANSWER_BOX_2@@
+
+@@END_SIDE_BY_SIDE_SHIPPER@@
+
+% CÂU 3 PHẦN 3
+\textbf{Câu 3.} Trong không gian $Oxyz$, cho tam giác $ABC$ có $A(-4; -1; 2)$, $B(3; 5; -6)$ và $C(a; b; c)$. Biết trung điểm cạnh $AC$ thuộc trục tung, trung điểm cạnh $BC$ thuộc mặt phẳng $(Oxz)$. Tính $T = 2a + b - c$.
+
+@@ANSWER_BOX_3@@
+
 % CÂU 4 PHẦN 3
 \textbf{Câu 4.} Cho tập hợp $X = \{1; 2; 3; 4; 5; 6; 7; 8\}$. Gọi $S$ là tập hợp tất cả các số tự nhiên có 4 chữ số được lập từ các chữ số thuộc tập $X$. Chọn ngẫu nhiên một số từ tập hợp $S$. Xác suất để chọn được một số chia hết cho 3 bằng $\dfrac{a}{b}$ (với $a, b \in \mathbb{N}^*$, $\dfrac{a}{b}$ là phân số tối giản). Tính $T = a + b$.
 
-\vspace{0.1cm}
-\noindent\textbf{KQ:} \begin{tabular}{|p{0.55cm}|p{0.55cm}|p{0.55cm}|p{0.55cm}|} \hline \phantom{0} & \phantom{0} & \phantom{0} & \phantom{0} \tabularnewline \hline \end{tabular}
+@@ANSWER_BOX_4@@
 
-\vspace{0.25cm}
 % CÂU 5 PHẦN 3
 \textbf{Câu 5.} Một quần thể vi khuẩn được nuôi cấy trong phòng thí nghiệm. Nồng độ dinh dưỡng $S$ (đơn vị: $\text{mg/}\ell$) thay đổi theo thời gian $t$ giờ ($t \geqslant 0$) được mô hình hóa bởi hàm số: $S(t) = \dfrac{10t + 5}{t + 1}$. Biết tốc độ sinh trưởng $V$ của vi khuẩn phụ thuộc vào nồng độ dinh dưỡng theo hàm số $V(S) = \dfrac{5S}{S + 2}$. Khi thời gian $t$ kéo dài, tốc độ sinh trưởng $V$ tăng dần và ổn định quanh một ngưỡng $K$ nhất định. Hỏi sau bao nhiêu phút thì tốc độ sinh trưởng của vi khuẩn đạt $90\%$ ngưỡng $K$?
 
-\vspace{0.1cm}
-\noindent\textbf{KQ:} \begin{tabular}{|p{0.55cm}|p{0.55cm}|p{0.55cm}|p{0.55cm}|} \hline \phantom{0} & \phantom{0} & \phantom{0} & \phantom{0} \tabularnewline \hline \end{tabular}
+@@ANSWER_BOX_5@@
 
-\vspace{0.25cm}
 % CÂU 6 PHẦN 3
 \textbf{Câu 6.} Trong không gian với hệ trục tọa độ $Oxyz$, mặt phẳng $(P)\colon bcx + acy + abz - abc = 0$ qua điểm $M(2; 4; 8)$ và cắt các tia $Ox, Oy, Oz$ lần lượt tại $A, B, C$ sao cho $OA = 2OB = 4OC$. Tính $T = a + b + c$.
 
-\vspace{0.1cm}
-\noindent\textbf{KQ:} \begin{tabular}{|p{0.55cm}|p{0.55cm}|p{0.55cm}|p{0.55cm}|} \hline \phantom{0} & \phantom{0} & \phantom{0} & \phantom{0} \tabularnewline \hline \end{tabular}
+@@ANSWER_BOX_6@@
 
-\vspace{0.6cm}
+\vspace{0.4cm}
 \begin{center}
 \textbf{---------- HẾT ----------}
 \end{center}
@@ -353,17 +247,21 @@ Khoảng biến thiên của mẫu số liệu ghép nhóm trên bằng
 \end{document}
 """
 
-with open("De_Thi_2009_perfect.tex", "w", encoding="utf-8") as f:
+temp_tex = os.path.join(CURRENT_DIR, "temp_build.tex")
+temp_docx = os.path.join(CURRENT_DIR, "temp_build.docx")
+
+with open(temp_tex, "w", encoding="utf-8") as f:
     f.write(tex_content)
 
 pandoc_exe = os.path.expandvars(r"%LOCALAPPDATA%\Pandoc\pandoc.exe")
-cmd = [pandoc_exe, "De_Thi_2009_perfect.tex", "-o", "De_Thi_2009_temp.docx"]
-subprocess.run(cmd, check=True)
+print("[1/5] Đang chuyển đổi TeX sang Word qua Pandoc...")
+subprocess.run([pandoc_exe, temp_tex, "-o", temp_docx], check=True)
 
-# Post-processing với python-docx:
-doc = docx.Document("De_Thi_2009_temp.docx")
+# 2. KHỞI TẠO VÀ XỬ LÝ VỚI PYTHON-DOCX
+print("[2/5] Đang cấu hình trang A4 và thông số phông chữ...")
+doc = docx.Document(temp_docx)
 
-# 1. Khổ giấy và Căn lề A4 chuẩn Quốc gia
+# Cấu hình lề trang và Footer chuẩn
 for s in doc.sections:
     s.top_margin = Cm(1.6)
     s.bottom_margin = Cm(1.6)
@@ -372,24 +270,23 @@ for s in doc.sections:
     s.page_width = Cm(21.0)
     s.page_height = Cm(29.7)
     
-    # Footer
     footer = s.footer
     f_p = footer.paragraphs[0]
     f_p.alignment = WD_ALIGN_PARAGRAPH.RIGHT
     f_p.text = ""
-    run_l = f_p.add_run("Lớp Toán Cô Thúy  •  ĐT: 0935.322.328  •  50/2C Phạm Thị Liên                                   ")
-    run_l.font.name = "Times New Roman"
-    run_l.font.size = Pt(9.5)
-    run_l.italic = True
-    run_l.font.color.rgb = RGBColor(100, 100, 100)
+    r_l = f_p.add_run("Lớp Toán Cô Thúy  •  SĐT: 0935.322.328  •  50/2C Phạm Thị Liên                                   ")
+    r_l.font.name = "Times New Roman"
+    r_l.font.size = Pt(9.5)
+    r_l.italic = True
+    r_l.font.color.rgb = RGBColor(100, 100, 100)
     
-    run_r = f_p.add_run("Trang Mã đề 2009")
-    run_r.font.name = "Times New Roman"
-    run_r.font.size = Pt(9.5)
-    run_r.italic = True
-    run_r.font.color.rgb = RGBColor(80, 80, 80)
+    r_r = f_p.add_run("Trang Mã đề 2009")
+    r_r.font.name = "Times New Roman"
+    r_r.font.size = Pt(9.5)
+    r_r.italic = True
+    r_r.font.color.rgb = RGBColor(80, 80, 80)
 
-# 2. Chuẩn hoá Style Normal
+# Cấu hình style Normal Times New Roman 12pt
 style = doc.styles['Normal']
 style.font.name = 'Times New Roman'
 style.font.size = Pt(12)
@@ -398,23 +295,355 @@ rPr = style.element.get_or_add_rPr()
 rFonts = parse_xml(r'<w:rFonts %s w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>' % nsdecls('w'))
 rPr.append(rFonts)
 
-def format_paragraph(p):
-    p.paragraph_format.line_spacing = 1.15
-    p.paragraph_format.space_after = Pt(2.5)
-    p.paragraph_format.space_before = Pt(0)
+# Helper function tạo bảng Header chuyên nghiệp
+def insert_header_and_code(target_p):
+    # 1. Bảng Header 1 hàng 2 cột
+    tbl = doc.add_table(rows=1, cols=2)
+    tbl.alignment = WD_TABLE_ALIGNMENT.CENTER
     
-    text = p.text.strip()
-    # CĂN ĐỀU 2 BÊN (JUSTIFY) CHO CÂU HỎI VÀ CÁC MỆNH ĐỀ ĐÚNG SAI
-    if text.startswith("Câu ") or text.startswith("a)") or text.startswith("b)") or text.startswith("c)") or text.startswith("d)"):
-        p.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
-    elif text.startswith("PHẦN"):
-        p.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.LEFT
-    elif "HẾT" in text or "MÃ ĐỀ" in text:
-        p.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    elif text.startswith("A.") or text.startswith("B.") or text.startswith("C.") or text.startswith("D."):
-        p.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
+    cell_0 = tbl.rows[0].cells[0]
+    cell_1 = tbl.rows[0].cells[1]
+    cell_0.width = Cm(8.6)
+    cell_1.width = Cm(8.9)
+    cell_0.vertical_alignment = WD_ALIGN_VERTICAL.CENTER
+    cell_1.vertical_alignment = WD_ALIGN_VERTICAL.CENTER
+    
+    # Viền xanh navy sang trọng và đường kẻ dọc giữa
+    tblPr = tbl._tbl.tblPr
+    tblBorders = parse_xml(
+        r'<w:tblBorders %s>'
+        r'<w:top w:val="single" w:sz="12" w:space="0" w:color="1F497D"/>'
+        r'<w:left w:val="single" w:sz="12" w:space="0" w:color="1F497D"/>'
+        r'<w:bottom w:val="single" w:sz="12" w:space="0" w:color="1F497D"/>'
+        r'<w:right w:val="single" w:sz="12" w:space="0" w:color="1F497D"/>'
+        r'<w:insideH w:val="none"/>'
+        r'<w:insideV w:val="single" w:sz="6" w:space="0" w:color="1F497D"/>'
+        r'</w:tblBorders>' % nsdecls('w')
+    )
+    tblPr.append(tblBorders)
+    
+    # Shading nhẹ cho Header
+    for cell in [cell_0, cell_1]:
+        tcPr = cell._tc.get_or_add_tcPr()
+        shd = parse_xml(r'<w:shd %s w:fill="F4F7FA"/>' % nsdecls('w'))
+        tcPr.append(shd)
+        
+    # Nội dung Cột Trái
+    p0 = cell_0.paragraphs[0]
+    p0.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    p0.paragraph_format.line_spacing = 1.15
+    p0.paragraph_format.space_before = Pt(3)
+    p0.paragraph_format.space_after = Pt(2)
+    r = p0.add_run("LỚP TOÁN CÔ THÚY\n")
+    r.bold = True
+    r.font.name = "Times New Roman"
+    r.font.size = Pt(13)
+    r.font.color.rgb = RGBColor(31, 73, 125)
+    
+    r2 = p0.add_run("SĐT: 0935.322.328\n")
+    r2.bold = True
+    r2.font.name = "Times New Roman"
+    r2.font.size = Pt(11)
+    
+    r3 = p0.add_run("Đ/c: 50/2C Phạm Thị Liên")
+    r3.bold = True
+    r3.font.name = "Times New Roman"
+    r3.font.size = Pt(11)
+    
+    # Nội dung Cột Phải
+    p1 = cell_1.paragraphs[0]
+    p1.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    p1.paragraph_format.line_spacing = 1.15
+    p1.paragraph_format.space_before = Pt(3)
+    p1.paragraph_format.space_after = Pt(2)
+    r4 = p1.add_run("ĐỀ ÔN TẬP TOÁN\n")
+    r4.bold = True
+    r4.font.name = "Times New Roman"
+    r4.font.size = Pt(13)
+    r4.font.color.rgb = RGBColor(192, 0, 0)
+    
+    r5 = p1.add_run("MÔN: TOÁN – KHỐI LỚP: 12\n")
+    r5.bold = True
+    r5.font.name = "Times New Roman"
+    r5.font.size = Pt(11)
+    
+    r6 = p1.add_run("Thời gian làm bài: 90 phút (không kể phát đề)")
+    r6.italic = True
+    r6.font.name = "Times New Roman"
+    r6.font.size = Pt(10.5)
+    
+    target_p._p.addprevious(tbl._tbl)
+    
+    # 2. Hộp Mã đề thi 2009 căn phải
+    p_ma = doc.add_paragraph()
+    p_ma.alignment = WD_ALIGN_PARAGRAPH.RIGHT
+    p_ma.paragraph_format.space_before = Pt(4)
+    p_ma.paragraph_format.space_after = Pt(6)
+    r_ma = p_ma.add_run("  MÃ ĐỀ THI 2009  ")
+    r_ma.bold = True
+    r_ma.font.name = "Times New Roman"
+    r_ma.font.size = Pt(11)
+    r_maPr = r_ma._r.get_or_add_rPr()
+    r_maPr.append(parse_xml(r'<w:bdr %s w:val="single" w:sz="8" w:space="3" w:color="000000"/>' % nsdecls('w')))
+    
+    target_p._p.addprevious(p_ma._p)
+    target_p._p.getparent().remove(target_p._p)
 
-    # Đảm bảo font Times New Roman 12pt
+# Helper function tạo Section header banner
+def insert_section_header(target_p, sec_num, title_text, desc_text):
+    p_sec = doc.add_paragraph()
+    p_sec.paragraph_format.space_before = Pt(8)
+    p_sec.paragraph_format.space_after = Pt(2)
+    r_sec = p_sec.add_run(f"  {title_text}  ")
+    r_sec.bold = True
+    r_sec.font.name = "Times New Roman"
+    r_sec.font.size = Pt(12)
+    r_sec.font.color.rgb = RGBColor(0, 80, 160)
+    rPr = r_sec._r.get_or_add_rPr()
+    rPr.append(parse_xml(r'<w:bdr %s w:val="single" w:sz="8" w:space="3" w:color="0050A0"/>' % nsdecls('w')))
+    rPr.append(parse_xml(r'<w:shd %s w:fill="EDF3F8"/>' % nsdecls('w')))
+    
+    p_desc = doc.add_paragraph()
+    p_desc.paragraph_format.space_before = Pt(0)
+    p_desc.paragraph_format.space_after = Pt(4)
+    r_desc = p_desc.add_run(desc_text)
+    r_desc.italic = True
+    r_desc.font.name = "Times New Roman"
+    r_desc.font.size = Pt(11)
+    
+    target_p._p.addprevious(p_sec._p)
+    target_p._p.addprevious(p_desc._p)
+    target_p._p.getparent().remove(target_p._p)
+
+# Helper function tạo ô trả lời ngắn 4 ô vuông chuẩn THPT 2025
+def create_answer_box_table():
+    tbl = doc.add_table(rows=1, cols=5)
+    tbl.alignment = WD_TABLE_ALIGNMENT.LEFT
+    
+    cell_kq = tbl.rows[0].cells[0]
+    cell_kq.width = Cm(1.1)
+    p_kq = cell_kq.paragraphs[0]
+    p_kq.paragraph_format.space_before = Pt(0)
+    p_kq.paragraph_format.space_after = Pt(0)
+    r = p_kq.add_run("KQ:")
+    r.bold = True
+    r.font.name = "Times New Roman"
+    r.font.size = Pt(12)
+    
+    for col_idx in range(1, 5):
+        cell = tbl.rows[0].cells[col_idx]
+        cell.width = Cm(0.65)
+        tcPr = cell._tc.get_or_add_tcPr()
+        borders = parse_xml(
+            r'<w:tcBorders %s>'
+            r'<w:top w:val="single" w:sz="8" w:space="0" w:color="000000"/>'
+            r'<w:left w:val="single" w:sz="8" w:space="0" w:color="000000"/>'
+            r'<w:bottom w:val="single" w:sz="8" w:space="0" w:color="000000"/>'
+            r'<w:right w:val="single" w:sz="8" w:space="0" w:color="000000"/>'
+            r'</w:tcBorders>' % nsdecls('w')
+        )
+        tcPr.append(borders)
+    
+    trPr = tbl.rows[0]._tr.get_or_add_trPr()
+    trHeight = parse_xml(r'<w:trHeight %s w:val="380" w:hRule="exact"/>' % nsdecls('w'))
+    trPr.append(trHeight)
+    
+    tblPr = tbl._tbl.tblPr
+    tblBorders = parse_xml(
+        r'<w:tblBorders %s>'
+        r'<w:top w:val="none"/>'
+        r'<w:left w:val="none"/>'
+        r'<w:bottom w:val="none"/>'
+        r'<w:right w:val="none"/>'
+        r'<w:insideH w:val="none"/>'
+        r'<w:insideV w:val="none"/>'
+        r'</w:tblBorders>' % nsdecls('w')
+    )
+    tblPr.append(tblBorders)
+    return tbl
+
+# 3. THAY THẾ HEADER VÀ CÁC SECTION BANNERS
+print("[3/5] Đang thiết kế Tiêu đề bài thi và Khung nhận diện các phần...")
+for p in list(doc.paragraphs):
+    if "@@DOCUMENT_HEADER@@" in p.text:
+        insert_header_and_code(p)
+    elif "@@SECTION_1_HEADER@@" in p.text:
+        insert_section_header(p, 1, "PHẦN 1. Câu trắc nghiệm 4 phương án", "Thí sinh trả lời từ câu 1 đến câu 12. Mỗi câu hỏi thí sinh chỉ chọn một phương án.")
+    elif "@@SECTION_2_HEADER@@" in p.text:
+        insert_section_header(p, 2, "PHẦN 2. Câu trắc nghiệm đúng sai", "Thí sinh trả lời từ câu 1 đến câu 4. Trong mỗi ý a), b), c), d) ở mỗi câu, thí sinh chọn đúng hoặc sai.")
+    elif "@@SECTION_3_HEADER@@" in p.text:
+        insert_section_header(p, 3, "PHẦN 3. Câu trắc nghiệm trả lời ngắn", "Thí sinh trả lời từ câu 1 đến câu 6.")
+
+# 4. XỬ LÝ CÁC KHỐI SIDE-BY-SIDE (ĐỒ THỊ/HÌNH VẼ BÊN PHẢI)
+print("[4/5] Đang định dạng các khối đồ thị & hình vẽ bên phải...")
+side_by_side_configs = [
+    ("CAU4", "fig_cau4.png", 4.6),
+    ("CAU8", "fig_cau8.png", 4.6),
+    ("TAMGIAC", "fig_tamgiac.png", 4.4),
+    ("MAYBAY", "fig_maybay.png", 5.0),
+    ("SHIPPER", "fig_shipper.png", 5.0),
+]
+
+for tag, img_name, img_width_cm in side_by_side_configs:
+    start_tag = f"@@START_SIDE_BY_SIDE_{tag}@@"
+    end_tag = f"@@END_SIDE_BY_SIDE_{tag}@@"
+    
+    start_p = None
+    end_p = None
+    inner_ps = []
+    found = False
+    
+    for p in doc.paragraphs:
+        if start_tag in p.text:
+            start_p = p
+            found = True
+            continue
+        if end_tag in p.text:
+            end_p = p
+            found = False
+            continue
+        if found:
+            inner_ps.append(p)
+            
+    if start_p and end_p:
+        tbl = doc.add_table(rows=1, cols=2)
+        tbl.alignment = WD_TABLE_ALIGNMENT.CENTER
+        
+        tblPr = tbl._tbl.tblPr
+        tblBorders = parse_xml(
+            r'<w:tblBorders %s>'
+            r'<w:top w:val="none"/>'
+            r'<w:left w:val="none"/>'
+            r'<w:bottom w:val="none"/>'
+            r'<w:right w:val="none"/>'
+            r'<w:insideH w:val="none"/>'
+            r'<w:insideV w:val="none"/>'
+            r'</w:tblBorders>' % nsdecls('w')
+        )
+        tblPr.append(tblBorders)
+        
+        cell_0 = tbl.rows[0].cells[0]
+        cell_1 = tbl.rows[0].cells[1]
+        cell_0.width = Cm(11.8)
+        cell_1.width = Cm(5.7)
+        cell_0.vertical_alignment = WD_ALIGN_VERTICAL.CENTER
+        cell_1.vertical_alignment = WD_ALIGN_VERTICAL.CENTER
+        
+        start_p._p.addprevious(tbl._tbl)
+        cell_0._tc.remove(cell_0.paragraphs[0]._p)
+        
+        for p in inner_ps:
+            if "@@ANSWER_BOX_2@@" in p.text:
+                box_tbl = create_answer_box_table()
+                cell_0._tc.append(box_tbl._tbl)
+                p._p.getparent().remove(p._p)
+            else:
+                cell_0._tc.append(p._p)
+                
+        img_path = os.path.join(HINH_ANH_DIR, img_name)
+        cell_1_p = cell_1.paragraphs[0]
+        cell_1_p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        cell_1_p.paragraph_format.space_before = Pt(0)
+        cell_1_p.paragraph_format.space_after = Pt(0)
+        if os.path.exists(img_path):
+            cell_1_p.add_run().add_picture(img_path, width=Cm(img_width_cm))
+            
+        start_p._p.getparent().remove(start_p._p)
+        end_p._p.getparent().remove(end_p._p)
+
+# Chèn bảng biến thiên và các ô điền đáp án ngắn còn lại
+for p in list(doc.paragraphs):
+    if "@@CENTER_IMAGE_BBT@@" in p.text:
+        img_path = os.path.join(HINH_ANH_DIR, "fig_bbt.png")
+        p.text = ""
+        p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        p.paragraph_format.space_before = Pt(4)
+        p.paragraph_format.space_after = Pt(6)
+        if os.path.exists(img_path):
+            p.add_run().add_picture(img_path, width=Cm(11.0))
+            
+    for num in [1, 3, 4, 5, 6]:
+        tag = f"@@ANSWER_BOX_{num}@@"
+        if tag in p.text:
+            box_tbl = create_answer_box_table()
+            p._p.addprevious(box_tbl._tbl)
+            p._p.getparent().remove(p._p)
+            break
+
+# 5. CHUẨN HOÁ TOÀN DIỆN CĂN LỀ, CANH TAB VÀ JUSTIFIED
+print("[5/5] Đang chuẩn hoá Canh lề Justified, Canh Tab Ruler và phông chữ...")
+
+def format_doc_paragraph(p, inside_table_cell=False):
+    p_xml = p._p.xml
+    text = p.text.strip()
+    
+    # 5.1. XỬ LÝ CANH TAB CHO CÁC PHƯƠNG ÁN TRẮC NGHIỆM
+    if "@@TAB@@" in p_xml:
+        tab_count = p_xml.count("@@TAB@@")
+        new_xml = p_xml.replace("@@TAB@@", '</w:t><w:tab/><w:t>')
+        new_p = parse_xml(new_xml)
+        p._p.getparent().replace(p._p, new_p)
+        
+        pPr = new_p.get_or_add_pPr()
+        # Set alignment: LEFT để Tab Stops căn cột thẳng tắp trên Ruler
+        for jc in pPr.findall(qn('w:jc')):
+            pPr.remove(jc)
+        pPr.append(parse_xml(r'<w:jc %s w:val="left"/>' % nsdecls('w')))
+        
+        # Set tab stops
+        for tabs in pPr.findall(qn('w:tabs')):
+            pPr.remove(tabs)
+        if inside_table_cell:
+            # Trong ô bảng 2 cột: Tab tại 5.8 cm
+            tabs_xml = r'<w:tabs %s><w:tab w:val="left" w:pos="3289"/></w:tabs>' % nsdecls('w')
+        elif tab_count >= 3:
+            # 4 phương án trên 1 dòng: Tab tại 4.4 cm, 8.8 cm, 13.2 cm
+            tabs_xml = r'<w:tabs %s><w:tab w:val="left" w:pos="2495"/><w:tab w:val="left" w:pos="4990"/><w:tab w:val="left" w:pos="7484"/></w:tabs>' % nsdecls('w')
+        else:
+            # 2 phương án trên 1 dòng: Tab tại 8.8 cm
+            tabs_xml = r'<w:tabs %s><w:tab w:val="left" w:pos="4990"/></w:tabs>' % nsdecls('w')
+        pPr.append(parse_xml(tabs_xml))
+        
+        # Set spacing
+        for sp in pPr.findall(qn('w:spacing')):
+            pPr.remove(sp)
+        sp_xml = r'<w:spacing %s w:before="0" w:after="70" w:line="276" w:lineRule="auto"/>' % nsdecls('w')
+        pPr.append(parse_xml(sp_xml))
+        return
+
+    # 5.2. CĂN ĐỀU 2 BÊN (JUSTIFY) CHO CÂU HỎI VÀ MỆNH ĐỀ ĐÚNG SAI
+    pPr = p._p.get_or_add_pPr()
+    if text.startswith("Câu ") or text.startswith("a)") or text.startswith("b)") or text.startswith("c)") or text.startswith("d)"):
+        for jc in pPr.findall(qn('w:jc')):
+            pPr.remove(jc)
+        pPr.append(parse_xml(r'<w:jc %s w:val="both"/>' % nsdecls('w')))
+        
+        for sp in pPr.findall(qn('w:spacing')):
+            pPr.remove(sp)
+        if text.startswith("Câu "):
+            sp_xml = r'<w:spacing %s w:before="60" w:after="40" w:line="276" w:lineRule="auto"/>' % nsdecls('w')
+        else:
+            sp_xml = r'<w:spacing %s w:before="0" w:after="40" w:line="276" w:lineRule="auto"/>' % nsdecls('w')
+        pPr.append(parse_xml(sp_xml))
+    elif text.startswith("A.") or text.startswith("B.") or text.startswith("C.") or text.startswith("D."):
+        # Trường hợp 4 dòng riêng biệt (Câu 1)
+        for jc in pPr.findall(qn('w:jc')):
+            pPr.remove(jc)
+        pPr.append(parse_xml(r'<w:jc %s w:val="both"/>' % nsdecls('w')))
+        for sp in pPr.findall(qn('w:spacing')):
+            pPr.remove(sp)
+        sp_xml = r'<w:spacing %s w:before="0" w:after="40" w:line="276" w:lineRule="auto"/>' % nsdecls('w')
+        pPr.append(parse_xml(sp_xml))
+    elif "HẾT" in text:
+        for jc in pPr.findall(qn('w:jc')):
+            pPr.remove(jc)
+        pPr.append(parse_xml(r'<w:jc %s w:val="center"/>' % nsdecls('w')))
+        for sp in pPr.findall(qn('w:spacing')):
+            pPr.remove(sp)
+        sp_xml = r'<w:spacing %s w:before="140" w:after="140" w:line="276" w:lineRule="auto"/>' % nsdecls('w')
+        pPr.append(parse_xml(sp_xml))
+
+    # Đảm bảo phông chữ Times New Roman 12pt
     for r in p.runs:
         r.font.name = 'Times New Roman'
         r.font.size = Pt(12)
@@ -422,40 +651,21 @@ def format_paragraph(p):
         f = parse_xml(r'<w:rFonts %s w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>' % nsdecls('w'))
         r_rPr.append(f)
 
-for p in doc.paragraphs:
-    format_paragraph(p)
+# Duyệt các đoạn văn ở Body
+for p in list(doc.paragraphs):
+    format_doc_paragraph(p, inside_table_cell=False)
 
-# 3. Xử lý các bảng
-is_header_table = True
+# Duyệt và định dạng các bảng
 for table in doc.tables:
-    table.alignment = WD_TABLE_ALIGNMENT.CENTER
     is_data_table = False
-    is_answer_box = False
     for row in table.rows:
         for cell in row.cells:
             text = cell.text.strip()
             if 'Quãng đường' in text or 'Số ngày' in text or 'Chiều cao' in text or 'Số học sinh' in text:
                 is_data_table = True
-            if len(row.cells) == 4 and all(c.text.strip() == '' for c in row.cells):
-                is_answer_box = True
-
-    if is_header_table:
-        # Bảng Header: viền xanh navy sang trọng
-        tblPr = table._tbl.tblPr
-        tblBorders = parse_xml(
-            r'<w:tblBorders %s>'
-            r'<w:top w:val="single" w:sz="12" w:space="0" w:color="1F497D"/>'
-            r'<w:left w:val="single" w:sz="12" w:space="0" w:color="1F497D"/>'
-            r'<w:bottom w:val="single" w:sz="12" w:space="0" w:color="1F497D"/>'
-            r'<w:right w:val="single" w:sz="12" w:space="0" w:color="1F497D"/>'
-            r'<w:insideH w:val="none"/>'
-            r'<w:insideV w:val="single" w:sz="6" w:space="0" w:color="1F497D"/>'
-            r'</w:tblBorders>' % nsdecls('w')
-        )
-        tblPr.append(tblBorders)
-        is_header_table = False
-    elif is_answer_box:
-        # Ô trả lời ngắn: giữ viền đen chuẩn
+                
+    if is_data_table:
+        table.alignment = WD_TABLE_ALIGNMENT.CENTER
         tblPr = table._tbl.tblPr
         tblBorders = parse_xml(
             r'<w:tblBorders %s>'
@@ -468,29 +678,22 @@ for table in doc.tables:
             r'</w:tblBorders>' % nsdecls('w')
         )
         tblPr.append(tblBorders)
-    elif not is_data_table:
-        # Xóa viền cho bảng layout ảnh và bảng phương án A, B, C, D
-        tblPr = table._tbl.tblPr
-        tblBorders = parse_xml(
-            r'<w:tblBorders %s>'
-            r'<w:top w:val="none"/>'
-            r'<w:left w:val="none"/>'
-            r'<w:bottom w:val="none"/>'
-            r'<w:right w:val="none"/>'
-            r'<w:insideH w:val="none"/>'
-            r'<w:insideV w:val="none"/>'
-            r'</w:tblBorders>' % nsdecls('w')
-        )
-        tblPr.append(tblBorders)
+        for row in table.rows:
+            for cell in row.cells:
+                cell.vertical_alignment = WD_ALIGN_VERTICAL.CENTER
+                for p in cell.paragraphs:
+                    p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+                    p.paragraph_format.line_spacing = 1.0
+                    p.paragraph_format.space_before = Pt(2)
+                    p.paragraph_format.space_after = Pt(2)
 
-    # Format text trong cell
+    # Format text trong mọi ô của bảng
     for row in table.rows:
         for cell in row.cells:
-            cell.vertical_alignment = WD_ALIGN_VERTICAL.CENTER
-            for p in cell.paragraphs:
-                format_paragraph(p)
+            for p in list(cell.paragraphs):
+                format_doc_paragraph(p, inside_table_cell=True)
 
-# Tắt Compatibility Mode
+# Tắt Compatibility Mode để kích hoạt engine Word 2013-2024
 settings = doc.settings.element
 compat = parse_xml(
     r'<w:compat %s>'
@@ -499,6 +702,12 @@ compat = parse_xml(
 )
 settings.append(compat)
 
-output_file = "De_Thi_2009.docx"
-doc.save(output_file)
-print(f"[HOÀN TẤT 100%] Đã lưu file Word chuẩn in ấn: {output_file}")
+# Lưu tệp Word cuối cùng vào thư mục San_Pham
+doc.save(OUTPUT_DOCX)
+print(f"[THÀNH CÔNG RỰC RỠ] Đã xuất bản file Word đạt chuẩn giáo viên: {OUTPUT_DOCX}")
+
+# Xóa file tạm
+if os.path.exists(temp_tex):
+    os.remove(temp_tex)
+if os.path.exists(temp_docx):
+    os.remove(temp_docx)
