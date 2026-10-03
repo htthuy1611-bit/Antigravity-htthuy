@@ -31,6 +31,9 @@ pandoc_exe = os.path.expandvars(r"%LOCALAPPDATA%\Pandoc\pandoc.exe")
 OUTPUT_DE_0103 = os.path.join(SAN_PHAM_DIR, "de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_De_0103.docx")
 OUTPUT_HDG_0103 = os.path.join(SAN_PHAM_DIR, "de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_HDG_0103.docx")
 
+# =========================================================================
+# 1. TEX MÃ ĐỀ 0103 - ĐỀ BÀI HỌC SINH
+# =========================================================================
 tex_de_0103 = r"""\documentclass[12pt,a4paper]{article}
 \usepackage[utf8]{vietnam}
 \usepackage{amsmath,amssymb}
@@ -43,7 +46,7 @@ tex_de_0103 = r"""\documentclass[12pt,a4paper]{article}
 
 @@SECTION_1_HEADER@@
 
-% Câu 1 (Side-by-side)
+% Câu 1 (Side-by-side đồ thị)
 @@START_SIDE_BY_SIDE_C1@@
 
 \textbf{Câu 1.} Cho hàm số bậc ba $y = f(x)$ có đồ thị như hình bên. Hàm số nghịch biến trên khoảng nào sau đây?
@@ -55,7 +58,7 @@ tex_de_0103 = r"""\documentclass[12pt,a4paper]{article}
 @@END_SIDE_BY_SIDE_C1@@
 
 % Câu 2 (BBT)
-\textbf{Câu 2.} Cho hàm số $y = f(x)$ có bảng biến thiên như dưới đây.
+\textbf{Câu 2.} Cho hàm số $y = f(x)$ có bảng biến thiên như dưới đây:
 
 @@CENTER_IMAGE_c2_bbt@@
 
@@ -125,12 +128,12 @@ Hàm số nào dưới đây có bảng biến thiên đã cho?
 
 @@SECTION_2_HEADER@@
 
-% Phần 2 Câu 1 (Side-by-side)
+% Phần 2 Câu 1 (Side-by-side đồ thị)
 @@START_SIDE_BY_SIDE_P2C1@@
 
 \textbf{Câu 1.} Cho hàm số $y = \dfrac{2x + 1}{x - 1}$. Xét tính đúng, sai của các phát biểu sau:
 
-@@TAB@@\textbf{a)} Đạo hàm là $y' = -\dfrac{3}{(x - 1)^2}$.
+@@TAB@@\textbf{a)} Đạo hàm của hàm số là $y' = -\dfrac{3}{(x - 1)^2}$.
 
 @@TAB@@\textbf{b)} Hàm số đồng biến trên khoảng $(1; +\infty)$.
 
@@ -140,7 +143,7 @@ Hàm số nào dưới đây có bảng biến thiên đã cho?
 
 @@END_SIDE_BY_SIDE_P2C1@@
 
-% Phần 2 Câu 2 (Side-by-side)
+% Phần 2 Câu 2 (Side-by-side đồ thị)
 @@START_SIDE_BY_SIDE_P2C2@@
 
 \textbf{Câu 2.} Cho hàm số $y = \dfrac{ax^2 + bx + c}{dx + e}$ ($ad \ne 0$), trong đó đa thức tử không chia hết cho đa thức mẫu. Đồ thị của hàm số được cho như hình bên. Xét tính đúng, sai của các phát biểu sau:
@@ -169,7 +172,7 @@ Hàm số nào dưới đây có bảng biến thiên đã cho?
 % Phần 2 Câu 4 (BBT)
 \textbf{Câu 4.} Cho hàm số $y = f(x) = -x^3 + 3x + 1$. Xét tính đúng, sai của các phát biểu sau:
 
-@@TAB@@\textbf{a)} Đạo hàm là $f'(x) = 3(1 - x^2)$.
+@@TAB@@\textbf{a)} Đạo hàm của hàm số là $f'(x) = 3(1 - x^2)$.
 
 @@TAB@@\textbf{b)} Hàm số đồng biến trên khoảng $(-1; 1)$.
 
@@ -223,6 +226,9 @@ Hàm số có bao nhiêu điểm cực trị?
 \end{document}
 """
 
+# =========================================================================
+# 2. TEX MÃ ĐỀ 0103 - HƯỚNG DẪN GIẢI CHI TIẾT
+# =========================================================================
 tex_hdg_0103 = r"""\documentclass[12pt,a4paper]{article}
 \usepackage[utf8]{vietnam}
 \usepackage{amsmath,amssymb}
@@ -235,7 +241,7 @@ tex_hdg_0103 = r"""\documentclass[12pt,a4paper]{article}
 
 @@SECTION_1_HEADER@@
 
-% Câu 1
+% Câu 1 (Side-by-side đồ thị)
 @@START_SIDE_BY_SIDE_C1@@
 
 \textbf{Câu 1.} Cho hàm số bậc ba $y = f(x)$ có đồ thị như hình bên. Hàm số nghịch biến trên khoảng nào sau đây?
@@ -244,14 +250,14 @@ tex_hdg_0103 = r"""\documentclass[12pt,a4paper]{article}
 
 @@TAB@@\textbf{C.} $(-1; 1)$.@@TAB@@\textbf{D.} $(-\infty; 1)$.
 
-\textbf{Lời giải.} Đồ thị đi xuống từ trái sang phải trên khoảng $(-1; 1)$ nên hàm số nghịch biến trên $(-1; 1)$.
+\textbf{Lời giải.} Dựa vào đồ thị hàm số, trên khoảng $(-1; 1)$ nét đồ thị đi xuống từ cực đại $(-1; 2)$ đến cực tiểu $(1; -2)$, do đó hàm số nghịch biến trên khoảng $(-1; 1)$.
 
 \textbf{==> Chọn đáp án C.}
 
 @@END_SIDE_BY_SIDE_C1@@
 
-% Câu 2
-\textbf{Câu 2.} Cho hàm số $y = f(x)$ có bảng biến thiên như dưới đây.
+% Câu 2 (BBT)
+\textbf{Câu 2.} Cho hàm số $y = f(x)$ có bảng biến thiên như dưới đây:
 
 @@CENTER_IMAGE_c2_bbt@@
 
@@ -259,7 +265,7 @@ Giá trị cực tiểu của hàm số là
 
 @@TAB@@\textbf{A.} $-3$.@@TAB@@\textbf{B.} $-1$.@@TAB@@\textbf{C.} $2$.@@TAB@@\textbf{D.} $4$.
 
-\textbf{Lời giải.} Theo bảng biến thiên, hàm số đạt cực tiểu tại $x = -1$ với giá trị cực tiểu là $y = -3$.
+\textbf{Lời giải.} Từ bảng biến thiên, khi qua $x = -1$, đạo hàm $f'(x)$ đổi dấu từ âm sang dương nên hàm số đạt cực tiểu tại $x = -1$ và giá trị cực tiểu của hàm số là $y_{\text{CT}} = -3$.
 
 \textbf{==> Chọn đáp án A.}
 
@@ -268,7 +274,7 @@ Giá trị cực tiểu của hàm số là
 
 @@TAB@@\textbf{A.} $I\left(-\dfrac{1}{2}; -\dfrac{1}{2}\right)$.@@TAB@@\textbf{B.} $I\left(\dfrac{1}{2}; -\dfrac{1}{2}\right)$.@@TAB@@\textbf{C.} $I(2; 1)$.@@TAB@@\textbf{D.} $I\left(-\dfrac{1}{2}; \dfrac{1}{2}\right)$.
 
-\textbf{Lời giải.} Tiệm cận đứng $x = -\dfrac{1}{2}$, tiệm cận ngang $y = \dfrac{1}{2}$. Giao điểm là $I\left(-\dfrac{1}{2}; \dfrac{1}{2}\right)$.
+\textbf{Lời giải.} Đồ thị hàm số phân thức bậc nhất trên bậc nhất có tiệm cận đứng $x = -\dfrac{1}{2}$ và tiệm cận ngang $y = \dfrac{1}{2}$. Tâm đối xứng của đồ thị là giao điểm hai tiệm cận: $I\left(-\dfrac{1}{2}; \dfrac{1}{2}\right)$.
 
 \textbf{==> Chọn đáp án D.}
 
@@ -283,7 +289,7 @@ Giá trị cực tiểu của hàm số là
 
 @@TAB@@\textbf{D.} Đồ thị không có tiệm cận ngang.
 
-\textbf{Lời giải.} Đạo hàm $y' = \dfrac{2(1) - 5(1)}{(x + 1)^2} = \dfrac{-3}{(x + 1)^2} < 0 \implies$ hàm số nghịch biến trên từng khoảng xác định.
+\textbf{Lời giải.} Ta có $y' = \dfrac{-3}{(x + 1)^2} < 0, \; \forall x \ne -1$. Do đó hàm số nghịch biến trên từng khoảng xác định $(-\infty; -1)$ và $(-1; +\infty)$.
 
 \textbf{==> Chọn đáp án B.}
 
@@ -292,7 +298,7 @@ Giá trị cực tiểu của hàm số là
 
 @@TAB@@\textbf{A.} $y = x$.@@TAB@@\textbf{B.} $y = x + 1$.@@TAB@@\textbf{C.} $y = x - 1$.@@TAB@@\textbf{D.} $x = 0$.
 
-\textbf{Lời giải.} $\lim_{x \to \pm \infty} [y - x] = \lim_{x \to \pm \infty} \dfrac{1}{x} = 0 \implies$ tiệm cận xiên là $y = x$.
+\textbf{Lời giải.} Ta có $\lim\limits_{x \to \pm\infty} [y - x] = \lim\limits_{x \to \pm\infty} \dfrac{1}{x} = 0$, do đó đường thẳng $y = x$ là đường tiệm cận xiên của đồ thị hàm số.
 
 \textbf{==> Chọn đáp án A.}
 
@@ -301,7 +307,7 @@ Giá trị cực tiểu của hàm số là
 
 @@TAB@@\textbf{A.} $I(1; 2)$.@@TAB@@\textbf{B.} $I(-1; 1)$.@@TAB@@\textbf{C.} $I(-1; 0)$.@@TAB@@\textbf{D.} $I(0; -1)$.
 
-\textbf{Lời giải.} Tiệm cận đứng $x = -1$, tiệm cận xiên $y = x + 1$. Với $x = -1 \implies y = 0$. Giao điểm là $I(-1; 0)$.
+\textbf{Lời giải.} Đồ thị hàm số có tiệm cận đứng $x = -1$ và tiệm cận xiên $y = x + 1$. Thay $x = -1$ vào phương trình tiệm cận xiên ta được $y = -1 + 1 = 0$. Vậy giao điểm hai tiệm cận là $I(-1; 0)$.
 
 \textbf{==> Chọn đáp án C.}
 
@@ -310,7 +316,7 @@ Giá trị cực tiểu của hàm số là
 
 @@TAB@@\textbf{A.} $x = 1$.@@TAB@@\textbf{B.} $x = -3$.@@TAB@@\textbf{C.} $x = 3$.@@TAB@@\textbf{D.} $x = -1$.
 
-\textbf{Lời giải.} $f'(x) = 0 \iff x = 1$ hoặc $x = -3$. Đạo hàm đổi dấu từ $+$ sang $-$ qua $x = -3$ nên hàm số đạt cực đại tại $x = -3$.
+\textbf{Lời giải.} Phương trình $f'(x) = 0 \iff x = 1$ hoặc $x = -3$. Qua $x = -3$, đạo hàm $f'(x)$ đổi dấu từ dương sang âm, do đó hàm số đạt cực đại tại $x = -3$.
 
 \textbf{==> Chọn đáp án B.}
 
@@ -319,7 +325,7 @@ Giá trị cực tiểu của hàm số là
 
 @@TAB@@\textbf{A.} $I(-1; 0)$.@@TAB@@\textbf{B.} $I(2; -2)$.@@TAB@@\textbf{C.} $I(-2; 0)$.@@TAB@@\textbf{D.} $I(-2; -2)$.
 
-\textbf{Lời giải.} $y' = 3x^2 + 12x + 9$, $y'' = 6x + 12 = 0 \iff x = -2$. Khi $x = -2 \implies y = (-2)^3 + 6(-2)^2 + 9(-2) = -2$. Tâm đối xứng là $I(-2; -2)$.
+\textbf{Lời giải.} Ta có $y' = 3x^2 + 12x + 9 \implies y'' = 6x + 12 = 0 \iff x = -2 \implies y(-2) = -2$. Tâm đối xứng của đồ thị hàm số bậc ba là điểm uốn $I(-2; -2)$.
 
 \textbf{==> Chọn đáp án D.}
 
@@ -328,11 +334,11 @@ Giá trị cực tiểu của hàm số là
 
 @@TAB@@\textbf{A.} $1$.@@TAB@@\textbf{B.} $3$.@@TAB@@\textbf{C.} $2$.@@TAB@@\textbf{D.} $4$.
 
-\textbf{Lời giải.} Bảng xét dấu $f'(x)$ cho dấu $+$ trên $(-2; 0)$ và $(1; +\infty)$. Vậy có 2 khoảng đồng biến.
+\textbf{Lời giải.} Phương trình $f'(x) = 0 \iff x \in \{-2; 0; 1\}$. Xét dấu $f'(x)$, ta thấy $f'(x) > 0$ trên $(-2; 0)$ và $(1; +\infty)$. Vậy hàm số có đúng 2 khoảng đồng biến.
 
 \textbf{==> Chọn đáp án C.}
 
-% Câu 10
+% Câu 10 (BBT)
 \textbf{Câu 10.} Cho hàm số $y = \dfrac{ax^2 + bx + c}{dx + e}$ ($ad \ne 0$), trong đó đa thức tử không chia hết cho đa thức mẫu. Bảng biến thiên của hàm số được cho như dưới đây:
 
 @@CENTER_IMAGE_c10_bbt@@
@@ -341,7 +347,7 @@ Hàm số nào dưới đây có bảng biến thiên đã cho?
 
 @@TAB@@\textbf{A.} $y = \dfrac{x^2 + 1}{x}$.@@TAB@@\textbf{B.} $y = \dfrac{x^2 - 1}{x}$.@@TAB@@\textbf{C.} $y = \dfrac{x^2 + 1}{x - 1}$.@@TAB@@\textbf{D.} $y = \dfrac{x^2 + 4}{x}$.
 
-\textbf{Lời giải.} TCĐ là $x = 0$, hai điểm cực trị là $(-1; -2)$ và $(1; 2)$. Hàm số phù hợp là $y = \dfrac{x^2 + 1}{x}$.
+\textbf{Lời giải.} Từ bảng biến thiên, đồ thị có tiệm cận đứng $x = 0$, điểm cực đại $(-1; -2)$ và cực tiểu $(1; 2)$. Hàm số $y = \dfrac{x^2 + 1}{x} = x + \dfrac{1}{x}$ có tiệm cận đứng $x = 0$, đạo hàm $y' = \dfrac{x^2 - 1}{x^2} = 0 \iff x = \pm 1$, cực đại $(-1; -2)$ và cực tiểu $(1; 2)$, hoàn toàn phù hợp.
 
 \textbf{==> Chọn đáp án A.}
 
@@ -350,7 +356,7 @@ Hàm số nào dưới đây có bảng biến thiên đã cho?
 
 @@TAB@@\textbf{A.} $x = 2$.@@TAB@@\textbf{B.} $y = 2$.@@TAB@@\textbf{C.} $y = x + 2$.@@TAB@@\textbf{D.} $y = x - 2$.
 
-\textbf{Lời giải.} $\lim_{x \to \pm \infty} [y - (x + 2)] = 0 \implies$ tiệm cận xiên là $y = x + 2$.
+\textbf{Lời giải.} Vì $\lim\limits_{x \to \pm\infty} [y - (x + 2)] = \lim\limits_{x \to \pm\infty} \dfrac{3}{x - 2} = 0$, nên đường thẳng $y = x + 2$ là đường tiệm cận xiên của đồ thị hàm số.
 
 \textbf{==> Chọn đáp án C.}
 
@@ -359,18 +365,18 @@ Hàm số nào dưới đây có bảng biến thiên đã cho?
 
 @@TAB@@\textbf{A.} $x = -1$.@@TAB@@\textbf{B.} $x = 0$.@@TAB@@\textbf{C.} $x = 2$.@@TAB@@\textbf{D.} $x = -2$.
 
-\textbf{Lời giải.} $f'(x) = 0 \iff x = 0$ hoặc $x = -2$. Đạo hàm đổi dấu từ $+$ sang $-$ khi qua $x = -2$ nên điểm cực đại là $x = -2$.
+\textbf{Lời giải.} Vì $(x + 1)^2 > 0$ với mọi $x \ne -1$ nên dấu của $f'(x)$ cùng dấu với $x(x + 2)$. Khi qua $x = -2$, $f'(x)$ đổi dấu từ dương sang âm, do đó hàm số đạt cực đại tại $x = -2$.
 
 \textbf{==> Chọn đáp án D.}
 
 @@SECTION_2_HEADER@@
 
-% Phần 2 Câu 1
+% Phần 2 Câu 1 (Side-by-side đồ thị)
 @@START_SIDE_BY_SIDE_P2C1@@
 
 \textbf{Câu 1.} Cho hàm số $y = \dfrac{2x + 1}{x - 1}$. Xét tính đúng, sai của các phát biểu sau:
 
-@@TAB@@\textbf{a)} Đạo hàm là $y' = -\dfrac{3}{(x - 1)^2}$.
+@@TAB@@\textbf{a)} Đạo hàm của hàm số là $y' = -\dfrac{3}{(x - 1)^2}$.
 
 @@TAB@@\textbf{b)} Hàm số đồng biến trên khoảng $(1; +\infty)$.
 
@@ -380,19 +386,19 @@ Hàm số nào dưới đây có bảng biến thiên đã cho?
 
 \textbf{Lời giải.}
 
-- Ý a) Đúng: $y' = \dfrac{2(-1) - 1(1)}{(x - 1)^2} = -\dfrac{3}{(x - 1)^2}$.
+- Ý a) Đúng: $y' = \dfrac{2(-1) - 1(1)}{(x - 1)^2} = -\dfrac{3}{(x - 1)^2} < 0, \; \forall x \ne 1$.
 
-- Ý b) Sai: $y' < 0$ nên hàm số nghịch biến trên $(1; +\infty)$.
+- Ý b) Sai: Vì $y' < 0$ trên $(1; +\infty)$ nên hàm số nghịch biến trên khoảng $(1; +\infty)$.
 
-- Ý c) Đúng: Tiệm cận ngang là $y = 2$.
+- Ý c) Đúng: $\lim\limits_{x \to \pm\infty} y = 2$ nên tiệm cận ngang là $y = 2$.
 
-- Ý d) Đúng: Đồ thị hyperbol có tiệm cận đứng $x = 1$, ngang $y = 2$.
+- Ý d) Sai: Với $x > 1$ thì $y = 2 + \dfrac{3}{x - 1} > 2$, nhánh đồ thị bên phải phải nằm trên đường $y = 2$, trong khi hình vẽ hiển thị nhánh bên phải nằm dưới đường $y = 2$.
 
-\textbf{==> Đáp án: a) Đúng | b) Sai | c) Đúng | d) Đúng.}
+\textbf{==> Đáp án: a) Đúng | b) Sai | c) Đúng | d) Sai.}
 
 @@END_SIDE_BY_SIDE_P2C1@@
 
-% Phần 2 Câu 2
+% Phần 2 Câu 2 (Side-by-side đồ thị)
 @@START_SIDE_BY_SIDE_P2C2@@
 
 \textbf{Câu 2.} Cho hàm số $y = \dfrac{ax^2 + bx + c}{dx + e}$ ($ad \ne 0$), trong đó đa thức tử không chia hết cho đa thức mẫu. Đồ thị của hàm số được cho như hình bên. Xét tính đúng, sai của các phát biểu sau:
@@ -407,15 +413,15 @@ Hàm số nào dưới đây có bảng biến thiên đã cho?
 
 \textbf{Lời giải.}
 
-- Ý a) Sai: Tiệm cận đứng trên hình là $x = -1$.
+- Ý a) Đúng: Đồ thị có đường tiệm cận đứng là $x = 1$.
 
-- Ý b) Đúng: Tiệm cận xiên là $y = x + 2$.
+- Ý b) Đúng: Tiệm cận xiên đi qua $(0; 2)$ và $(-2; 0)$, có phương trình $y = x + 2$.
 
-- Ý c) Sai: Đồ thị không cắt trục tung tại $(0; 2)$.
+- Ý c) Sai: Đồ thị cắt trục tung tại điểm cực đại $(0; 1)$, tung độ bằng $1 \ne 2$.
 
-- Ý d) Sai: Hàm số phân thức không xác định tại tiệm cận đứng, không thể nghịch biến trên toàn bộ $\mathbb{R}$.
+- Ý d) Sai: Hàm số không xác định tại $x = 1$, không thể nghịch biến trên toàn bộ $\mathbb{R}$.
 
-\textbf{==> Đáp án: a) Sai | b) Đúng | c) Sai | d) Sai.}
+\textbf{==> Đáp án: a) Đúng | b) Đúng | c) Sai | d) Sai.}
 
 @@END_SIDE_BY_SIDE_P2C2@@
 
@@ -432,20 +438,22 @@ Hàm số nào dưới đây có bảng biến thiên đã cho?
 
 \textbf{Lời giải.}
 
-- Ý a) Đúng: TXĐ là $\mathbb{R} \setminus \{1\}$.
+Ta có $y = \dfrac{x^2 - 4x + 4}{x - 1} = x - 3 + \dfrac{1}{x - 1}$ và $y' = \dfrac{x(x - 2)}{(x - 1)^2}$.
 
-- Ý b) Sai: $y = \dfrac{x^2 - 4x + 4}{x - 1} = x - 3 + \dfrac{1}{x - 1}$. $y' = 1 - \dfrac{1}{(x - 1)^2} = \dfrac{x(x - 2)}{(x - 1)^2} > 0$ trên $(-\infty; 0)$ nên hàm đồng biến.
+- Ý a) Đúng: Điều kiện xác định $x \ne 1 \implies D = \mathbb{R} \setminus \{1\}$.
 
-- Ý c) Sai: $x = 0$ là điểm cực đại.
+- Ý b) Sai: Với $x \in (-\infty; 0)$, $x(x - 2) > 0 \implies y' > 0$, hàm số đồng biến trên khoảng $(-\infty; 0)$.
 
-- Ý d) Đúng: Tiệm cận xiên là $y = x - 3$.
+- Ý c) Sai: Qua $x = 0$, $y'$ đổi dấu từ dương sang âm nên $x = 0$ là điểm cực đại.
 
-\textbf{==> Đáp án: a) Đúng | b) Sai | c) Sai | d) Đúng.}
+- Ý d) Đúng: $\lim\limits_{x \to \pm\infty} [y - (x - 3)] = 0 \implies$ tiệm cận xiên là $y = x - 3$.
 
-% Phần 2 Câu 4
+\textbf{==> Đáp án: a) Đúng | b) Sai | c) Đúng | d) Đúng.}
+
+% Phần 2 Câu 4 (BBT)
 \textbf{Câu 4.} Cho hàm số $y = f(x) = -x^3 + 3x + 1$. Xét tính đúng, sai của các phát biểu sau:
 
-@@TAB@@\textbf{a)} Đạo hàm là $f'(x) = 3(1 - x^2)$.
+@@TAB@@\textbf{a)} Đạo hàm của hàm số là $f'(x) = 3(1 - x^2)$.
 
 @@TAB@@\textbf{b)} Hàm số đồng biến trên khoảng $(-1; 1)$.
 
@@ -459,59 +467,59 @@ Hàm số nào dưới đây có bảng biến thiên đã cho?
 
 - Ý a) Đúng: $f'(x) = -3x^2 + 3 = 3(1 - x^2)$.
 
-- Ý b) Đúng: $f'(x) > 0 \iff x \in (-1; 1)$.
+- Ý b) Đúng: Trên khoảng $(-1; 1)$, $1 - x^2 > 0 \implies f'(x) > 0$, hàm số đồng biến.
 
-- Ý c) Sai: Giá trị cực tiểu là $f(-1) = -1$.
+- Ý c) Sai: Tại $x = -1$, giá trị cực tiểu là $f(-1) = -1 \ne 1$.
 
-- Ý d) Đúng: Khớp hoàn toàn bảng biến thiên.
+- Ý d) Đúng: Bảng biến thiên thể hiện đúng chiều biến thiên và các giá trị cực trị $y_{\text{CT}} = -1$, $y_{\text{CĐ}} = 3$.
 
 \textbf{==> Đáp án: a) Đúng | b) Đúng | c) Sai | d) Đúng.}
 
 @@SECTION_3_HEADER@@
 
-% Phần 3 Câu 1
+% Phần 3 Câu 1 (BBT)
 \textbf{Câu 1.} Cho hàm số $y = f(x)$ có bảng biến thiên như dưới đây:
 
 @@CENTER_IMAGE_p3_c1_bbt@@
 
 Hàm số có bao nhiêu điểm cực trị?
 
-\textbf{Lời giải.} Đạo hàm $f'(x)$ đổi dấu tại 2 điểm $x = -2$ và $x = 2$. Vậy hàm số có 2 điểm cực trị.
+\textbf{Lời giải.} Qua $x = -2$, $f'(x)$ đổi dấu từ dương sang âm nên $x = -2$ là điểm cực đại. Qua $x = 2$, $f'(x)$ đổi dấu từ âm sang dương nên $x = 2$ là điểm cực tiểu. Tại $x = 0$, hàm số không xác định nên không là điểm cực trị. Vậy hàm số có đúng $2$ điểm cực trị.
 
 \textbf{==> Đáp án: 2.}
 
 % Phần 3 Câu 2
 \textbf{Câu 2.} Cho hàm số $y = f(x) = x^3 - 6x^2 + 9x + 1$. Tính hiệu giữa giá trị cực đại và giá trị cực tiểu của hàm số.
 
-\textbf{Lời giải.} $f'(x) = 3(x - 1)(x - 3) = 0 \iff x = 1$ hoặc $x = 3$. $y_{CĐ} = f(1) = 5$, $y_{CT} = f(3) = 1$. Hiệu là $5 - 1 = 4$.
+\textbf{Lời giải.} Ta có $f'(x) = 3x^2 - 12x + 9 = 3(x - 1)(x - 3) = 0 \iff x = 1$ hoặc $x = 3$. Giá trị cực đại $y_{\text{CĐ}} = f(1) = 5$, giá trị cực tiểu $y_{\text{CT}} = f(3) = 1$. Hiệu giữa giá trị cực đại và giá trị cực tiểu là: $y_{\text{CĐ}} - y_{\text{CT}} = 5 - 1 = 4$.
 
 \textbf{==> Đáp án: 4.}
 
 % Phần 3 Câu 3
 \textbf{Câu 3.} Cho hàm số $y = \dfrac{2x + 1}{x - 1}$. Gọi $I(a; b)$ là giao điểm hai đường tiệm cận. Tính $a + b$.
 
-\textbf{Lời giải.} Tiệm cận đứng $x = 1 \implies a = 1$. Tiệm cận ngang $y = 2 \implies b = 2$. Tổng $a + b = 1 + 2 = 3$.
+\textbf{Lời giải.} Đồ thị có tiệm cận đứng $x = 1$ và tiệm cận ngang $y = 2$. Giao điểm hai đường tiệm cận là $I(1; 2)$, suy ra $a = 1, b = 2$. Vậy $a + b = 1 + 2 = 3$.
 
 \textbf{==> Đáp án: 3.}
 
 % Phần 3 Câu 4
 \textbf{Câu 4.} Cho hàm số $y = \dfrac{x^2 - 1}{x - 2}$. Tính tung độ giao điểm của đường tiệm cận xiên của đồ thị với trục tung.
 
-\textbf{Lời giải.} $y = x + 2 + \dfrac{3}{x - 2} \implies$ tiệm cận xiên là $y = x + 2$. Giao với trục tung tại $x = 0 \implies y = 2$.
+\textbf{Lời giải.} Thực hiện phép chia: $y = \dfrac{x^2 - 1}{x - 2} = x + 2 + \dfrac{3}{x - 2}$. Đường tiệm cận xiên của đồ thị là $y = x + 2$. Cho $x = 0$ ta được $y = 2$. Vậy tung độ giao điểm của đường tiệm cận xiên với trục tung là $2$.
 
 \textbf{==> Đáp án: 2.}
 
 % Phần 3 Câu 5
 \textbf{Câu 5.} Cho hàm số $y = f(x)$ có đạo hàm $f'(x) = (x + 3)(x - 1)^2(x - 2)$ với mọi $x \in \mathbb{R}$. Tính tổng các giá trị của $x$ tại đó hàm số đạt cực trị.
 
-\textbf{Lời giải.} Các điểm cực trị là nghiệm bội lẻ: $x = -3$ và $x = 2$. Tổng là $(-3) + 2 = -1$.
+\textbf{Lời giải.} Phương trình $f'(x) = 0$ có hai nghiệm đơn $x = -3$, $x = 2$ và một nghiệm bội hai $x = 1$. Đạo hàm $f'(x)$ chỉ đổi dấu qua các nghiệm đơn $x = -3$ và $x = 2$. Do đó hàm số đạt cực trị tại $x_1 = -3$ và $x_2 = 2$. Tổng các giá trị cực trị là: $(-3) + 2 = -1$.
 
 \textbf{==> Đáp án: -1.}
 
 % Phần 3 Câu 6
 \textbf{Câu 6.} Cho hàm số $y = f(x) = x^3 - 3ax$, với $a > 0$. Biết hàm số đạt cực tiểu tại $x = 3$. Tính $a$.
 
-\textbf{Lời giải.} $f'(x) = 3x^2 - 3a = 0 \iff x = \pm \sqrt{a}$. Vì hàm số đạt cực tiểu tại $x = \sqrt{a} = 3 \implies a = 9$.
+\textbf{Lời giải.} Ta có $f'(x) = 3(x^2 - a) = 0 \iff x = \pm\sqrt{a}$ (do $a > 0$). Vì $f''(x) = 6x \implies f''(\sqrt{a}) = 6\sqrt{a} > 0$ nên hàm số đạt cực tiểu tại $x = \sqrt{a}$. Theo giả thiết hàm số đạt cực tiểu tại $x = 3$, suy ra $\sqrt{a} = 3 \iff a = 9$.
 
 \textbf{==> Đáp án: 9.}
 
@@ -563,6 +571,9 @@ def build_0103_doc(tex_str, output_path, is_solution=False):
     style.font.name = 'Times New Roman'
     style.font.size = Pt(12)
     style.font.color.rgb = RGBColor(0, 0, 0)
+    rPr = style.element.get_or_add_rPr()
+    rFonts = parse_xml(r'<w:rFonts %s w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>' % nsdecls('w'))
+    rPr.append(rFonts)
     
     for p in list(doc.paragraphs):
         if "@@DOCUMENT_HEADER@@" in p.text:
@@ -574,11 +585,11 @@ def build_0103_doc(tex_str, output_path, is_solution=False):
         elif "@@SECTION_3_HEADER@@" in p.text:
             insert_section_header(doc, p, "PHẦN III. Câu trắc nghiệm yêu cầu trả lời ngắn.", "Thí sinh trả lời từ câu 1 đến câu 6.")
             
-    # Side-by-side
+    # Side-by-side configurations
     sbs_configs = [
-        ("C1", "c1_hinh.png", 5.0),
+        ("C1", "c1_hinh.png", 4.8),
         ("P2C1", "p2_c1_hinh.png", 5.0),
-        ("P2C2", "p2_c2_hinh.png", 5.0),
+        ("P2C2", "p2_c2_hinh.png", 4.8),
     ]
     for tag, img_name, img_w in sbs_configs:
         start_tag = f"@@START_SIDE_BY_SIDE_{tag}@@"
@@ -640,7 +651,7 @@ def build_0103_doc(tex_str, output_path, is_solution=False):
             start_p._p.getparent().remove(start_p._p)
             end_p._p.getparent().remove(end_p._p)
             
-    # Images & Boxes
+    # Centered Images & Boxes
     for p in list(doc.paragraphs):
         for img_tag in ["c2_bbt", "c10_bbt", "p2_c4_bbt", "p3_c1_bbt"]:
             token = f"@@CENTER_IMAGE_{img_tag}@@"

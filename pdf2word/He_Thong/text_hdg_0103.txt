@@ -1,3 +1,4 @@
+=== PAGE 25 ===
 TRƯỜNG THPT SỐ3 BẢO THẮNG
 ĐỀTHI CHÍNH THỨC
 (Đềthi có 5 trang)
@@ -95,6 +96,8 @@ x+1. Giao điểm hai đường tiệm cận của đồthịhàm sốlà
 GV.Ngô Quang Nghiệp – BT3
 Trang 1/5 - Mã đềthi 0103
 
+
+=== PAGE 26 ===
 A. I(1;2).
 B. I(−1;1).
 C. I(−1;0).
@@ -199,6 +202,8 @@ Chọn đáp án D
 GV.Ngô Quang Nghiệp – BT3
 Trang 2/5 - Mã đềthi 0103
 
+
+=== PAGE 27 ===
 PHẦN II: Thí sinh trảlời từcâu 1 đến câu 4. Trong mỗi ý a), b), c), d) ởmỗi câu, thí
 sinh chọn đúng hoặc sai.
 Câu 1. Cho hàm sốy = 2x+1
@@ -249,6 +254,8 @@ Chọn đáp án a đúng
 GV.Ngô Quang Nghiệp – BT3
 Trang 3/5 - Mã đềthi 0103
 
+
+=== PAGE 28 ===
 Câu 3. Cho hàm sốy = (x−2)2
 x−1 . Xét tính đúng, sai của các phát biểu sau:
 a) Tập xác định của hàm sốlà R\{1}.
@@ -338,6 +345,8 @@ Ta có hai tiệm cận là x = 1, y = 2 nên a+b = 1+2 = 3.
 GV.Ngô Quang Nghiệp – BT3
 Trang 4/5 - Mã đềthi 0103
 
+
+=== PAGE 29 ===
 Câu 4. Cho hàm sốy = x2 −1
 x−2 . Tính tung độgiao điểm của đường tiệm cận xiên của đồthịvới
 trục tung.
@@ -361,3 +370,5 @@ HẾT
 - Giám thịkhông giải thích gì thêm.
 GV.Ngô Quang Nghiệp – BT3
 Trang 5/5 - Mã đềthi 0103
+
+

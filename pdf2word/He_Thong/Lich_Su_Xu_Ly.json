@@ -23,28 +23,34 @@
       "sha256": "2B5B6CCA11A3DFA67C802290C8AA8507D35A9E0EB94ACD957A5023DDFCEF8A9E",
       "size_bytes": 757430,
       "date_added": "2026-10-03 10:37:39",
-      "date_processed": "2026-10-03 12:35:00",
-      "status": "HOAN_THANH_0101_0102",
-      "current_code": "0102",
+      "date_processed": "2026-10-03 13:17:00",
+      "status": "HOAN_THANH_0101_0102_0103",
+      "current_code": "0103",
       "output_docx": [
         "San_Pham/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_De_0101.docx",
         "San_Pham/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_HDG_0101.docx",
         "San_Pham/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_De_0102.docx",
-        "San_Pham/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_HDG_0102.docx"
+        "San_Pham/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_HDG_0102.docx",
+        "San_Pham/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_De_0103.docx",
+        "San_Pham/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_HDG_0103.docx"
       ],
       "output_pdf": [
+        "San_Pham/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_De_0101.pdf",
+        "San_Pham/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_HDG_0101.pdf",
         "San_Pham/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_De_0102.pdf",
         "San_Pham/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_HDG_0102.pdf",
-        "San_Pham/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_De_0101.pdf",
-        "San_Pham/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_HDG_0101.pdf"
+        "San_Pham/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_De_0103.pdf",
+        "San_Pham/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_HDG_0103.pdf"
       ],
       "source_tex": [
         "He_Thong/LaTeX/Bao_Thang_3/0101/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_De_0101.tex",
         "He_Thong/LaTeX/Bao_Thang_3/0101/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_HDG_0101.tex",
         "He_Thong/LaTeX/Bao_Thang_3/0102/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_De_0102.tex",
-        "He_Thong/LaTeX/Bao_Thang_3/0102/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_HDG_0102.tex"
+        "He_Thong/LaTeX/Bao_Thang_3/0102/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_HDG_0102.tex",
+        "He_Thong/LaTeX/Bao_Thang_3/0103/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_De_0103.tex",
+        "He_Thong/LaTeX/Bao_Thang_3/0103/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_HDG_0103.tex"
       ],
-      "note": "MÃ ĐỀ 0101 VÀ 0102 ĐÃ HOÀN THIỆN ĐẠT ĐIỂM 10 CHẤT LƯỢNG: (1) Vẽ lại 100% BBT (Câu 1, 10, 12, P2C1, P3C3) bằng TikZ vector siêu nét, xuất PNG 300 DPI cho Word; (2) Đồ thị hàm số recrop chuẩn từng milimet, không dính chữ rác; (3) Build pdflatex 0 lỗi, bản Đề vừa khít đúng 4 trang, bản HDG 7 trang không rớt dòng/tách câu; (4) Khắc phục triệt để lỗi thừa chữ 'Đáp án:' ở phần III; (5) Xuất bản Word docx đồng bộ chuẩn BTPro."
+      "note": "MÃ ĐỀ 0101, 0102 VÀ 0103 ĐÃ HOÀN THIỆN ĐẠT ĐIỂM 10 CHẤT LƯỢNG: (1) Vẽ lại 100% BBT (Câu 2, 10, P2C4, P3C1) bằng TikZ vector siêu nét, xuất PNG 300 DPI cho Word; (2) Đồ thị hàm số recrop chuẩn từng milimet, không dính chữ rác; (3) Build pdflatex 0 lỗi, bản Đề vừa khít đúng 4 trang, bản HDG 7 trang không rớt dòng/tách câu; (4) Khắc phục triệt để lỗi thừa chữ 'Đáp án:' ở phần III; (5) Xuất bản Word docx đồng bộ chuẩn BTPro."
     }
   }
 }
