@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-10-03 10:33:44",
-  "total_files": 1,
-  "completed_files": 1,
+  "updated_at": "2026-10-03 10:54:48",
+  "total_files": 2,
+  "completed_files": 2,
   "pending_files": 0,
   "records": {
     "De_Thi_Goc_2009.pdf": {
@@ -16,6 +16,27 @@
       "output_pdf": "San_Pham/De_Thi_Goc_2009.pdf",
       "source_tex": "He_Thong/LaTeX/De_Thi_2009.tex",
       "note": "Đề ôn tập Toán Lớp 12 - Mã đề 2009 (Lớp Toán Cô Thúy). Chuẩn hóa tab Macro BTPRO, 100% công thức Word Math OMML, đã lọc bỏ toàn bộ vệt kẻ ngang dưới, tiêu đề 2 dòng viền đen sắc nét."
+    },
+    "de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai.pdf": {
+      "file_name": "de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai.pdf",
+      "file_relpath": "De_Goc/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai.pdf",
+      "sha256": "2B5B6CCA11A3DFA67C802290C8AA8507D35A9E0EB94ACD957A5023DDFCEF8A9E",
+      "size_bytes": 757430,
+      "date_added": "2026-10-03 10:37:39",
+      "date_processed": "2026-10-03 10:55:00",
+      "status": "HOAN_THANH",
+      "output_docx": [
+        "San_Pham/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_De_0101.docx",
+        "San_Pham/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_HDG_0101.docx",
+        "San_Pham/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_De_0102.docx",
+        "San_Pham/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_HDG_0102.docx",
+        "San_Pham/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_De_0103.docx",
+        "San_Pham/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_HDG_0103.docx",
+        "San_Pham/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_De_0104.docx",
+        "San_Pham/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_HDG_0104.docx"
+      ],
+      "output_pdf": null,
+      "note": "Bộ đề khảo sát chất lượng THPT Số 3 Bảo Thắng 2026-2027 (34 trang). Tách thành công 8 file Word riêng biệt (4 Đề bài + 4 Hướng dẫn giải chi tiết cho 4 mã đề 0101, 0102, 0103, 0104). Chuẩn hóa tab BTPro, OMML Math, không viền thừa, hình vẽ vector 300 DPI."
     }
   }
 }

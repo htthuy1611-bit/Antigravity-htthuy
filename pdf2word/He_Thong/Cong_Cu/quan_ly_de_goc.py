@@ -71,10 +71,17 @@ def generate_markdown(history):
         status_icon = "✅ Đã xong" if rec.get("status") == "HOAN_THANH" else "⏳ Chờ xử lý"
         pdf_goc_path = f"file:///{os.path.join(DE_GOC_DIR, fname).replace(chr(92), '/')}"
         
-        docx_rel = rec.get("output_docx", "")
-        if docx_rel and os.path.exists(os.path.join(BASE_DIR, docx_rel)):
-            docx_abs = f"file:///{os.path.join(BASE_DIR, docx_rel).replace(chr(92), '/')}"
-            docx_link = f"[{os.path.basename(docx_rel)}]({docx_abs})"
+        docx_val = rec.get("output_docx", "")
+        if isinstance(docx_val, list):
+            docx_links = []
+            for item in docx_val:
+                if os.path.exists(os.path.join(BASE_DIR, item)):
+                    item_abs = f"file:///{os.path.join(BASE_DIR, item).replace(chr(92), '/')}"
+                    docx_links.append(f"• [{os.path.basename(item)}]({item_abs})")
+            docx_link = "<br>".join(docx_links) if docx_links else "*(chưa có)*"
+        elif docx_val and os.path.exists(os.path.join(BASE_DIR, docx_val)):
+            docx_abs = f"file:///{os.path.join(BASE_DIR, docx_val).replace(chr(92), '/')}"
+            docx_link = f"[{os.path.basename(docx_val)}]({docx_abs})"
         else:
             docx_link = "*(chưa có)*"
             
@@ -83,7 +90,7 @@ def generate_markdown(history):
             pdf_prod_abs = f"file:///{os.path.join(BASE_DIR, pdf_prod_rel).replace(chr(92), '/')}"
             pdf_prod_link = f"[{os.path.basename(pdf_prod_rel)}]({pdf_prod_abs})"
         else:
-            pdf_prod_link = "*(chưa có)*"
+            pdf_prod_link = "*(không áp dụng)*" if isinstance(docx_val, list) else "*(chưa có)*"
             
         date_proc = rec.get("date_processed", rec.get("date_added", "-"))
         note = rec.get("note", "")
@@ -149,10 +156,17 @@ def scan_de_goc():
                 rec["note"] = "File gốc đã thay đổi nội dung (cần chạy lại)"
             else:
                 # Kiểm tra xem sản phẩm có còn tồn tại không
-                docx_path = os.path.join(BASE_DIR, rec.get("output_docx", ""))
-                if not os.path.exists(docx_path) and rec.get("status") == "HOAN_THANH":
-                    print(f"  ! File sản phẩm {rec.get('output_docx')} bị thiếu! Chuyển trạng thái sang CHUA_XU_LY.")
-                    rec["status"] = "CHUA_XU_LY"
+                docx_val = rec.get("output_docx")
+                if isinstance(docx_val, list):
+                    all_exist = all(os.path.exists(os.path.join(BASE_DIR, p)) for p in docx_val)
+                    if not all_exist and rec.get("status") == "HOAN_THANH":
+                        print(f"  ! Có file sản phẩm trong danh sách bị thiếu! Chuyển trạng thái sang CHUA_XU_LY.")
+                        rec["status"] = "CHUA_XU_LY"
+                elif isinstance(docx_val, str) and docx_val:
+                    docx_path = os.path.join(BASE_DIR, docx_val)
+                    if not os.path.exists(docx_path) and rec.get("status") == "HOAN_THANH":
+                        print(f"  ! File sản phẩm {docx_val} bị thiếu! Chuyển trạng thái sang CHUA_XU_LY.")
+                        rec["status"] = "CHUA_XU_LY"
 
     save_history(history)
     print(f"\n[KẾT QUẢ QUÉT]")

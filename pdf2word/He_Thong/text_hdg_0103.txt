@@ -1,0 +1,363 @@
+TRƯỜNG THPT SỐ3 BẢO THẮNG
+ĐỀTHI CHÍNH THỨC
+(Đềthi có 5 trang)
+ĐỀKHẢO SÁT CHẤT LƯỢNG NĂM 2026-2027
+MÔN: TOÁN
+Thời gian làm bài: 25 phút, không kểthời gian phát đề
+Họ, tên thí sinh: ....................................................
+Sốbáo danh: ........................................................
+Mã đề: 0103
+PHẦN I: Thí sinh trảlời từcâu 1 đến câu 12. Mỗi câu hỏi thí sinh chỉchọn một
+phương án.
+Câu 1. Cho hàm sốbậc ba y = f(x) có đồthịnhư hình dưới đây.
+x
+y
+O
+−1
+1
+Hàm sốnghịch biến trên khoảng nào sau đây?
+A. (−∞;−1).
+B. (1;+∞).
+C. (−1;1).
+D. (−∞;1).
+Lời giải.
+Ta có: đồthịđi xuống từcực đại tại x = −1 đến cực tiểu tại x = 1.
+Chọn đáp án C
+Câu 2. Cho hàm sốy = f(x) có bảng biến thiên như dưới đây.
+x
+f ′(x)
+f(x)
+−∞
+−1
+2
++∞
+−
+0
++
+0
+−
++∞
++∞
+−3
+−3
+4
+−∞
+−∞
+Giá trịcực tiểu của hàm sốlà
+A. −3.
+B. −1.
+C. 2.
+D. 4.
+Lời giải.
+Ta có: tại x = −1, đạo hàm đổi dấu từâm sang dương, giá trịcực tiểu là −3.
+Chọn đáp án A
+Câu 3. Cho hàm sốy = x−4
+2x+1. Tâm đối xứng của đồthịlà
+A. I(−1
+2;−1
+2).
+B. I(1
+2;−1
+2).
+C. I(2;1).
+D. I(−1
+2; 1
+2).
+Lời giải.
+Ta có hai tiệm cận là x = −1
+2 và y = 1
+2.
+Chọn đáp án D
+Câu 4. Cho hàm sốy = 2x+5
+x+1 . Khẳng định nào sau đây đúng?
+A. Hàm sốđồng biến trên từng khoảng xác định.
+B. Hàm sốnghịch biến trên từng khoảng xác định.
+C. Hàm sốcó một điểm cực trị.
+D. Đồthịkhông có tiệm cận ngang.
+Lời giải.
+Ta có y′ =
+−3
+(x+1)2 < 0 trên từng khoảng xác định.
+Chọn đáp án B
+Câu 5. Cho hàm sốy = x+ 1
+x. Phương trình đường tiệm cận xiên của đồthịhàm sốlà
+A. y = x.
+B. y = x+1.
+C. y = x−1.
+D. x = 0.
+Lời giải.
+Ta có 1
+x →0 khi x →±∞, nên đường tiệm cận xiên có phương trình y = x.
+Chọn đáp án A
+Câu 6. Cho hàm sốy = x+1+
+2
+x+1. Giao điểm hai đường tiệm cận của đồthịhàm sốlà
+GV.Ngô Quang Nghiệp – BT3
+Trang 1/5 - Mã đềthi 0103
+
+A. I(1;2).
+B. I(−1;1).
+C. I(−1;0).
+D. I(0;−1).
+Lời giải.
+Ta có đường tiệm cận đứng x = −1 và đường tiệm cận xiên y = x+1. Hai đường thẳng này cắt
+nhau tại I(−1;0).
+Chọn đáp án C
+Câu 7. Cho hàm sốy = f(x) có đạo hàm f ′(x) = 3(x −1)(x + 3) với mọi x ∈R. Điểm cực đại của
+hàm sốđã cho là
+A. x = 1.
+B. x = −3.
+C. x = 3.
+D. x = −1.
+Lời giải.
+Ta có f ′(x) đổi dấu từdương sang âm khi x đi qua −3, nên hàm sốđạt cực đại tại x = −3.
+Chọn đáp án B
+Câu 8. Cho hàm sốy = f(x) = x3 +6x2 +9x. Tâm đối xứng của đồthịlà
+A. I(−1;0).
+B. I(2;−2).
+C. I(−2;0).
+D. I(−2;−2).
+Lời giải.
+Ta có f(x) = (x+2)3 −3(x+2)−2. Đồthịnhận I(−2;−2) làm tâm đối xứng.
+Chọn đáp án D
+Câu 9. Cho hàm sốy = f(x) có đạo hàm f ′(x) = x(x−1)(x+2) với mọi x ∈R. Sốkhoảng đồng biến
+của hàm sốlà
+A. 1.
+B. 3.
+C. 2.
+D. 4.
+Lời giải.
+Ta có bảng dấu của f ′ là −,+,−,+, nên có hai khoảng đồng biến (−2,0) và (1,+∞).
+Chọn đáp án C
+Câu 10. Cho hàm sốy = ax2 +bx+c
+dx+e
+(ad̸ = 0), trong đó đa thức tửkhông chia hết cho đa thức
+mẫu. Bảng biến thiên của hàm sốđược cho như dưới đây:
+x
+f ′(x)
+f(x)
+−∞
+−1
+0
+1
++∞
++
+0
+−
+−
+0
++
+−∞
+−∞
+−2
+−2
+−∞
++∞
+2
++∞
++∞
+Hàm sốnào dưới đây có bảng biến thiên đã cho?
+A. y = x2 +1
+x
+.
+B. y = x2 −1
+x
+.
+C. y = x2 +1
+x−1 .
+D. y = x2 +4
+x
+.
+Lời giải.
+Ta có: bảng biến thiên có tiệm cận đứng x = 0; đồthịcó hai điểm cực trịM(−1;−2) và N(1;2),
+phù hợp với y = x+ 1
+x.
+Chọn đáp án A
+Câu 11. Cho hàm sốy = x + 2 +
+3
+x−2. Phương trình đường tiệm cận xiên của đồthịhàm số
+là
+A. x = 2.
+B. y = 2.
+C. y = x+2.
+D. y = x−2.
+Lời giải.
+Ta có
+3
+x−2 →0 khi x →±∞, nên đường tiệm cận xiên có phương trình y = x+2.
+Chọn đáp án C
+Câu 12. Cho hàm sốy = f(x) xác định trên R \ {−1} và có đạo hàm f ′(x) = x(x+2)
+(x+1)2 . Điểm cực
+đại của hàm sốđã cho là
+A. x = −1.
+B. x = 0.
+C. x = 2.
+D. x = −2.
+Lời giải.
+Ta có f ′(x) đổi dấu từdương sang âm khi x đi qua −2, nên hàm sốđạt cực đại tại x = −2.
+Chọn đáp án D
+GV.Ngô Quang Nghiệp – BT3
+Trang 2/5 - Mã đềthi 0103
+
+PHẦN II: Thí sinh trảlời từcâu 1 đến câu 4. Trong mỗi ý a), b), c), d) ởmỗi câu, thí
+sinh chọn đúng hoặc sai.
+Câu 1. Cho hàm sốy = 2x+1
+x−1 . Xét tính đúng, sai của các phát biểu sau:
+a) Đạo hàm là y′ = −
+3
+(x−1)2 .
+b) Hàm sốđồng biến trên khoảng (1;+∞).
+c) Đồthịcó tiệm cận ngang y = 2.
+d) Hình dưới đây là đồthịcủa hàm sốđã cho.
+x
+y
+O
+1
+2
+Lời giải.
+Ta có y = 2 +
+3
+x−1 nên y′ < 0. Hình ởý d) có nhánh phải nằm dưới tiệm cận ngang (ứng với
+2−
+3
+x−1), trái với hàm đã cho.
+Chọn đáp án a đúng
+ b sai
+ c đúng
+ d sai
+Câu 2. Cho hàm sốy = ax2 +bx+c
+dx+e
+(ad̸ = 0), trong đó đa thức tửkhông chia hết cho đa thức
+mẫu. Đồthịcủa hàm sốđược cho như hình dưới đây.
+x
+y
+O
+1
+Xét tính đúng, sai của các phát biểu sau:
+a) Đồthịcó tiệm cận đứng x = 1.
+b) Đường tiệm cận xiên có phương trình y = x+2.
+c) Đồthịcắt trục tung tại điểm có tung độbằng 2.
+d) Hàm sốnghịch biến trên toàn bộR.
+Lời giải.
+Ta có: đồthịtương ứng y = x+2+
+1
+x−1, nên y(0) = 1; hàm sốkhông xác định tại x = 1.
+Chọn đáp án a đúng
+ b đúng
+ c sai
+ d sai
+GV.Ngô Quang Nghiệp – BT3
+Trang 3/5 - Mã đềthi 0103
+
+Câu 3. Cho hàm sốy = (x−2)2
+x−1 . Xét tính đúng, sai của các phát biểu sau:
+a) Tập xác định của hàm sốlà R\{1}.
+b) Hàm sốnghịch biến trên khoảng (−∞;0).
+c) Hàm sốđạt cực tiểu tại x = 0.
+d) Đồthịcó tiệm cận xiên y = x−3.
+Lời giải.
+Ta có y = x −3 +
+1
+x−1 và y′ = x(x−2)
+(x−1)2 , đổi dấu + sang −tại x = 0 (cực đại), từ−sang + tại x = 2
+(cực tiểu).
+Chọn đáp án a đúng
+ b sai
+ c sai
+ d đúng
+Câu 4. Cho hàm sốy = f(x) = −x3 +3x+1. Xét tính đúng, sai của các phát biểu sau:
+a) Đạo hàm là f ′(x) = 3(1−x2).
+b) Hàm sốđồng biến trên khoảng (−1;1).
+c) Giá trịcực tiểu của hàm sốbằng 1.
+d) Bảng biến thiên dưới đây là bảng biến thiên của hàm sốđã cho.
+x
+f ′(x)
+f(x)
+−∞
+−1
+1
++∞
+−
+0
++
+0
+−
++∞
++∞
+−1
+−1
+3
+−∞
+−∞
+Lời giải.
+Ta có f ′(x) = 3(1−x2); cực tiểu tại x = −1 có giá trị−1, cực đại tại x = 1 có giá trị3. Bảng biến
+thiên ởý d) là đúng.
+Chọn đáp án a đúng
+ b đúng
+ c sai
+ d đúng
+PHẦN III: Thí sinh trảlời từcâu 1 đến câu 6.
+Câu 1. Cho hàm sốy = f(x) có bảng biến thiên như dưới đây:
+x
+f ′(x)
+f(x)
+−∞
+−2
+0
+2
++∞
++
+0
+−
+−
+0
++
+−∞
+−∞
+−3
+−3
+−∞
++∞
+5
++∞
++∞
+Hàm sốcó bao nhiêu điểm cực trị?
+Lời giải.
+Ta có đạo hàm đổi dấu tại x = −2 và x = 2; x = 0 không thuộc tập xác định.
+Đáp án: 2
+Câu 2. Cho hàm sốy = f(x) = x3 −6x2 +9x+1. Tính hiệu giữa giá trịcực đại và giá trịcực tiểu
+của hàm số.
+Lời giải.
+Ta có f ′(x) = 3(x−1)(x−3), f(1) = 5, f(3) = 1, nên hiệu là 4.
+Đáp án: 4
+Câu 3. Cho hàm sốy = 2x+1
+x−1 . Gọi I(a;b) là giao điểm hai đường tiệm cận. Tính a+b.
+Lời giải.
+Ta có hai tiệm cận là x = 1, y = 2 nên a+b = 1+2 = 3.
+Đáp án: 3
+GV.Ngô Quang Nghiệp – BT3
+Trang 4/5 - Mã đềthi 0103
+
+Câu 4. Cho hàm sốy = x2 −1
+x−2 . Tính tung độgiao điểm của đường tiệm cận xiên của đồthịvới
+trục tung.
+Lời giải.
+Ta có y = x+2+
+3
+x−2. Tiệm cận xiên y = x+2 cắt trục tung tại (0;2), nên tung độcần tìm là 2.
+Đáp án: 2
+Câu 5. Cho hàm sốy = f(x) có đạo hàm f ′(x) = (x+3)(x−1)2(x−2) với mọi x ∈R. Tính tổng các
+giá trịcủa x tại đó hàm sốđạt cực trị.
+Lời giải.
+Ta có: nghiệm đơn −3 và 2 làm đổi dấu đạo hàm; nghiệm kép 1 không làm đổi dấu. Tổng hai
+hoành độcực trịlà −3+2 = −1.
+Đáp án: -1
+Câu 6. Cho hàm sốy = f(x) = x3 −3ax, với a > 0. Biết hàm sốđạt cực tiểu tại x = 3. Tính a.
+Lời giải.
+Ta có f ′(x) = 3(x2 −a); cực tiểu tại x = √a = 3 nên a = 9.
+Đáp án: 9
+HẾT
+- Thí sinh không được sửdụng tài liệu;
+- Giám thịkhông giải thích gì thêm.
+GV.Ngô Quang Nghiệp – BT3
+Trang 5/5 - Mã đềthi 0103
