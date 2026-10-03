@@ -4,7 +4,7 @@
 \usepackage{graphicx}
 \usepackage{tikz}
 \usepackage{array}
-\usepackage[top=1.0cm,bottom=0.9cm,left=1.5cm,right=1.5cm]{geometry}
+\usepackage[top=1.3cm,bottom=1.8cm,left=1.5cm,right=1.5cm,footskip=0.8cm]{geometry}
 \usepackage{fancyhdr}
 \usepackage{tcolorbox}
 \tcbuselibrary{skins}
@@ -28,29 +28,29 @@
 \begin{tabular}{|p{6.6cm}|p{6.4cm}|>{\centering\arraybackslash}p{3.2cm}|}
 \hline
 \begin{minipage}{6.6cm}
-\vspace{2pt}
+\vspace{3pt}
 \centering
-{\large\bfseries\color{blue!80!black} LỚP TOÁN CÔ THÚY}\\[2pt]
+{\large\bfseries\color{blue!80!black} LỚP TOÁN CÔ THÚY}\\[3pt]
 \textbf{SĐT:} 0935.322.328\\[2pt]
 \textbf{Địa chỉ:} 50/2C Phạm Thị Liên
-\vspace{2pt}
+\vspace{3pt}
 \end{minipage}
 &
 \multicolumn{2}{p{10.0cm}|}{
 \begin{minipage}{10.0cm}
-\vspace{2pt}
+\vspace{3pt}
 \centering
-{\large\bfseries\color{red!80!black} HƯỚNG DẪN GIẢI CHI TIẾT}\\[2pt]
+{\large\bfseries\color{red!80!black} HƯỚNG DẪN GIẢI CHI TIẾT}\\[3pt]
 \textbf{ĐỀ KHẢO SÁT CHẤT LƯỢNG TOÁN 12}\\[2pt]
 \textsl{THPT Số 3 Bảo Thắng (Năm học 2026 -- 2027)}
-\vspace{2pt}
+\vspace{3pt}
 \end{minipage}
 } \\
 \hline
-\multicolumn{3}{|@{\hspace{0.3cm}}p{16.8cm}@{\hspace{0.3cm}}|}{\rule{0pt}{12pt}\textbf{TÀI LIỆU DÀNH CHO GIÁO VIÊN / HỌC SINH THAM KHẢO} \hfill \textbf{Mã đề: 0103}\rule[-3pt]{0pt}{3pt}} \\
+\multicolumn{3}{|@{\hspace{0.3cm}}p{16.8cm}@{\hspace{0.3cm}}|}{\rule{0pt}{13pt}\textbf{TÀI LIỆU DÀNH CHO GIÁO VIÊN / HỌC SINH THAM KHẢO} \hfill \textbf{Mã đề: 0103}\rule[-4pt]{0pt}{4pt}} \\
 \hline
 \end{tabular}
-\vspace{0.05cm}
+\vspace{0.15cm}
 
 \begin{flushleft}
 	{\color{blue!50!green}\fbox{\fontfamily{qag}\bfseries\selectfont PHẦN I. Câu trắc nghiệm nhiều phương án lựa chọn}}
@@ -69,7 +69,7 @@
 		{\True $(-1; 1)$}
 		{$(-\infty; 1)$}
 	}{
-		\includegraphics[width=2.5cm]{c1_hinh.png}
+		\includegraphics[width=3.6cm]{c1_hinh.png}
 	}
 	\loigiai{
 		Dựa vào đồ thị hàm số, trên khoảng $(-1; 1)$ nét đồ thị đi xuống từ cực đại $(-1; 2)$ đến cực tiểu $(1; -2)$, do đó hàm số nghịch biến trên khoảng $(-1; 1)$.
@@ -80,8 +80,7 @@
 \begin{ex}
 	Cho hàm số $y = f(x)$ có bảng biến thiên như dưới đây:
 	\begin{center}
-	\vspace{-6pt}
-	\begin{tikzpicture}[>=stealth,scale=0.7]
+	\begin{tikzpicture}[>=stealth,scale=0.88]
 	  \draw[thick] (0,0) rectangle (8.5,-2.2);
 	  \draw[thick] (0,-0.6) -- (8.5,-0.6);
 	  \draw[thick] (0,-1.2) -- (8.5,-1.2);
@@ -106,7 +105,6 @@
 	  \draw[->] (p2) -- (p3);
 	  \draw[->] (p3) -- (p4);
 	\end{tikzpicture}
-	\vspace{-6pt}
 	\end{center}
 	Giá trị cực tiểu của hàm số là
 	\choice
@@ -132,6 +130,7 @@
 	}
 \end{ex}
 
+\newpage
 % Câu 4
 \begin{ex}
 	Cho hàm số $y = \dfrac{2x + 5}{x + 1}$. Khẳng định nào sau đây đúng?
@@ -141,11 +140,10 @@
 	{Hàm số có một điểm cực trị}
 	{Đồ thị không có tiệm cận ngang}
 	\loigiai{
-		Ta có $y' = \dfrac{-3}{(x + 1)^2} < 0, \; \forall x \ne -1$. Do đó hàm số nghịch biến trên từng khoảng xác định $(-\infty; -1)$ và $(-1; +\infty)$.
+		Tập xác định $D = \mathbb{R} \setminus \{-1\}$. Ta có đạo hàm $y' = \dfrac{2(1) - 5(1)}{(x + 1)^2} = \dfrac{-3}{(x + 1)^2} < 0, \; \forall x \ne -1$. Vậy hàm số nghịch biến trên từng khoảng xác định $(-\infty; -1)$ và $(-1; +\infty)$.
 	}
 \end{ex}
 
-\newpage
 % Câu 5
 \begin{ex}
 	Cho hàm số $y = x + \dfrac{1}{x}$. Phương trình đường tiệm cận xiên của đồ thị hàm số là
@@ -198,6 +196,7 @@
 	}
 \end{ex}
 
+\newpage
 % Câu 9
 \begin{ex}
 	Cho hàm số $y = f(x)$ có đạo hàm $f'(x) = x(x - 1)(x + 2)$ với mọi $x \in \mathbb{R}$. Số khoảng đồng biến của hàm số là
@@ -211,12 +210,11 @@
 	}
 \end{ex}
 
-\newpage
 % Câu 10
 \begin{ex}
 	Cho hàm số $y = \dfrac{ax^2 + bx + c}{dx + e}$ ($ad \ne 0$), trong đó đa thức tử không chia hết cho đa thức mẫu. Bảng biến thiên của hàm số được cho như dưới đây:
 	\begin{center}
-	\begin{tikzpicture}[>=stealth,scale=1]
+	\begin{tikzpicture}[>=stealth,scale=0.95]
 	  \draw[thick] (0,0) rectangle (9.3,-2.2);
 	  \draw[thick] (0,-0.6) -- (9.3,-0.6);
 	  \draw[thick] (0,-1.2) -- (9.3,-1.2);
@@ -304,7 +302,7 @@
 		{\True Đồ thị có tiệm cận ngang $y = 2$}
 		{Hình bên là đồ thị của hàm số đã cho}
 	}{
-		\includegraphics[width=4.2cm]{p2_c1_hinh.png}
+		\includegraphics[width=4.0cm]{p2_c1_hinh.png}
 	}
 	\loigiai{
 		a) \textbf{Đúng}: $y' = \dfrac{2(-1) - 1(1)}{(x - 1)^2} = -\dfrac{3}{(x - 1)^2} < 0, \; \forall x \ne 1$.\\
@@ -324,7 +322,7 @@
 		{Đồ thị cắt trục tung tại điểm có tung độ bằng $2$}
 		{Hàm số nghịch biến trên toàn bộ $\mathbb{R}$}
 	}{
-		\includegraphics[width=4.0cm]{p2_c2_hinh.png}
+		\includegraphics[width=3.8cm]{p2_c2_hinh.png}
 	}
 	\loigiai{
 		a) \textbf{Đúng}: Đồ thị có đường tiệm cận đứng là $x = 1$.\\
@@ -361,7 +359,7 @@
 	{Giá trị cực tiểu của hàm số bằng $1$}
 	{\True Bảng biến thiên dưới đây là bảng biến thiên của hàm số đã cho
 		\begin{center}
-		\begin{tikzpicture}[>=stealth,scale=0.95]
+		\begin{tikzpicture}[>=stealth,scale=0.92]
 		  \draw[thick] (0,0) rectangle (8.5,-2.2);
 		  \draw[thick] (0,-0.6) -- (8.5,-0.6);
 		  \draw[thick] (0,-1.2) -- (8.5,-1.2);
@@ -408,7 +406,7 @@
 \begin{ex}
 	Cho hàm số $y = f(x)$ có bảng biến thiên như dưới đây:
 	\begin{center}
-	\begin{tikzpicture}[>=stealth,scale=1]
+	\begin{tikzpicture}[>=stealth,scale=0.95]
 	  \draw[thick] (0,0) rectangle (9.3,-2.2);
 	  \draw[thick] (0,-0.6) -- (9.3,-0.6);
 	  \draw[thick] (0,-1.2) -- (9.3,-1.2);
@@ -488,7 +486,7 @@
 	}
 \end{ex}
 
-% Phần III Câu 6
+% Câu 6
 \begin{ex}
 	Cho hàm số $y = f(x) = x^3 - 3ax$, với $a > 0$. Biết hàm số đạt cực tiểu tại $x = 3$. Tính $a$.
 	\par\shortans[oly]{9}
