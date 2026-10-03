@@ -1,0 +1,21 @@
+{
+  "updated_at": "2026-10-03 10:33:44",
+  "total_files": 1,
+  "completed_files": 1,
+  "pending_files": 0,
+  "records": {
+    "De_Thi_Goc_2009.pdf": {
+      "file_name": "De_Thi_Goc_2009.pdf",
+      "file_relpath": "De_Goc/De_Thi_Goc_2009.pdf",
+      "sha256": "AE9F7E0356EB4F87CBCC12B38369D5B2935AA95E827777E408AAA61CAD66D82D",
+      "size_bytes": 230590,
+      "date_added": "2026-10-03 07:15:00",
+      "date_processed": "2026-10-03 10:30:00",
+      "status": "HOAN_THANH",
+      "output_docx": "San_Pham/De_Thi_Goc_2009.docx",
+      "output_pdf": "San_Pham/De_Thi_Goc_2009.pdf",
+      "source_tex": "He_Thong/LaTeX/De_Thi_2009.tex",
+      "note": "Đề ôn tập Toán Lớp 12 - Mã đề 2009 (Lớp Toán Cô Thúy). Chuẩn hóa tab Macro BTPRO, 100% công thức Word Math OMML, đã lọc bỏ toàn bộ vệt kẻ ngang dưới, tiêu đề 2 dòng viền đen sắc nét."
+    }
+  }
+}

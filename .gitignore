@@ -1,0 +1,18 @@
+# Word temporary lock files
+~$*.docx
+~$*.dotm
+*.tmp
+
+# LaTeX temporary build files
+*.aux
+*.log
+*.thm
+*.out
+*.synctex.gz
+*.toc
+*.fls
+*.fdb_latexmk
+
+# Python cache
+__pycache__/
+*.pyc
