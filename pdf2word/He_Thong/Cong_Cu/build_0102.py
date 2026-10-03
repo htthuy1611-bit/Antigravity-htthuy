@@ -347,9 +347,9 @@ Hàm số nào dưới đây có bảng biến thiên đã cho?
 
 @@TAB@@\textbf{A.} $y = \dfrac{2x - 5}{x - 1}$.@@TAB@@\textbf{B.} $y = \dfrac{x + 1}{x - 1}$.@@TAB@@\textbf{C.} $y = \dfrac{2x + 1}{x - 1}$.@@TAB@@\textbf{D.} $y = \dfrac{2x + 1}{x + 1}$.
 
-\textbf{Lời giải.} Tiệm cận đứng $x = 1$, tiệm cận ngang $y = 2$. Hàm số nghịch biến nên $y' < 0$. Xét $y = \dfrac{2x - 5}{x - 1} \implies y' = \dfrac{2(-1) - (-5)}{(x - 1)^2} = \dfrac{3}{(x - 1)^2} > 0$. Còn với BBT mang dấu $-$ ta có $ad - bc < 0$, đáp án phù hợp là $y = \dfrac{2x - 5}{x - 1}$.
+\textbf{Lời giải.} Từ bảng biến thiên, ta thấy đồ thị hàm số có tiệm cận đứng $x = 1$, tiệm cận ngang $y = 2$ và đạo hàm $y' < 0$ với mọi $x \ne 1$. Xét hàm số $y = \dfrac{2x + 1}{x - 1}$, có tiệm cận đứng $x = 1$, tiệm cận ngang $y = 2$ và $y' = \dfrac{-3}{(x - 1)^2} < 0$. Thỏa mãn tất cả các điều kiện.
 
-\textbf{==> Chọn đáp án A.}
+\textbf{==> Chọn đáp án C.}
 
 % Câu 11
 @@START_SIDE_BY_SIDE_C11@@
@@ -454,9 +454,9 @@ Khẳng định nào sau đây đúng?
 
 - Ý c) Đúng: $y' = 1 - \dfrac{1}{(x - 2)^2} = 0 \iff x = 1$ hoặc $x = 3$.
 
-- Ý d) Đúng: Hàm số nghịch biến trên $(1; 2)$ và $(2; 3)$.
+- Ý d) Sai: Hàm số không xác định tại $x = 2 \in (1; 3)$, nên không thể nói nghịch biến trên khoảng $(1; 3)$ mà chỉ nghịch biến trên từng khoảng $(1; 2)$ và $(2; 3)$.
 
-\textbf{==> Đáp án: a) Đúng | b) Sai | c) Đúng | d) Đúng.}
+\textbf{==> Đáp án: a) Đúng | b) Sai | c) Đúng | d) Sai.}
 
 % Phần 2 Câu 4
 @@START_SIDE_BY_SIDE_P2C4@@
@@ -475,13 +475,13 @@ Khẳng định nào sau đây đúng?
 
 - Ý a) Đúng: Đạo hàm chuẩn $y' = \dfrac{(2x - 2)(x - 1) - (x^2 - 2x + 2)}{(x - 1)^2} = \dfrac{x^2 - 2x}{(x - 1)^2} = \dfrac{x(x - 2)}{(x - 1)^2}$.
 
-- Ý b) Sai: $x \in (0; 1) \implies x > 0, x - 2 < 0 \implies y' < 0$ (nghịch biến), đúng quy tắc.
+- Ý b) Đúng: Với $x \in (0; 1)$, $x > 0, x - 2 < 0 \implies y' < 0$, do đó hàm số nghịch biến trên khoảng $(0; 1)$.
 
 - Ý c) Sai: $y = x - 1 + \dfrac{1}{x - 1} \implies$ tiệm cận xiên là $y = x - 1$.
 
-- Ý d) Đúng: Đồ thị hàm số phân thức bậc hai trên bậc nhất với tiệm cận đứng $x = 1$.
+- Ý d) Đúng: Đồ thị hàm số có cực đại $(0; -2)$, cực tiểu $(2; 2)$, tiệm cận đứng $x = 1$, tiệm cận xiên $y = x - 1$, hoàn toàn trùng khớp với hình vẽ.
 
-\textbf{==> Đáp án: a) Đúng | b) Sai | c) Sai | d) Đúng.}
+\textbf{==> Đáp án: a) Đúng | b) Đúng | c) Sai | d) Đúng.}
 
 @@END_SIDE_BY_SIDE_P2C4@@
 
@@ -581,6 +581,9 @@ def build_0102_doc(tex_str, output_path, is_solution=False):
     style.font.name = 'Times New Roman'
     style.font.size = Pt(12)
     style.font.color.rgb = RGBColor(0, 0, 0)
+    rPr = style.element.get_or_add_rPr()
+    rFonts = parse_xml(r'<w:rFonts %s w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>' % nsdecls('w'))
+    rPr.append(rFonts)
     
     for p in list(doc.paragraphs):
         if "@@DOCUMENT_HEADER@@" in p.text:

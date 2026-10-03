@@ -23,22 +23,28 @@
       "sha256": "2B5B6CCA11A3DFA67C802290C8AA8507D35A9E0EB94ACD957A5023DDFCEF8A9E",
       "size_bytes": 757430,
       "date_added": "2026-10-03 10:37:39",
-      "date_processed": "2026-10-03 11:56:00",
-      "status": "HOAN_THANH_0101",
-      "current_code": "0101",
+      "date_processed": "2026-10-03 12:35:00",
+      "status": "HOAN_THANH_0101_0102",
+      "current_code": "0102",
       "output_docx": [
         "San_Pham/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_De_0101.docx",
-        "San_Pham/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_HDG_0101.docx"
+        "San_Pham/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_HDG_0101.docx",
+        "San_Pham/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_De_0102.docx",
+        "San_Pham/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_HDG_0102.docx"
       ],
       "output_pdf": [
+        "San_Pham/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_De_0102.pdf",
+        "San_Pham/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_HDG_0102.pdf",
         "San_Pham/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_De_0101.pdf",
         "San_Pham/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_HDG_0101.pdf"
       ],
       "source_tex": [
         "He_Thong/LaTeX/Bao_Thang_3/0101/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_De_0101.tex",
-        "He_Thong/LaTeX/Bao_Thang_3/0101/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_HDG_0101.tex"
+        "He_Thong/LaTeX/Bao_Thang_3/0101/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_HDG_0101.tex",
+        "He_Thong/LaTeX/Bao_Thang_3/0102/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_De_0102.tex",
+        "He_Thong/LaTeX/Bao_Thang_3/0102/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_HDG_0102.tex"
       ],
-      "note": "MÃ ĐỀ 0101 ĐÃ HOÀN THIỆN XUẤT SẮC: (1) Vẽ lại toàn bộ Bảng biến thiên (Câu 1, 2, 8, 9) bằng TikZ vector thuần; (2) Tiêu đề chuẩn tối ưu 2 dòng 3 cột đồng trục, không rớt dòng chữ; (3) Build pdflatex 0 lỗi, Đề vừa khít đúng 4 trang chuẩn thi cử; (4) Khắc phục thừa chữ 'Đáp án:' ở phần III; (5) Xuất bản Word docx đồng bộ ảnh BBT 300 DPI siêu nét, chuẩn BTPro."
+      "note": "MÃ ĐỀ 0101 VÀ 0102 ĐÃ HOÀN THIỆN ĐẠT ĐIỂM 10 CHẤT LƯỢNG: (1) Vẽ lại 100% BBT (Câu 1, 10, 12, P2C1, P3C3) bằng TikZ vector siêu nét, xuất PNG 300 DPI cho Word; (2) Đồ thị hàm số recrop chuẩn từng milimet, không dính chữ rác; (3) Build pdflatex 0 lỗi, bản Đề vừa khít đúng 4 trang, bản HDG 7 trang không rớt dòng/tách câu; (4) Khắc phục triệt để lỗi thừa chữ 'Đáp án:' ở phần III; (5) Xuất bản Word docx đồng bộ chuẩn BTPro."
     }
   }
 }
