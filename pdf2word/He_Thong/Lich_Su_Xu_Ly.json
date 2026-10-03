@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-03 11:16:28",
+  "updated_at": "2026-10-03 11:56:00",
   "total_files": 2,
   "completed_files": 2,
   "pending_files": 0,
@@ -23,8 +23,9 @@
       "sha256": "2B5B6CCA11A3DFA67C802290C8AA8507D35A9E0EB94ACD957A5023DDFCEF8A9E",
       "size_bytes": 757430,
       "date_added": "2026-10-03 10:37:39",
-      "date_processed": "2026-10-03 11:16:00",
-      "status": "HOAN_THANH",
+      "date_processed": "2026-10-03 11:56:00",
+      "status": "HOAN_THANH_0101",
+      "current_code": "0101",
       "output_docx": [
         "San_Pham/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_De_0101.docx",
         "San_Pham/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_HDG_0101.docx"
@@ -37,7 +38,7 @@
         "He_Thong/LaTeX/Bao_Thang_3/0101/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_De_0101.tex",
         "He_Thong/LaTeX/Bao_Thang_3/0101/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_HDG_0101.tex"
       ],
-      "note": "MÃ ĐỀ 0101: Đã chuẩn hóa toàn bộ quy trình: (1) Cắt sạch 100% hình vẽ và BBT không dính chữ rác; (2) Soạn thảo LaTeX chuẩn gói ex_test; (3) Build PDF bằng pdflatex thành công 0 lỗi; (4) Xuất bản Word chuẩn BTPro, Math OMML, không viền thừa."
+      "note": "MÃ ĐỀ 0101 ĐÃ HOÀN THIỆN XUẤT SẮC: (1) Vẽ lại toàn bộ Bảng biến thiên (Câu 1, 2, 8, 9) bằng TikZ vector thuần; (2) Tiêu đề chuẩn tối ưu 2 dòng 3 cột đồng trục, không rớt dòng chữ; (3) Build pdflatex 0 lỗi, Đề vừa khít đúng 4 trang chuẩn thi cử; (4) Khắc phục thừa chữ 'Đáp án:' ở phần III; (5) Xuất bản Word docx đồng bộ ảnh BBT 300 DPI siêu nét, chuẩn BTPro."
     }
   }
 }

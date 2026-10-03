@@ -184,8 +184,8 @@ def insert_header_and_code(doc, target_p, ma_de, is_solution=False):
     cell_right = row0.cells[1]
     cell_right.merge(row0.cells[2])
     
-    cell_left.width = Cm(9.8)
-    cell_right.width = Cm(7.7)
+    cell_left.width = Cm(8.5)
+    cell_right.width = Cm(9.0)
     
     p_l = cell_left.paragraphs[0]
     p_l.alignment = WD_ALIGN_PARAGRAPH.CENTER
@@ -207,64 +207,95 @@ def insert_header_and_code(doc, target_p, ma_de, is_solution=False):
     p_r.paragraph_format.line_spacing = 1.15
     p_r.paragraph_format.space_before = Pt(3)
     p_r.paragraph_format.space_after = Pt(3)
-    r3 = p_r.add_run("ĐỀ KHẢO SÁT CHẤT LƯỢNG TOÁN 12\n")
-    r3.bold = True
-    r3.font.name = "Times New Roman"
-    r3.font.size = Pt(12)
-    r3.font.color.rgb = RGBColor(192, 0, 0)
     
-    r_src = p_r.add_run("Nguồn: THPT Số 3 Bảo Thắng (2026 - 2027)\n")
-    r_src.bold = True
-    r_src.font.name = "Times New Roman"
-    r_src.font.size = Pt(10.5)
-    r_src.font.color.rgb = RGBColor(0, 32, 96)
-    
-    sub_title = "HƯỚNG DẪN GIẢI CHI TIẾT" if is_solution else "Thời gian làm bài: 25 phút"
-    r4 = p_r.add_run(sub_title)
-    r4.italic = True
-    r4.font.name = "Times New Roman"
-    r4.font.size = Pt(10.5)
     if is_solution:
-        r4.bold = True
-        r4.font.color.rgb = RGBColor(192, 0, 0)
+        r_top = p_r.add_run("HƯỚNG DẪN GIẢI CHI TIẾT\n")
+        r_top.bold = True
+        r_top.font.name = "Times New Roman"
+        r_top.font.size = Pt(12)
+        r_top.font.color.rgb = RGBColor(192, 0, 0)
+        
+        r3 = p_r.add_run("ĐỀ KHẢO SÁT CHẤT LƯỢNG TOÁN 12\n")
+        r3.bold = True
+        r3.font.name = "Times New Roman"
+        r3.font.size = Pt(11)
+        r3.font.color.rgb = RGBColor(0, 0, 0)
+        
+        r_src = p_r.add_run("THPT Số 3 Bảo Thắng (Năm học 2026 - 2027)")
+        r_src.italic = True
+        r_src.font.name = "Times New Roman"
+        r_src.font.size = Pt(10.5)
+    else:
+        r3 = p_r.add_run("ĐỀ KHẢO SÁT CHẤT LƯỢNG TOÁN 12\n")
+        r3.bold = True
+        r3.font.name = "Times New Roman"
+        r3.font.size = Pt(12)
+        r3.font.color.rgb = RGBColor(192, 0, 0)
+        
+        r_src = p_r.add_run("THPT Số 3 Bảo Thắng (2026 - 2027)\n")
+        r_src.bold = True
+        r_src.font.name = "Times New Roman"
+        r_src.font.size = Pt(10.5)
+        
+        r4 = p_r.add_run("Thời gian làm bài: 25 phút")
+        r4.italic = True
+        r4.font.name = "Times New Roman"
+        r4.font.size = Pt(10.5)
     
     row1 = table.rows[1]
-    c_hoten = row1.cells[0]
-    c_sbd = row1.cells[1]
-    c_made = row1.cells[2]
-    
-    c_hoten.width = Cm(10.2)
-    c_sbd.width = Cm(4.3)
-    c_made.width = Cm(3.0)
-    
-    p_hoten = c_hoten.paragraphs[0]
-    p_hoten.paragraph_format.space_before = Pt(3)
-    p_hoten.paragraph_format.space_after = Pt(3)
     if is_solution:
+        c_hoten = row1.cells[0]
+        c_hoten.merge(row1.cells[1])
+        c_hoten.width = Cm(14.0)
+        c_made = row1.cells[2]
+        c_made.width = Cm(3.5)
+        
+        p_hoten = c_hoten.paragraphs[0]
+        p_hoten.paragraph_format.space_before = Pt(3)
+        p_hoten.paragraph_format.space_after = Pt(3)
         r_ht = p_hoten.add_run("TÀI LIỆU DÀNH CHO GIÁO VIÊN / HỌC SINH THAM KHẢO")
-        r_ht.italic = True
+        r_ht.bold = True
         r_ht.font.size = Pt(10)
+        r_ht.font.name = "Times New Roman"
+        
+        p_md = c_made.paragraphs[0]
+        p_md.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        p_md.paragraph_format.space_before = Pt(3)
+        p_md.paragraph_format.space_after = Pt(3)
+        r_md = p_md.add_run(f"Mã đề: {ma_de}")
+        r_md.bold = True
+        r_md.font.name = "Times New Roman"
+        r_md.font.size = Pt(11)
     else:
-        r_ht = p_hoten.add_run("Họ và tên: ............................................................................")
+        c_hoten = row1.cells[0]
+        c_sbd = row1.cells[1]
+        c_made = row1.cells[2]
+        c_hoten.width = Cm(8.5)
+        c_sbd.width = Cm(5.5)
+        c_made.width = Cm(3.5)
+        
+        p_hoten = c_hoten.paragraphs[0]
+        p_hoten.paragraph_format.space_before = Pt(3)
+        p_hoten.paragraph_format.space_after = Pt(3)
+        r_ht = p_hoten.add_run("Họ và tên: ................................................................")
         r_ht.font.size = Pt(11)
-    r_ht.font.name = "Times New Roman"
-    
-    p_sbd = c_sbd.paragraphs[0]
-    p_sbd.paragraph_format.space_before = Pt(3)
-    p_sbd.paragraph_format.space_after = Pt(3)
-    if not is_solution:
-        r_sb = p_sbd.add_run("Số báo danh: .......")
+        r_ht.font.name = "Times New Roman"
+        
+        p_sbd = c_sbd.paragraphs[0]
+        p_sbd.paragraph_format.space_before = Pt(3)
+        p_sbd.paragraph_format.space_after = Pt(3)
+        r_sb = p_sbd.add_run("Số báo danh: ................")
         r_sb.font.name = "Times New Roman"
         r_sb.font.size = Pt(11)
-    
-    p_md = c_made.paragraphs[0]
-    p_md.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    p_md.paragraph_format.space_before = Pt(3)
-    p_md.paragraph_format.space_after = Pt(3)
-    r_md = p_md.add_run(f"Mã đề {ma_de}")
-    r_md.bold = True
-    r_md.font.name = "Times New Roman"
-    r_md.font.size = Pt(11)
+        
+        p_md = c_made.paragraphs[0]
+        p_md.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        p_md.paragraph_format.space_before = Pt(3)
+        p_md.paragraph_format.space_after = Pt(3)
+        r_md = p_md.add_run(f"Mã đề {ma_de}")
+        r_md.bold = True
+        r_md.font.name = "Times New Roman"
+        r_md.font.size = Pt(11)
     
     for row in table.rows:
         for cell in row.cells:
