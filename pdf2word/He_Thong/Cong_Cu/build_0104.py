@@ -463,8 +463,6 @@ Tổng hai giá trị cực trị là: $3 + (-1) = 2$.
 
 \textbf{==> Đáp án: 2.}
 
-@@ANSWER_BOX_1@@
-
 % Phần 3 Câu 2
 \textbf{Câu 2.} Cho hàm số $y = \dfrac{x^2 - x + 2}{x - 2}$. Gọi $I(a; b)$ là giao điểm hai đường tiệm cận của đồ thị. Tính $a + b$.
 
@@ -475,8 +473,6 @@ Giao điểm hai đường tiệm cận là $I(2; 3)$. Vậy $a + b = 2 + 3 = 5$
 
 \textbf{==> Đáp án: 5.}
 
-@@ANSWER_BOX_2@@
-
 % Phần 3 Câu 3
 \textbf{Câu 3.} Cho hàm số $y = f(x)$ có đạo hàm $f'(x) = (x + 2)^2(x - 1)(x - 3)$ với mọi $x \in \mathbb{R}$. Tính tổng các giá trị của $x$ tại đó hàm số đạt cực trị.
 
@@ -484,8 +480,6 @@ Giao điểm hai đường tiệm cận là $I(2; 3)$. Vậy $a + b = 2 + 3 = 5$
 Tổng các giá trị của $x$ tại đó hàm số đạt cực trị là: $1 + 3 = 4$.
 
 \textbf{==> Đáp án: 4.}
-
-@@ANSWER_BOX_3@@
 
 % Phần 3 Câu 4
 \textbf{Câu 4.} Cho hàm số $y = \dfrac{x^2 - 2x + 5}{x - 1}$. Gọi $A, B$ là hai điểm cực trị của đồ thị hàm số. Tính độ dài đoạn thẳng $AB$ (kết quả làm tròn đến hàng phần trăm).
@@ -502,8 +496,6 @@ AB = \sqrt{(3 - (-1))^2 + (4 - (-4))^2} = \sqrt{4^2 + 8^2} = \sqrt{16 + 64} = \s
 
 \textbf{==> Đáp án: 8,94.}
 
-@@ANSWER_BOX_4@@
-
 % Phần 3 Câu 5
 \textbf{Câu 5.} Cho hàm số $y = f(x) = \dfrac{x^2 - x + 4}{x}$. Tính hiệu giữa giá trị cực tiểu và giá trị cực đại của hàm số.
 
@@ -517,8 +509,6 @@ y_{CT} - y_{CĐ} = 3 - (-5) = 8.
 \]
 
 \textbf{==> Đáp án: 8.}
-
-@@ANSWER_BOX_5@@
 
 % Phần 3 Câu 6 (BBT)
 \textbf{Câu 6.} Cho hàm số $y = \dfrac{ax + b}{cx + d}$ ($ac \ne 0$, $ad - bc \ne 0$) có bảng biến thiên như dưới đây:
@@ -537,8 +527,6 @@ u + v = -2 + (-1) = -3.
 \]
 
 \textbf{==> Đáp án: -3.}
-
-@@ANSWER_BOX_6@@
 
 \vspace{0.4cm}
 \begin{center}
@@ -570,6 +558,8 @@ def build_0104_doc(tex_content, output_path, is_solution=False):
         s.bottom_margin = Cm(1.6)
         s.left_margin = Cm(2.0)
         s.right_margin = Cm(1.5)
+        s.page_width = Cm(21.0)
+        s.page_height = Cm(29.7)
         
         # Footer
         footer = s.footer
@@ -592,6 +582,9 @@ def build_0104_doc(tex_content, output_path, is_solution=False):
     style.font.name = 'Times New Roman'
     style.font.size = Pt(12)
     style.font.color.rgb = RGBColor(0, 0, 0)
+    rPr = style.element.get_or_add_rPr()
+    rFonts = parse_xml(r'<w:rFonts %s w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>' % nsdecls('w'))
+    rPr.append(rFonts)
     
     # Duyệt và thay thế Header sections
     for p in list(doc.paragraphs):
@@ -606,9 +599,9 @@ def build_0104_doc(tex_content, output_path, is_solution=False):
             
     # Xử lý các khối câu hỏi Side-by-side
     sbs_configs = [
-        ("C9", "c9_hinh.png", 5.0),
-        ("P2C3", "p2_c3_hinh.png", 5.0),
-        ("P2C4", "p2_c4_hinh.png", 5.0),
+        ("C9", "c9_hinh.png", 4.8),
+        ("P2C3", "p2_c3_hinh.png", 4.8),
+        ("P2C4", "p2_c4_hinh.png", 4.8),
     ]
     for tag, img_name, img_w in sbs_configs:
         start_tag = f"@@START_SIDE_BY_SIDE_{tag}@@"
@@ -681,9 +674,7 @@ def build_0104_doc(tex_content, output_path, is_solution=False):
                 p.paragraph_format.space_before = Pt(4)
                 p.paragraph_format.space_after = Pt(6)
                 if os.path.exists(img_path):
-                    # Kích thước tối ưu cho BBT
-                    width_val = Cm(8.0) if "c12" in img_tag or "p2_c1" in img_tag else Cm(9.5)
-                    p.add_run().add_picture(img_path, width=width_val)
+                    p.add_run().add_picture(img_path, width=Cm(9.2))
                 break
                 
         if not is_solution:

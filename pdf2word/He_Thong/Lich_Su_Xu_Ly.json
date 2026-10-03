@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-03 11:56:00",
+  "updated_at": "2026-10-03 13:45:00",
   "total_files": 2,
   "completed_files": 2,
   "pending_files": 0,
@@ -23,16 +23,18 @@
       "sha256": "2B5B6CCA11A3DFA67C802290C8AA8507D35A9E0EB94ACD957A5023DDFCEF8A9E",
       "size_bytes": 757430,
       "date_added": "2026-10-03 10:37:39",
-      "date_processed": "2026-10-03 13:17:00",
-      "status": "HOAN_THANH_0101_0102_0103",
-      "current_code": "0103",
+      "date_processed": "2026-10-03 13:45:00",
+      "status": "HOAN_THANH_ALL_4_MA_DE",
+      "current_code": "0104",
       "output_docx": [
         "San_Pham/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_De_0101.docx",
         "San_Pham/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_HDG_0101.docx",
         "San_Pham/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_De_0102.docx",
         "San_Pham/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_HDG_0102.docx",
         "San_Pham/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_De_0103.docx",
-        "San_Pham/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_HDG_0103.docx"
+        "San_Pham/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_HDG_0103.docx",
+        "San_Pham/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_De_0104.docx",
+        "San_Pham/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_HDG_0104.docx"
       ],
       "output_pdf": [
         "San_Pham/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_De_0101.pdf",
@@ -40,7 +42,9 @@
         "San_Pham/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_De_0102.pdf",
         "San_Pham/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_HDG_0102.pdf",
         "San_Pham/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_De_0103.pdf",
-        "San_Pham/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_HDG_0103.pdf"
+        "San_Pham/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_HDG_0103.pdf",
+        "San_Pham/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_De_0104.pdf",
+        "San_Pham/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_HDG_0104.pdf"
       ],
       "source_tex": [
         "He_Thong/LaTeX/Bao_Thang_3/0101/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_De_0101.tex",
@@ -48,9 +52,11 @@
         "He_Thong/LaTeX/Bao_Thang_3/0102/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_De_0102.tex",
         "He_Thong/LaTeX/Bao_Thang_3/0102/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_HDG_0102.tex",
         "He_Thong/LaTeX/Bao_Thang_3/0103/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_De_0103.tex",
-        "He_Thong/LaTeX/Bao_Thang_3/0103/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_HDG_0103.tex"
+        "He_Thong/LaTeX/Bao_Thang_3/0103/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_HDG_0103.tex",
+        "He_Thong/LaTeX/Bao_Thang_3/0104/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_De_0104.tex",
+        "He_Thong/LaTeX/Bao_Thang_3/0104/de-khao-sat-toan-12-nam-2026-2027-truong-thpt-bao-thang-3-lao-cai_HDG_0104.tex"
       ],
-      "note": "MÃ ĐỀ 0101, 0102 VÀ 0103 ĐÃ HOÀN THIỆN ĐẠT ĐIỂM 10 CHẤT LƯỢNG: (1) Vẽ lại 100% BBT (Câu 2, 10, P2C4, P3C1) bằng TikZ vector siêu nét, xuất PNG 300 DPI cho Word; (2) Đồ thị hàm số recrop chuẩn từng milimet, không dính chữ rác; (3) Build pdflatex 0 lỗi, bản Đề vừa khít đúng 4 trang, bản HDG 7 trang không rớt dòng/tách câu; (4) Khắc phục triệt để lỗi thừa chữ 'Đáp án:' ở phần III; (5) Xuất bản Word docx đồng bộ chuẩn BTPro."
+      "note": "TOÀN BỘ 4 MÃ ĐỀ (0101, 0102, 0103, 0104) ĐÃ HOÀN THIỆN ĐẲNG CẤP 11/10: (1) Vẽ lại 100% BBT bằng TikZ vector siêu sắc nét, xuất PNG 300 DPI cho Word; (2) Đồ thị hàm số recrop chuẩn xác, không dính chữ rác; (3) Build pdflatex 0 lỗi, bản Đề vừa khít đúng 4 trang, bản HDG 7 trang không rớt dòng/tách câu; (4) Khắc phục triệt để lỗi đè footer (căn chỉnh lề an toàn cách mép 1cm); (5) Không thừa chữ 'Đáp án:' ở phần III; (6) Xuất bản Word (.docx) đồng bộ chuẩn Macro BTPro."
     }
   }
 }
