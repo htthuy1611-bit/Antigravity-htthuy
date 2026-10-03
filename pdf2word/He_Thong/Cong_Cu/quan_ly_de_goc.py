@@ -85,12 +85,19 @@ def generate_markdown(history):
         else:
             docx_link = "*(chưa có)*"
             
-        pdf_prod_rel = rec.get("output_pdf", "")
-        if pdf_prod_rel and os.path.exists(os.path.join(BASE_DIR, pdf_prod_rel)):
-            pdf_prod_abs = f"file:///{os.path.join(BASE_DIR, pdf_prod_rel).replace(chr(92), '/')}"
-            pdf_prod_link = f"[{os.path.basename(pdf_prod_rel)}]({pdf_prod_abs})"
+        pdf_prod_val = rec.get("output_pdf", "")
+        if isinstance(pdf_prod_val, list):
+            pdf_links = []
+            for item in pdf_prod_val:
+                if os.path.exists(os.path.join(BASE_DIR, item)):
+                    item_abs = f"file:///{os.path.join(BASE_DIR, item).replace(chr(92), '/')}"
+                    pdf_links.append(f"• [{os.path.basename(item)}]({item_abs})")
+            pdf_prod_link = "<br>".join(pdf_links) if pdf_links else "*(chưa có)*"
+        elif pdf_prod_val and os.path.exists(os.path.join(BASE_DIR, pdf_prod_val)):
+            pdf_prod_abs = f"file:///{os.path.join(BASE_DIR, pdf_prod_val).replace(chr(92), '/')}"
+            pdf_prod_link = f"[{os.path.basename(pdf_prod_val)}]({pdf_prod_abs})"
         else:
-            pdf_prod_link = "*(không áp dụng)*" if isinstance(docx_val, list) else "*(chưa có)*"
+            pdf_prod_link = "*(chưa có)*"
             
         date_proc = rec.get("date_processed", rec.get("date_added", "-"))
         note = rec.get("note", "")

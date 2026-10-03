@@ -3,6 +3,12 @@ import sys
 import subprocess
 import glob
 
+if sys.stdout.encoding.lower() != 'utf-8':
+    try:
+        sys.stdout.reconfigure(encoding='utf-8')
+    except Exception:
+        pass
+
 def compile_tex_to_pdf(tex_path):
     if not os.path.exists(tex_path):
         print(f"[LỖI] Không tìm thấy file: {tex_path}")
