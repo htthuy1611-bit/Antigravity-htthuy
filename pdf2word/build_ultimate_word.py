@@ -1,4 +1,21 @@
-\documentclass[12pt,a4paper]{article}
+import os
+import sys
+import subprocess
+import docx
+from docx.shared import Pt, Cm, Inches, RGBColor
+from docx.enum.text import WD_ALIGN_PARAGRAPH
+from docx.enum.table import WD_TABLE_ALIGNMENT, WD_ALIGN_VERTICAL
+from docx.oxml import parse_xml
+from docx.oxml.ns import nsdecls
+
+if sys.stdout.encoding.lower() != 'utf-8':
+    try:
+        sys.stdout.reconfigure(encoding='utf-8')
+    except Exception:
+        pass
+
+# File LaTeX được thiết kế chuẩn xác từng chi tiết theo PDF gốc
+tex_content = r"""\documentclass[12pt,a4paper]{article}
 \usepackage[utf8]{vietnam}
 \usepackage{amsmath,amssymb}
 \usepackage{graphicx}
@@ -334,3 +351,154 @@ Khoảng biến thiên của mẫu số liệu ghép nhóm trên bằng
 \end{center}
 
 \end{document}
+"""
+
+with open("De_Thi_2009_perfect.tex", "w", encoding="utf-8") as f:
+    f.write(tex_content)
+
+pandoc_exe = os.path.expandvars(r"%LOCALAPPDATA%\Pandoc\pandoc.exe")
+cmd = [pandoc_exe, "De_Thi_2009_perfect.tex", "-o", "De_Thi_2009_temp.docx"]
+subprocess.run(cmd, check=True)
+
+# Post-processing với python-docx:
+doc = docx.Document("De_Thi_2009_temp.docx")
+
+# 1. Khổ giấy và Căn lề A4 chuẩn Quốc gia
+for s in doc.sections:
+    s.top_margin = Cm(1.6)
+    s.bottom_margin = Cm(1.6)
+    s.left_margin = Cm(2.0)
+    s.right_margin = Cm(1.5)
+    s.page_width = Cm(21.0)
+    s.page_height = Cm(29.7)
+    
+    # Footer
+    footer = s.footer
+    f_p = footer.paragraphs[0]
+    f_p.alignment = WD_ALIGN_PARAGRAPH.RIGHT
+    f_p.text = ""
+    run_l = f_p.add_run("Lớp Toán Cô Thúy  •  ĐT: 0935.322.328  •  50/2C Phạm Thị Liên                                   ")
+    run_l.font.name = "Times New Roman"
+    run_l.font.size = Pt(9.5)
+    run_l.italic = True
+    run_l.font.color.rgb = RGBColor(100, 100, 100)
+    
+    run_r = f_p.add_run("Trang Mã đề 2009")
+    run_r.font.name = "Times New Roman"
+    run_r.font.size = Pt(9.5)
+    run_r.italic = True
+    run_r.font.color.rgb = RGBColor(80, 80, 80)
+
+# 2. Chuẩn hoá Style Normal
+style = doc.styles['Normal']
+style.font.name = 'Times New Roman'
+style.font.size = Pt(12)
+style.font.color.rgb = RGBColor(0, 0, 0)
+rPr = style.element.get_or_add_rPr()
+rFonts = parse_xml(r'<w:rFonts %s w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>' % nsdecls('w'))
+rPr.append(rFonts)
+
+def format_paragraph(p):
+    p.paragraph_format.line_spacing = 1.15
+    p.paragraph_format.space_after = Pt(2.5)
+    p.paragraph_format.space_before = Pt(0)
+    
+    text = p.text.strip()
+    # CĂN ĐỀU 2 BÊN (JUSTIFY) CHO CÂU HỎI VÀ CÁC MỆNH ĐỀ ĐÚNG SAI
+    if text.startswith("Câu ") or text.startswith("a)") or text.startswith("b)") or text.startswith("c)") or text.startswith("d)"):
+        p.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
+    elif text.startswith("PHẦN"):
+        p.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.LEFT
+    elif "HẾT" in text or "MÃ ĐỀ" in text:
+        p.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    elif text.startswith("A.") or text.startswith("B.") or text.startswith("C.") or text.startswith("D."):
+        p.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
+
+    # Đảm bảo font Times New Roman 12pt
+    for r in p.runs:
+        r.font.name = 'Times New Roman'
+        r.font.size = Pt(12)
+        r_rPr = r._r.get_or_add_rPr()
+        f = parse_xml(r'<w:rFonts %s w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>' % nsdecls('w'))
+        r_rPr.append(f)
+
+for p in doc.paragraphs:
+    format_paragraph(p)
+
+# 3. Xử lý các bảng
+is_header_table = True
+for table in doc.tables:
+    table.alignment = WD_TABLE_ALIGNMENT.CENTER
+    is_data_table = False
+    is_answer_box = False
+    for row in table.rows:
+        for cell in row.cells:
+            text = cell.text.strip()
+            if 'Quãng đường' in text or 'Số ngày' in text or 'Chiều cao' in text or 'Số học sinh' in text:
+                is_data_table = True
+            if len(row.cells) == 4 and all(c.text.strip() == '' for c in row.cells):
+                is_answer_box = True
+
+    if is_header_table:
+        # Bảng Header: viền xanh navy sang trọng
+        tblPr = table._tbl.tblPr
+        tblBorders = parse_xml(
+            r'<w:tblBorders %s>'
+            r'<w:top w:val="single" w:sz="12" w:space="0" w:color="1F497D"/>'
+            r'<w:left w:val="single" w:sz="12" w:space="0" w:color="1F497D"/>'
+            r'<w:bottom w:val="single" w:sz="12" w:space="0" w:color="1F497D"/>'
+            r'<w:right w:val="single" w:sz="12" w:space="0" w:color="1F497D"/>'
+            r'<w:insideH w:val="none"/>'
+            r'<w:insideV w:val="single" w:sz="6" w:space="0" w:color="1F497D"/>'
+            r'</w:tblBorders>' % nsdecls('w')
+        )
+        tblPr.append(tblBorders)
+        is_header_table = False
+    elif is_answer_box:
+        # Ô trả lời ngắn: giữ viền đen chuẩn
+        tblPr = table._tbl.tblPr
+        tblBorders = parse_xml(
+            r'<w:tblBorders %s>'
+            r'<w:top w:val="single" w:sz="8" w:space="0" w:color="000000"/>'
+            r'<w:left w:val="single" w:sz="8" w:space="0" w:color="000000"/>'
+            r'<w:bottom w:val="single" w:sz="8" w:space="0" w:color="000000"/>'
+            r'<w:right w:val="single" w:sz="8" w:space="0" w:color="000000"/>'
+            r'<w:insideH w:val="single" w:sz="8" w:space="0" w:color="000000"/>'
+            r'<w:insideV w:val="single" w:sz="8" w:space="0" w:color="000000"/>'
+            r'</w:tblBorders>' % nsdecls('w')
+        )
+        tblPr.append(tblBorders)
+    elif not is_data_table:
+        # Xóa viền cho bảng layout ảnh và bảng phương án A, B, C, D
+        tblPr = table._tbl.tblPr
+        tblBorders = parse_xml(
+            r'<w:tblBorders %s>'
+            r'<w:top w:val="none"/>'
+            r'<w:left w:val="none"/>'
+            r'<w:bottom w:val="none"/>'
+            r'<w:right w:val="none"/>'
+            r'<w:insideH w:val="none"/>'
+            r'<w:insideV w:val="none"/>'
+            r'</w:tblBorders>' % nsdecls('w')
+        )
+        tblPr.append(tblBorders)
+
+    # Format text trong cell
+    for row in table.rows:
+        for cell in row.cells:
+            cell.vertical_alignment = WD_ALIGN_VERTICAL.CENTER
+            for p in cell.paragraphs:
+                format_paragraph(p)
+
+# Tắt Compatibility Mode
+settings = doc.settings.element
+compat = parse_xml(
+    r'<w:compat %s>'
+    r'<w:compatSetting w:name="compatibilityMode" w:uri="http://schemas.microsoft.com/office/word" w:val="15"/>'
+    r'</w:compat>' % nsdecls('w')
+)
+settings.append(compat)
+
+output_file = "De_Thi_2009.docx"
+doc.save(output_file)
+print(f"[HOÀN TẤT 100%] Đã lưu file Word chuẩn in ấn: {output_file}")
