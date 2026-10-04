@@ -174,11 +174,11 @@ def insert_header_and_code(doc, target_p, is_solution=False):
         p_info = c_hoten.paragraphs[0]
         p_info.paragraph_format.space_before = Pt(3)
         p_info.paragraph_format.space_after = Pt(3)
-        r_ht = p_info.add_run(" Họ tên: ")
+        r_ht = p_info.add_run(" Giáo viên: ")
         r_ht.bold = True
         r_ht.font.name = "Times New Roman"
         r_ht.font.size = Pt(10.5)
-        r_ht_v = p_info.add_run("BÙI THỊ HỒNG THÚY     ")
+        r_ht_v = p_info.add_run("HỒ THỊ THÚY     ")
         r_ht_v.font.name = "Times New Roman"
         r_ht_v.font.size = Pt(10.5)
         

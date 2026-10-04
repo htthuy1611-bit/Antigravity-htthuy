@@ -1,0 +1,102 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{vietnam}
+\usepackage{amsmath,amssymb,amsfonts,mathrsfs}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{calc,angles,quotes,shapes.geometric,arrows.meta}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage[top=1.0cm,bottom=1.8cm,left=1.4cm,right=1.4cm,footskip=0.8cm,headheight=16pt]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins}
+\usepackage[loigiai]{ex_test}
+
+\makeatletter
+\@ifundefined{c@bt}{\newcounter{bt}}{}
+\makeatother
+
+% Các macro cấu hình tiêu đề (Macro dùng chung)
+\ifdefined\tentruong\else\def\tentruong{}\fi
+\ifdefined\tenkythi\else\def\tenkythi{GIỮA KỲ I}\fi
+\ifdefined\monhoc\else\def\monhoc{TOÁN}\fi
+\ifdefined\namhoc\else\def\namhoc{2025 -- 2026}\fi
+\ifdefined\made\else\def\made{101}\fi
+\ifdefined\tieudetrai\else\def\tieudetrai{}\fi
+\ifdefined\tieudephai\else\def\tieudephai{}\fi
+\ifdefined\headertype\else\def\headertype{dethi}\fi
+\ifdefined\brand\else\def\brand{Lớp Toán Cô Thúy -- SĐT: 0935.322.328 -- 50/2C Phạm Thị Liên}\fi
+\ifdefined\giaovien\else\def\giaovien{HỒ THỊ THÚY}\fi
+\ifdefined\noidungfile\else\def\noidungfile{noi_dung.tex}\fi
+\ifdefined\figpath\graphicspath{{\figpath}}\fi
+
+% Thiết lập Header / Footer cố định bản quyền Cô Thúy
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lfoot{\footnotesize\textsl{\brand}}
+\rfoot{\footnotesize\textsl{Trang \thepage/\pageref{LastPage} -- Hướng dẫn giải Mã đề \made}}
+\setlength{\parskip}{1pt}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+% Render bảng Tiêu đề theo cấu hình Macro
+\def\typept{phieubaitap}
+\ifx\headertype\typept
+\noindent
+\begin{tabularx}{\textwidth}{|>{\centering\arraybackslash}p{6.8cm}|>{\centering\arraybackslash}X|}
+\hline
+\textbf{LỚP TOÁN CÔ THÚY} & \textbf{HƯỚNG DẪN GIẢI CHI TIẾT} \\
+\textbf{SĐT: 0935.322.328 -- 50/2C Phạm Thị Liên} & \textbf{Môn: \monhoc} \\
+\textbf{\tieudetrai} & \textit{Giáo viên: \giaovien} \\
+\hline
+\end{tabularx}
+\vspace{0.2cm}
+\else
+\noindent
+\begin{tabular}{|p{6.6cm}|p{6.6cm}|>{\centering\arraybackslash}p{3.2cm}|}
+\hline
+\begin{minipage}{6.6cm}
+\vspace{3pt}
+\centering
+{\large\bfseries\color{blue!80!black} LỚP TOÁN CÔ THÚY}\\[3pt]
+\textbf{SĐT:} 0935.322.328\\[2pt]
+\textbf{Địa chỉ:} 50/2C Phạm Thị Liên
+\vspace{3pt}
+\end{minipage}
+&
+\multicolumn{2}{p{10.2cm}|}{
+\begin{minipage}{10.2cm}
+\vspace{3pt}
+\centering
+{\bfseries\color{red!80!black} HƯỚNG DẪN GIẢI CHI TIẾT \tenkythi}\\[3pt]
+\textbf{Môn: \monhoc\ifx\tentruong\empty\else\ -- \tentruong\fi}\\[2pt]
+\textit{Năm học \namhoc\ -- Mã đề: \made}
+\vspace{3pt}
+\end{minipage}
+} \\
+\hline
+\rule{0pt}{14pt}\textbf{Giáo viên:} \giaovien &
+\rule{0pt}{14pt}\textbf{Môn học:} \monhoc &
+\rule{0pt}{14pt}\textbf{Mã đề thi \made}\rule[-4pt]{0pt}{4pt} \\
+\hline
+\end{tabular}
+\vspace{0.15cm}
+\fi
+
+% INPUT NỘI DUNG CÂU HỎI TỪ FILE TEX CON
+\input{\noidungfile}
+
+\ifdefined\inbangdapan
+\inbangdapan
+\fi
+
+\vspace{0.4cm}
+\begin{center}
+	\textbf{--------- HẾT ---------}
+\end{center}
+
+\end{document}

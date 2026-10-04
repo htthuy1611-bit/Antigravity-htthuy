@@ -111,7 +111,7 @@ def insert_header_and_code(doc, target_p, is_solution=False):
         r_ht.bold = True
         r_ht.font.name = "Times New Roman"
         r_ht.font.size = Pt(10.5)
-        r_ht_v = p_info.add_run("BÙI THỊ HỒNG THÚY          ")
+        r_ht_v = p_info.add_run("HỒ THỊ THÚY          ")
         r_ht_v.font.name = "Times New Roman"
         r_ht_v.font.size = Pt(10.5)
         

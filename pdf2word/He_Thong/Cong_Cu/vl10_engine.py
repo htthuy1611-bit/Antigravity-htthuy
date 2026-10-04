@@ -135,41 +135,9 @@ def tex_answer_key():
     return s
 
 
-def build_latex(is_sol):
-    opt = "loigiai" if is_sol else "dethi"
-    foot_r = (r"Trang \thepage/\pageref{LastPage} -- Hướng dẫn giải Mã đề %s" % MADE) if is_sol \
-        else (r"Trang \thepage/\pageref{LastPage} -- Mã đề %s" % MADE)
-    s = r"""\documentclass[11pt,a4paper]{article}
-\usepackage[utf8]{vietnam}
-\usepackage{amsmath,amssymb,mathrsfs}
-\usepackage{graphicx}
-\usepackage{tikz}
-\usepackage{array}
-\usepackage[top=1.0cm,bottom=1.8cm,left=1.4cm,right=1.4cm,footskip=0.8cm,headheight=16pt]{geometry}
-\usepackage{fancyhdr}
-\usepackage{tcolorbox}
-\tcbuselibrary{skins}
-\usepackage{lastpage}
-\usepackage[""" + opt + r"""]{ex_test}
-\graphicspath{{../../Hinh_Anh/""" + FOLDER + r"""/}}
-
-\makeatletter
-\@ifundefined{c@bt}{\newcounter{bt}}{}
-\makeatother
-
-\pagestyle{fancy}
-\fancyhf{}
-\renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{0.4pt}
-\lfoot{\footnotesize\textsl{""" + BRAND + r"""}}
-\rfoot{\footnotesize\textsl{""" + foot_r + r"""}}
-\setlength{\parskip}{1pt}
-\setlength{\parindent}{0pt}
-
-\begin{document}
-
-""" + tex_header(is_sol)
-
+def build_latex_content():
+    """Sinh toàn bộ nội dung câu hỏi (Phần I, II, III, IV) vào file con noi_dung.tex."""
+    s = ""
     # Phần I
     s += tex_section(0)
     for i, q in enumerate(P1):
@@ -213,11 +181,41 @@ def build_latex(is_sol):
         if q.get("fig"):
             s += tex_fig(q["fig"])
         s += "\t\\loigiai{\n%s\n%s\t}\n\\end{ex}\n" % (tex_sol(q["sol"]), tex_fig(q["solfig"]) if q.get("solfig") else "")
-
-    if is_sol:
-        s += tex_answer_key()
-    s += "\n\\vspace{0.4cm}\n\\begin{center}\n\t\\textbf{--------- HẾT ---------}\n\\end{center}\n\n\\end{document}\n"
     return s
+
+
+def build_latex_wrapper(is_sol):
+    """File Main con dùng Macro tùy chỉnh và input Master Main dùng chung."""
+    if is_sol:
+        return f"""\\def\\tentruong{{{SCHOOL}}}
+\\def\\tenkythi{{GIỮA KỲ I}}
+\\def\\monhoc{{VẬT LÍ 10}}
+\\def\\namhoc{{{YEAR}}}
+\\def\\made{{{MADE}}}
+\\def\\headertype{{dethi}}
+\\def\\brand{{{BRAND}}}
+\\def\\giaovien{{HỒ THỊ THÚY}}
+\\def\\figpath{{../../Hinh_Anh/{FOLDER}/}}
+\\def\\noidungfile{{noi_dung.tex}}
+\\def\\inbangdapan{{\\input{{bang_dap_an.tex}}}}
+
+\\input{{../Master/Master_HDG.tex}}
+"""
+    else:
+        return f"""\\def\\tentruong{{{SCHOOL}}}
+\\def\\tenkythi{{KIỂM TRA GIỮA KỲ I}}
+\\def\\monhoc{{VẬT LÍ 10}}
+\\def\\namhoc{{{YEAR}}}
+\\def\\made{{{MADE}}}
+\\def\\thoigian{{45 phút (Không kể thời gian phát đề)}}
+\\def\\headertype{{dethi}}
+\\def\\brand{{{BRAND}}}
+\\def\\giaovien{{HỒ THỊ THÚY}}
+\\def\\figpath{{../../Hinh_Anh/{FOLDER}/}}
+\\def\\noidungfile{{noi_dung.tex}}
+
+\\input{{../Master/Master_De.tex}}
+"""
 
 
 def compile_latex(name, content):
@@ -637,8 +635,12 @@ def main():
     print("=" * 60)
     print(f" XUẤT BẢN ĐỀ VẬT LÍ 10 – {SCHOOL} – MÃ ĐỀ {MADE}")
     print("=" * 60)
-    ok_de = compile_latex(NAME_DE, build_latex(False))
-    ok_hdg = compile_latex(NAME_HDG, build_latex(True))
+    with open(os.path.join(LATEX_DIR, "noi_dung.tex"), "w", encoding="utf-8") as f:
+        f.write(build_latex_content())
+    with open(os.path.join(LATEX_DIR, "bang_dap_an.tex"), "w", encoding="utf-8") as f:
+        f.write(tex_answer_key())
+    ok_de = compile_latex(NAME_DE, build_latex_wrapper(False))
+    ok_hdg = compile_latex(NAME_HDG, build_latex_wrapper(True))
     build_word(False, os.path.join(SAN_PHAM_DIR, NAME_DE + ".docx"))
     build_word(True, os.path.join(SAN_PHAM_DIR, NAME_HDG + ".docx"))
     for n in (NAME_DE, NAME_HDG):
