@@ -1,0 +1,1561 @@
+# -*- coding: utf-8 -*-
+"""
+CHUYÊN ĐỀ TOÁN 10 - CHƯƠNG 5: CÁC SỐ ĐẶC TRƯNG CỦA MẪU SỐ LIỆU KHÔNG GHÉP NHÓM
+BÀI 2: CÁC SỐ ĐẶC TRƯNG ĐO XU THẾ TRUNG TÂM
+Bản quyền: LỚP TOÁN CÔ THÚY - GV: HỒ THỊ THÚY - SĐT: 0935.322.328 - Đ/C: 50/2C Phạm Thị Liên
+
+Sinh toàn bộ:
+  1. LaTeX Đề & HDG theo kiến trúc Master Main
+  2. PDF (pdflatex 2 passes chuẩn số trang)
+  3. Word (.docx) chuẩn BTPro, 100% công thức toán OMML
+"""
+import os
+import sys
+import re
+import shutil
+import subprocess
+import docx
+from docx.shared import Pt, Cm, RGBColor
+from docx.enum.text import WD_ALIGN_PARAGRAPH
+from docx.enum.table import WD_TABLE_ALIGNMENT, WD_ALIGN_VERTICAL
+from docx.oxml import parse_xml, OxmlElement
+from docx.oxml.ns import nsdecls, qn
+
+if sys.stdout.encoding.lower() != 'utf-8':
+    try:
+        sys.stdout.reconfigure(encoding='utf-8')
+    except Exception:
+        pass
+
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = os.path.abspath(os.path.join(CURRENT_DIR, "..", ".."))
+LATEX_DIR = os.path.join(BASE_DIR, "He_Thong", "LaTeX", "Toan10_Chuong5_Bai2")
+SAN_PHAM_DIR = os.path.join(BASE_DIR, "San_Pham")
+SCRATCH_DIR = os.path.join(CURRENT_DIR, "scratch_toan10_c5_b2")
+PANDOC = os.path.expandvars(r"%LOCALAPPDATA%\Pandoc\pandoc.exe")
+
+for d in (LATEX_DIR, SAN_PHAM_DIR, SCRATCH_DIR):
+    os.makedirs(d, exist_ok=True)
+
+sty_src = os.path.join(BASE_DIR, "He_Thong", "Quy_Chuan", "ex_test.sty")
+sty_dst = os.path.join(LATEX_DIR, "ex_test.sty")
+if os.path.exists(sty_src) and not os.path.exists(sty_dst):
+    shutil.copy2(sty_src, sty_dst)
+
+NAME_DE = "Toan10_C5_Bai2_De"
+NAME_HDG = "Toan10_C5_Bai2_HDG"
+
+BRAND = "Lớp Toán Cô Thúy -- SĐT: 0935.322.328 -- 50/2C Phạm Thị Liên"
+BRAND_W = "Lớp Toán Cô Thúy  •  SĐT: 0935.322.328  •  50/2C Phạm Thị Liên"
+
+def get_latex_content():
+    return r"""
+\begin{center}
+	{\Large\bfseries\color{blue!80!black} CHƯƠNG V. CÁC SỐ ĐẶC TRƯNG CỦA MẪU SỐ LIỆU KHÔNG GHÉP NHÓM}\\[6pt]
+	{\large\bfseries\color{red!80!black} BÀI 2. CÁC SỐ ĐẶC TRƯNG ĐO XU THẾ TRUNG TÂM}
+\end{center}
+\vspace{0.2cm}
+
+\section*{I. TÓM TẮT LÝ THUYẾT}
+
+\subsection*{1. Số trung bình cộng (Số trung bình)}
+\begin{itemize}
+	\item Cho mẫu số liệu gồm $n$ giá trị $x_1, x_2, \ldots, x_n$. Số trung bình cộng kí hiệu là $\overline{x}$, được tính bởi:
+	\[\overline{x} = \frac{x_1 + x_2 + \cdots + x_n}{n}.\]
+	\item Khi mẫu số liệu cho dưới dạng bảng phân bố tần số (giá trị $x_i$ có tần số $n_i$ tương ứng, $\sum n_i = n$):
+	\[\overline{x} = \frac{n_1 x_1 + n_2 x_2 + \cdots + n_k x_k}{n}.\]
+	\item Khi cho dưới dạng tần số tương đối $f_i = \dfrac{n_i}{n}$:
+	\[\overline{x} = f_1 x_1 + f_2 x_2 + \cdots + f_k x_k.\]
+	\item \textbf{Ý nghĩa:} Số trung bình cho biết vị trí trung tâm của mẫu số liệu và được dùng làm giá trị đại diện khi các số liệu ít phân tán, ít sai lệch.
+\end{itemize}
+
+\subsection*{2. Trung vị}
+\begin{itemize}
+	\item Sắp xếp mẫu số liệu gồm $n$ số liệu theo thứ tự không giảm (hoặc không tăng):
+	\begin{itemize}
+		\item Nếu $n$ lẻ: Số liệu đứng ở vị trí chính giữa (thứ $\dfrac{n+1}{2}$) gọi là trung vị.
+		\item Nếu $n$ chẵn: Trung vị là số trung bình cộng của hai số liệu đứng ở vị trí thứ $\dfrac{n}{2}$ và $\dfrac{n}{2} + 1$.
+	\end{itemize}
+	\item Kí hiệu trung vị là $M_e$.
+	\item \textbf{Ý nghĩa:} Trung vị chia mẫu số liệu thành hai phần có số phần tử bằng nhau. Trung vị không bị ảnh hưởng bởi các giá trị bất thường (quá lớn hoặc quá nhỏ).
+\end{itemize}
+
+\subsection*{3. Tứ phân vị}
+\begin{itemize}
+	\item Sắp thứ tự mẫu số liệu gồm $n$ số liệu thành dãy không giảm. Tứ phân vị là bộ ba giá trị $Q_1, Q_2, Q_3$ chia mẫu số liệu thành 4 phần bằng nhau về số lượng:
+	\begin{itemize}
+		\item $Q_2 = M_e$ (trung vị của toàn bộ mẫu).
+		\item $Q_1$ (tứ phân vị thứ nhất hay tứ phân vị dưới): là trung vị của nửa dãy phía dưới.
+		\item $Q_3$ (tứ phân vị thứ ba hay tứ phân vị trên): là trung vị của nửa dãy phía trên.
+		\item \textit{Lưu ý:} Nếu $n$ lẻ thì nửa dãy dưới và nửa dãy trên không bao gồm $Q_2$. Nếu $n$ chẵn thì nửa dãy dưới gồm $\dfrac{n}{2}$ số liệu đầu và nửa dãy trên gồm $\dfrac{n}{2}$ số liệu sau.
+	\end{itemize}
+	\item \textbf{Ý nghĩa:} $Q_1, Q_2, Q_3$ chia mẫu thành 4 phần, mỗi phần chứa $25\%$ số giá trị, đo xu thế trung tâm của từng phần mẫu.
+\end{itemize}
+
+\subsection*{4. Mốt}
+\begin{itemize}
+	\item Mốt của mẫu số liệu (kí hiệu $M_o$) là giá trị có tần số xuất hiện lớn nhất trong bảng phân bố tần số.
+	\item Một mẫu số liệu có thể có một hoặc nhiều mốt. Nếu tất cả các giá trị đều có tần số bằng nhau thì mẫu không có mốt.
+	\item \textbf{Ý nghĩa:} Mốt đặc trưng cho giá trị phổ biến nhất, hay gặp nhất trong đời sống thực tế (ví dụ: cỡ áo bán chạy nhất).
+\end{itemize}
+
+\vspace{0.3cm}
+\section*{II. CÁC VÍ DỤ MINH HỌA}
+
+\begin{ex}
+	\textbf{(Ví dụ 1).} Trong một cuộc thi tìm hiểu lịch sử địa phương, kết quả điểm số của 30 học sinh một lớp được ghi lại trong bảng sau:
+	\begin{center}
+	\begin{tabular}{|l|c|c|c|c|}
+		\hline
+		Số học sinh ($n_i$) & 5 & 12 & 10 & 3 \\
+		\hline
+		Số điểm ($x_i$) & 5 & 6 & 7 & 9 \\
+		\hline
+	\end{tabular}
+	\end{center}
+	Hỏi trung bình mỗi học sinh trong lớp đạt bao nhiêu điểm?
+	\loigiai{
+		Tổng số học sinh là $n = 5 + 12 + 10 + 3 = 30$.\\
+		Số điểm trung bình của mỗi học sinh trong lớp là:
+		\[\overline{x} = \frac{5 \cdot 5 + 12 \cdot 6 + 10 \cdot 7 + 3 \cdot 9}{30} = \frac{25 + 72 + 70 + 27}{30} = \frac{194}{30} \approx 6{,}47\text{ (điểm)}.\]
+	}
+\end{ex}
+
+\begin{ex}
+	\textbf{(Ví dụ 2).} Nghiên cứu tuổi thọ của 10 bóng đèn (tính theo giờ) được ghi lại như sau:
+	\begin{center}
+	\begin{tabular}{|l|c|c|c|c|}
+		\hline
+		Số bóng đèn ($n_i$) & 2 & 3 & 4 & 1 \\
+		\hline
+		Tuổi thọ (giờ) ($x_i$) & 1150 & 1160 & 1170 & 1180 \\
+		\hline
+	\end{tabular}
+	\end{center}
+	Hỏi tuổi thọ trung bình của các bóng đèn là bao nhiêu giờ?
+	\loigiai{
+		Tổng số bóng đèn là $n = 2 + 3 + 4 + 1 = 10$.\\
+		Tuổi thọ trung bình là:
+		\[\overline{x} = \frac{2 \cdot 1150 + 3 \cdot 1160 + 4 \cdot 1170 + 1 \cdot 1180}{10} = \frac{2300 + 3480 + 4680 + 1180}{10} = \frac{11\,640}{10} = 1164\text{ (giờ)}.\]
+	}
+\end{ex}
+
+\begin{ex}
+	\textbf{(Ví dụ 3).} Trong đợt kiểm tra bắn súng AK, mỗi người bắn 5 phát. Thang điểm là các số $0, 4, 5, 6, 7, 8, 9, 10$. Ở 4 lần bắn trước, anh Nam đạt được $8; 7; 0; 9$ điểm. Để vượt qua bài kiểm tra, điểm trung bình 5 lần phải từ $6{,}5$ trở lên. Tính số điểm ít nhất anh Nam cần đạt ở lần bắn thứ 5.
+	\loigiai{
+		Gọi số điểm ở lần bắn thứ 5 là $x$ ($x \in \{0, 4, 5, 6, 7, 8, 9, 10\}$).\\
+		Điểm trung bình sau 5 lần bắn là:
+		\[\overline{x} = \frac{8 + 7 + 0 + 9 + x}{5} = \frac{24 + x}{5}.\]
+		Để vượt qua bài kiểm tra, ta cần:
+		\[\overline{x} \ge 6{,}5 \iff \frac{24 + x}{5} \ge 6{,}5 \iff 24 + x \ge 32{,}5 \iff x \ge 8{,}5.\]
+		Vì thang điểm là các số nguyên nên số điểm ít nhất anh Nam cần đạt ở lần thứ 5 là \textbf{9 điểm}.
+	}
+\end{ex}
+
+\begin{ex}
+	\textbf{(Ví dụ 4).} Điểm thi của 7 học sinh là: $89, 69, 65, 0, 80, 0, 90$. Tìm trung vị của mẫu số liệu trên.
+	\loigiai{
+		Sắp xếp mẫu số liệu theo thứ tự không giảm:
+		\[0;\; 0;\; 65;\; 69;\; 80;\; 89;\; 90.\]
+		Vì cỡ mẫu $n = 7$ là số lẻ nên trung vị là số đứng ở vị trí thứ $\dfrac{7 + 1}{2} = 4$.\\
+		Do đó $M_e = 69$.
+	}
+\end{ex}
+
+\begin{ex}
+	\textbf{(Ví dụ 5).} Số áo bán được trong một quý của một cửa hàng được ghi lại như sau:
+	\begin{center}
+	\begin{tabular}{|l|c|c|c|c|c|c|c|}
+		\hline
+		Cỡ số & 36 & 37 & 38 & 39 & 40 & 41 & 42 \\
+		\hline
+		Số áo bán được & 13 & 45 & 126 & 110 & 126 & 40 & 5 \\
+		\hline
+	\end{tabular}
+	\end{center}
+	Hãy tìm trung vị của mẫu số liệu trên.
+	\loigiai{
+		Tổng số áo bán được là:
+		\[n = 13 + 45 + 126 + 110 + 126 + 40 + 5 = 465.\]
+		Vì $n = 465$ là số lẻ nên trung vị là giá trị của áo đứng ở vị trí thứ $\dfrac{465 + 1}{2} = 233$.\\
+		Ta tính tần số tích lũy:
+		\begin{itemize}
+			\item Cỡ 36: $13$ áo (từ vị trí 1 đến 13)
+			\item Cỡ 37: $13 + 45 = 58$ áo (từ vị trí 14 đến 58)
+			\item Cỡ 38: $58 + 126 = 184$ áo (từ vị trí 59 đến 184)
+			\item Cỡ 39: $184 + 110 = 294$ áo (từ vị trí 185 đến 294)
+		\end{itemize}
+		Vì $184 < 233 \le 294$ nên giá trị ở vị trí 233 mang cỡ số 39.\\
+		Vậy trung vị là $M_e = 39$.
+	}
+\end{ex}
+
+\begin{ex}
+	\textbf{(Ví dụ 6).} Số tấn hàng bán ra trong 6 tháng đầu năm của một công ty là: $4, 7, 9, 11, 12, 20$. Tìm tứ phân vị dưới của mẫu số liệu.
+	\loigiai{
+		Dãy số đã được sắp xếp theo thứ tự không giảm: $4, 7, 9, 11, 12, 20$ ($n = 6$ là số chẵn).\\
+		Trung vị của cả mẫu là $Q_2 = \dfrac{9 + 11}{2} = 10$.\\
+		Nửa dãy phía dưới gồm 3 số: $4, 7, 9$.\\
+		Tứ phân vị dưới $Q_1$ là trung vị của nửa dãy dưới: $Q_1 = 7$.
+	}
+\end{ex}
+
+\begin{ex}
+	\textbf{(Ví dụ 7).} Số buổi nghỉ học của một nhóm học sinh là: $5, 8, 10, 11, 15, 18, 23$. Tìm tứ phân vị trên của mẫu số liệu.
+	\loigiai{
+		Mẫu số liệu đã sắp xếp có $n = 7$ (lẻ): $5, 8, 10, 11, 15, 18, 23$.\\
+		Trung vị của mẫu là $Q_2 = 11$.\\
+		Nửa dãy phía trên (không gồm $Q_2$) là: $15, 18, 23$.\\
+		Tứ phân vị trên $Q_3$ là trung vị của nửa dãy trên: $Q_3 = 18$.
+	}
+\end{ex}
+
+\begin{ex}
+	\textbf{(Ví dụ 8).} Giá thành một sản phẩm (nghìn đồng) của 20 cơ sở sản xuất:
+	\begin{center}
+	\begin{tabular}{cccccccccc}
+		15 & 25 & 25 & 30 & 20 & 25 & 35 & 30 & 25 & 30 \\
+		25 & 20 & 35 & 30 & 15 & 25 & 25 & 20 & 25 & 25
+	\end{tabular}
+	\end{center}
+	Tìm mốt của mẫu số liệu trên.
+	\loigiai{
+		Lập bảng tần số các giá trị:
+		\begin{itemize}
+			\item Giá trị $15$: tần số $2$.
+			\item Giá trị $20$: tần số $3$.
+			\item Giá trị $25$: tần số $9$.
+			\item Giá trị $30$: tần số $4$.
+			\item Giá trị $35$: tần số $2$.
+		\end{itemize}
+		Giá trị $25$ có tần số xuất hiện lớn nhất ($9$ lần).\\
+		Vậy mốt của mẫu số liệu là $M_o = 25$ (nghìn đồng).
+	}
+\end{ex}
+
+\begin{ex}
+	\textbf{(Ví dụ 9).} Cân nặng của 20 học sinh:
+	\begin{center}
+	\begin{tabular}{cccccccccc}
+		28 & 35 & 29 & 37 & 30 & 35 & 37 & 30 & 35 & 29 \\
+		30 & 37 & 35 & 35 & 42 & 28 & 35 & 29 & 37 & 20
+	\end{tabular}
+	\end{center}
+	Tìm mốt của mẫu số liệu trên.
+	\loigiai{
+		Đếm số lần xuất hiện của các giá trị:
+		\begin{itemize}
+			\item $20$: 1 lần; $28$: 2 lần; $29$: 3 lần; $30$: 3 lần;
+			\item $35$: 6 lần; $37$: 4 lần; $42$: 1 lần.
+		\end{itemize}
+		Giá trị $35$ có tần số xuất hiện lớn nhất ($6$ lần).\\
+		Vậy mốt của mẫu số liệu là $M_o = 35\text{ kg}$.
+	}
+\end{ex}
+
+\vspace{0.4cm}
+\section*{III. BÀI TẬP VẬN DỤNG}
+
+\subsection*{PHẦN I. CÂU HỎI TRẮC NGHIỆM}
+\textit{\small (Mỗi câu học sinh chỉ chọn một phương án trả lời đúng)}
+\setcounter{ex}{0}
+
+% Câu 1
+\begin{ex}
+	Điều tra về số con của 40 gia đình ở khu vực, kết quả thu được như sau:
+	\begin{center}
+	\begin{tabular}{|l|c|c|c|c|c|c|}
+		\hline
+		Giá trị (số con) & 0 & 1 & 2 & 3 & 4 & Tổng \\
+		\hline
+		Tần số & 5 & 9 & 19 & 5 & 2 & $N = 40$ \\
+		\hline
+	\end{tabular}
+	\end{center}
+	Số trung bình $\overline{x}$ của mẫu số liệu trên là
+	\choice
+	{$\overline{x} = 2{,}75$}
+	{$\overline{x} = 1$}
+	{\True $\overline{x} = 1{,}75$}
+	{$\overline{x} = 3$}
+	\loigiai{
+		Áp dụng công thức tính số trung bình từ bảng phân bố tần số:
+		\[\overline{x} = \frac{0 \cdot 5 + 1 \cdot 9 + 2 \cdot 19 + 3 \cdot 5 + 4 \cdot 2}{40} = \frac{0 + 9 + 38 + 15 + 8}{40} = \frac{70}{40} = 1{,}75.\]
+		Chọn \textbf{C}.
+	}
+\end{ex}
+
+% Câu 2
+\begin{ex}
+	Kết quả điểm kiểm tra môn Toán của 40 học sinh lớp 10A được trình bày ở bảng sau:
+	\begin{center}
+	\begin{tabular}{|l|c|c|c|c|c|c|c|c|}
+		\hline
+		Điểm & 4 & 5 & 6 & 7 & 8 & 9 & 10 & Cộng \\
+		\hline
+		Tần số & 2 & 8 & 7 & 10 & 8 & 3 & 2 & 40 \\
+		\hline
+	\end{tabular}
+	\end{center}
+	Tính số trung bình cộng của bảng trên (làm tròn kết quả đến một chữ số thập phân).
+	\choice
+	{\True $6{,}8$}
+	{$6{,}4$}
+	{$7{,}0$}
+	{$6{,}7$}
+	\loigiai{
+		Ta có tổng điểm của cả lớp:
+		\[\sum n_i x_i = 4 \cdot 2 + 5 \cdot 8 + 6 \cdot 7 + 7 \cdot 10 + 8 \cdot 8 + 9 \cdot 3 + 10 \cdot 2 = 8 + 40 + 42 + 70 + 64 + 27 + 20 = 271.\]
+		Số trung bình cộng:
+		\[\overline{x} = \frac{271}{40} = 6{,}775 \approx 6{,}8.\]
+		Chọn \textbf{A}.
+	}
+\end{ex}
+
+% Câu 3
+\begin{ex}
+	Tiền thưởng (triệu đồng) của cán bộ và nhân viên trong một công ty được cho ở bảng sau:
+	\begin{center}
+	\begin{tabular}{|l|c|c|c|c|c|c|}
+		\hline
+		Tiền thưởng & 2 & 3 & 4 & 5 & 6 & Cộng \\
+		\hline
+		Tần số & 5 & 15 & 10 & 6 & 4 & 40 \\
+		\hline
+	\end{tabular}
+	\end{center}
+	Tính tiền thưởng trung bình.
+	\choice
+	{\True $3\,725\,000$ đồng}
+	{$3\,745\,000$ đồng}
+	{$3\,715\,000$ đồng}
+	{$3\,625\,000$ đồng}
+	\loigiai{
+		Tổng số tiền thưởng:
+		\[2 \cdot 5 + 3 \cdot 15 + 4 \cdot 10 + 5 \cdot 6 + 6 \cdot 4 = 10 + 45 + 40 + 30 + 24 = 149\text{ (triệu đồng)}.\]
+		Tiền thưởng trung bình:
+		\[\overline{x} = \frac{149}{40} = 3{,}725\text{ triệu đồng} = 3\,725\,000\text{ đồng}.\]
+		Chọn \textbf{A}.
+	}
+\end{ex}
+
+% Câu 4
+\begin{ex}
+	Để được cấp chứng chỉ A- Anh văn của một trung tâm ngoại ngữ, học viên phải trải qua 6 lần kiểm tra trắc nghiệm, thang điểm mỗi lần là 100 và phải đạt điểm trung bình từ 70 điểm trở lên. Qua 5 lần thi Minh đạt điểm trung bình là 64,5 điểm. Hỏi trong lần kiểm tra cuối cùng Minh phải đạt ít nhất bao nhiêu điểm để được cấp chứng chỉ?
+	\choice
+	{\True $97{,}5$}
+	{$96{,}5$}
+	{$94{,}5$}
+	{$93{,}5$}
+	\loigiai{
+		Tổng điểm của 5 lần thi đầu là: $5 \times 64{,}5 = 322{,}5$ điểm.\\
+		Để đạt điểm trung bình cả 6 lần từ 70 trở lên, tổng điểm 6 lần thi phải đạt ít nhất:
+		\[6 \times 70 = 420\text{ điểm}.\]
+		Do đó, số điểm ở lần thi thứ 6 phải đạt ít nhất là:
+		\[420 - 322{,}5 = 97{,}5\text{ điểm}.\]
+		Chọn \textbf{A}.
+	}
+\end{ex}
+
+% Câu 5
+\begin{ex}
+	Học sinh tỉnh A (gồm lớp 11 và lớp 12) tham dự kì thi học sinh giỏi Toán của Tỉnh (thang điểm 20) và điểm trung bình của họ là 10. Biết rằng số học sinh lớp 11 nhiều hơn số học sinh lớp 12 là $50\%$ và điểm trung bình của khối 12 cao hơn điểm trung bình của khối 11 là $50\%$. Điểm trung bình của khối 12 là
+	\choice
+	{$10$}
+	{$11{,}25$}
+	{\True $12{,}5$}
+	{$15$}
+	\loigiai{
+		Gọi $n_{12}$ là số học sinh khối 12 $\implies$ số học sinh khối 11 là $n_{11} = n_{12} + 0{,}5 n_{12} = 1{,}5 n_{12}$.\\
+		Gọi $\overline{x}_{11}$ là điểm trung bình khối 11 $\implies$ điểm trung bình khối 12 là $\overline{x}_{12} = \overline{x}_{11} + 0{,}5 \overline{x}_{11} = 1{,}5 \overline{x}_{11}$.\\
+		Điểm trung bình chung của cả hai khối là:
+		\[\overline{x} = \frac{n_{11} \overline{x}_{11} + n_{12} \overline{x}_{12}}{n_{11} + n_{12}} = \frac{1{,}5 n_{12} \overline{x}_{11} + n_{12} \cdot 1{,}5 \overline{x}_{11}}{1{,}5 n_{12} + n_{12}} = \frac{3 n_{12} \overline{x}_{11}}{2{,}5 n_{12}} = 1{,}2 \overline{x}_{11}.\]
+		Theo bài ra, $\overline{x} = 10 \implies 1{,}2 \overline{x}_{11} = 10 \implies \overline{x}_{11} = \frac{10}{1{,}2} = \frac{25}{3}$.\\
+		Điểm trung bình của khối 12 là:
+		\[\overline{x}_{12} = 1{,}5 \cdot \frac{25}{3} = \frac{3}{2} \cdot \frac{25}{3} = 12{,}5.\]
+		Chọn \textbf{C}.
+	}
+\end{ex}
+
+% Câu 6
+\begin{ex}
+	Điểm thi học kì của một học sinh như sau: $4; 6; 2; 7; 3; 5; 9; 8; 7; 10; 9$. Số trung bình và số trung vị lần lượt là
+	\choice
+	{$7$ và $6$}
+	{\True $6{,}(36)$ và $7$}
+	{$6{,}22$ và $7$}
+	{$6$ và $6$}
+	\loigiai{
+		Cỡ mẫu $n = 11$.\\
+		Tổng điểm: $4 + 6 + 2 + 7 + 3 + 5 + 9 + 8 + 7 + 10 + 9 = 70$.\\
+		Số trung bình: $\overline{x} = \dfrac{70}{11} = 6{,}3636... = 6{,}(36)$.\\
+		Sắp xếp theo thứ tự không giảm: $2; 3; 4; 5; 6; \mathbf{7}; 7; 8; 9; 9; 10$.\\
+		Vì $n = 11$ lẻ nên trung vị là số ở vị trí thứ $6$: $M_e = 7$.\\
+		Chọn \textbf{B}.
+	}
+\end{ex}
+
+% Câu 7
+\begin{ex}
+	Cho các số liệu thống kê về sản lượng chè thu được trong một năm (kg/sào) của 20 hộ gia đình:
+	\begin{center}
+	\begin{tabular}{cccccccccc}
+		111 & 112 & 112 & 113 & 114 & 114 & 115 & 114 & 115 & 116 \\
+		112 & 113 & 113 & 114 & 115 & 114 & 116 & 117 & 113 & 115
+	\end{tabular}
+	\end{center}
+	Số trung vị của bảng số liệu thống kê trên là
+	\choice
+	{$113$}
+	{\True $114$}
+	{$116$}
+	{$115$}
+	\loigiai{
+		Cỡ mẫu $n = 20$. Sắp xếp mẫu số liệu theo thứ tự không giảm:
+		\[111;\; 112;\; 112;\; 112;\; 113;\; 113;\; 113;\; 113;\; 114;\; \mathbf{114};\; \mathbf{114};\; 114;\; 114;\; 115;\; 115;\; 115;\; 115;\; 116;\; 116;\; 117.\]
+		Vì $n = 20$ chẵn nên trung vị là trung bình cộng của số thứ 10 và thứ 11:\\
+		Số thứ 10 là $114$, số thứ 11 là $114 \implies M_e = \dfrac{114 + 114}{2} = 114$.\\
+		Chọn \textbf{B}.
+	}
+\end{ex}
+
+% Câu 8
+\begin{ex}
+	Điểm học kì một của một học sinh được cho bởi bảng số liệu sau (đơn vị: điểm):
+	\[5;\; 6;\; 6;\; 7;\; 7;\; 8;\; 8;\; 8{,}5;\; 9.\]
+	Số trung vị của bảng trên là
+	\choice
+	{\True $7$}
+	{$8$}
+	{$9$}
+	{$11$}
+	\loigiai{
+		Mẫu số liệu đã được sắp xếp tăng dần và có $n = 9$ số liệu (lẻ).\\
+		Trung vị là số đứng ở vị trí thứ $\dfrac{9 + 1}{2} = 5$.\\
+		Số ở vị trí thứ 5 là $7 \implies M_e = 7$.\\
+		Chọn \textbf{A}.
+	}
+\end{ex}
+
+% Câu 9
+\begin{ex}
+	Thống kê điểm kiểm tra môn Lịch sử của 45 học sinh lớp 10A như sau:
+	\begin{center}
+	\begin{tabular}{|l|c|c|c|c|c|c|}
+		\hline
+		Điểm & 5 & 6 & 7 & 8 & 9 & 10 \\
+		\hline
+		Số học sinh & 2 & 11 & 9 & 16 & 4 & 3 \\
+		\hline
+	\end{tabular}
+	\end{center}
+	Số trung vị trong điểm các bài kiểm tra đó là
+	\choice
+	{$7{,}5\text{ điểm}$}
+	{$7{,}4\text{ điểm}$}
+	{\True $8\text{ điểm}$}
+	{$8{,}5\text{ điểm}$}
+	\loigiai{
+		Tổng số học sinh là $n = 45$ (lẻ). Số trung vị là điểm của học sinh đứng ở vị trí thứ $\dfrac{45 + 1}{2} = 23$.\\
+		Tính tần số tích lũy:
+		\begin{itemize}
+			\item Điểm 5: 2 học sinh
+			\item Điểm 6: $2 + 11 = 13$ học sinh
+			\item Điểm 7: $13 + 9 = 22$ học sinh
+			\item Điểm 8: $22 + 16 = 38$ học sinh
+		\end{itemize}
+		Vì $22 < 23 \le 38$ nên học sinh thứ 23 đạt điểm 8.\\
+		Vậy số trung vị là $M_e = 8$ điểm.\\
+		Chọn \textbf{C}.
+	}
+\end{ex}
+
+% Câu 10
+\begin{ex}
+	Cho bảng số liệu thống kê chiều cao của một nhóm học sinh như sau:
+	\begin{center}
+	\begin{tabular}{ccccccccccccccc}
+		151 & 152 & 153 & 154 & 155 & 160 & 160 & 162 & 163 & 165 & 165 & 165 & 166 & 167 & 167
+	\end{tabular}
+	\end{center}
+	Số trung vị của bảng số liệu nói trên là
+	\choice
+	{$160$}
+	{\True $162$}
+	{$167$}
+	{$161$}
+	\loigiai{
+		Mẫu có $n = 15$ số liệu đã được sắp xếp tăng dần.\\
+		Số trung vị là số ở vị trí thứ $\dfrac{15 + 1}{2} = 8$.\\
+		Số đứng ở vị trí thứ 8 là $162 \implies M_e = 162$.\\
+		Chọn \textbf{B}.
+	}
+\end{ex}
+
+% Câu 11
+\begin{ex}
+	Cho mẫu số liệu: $5; 13; 5; 7; 10; 2; 3$. Tứ phân vị thứ nhất, thứ hai, thứ ba lần lượt là
+	\choice
+	{\True $3; 5; 10$}
+	{$5; 3; 10$}
+	{$10; 3; 5$}
+	{$10; 5; 3$}
+	\loigiai{
+		Sắp xếp mẫu số liệu theo thứ tự không giảm ($n = 7$):
+		\[2;\; 3;\; 5;\; \mathbf{5};\; 7;\; 10;\; 13.\]
+		- Tứ phân vị thứ hai là trung vị của mẫu: $Q_2 = 5$.\\
+		- Nửa dãy phía dưới (không gồm $Q_2$) là: $2, 3, 5 \implies Q_1 = 3$.\\
+		- Nửa dãy phía trên (không gồm $Q_2$) là: $7, 10, 13 \implies Q_3 = 10$.\\
+		Vậy $Q_1 = 3; Q_2 = 5; Q_3 = 10$.\\
+		Chọn \textbf{A}.
+	}
+\end{ex}
+
+% Câu 12
+\begin{ex}
+	Cho mẫu số liệu: $2; 3; 10; 13; 5; 15; 5; 7$. Tứ phân vị thứ nhất, thứ hai, thứ ba lần lượt là
+	\choice
+	{$11{,}5; 6; 4$}
+	{\True $4; 6; 11{,}5$}
+	{$6; 4; 11{,}5$}
+	{$6; 11{,}5; 4$}
+	\loigiai{
+		Sắp xếp mẫu số liệu theo thứ tự không giảm ($n = 8$):
+		\[2;\; 3;\; 5;\; 5;\; 7;\; 10;\; 13;\; 15.\]
+		- Tứ phân vị thứ hai: $Q_2 = \dfrac{5 + 7}{2} = 6$.\\
+		- Nửa dãy dưới: $2, 3, 5, 5 \implies Q_1 = \dfrac{3 + 5}{2} = 4$.\\
+		- Nửa dãy trên: $7, 10, 13, 15 \implies Q_3 = \dfrac{10 + 13}{2} = 11{,}5$.\\
+		Vậy $Q_1 = 4; Q_2 = 6; Q_3 = 11{,}5$.\\
+		Chọn \textbf{B}.
+	}
+\end{ex}
+
+% Câu 13
+\begin{ex}
+	Cho mẫu số liệu: $21; 35; 17; 43; 8; 59; 72; 119$. Tứ phân vị thứ nhất, thứ hai, thứ ba lần lượt là
+	\choice
+	{\True $19; 39; 65{,}5$}
+	{$26; 43; 65{,}5$}
+	{$39; 19; 65{,}5$}
+	{$43; 26; 65{,}5$}
+	\loigiai{
+		Sắp xếp theo thứ tự không giảm ($n = 8$):
+		\[8;\; 17;\; 21;\; 35;\; 43;\; 59;\; 72;\; 119.\]
+		- Tứ phân vị thứ hai: $Q_2 = \dfrac{35 + 43}{2} = 39$.\\
+		- Nửa dãy dưới gồm $8, 17, 21, 35 \implies Q_1 = \dfrac{17 + 21}{2} = 19$.\\
+		- Nửa dãy trên gồm $43, 59, 72, 119 \implies Q_3 = \dfrac{59 + 72}{2} = 65{,}5$.\\
+		Vậy $Q_1 = 19; Q_2 = 39; Q_3 = 65{,}5$.\\
+		Chọn \textbf{A}.
+	}
+\end{ex}
+
+% Câu 14
+\begin{ex}
+	Các giá trị xuất hiện nhiều nhất trong mẫu dữ liệu được gọi là
+	\choice
+	{\True Mốt}
+	{Số trung vị}
+	{Số trung bình}
+	{Độ lệch chuẩn}
+	\loigiai{
+		Theo định nghĩa, giá trị có tần số xuất hiện lớn nhất trong mẫu số liệu được gọi là Mốt.\\
+		Chọn \textbf{A}.
+	}
+\end{ex}
+
+% Câu 15
+\begin{ex}
+	Cho bảng phân bố tần số tiền thưởng (triệu đồng) cho cán bộ và nhân viên trong một công ty:
+	\begin{center}
+	\begin{tabular}{|l|c|c|c|c|c|c|}
+		\hline
+		Tiền thưởng & 2 & 3 & 4 & 5 & 6 & Cộng \\
+		\hline
+		Tần số & 5 & 15 & 10 & 6 & 7 & 43 \\
+		\hline
+	\end{tabular}
+	\end{center}
+	Mốt của bảng phân bố tần số đã cho là
+	\choice
+	{$5\text{ triệu đồng}$}
+	{$6\text{ triệu đồng}$}
+	{\True $3\text{ triệu đồng}$}
+	{$2\text{ triệu đồng}$}
+	\loigiai{
+		Tần số lớn nhất trong bảng là $15$, ứng với giá trị tiền thưởng $3$ triệu đồng.\\
+		Vậy mốt của bảng phân bố là $3$ triệu đồng.\\
+		Chọn \textbf{C}.
+	}
+\end{ex}
+
+% Câu 16
+\begin{ex}
+	Tiền thưởng (triệu đồng) của cán bộ và nhân viên trong một công ty được cho ở bảng sau:
+	\begin{center}
+	\begin{tabular}{|l|c|c|c|c|c|c|}
+		\hline
+		Tiền lương & 1 & 2 & 3 & 4 & 5 & Cộng \\
+		\hline
+		Tần số & 10 & 12 & 11 & 15 & 2 & 50 \\
+		\hline
+	\end{tabular}
+	\end{center}
+	Tính mốt $M_o$.
+	\choice
+	{\True $M_o = 4$}
+	{$M_o = 5$}
+	{$M_o = 15$}
+	{$M_o = 11$}
+	\loigiai{
+		Tần số lớn nhất là $15$, tương ứng với giá trị tiền lương $4$ triệu đồng.\\
+		Vậy mốt $M_o = 4$.\\
+		Chọn \textbf{A}.
+	}
+\end{ex}
+
+% Câu 17
+\begin{ex}
+	Điểm kiểm tra môn Toán của 35 học sinh lớp 10A được thống kê trong bảng phân bố tần số sau (thang điểm 10):
+	\begin{center}
+	\begin{tabular}{|l|c|c|c|c|c|c|c|c|c|c|c|c|}
+		\hline
+		Điểm & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & Cộng \\
+		\hline
+		Tần số & 2 & 1 & 2 & 1 & 2 & 3 & $x$ & 5 & $y$ & 4 & 3 & $n = 35$ \\
+		\hline
+	\end{tabular}
+	\end{center}
+	Biết rằng mẫu số liệu trên có 2 mốt. Giá trị của $x \cdot y$ là
+	\choice
+	{\True $36$}
+	{$35$}
+	{$27$}
+	{$32$}
+	\loigiai{
+		Tổng số học sinh là $n = 35$, do đó:
+		\[2 + 1 + 2 + 1 + 2 + 3 + x + 5 + y + 4 + 3 = 35 \iff 23 + x + y = 35 \iff x + y = 12.\]
+		Vì mẫu số liệu có 2 mốt nên hai tần số lớn nhất phải bằng nhau và lớn hơn tần số lớn nhất của các giá trị còn lại (là 5 tại điểm 7).\\
+		Do đó $x = y$ và $x > 5$.\\
+		Từ $x + y = 12$ và $x = y$, ta có $x = y = 6 > 5$ (thỏa mãn).\\
+		Khi đó $x \cdot y = 6 \cdot 6 = 36$.\\
+		Chọn \textbf{A}.
+	}
+\end{ex}
+
+% Câu 18
+\begin{ex}
+	Cho bảng phân bố tần số sau:
+	\begin{center}
+	\begin{tabular}{|l|c|c|c|c|c|}
+		\hline
+		Giá trị & $x_1$ & $x_2$ & $x_3$ & $x_4$ & $x_5$ \\
+		\hline
+		Tần số & 3 & 5 & $n + 6$ & $20 - n$ & 9 \\
+		\hline
+	\end{tabular}
+	\end{center}
+	Trong đó $n$ là số tự nhiên và giá trị $x_4$ là mốt duy nhất của bảng số liệu. Tìm số $n$.
+	\choice
+	{\True $n \in [0; 7)$}
+	{$n \in [0; 8)$}
+	{$n \in (0; 7)$}
+	{$n \in (0; 7]$}
+	\loigiai{
+		Vì $x_4$ là mốt duy nhất nên tần số của $x_4$ phải lớn hơn hẳn tần số của tất cả các giá trị còn lại:\\
+		1) $20 - n > 9 \iff n < 11$.\\
+		2) $20 - n > n + 6 \iff 2n < 14 \iff n < 7$.\\
+		3) $20 - n > 5 \iff n < 15$.\\
+		4) $20 - n > 3 \iff n < 17$.\\
+		Kết hợp các điều kiện trên với $n \in \mathbb{N}$ và các tần số không âm ($n + 6 \ge 0, 20 - n \ge 0$), ta được:
+		\[0 \le n < 7 \iff n \in [0; 7).\]
+		Chọn \textbf{A}.
+	}
+\end{ex}
+
+% Câu 19
+\begin{ex}
+	Cho bảng phân bố tần số:
+	\begin{center}
+	\begin{tabular}{|l|c|c|c|c|c|}
+		\hline
+		Giá trị & $x_1$ & $x_2$ & $x_3$ & $x_4$ & $x_5$ \\
+		\hline
+		Tần số & 2 & $x + y$ & $2x - y$ & 5 & 6 \\
+		\hline
+	\end{tabular}
+	\end{center}
+	với $x, y$ là các số tự nhiên. Có tất cả bao nhiêu cặp số $(x; y)$ để $x_5$ là mốt của bảng số liệu đã cho?
+	\choice
+	{\True $13$}
+	{$12$}
+	{$14$}
+	{$16$}
+	\loigiai{
+		Để $x_5$ là mốt (tần số 6 lớn nhất) thì tần số của các giá trị còn lại không vượt quá 6:\\
+		Ta cần các tần số là số tự nhiên: $x + y \ge 0$, $2x - y \ge 0$, và:\\
+		$x + y \le 6$ và $2x - y \le 6$ (nếu là mốt duy nhất thì $< 6$; nếu tính là mốt thì $\le 6$).\\
+		Với $x, y \in \mathbb{N}$, liệt kê các cặp $(x; y)$ thỏa mãn $y \le 2x$ và $x + y \le 5$ (hoặc $\le 6$ với mốt duy nhất $< 6$):\\
+		- $x = 0 \implies y = 0$ (1 cặp)\\
+		- $x = 1 \implies 0 \le y \le 2$ (3 cặp: $(1;0), (1;1), (1;2)$)\\
+		- $x = 2 \implies 0 \le y \le 3$ (4 cặp: $(2;0), (2;1), (2;2), (2;3)$)\\
+		- $x = 3 \implies 0 \le y \le 2$ (3 cặp: $(3;0), (3;1), (3;2)$)\\
+		- $x = 4 \implies y = 0, 1$ (2 cặp: $(4;0), (4;1)$)\\
+		Tổng số cặp: $1 + 3 + 4 + 3 + 2 = 13$ cặp.\\
+		Chọn \textbf{A}.
+	}
+\end{ex}
+
+% Câu 20
+\begin{ex}
+	Cho bảng phân bố tần số:
+	\begin{center}
+	\begin{tabular}{|l|c|c|c|c|c|}
+		\hline
+		Giá trị & $x_1$ & $x_2$ & $x_3$ & $x_4$ & $x_5$ \\
+		\hline
+		Tần số & 6 & $3x + y$ & $3y - 3x$ & $x + y$ & 4 \\
+		\hline
+	\end{tabular}
+	\end{center}
+	với $x, y$ là các số tự nhiên. Có bao nhiêu cặp số $(x; y)$ để bảng số liệu có mốt là 3 giá trị khác nhau?
+	\choice
+	{$2$}
+	{\True $1$}
+	{$3$}
+	{$4$}
+	\loigiai{
+		Để mẫu số liệu có mốt là 3 giá trị khác nhau thì phải có đúng 3 giá trị cùng đạt tần số cực đại $M \ge 6$.\\
+		Trường hợp $M = 6$: Khi đó $x_1$ đã có tần số là 6, nên trong 3 giá trị còn lại $\{x_2, x_3, x_4\}$ phải có đúng 2 giá trị có tần số bằng 6 và giá trị còn lại có tần số $< 6$.\\
+		Thử các trường hợp với $x, y \in \mathbb{N}$:\\
+		Nếu $3x + y = 6$ và $x + y = 6 \implies 2x = 0 \implies x = 0, y = 6$.\\
+		Khi $x = 0, y = 6$: tần số của $x_3$ là $3(6) - 0 = 18 > 6$, mâu thuẫn vì khi đó mốt duy nhất là $x_3$ với tần số 18.\\
+		Nếu $3x + y = 6$ và $3y - 3x = 6 \implies x + y = 2$ và $y - x = 2 \implies y = 2, x = 0$ (loại vì $3(0)+2 = 2 \ne 6$).\\
+		Cộng hai phương trình: $4y = 12 \implies y = 3 \implies 3x = 3 \implies x = 1$.\\
+		Với $(x; y) = (1; 3)$:\\
+		Tần số $x_2 = 3(1) + 3 = 6$.\\
+		Tần số $x_3 = 3(3) - 3(1) = 6$.\\
+		Tần số $x_4 = 1 + 3 = 4 < 6$.\\
+		Tần số $x_1 = 6$.\\
+		Khi đó có đúng 3 giá trị có tần số lớn nhất là $6$, đó là $x_1, x_2, x_3$.\\
+		Vậy chỉ có đúng 1 cặp số $(x; y) = (1; 3)$ thỏa mãn.\\
+		Chọn \textbf{B}.
+	}
+\end{ex}
+
+\vspace{0.4cm}
+\subsection*{PHẦN II. CÂU HỎI TỰ LUẬN}
+\textit{\small (Học sinh trình bày chi tiết lời giải các bài toán sau)}
+\setcounter{ex}{0}
+
+% Bài 1
+\begin{ex}
+	\textbf{(Bài 1).} Khối lượng 30 chi tiết máy được cho bởi bảng sau:
+	\begin{center}
+	\begin{tabular}{|l|c|c|c|c|c|c|c|}
+		\hline
+		Khối lượng (gam) & 250 & 300 & 350 & 400 & 450 & 500 & Cộng \\
+		\hline
+		Tần số & 4 & 4 & 5 & 6 & 4 & 7 & 30 \\
+		\hline
+	\end{tabular}
+	\end{center}
+	Tính số trung bình $\overline{x}$ (làm tròn đến chữ số thứ hai sau dấu phẩy) của bảng nói trên.
+	\loigiai{
+		Khối lượng trung bình của 30 chi tiết máy là:
+		\[\overline{x} = \frac{250 \cdot 4 + 300 \cdot 4 + 350 \cdot 5 + 400 \cdot 6 + 450 \cdot 4 + 500 \cdot 7}{30}\]
+		\[= \frac{1000 + 1200 + 1750 + 2400 + 1800 + 3500}{30} = \frac{11\,650}{30} \approx 388{,}33\text{ (gam)}.\]
+	}
+\end{ex}
+
+% Bài 2
+\begin{ex}
+	\textbf{(Bài 2).} Bảng số liệu sau đây thống kê thời gian nảy mầm của một loại hạt mới trong các điều kiện khác nhau:
+	\begin{center}
+	\begin{tabular}{|l|c|c|c|c|c|c|}
+		\hline
+		Thời gian (phút) & 420 & 440 & 450 & 480 & 500 & 540 \\
+		\hline
+		Tần số & 8 & 17 & 18 & 16 & 11 & 10 \\
+		\hline
+	\end{tabular}
+	\end{center}
+	Tính giá trị trung bình $\overline{x}$ (làm tròn đến hai chữ số sau dấu phẩy) về thời gian nảy mầm loại hạt mới nói trên.
+	\loigiai{
+		Tổng số hạt theo dõi là:
+		\[n = 8 + 17 + 18 + 16 + 11 + 10 = 80.\]
+		Thời gian nảy mầm trung bình là:
+		\[\overline{x} = \frac{420 \cdot 8 + 440 \cdot 17 + 450 \cdot 18 + 480 \cdot 16 + 500 \cdot 11 + 540 \cdot 10}{80}\]
+		\[= \frac{3360 + 7480 + 8100 + 7680 + 5500 + 5400}{80} = \frac{37\,520}{80} = 469\text{ (phút)}.\]
+		Kết quả chính xác là $469$ phút (hay $469{,}00$ phút).
+	}
+\end{ex}
+
+% Bài 3
+\begin{ex}
+	\textbf{(Bài 3).} Điều tra số học sinh giỏi khối 10 của 15 trường cấp ba trên địa bàn tỉnh A, ta được bảng số liệu như sau:
+	\begin{center}
+	\begin{tabular}{ccccccccccccccc}
+		22 & 29 & 29 & 29 & 30 & 31 & 32 & 32 & 33 & 34 & 34 & 35 & 35 & 35 & 36
+	\end{tabular}
+	\end{center}
+	Tính số trung vị của bảng nói trên.
+	\loigiai{
+		Mẫu số liệu đã được sắp xếp theo thứ tự không giảm gồm $n = 15$ trường (số lẻ).\\
+		Số trung vị là giá trị đứng ở vị trí thứ $\dfrac{15 + 1}{2} = 8$.\\
+		Đếm từ trái sang phải, giá trị ở vị trí thứ 8 là $32$.\\
+		Vậy số trung vị là $M_e = 32$ học sinh.
+	}
+\end{ex}
+
+% Bài 4
+\begin{ex}
+	\textbf{(Bài 4).} Điều tra số học sinh của 30 lớp học, ta được bảng số liệu như sau:
+	\begin{center}
+	\begin{tabular}{ccccccccccccccc}
+		35 & 39 & 39 & 40 & 40 & 41 & 41 & 41 & 41 & 44 & 44 & 45 & 45 & 45 & 46 \\
+		48 & 48 & 48 & 48 & 49 & 49 & 49 & 49 & 49 & 49 & 50 & 50 & 50 & 50 & 51
+	\end{tabular}
+	\end{center}
+	Tính số trung vị của bảng nói trên.
+	\loigiai{
+		Mẫu số liệu gồm $n = 30$ số liệu đã được sắp xếp tăng dần.\\
+		Vì $n = 30$ chẵn nên số trung vị là trung bình cộng của hai số liệu ở vị trí thứ $15$ và thứ $16$:\\
+		- Giá trị thứ 15 là $46$.\\
+		- Giá trị thứ 16 là $48$.\\
+		Vậy số trung vị là:
+		\[M_e = \frac{46 + 48}{2} = 47\text{ (học sinh)}.\]
+	}
+\end{ex}
+
+% Bài 5
+\begin{ex}
+	\textbf{(Bài 5).} Tuổi thọ của 30 bóng đèn được thắp thử (đơn vị: giờ) được cho bởi bảng số liệu thống kê dưới đây:
+	\begin{center}
+	\begin{tabular}{ccccccccccccccc}
+		1180 & 1150 & 1190 & 1170 & 1180 & 1170 & 1160 & 1170 & 1160 & 1150 & 1190 & 1180 & 1170 & 1170 & 1170 \\
+		1190 & 1170 & 1170 & 1170 & 1180 & 1170 & 1160 & 1160 & 1160 & 1170 & 1160 & 1180 & 1180 & 1150 & 1170
+	\end{tabular}
+	\end{center}
+	Hãy tính mốt của bảng số liệu thống kê trên.
+	\loigiai{
+		Ta đếm tần số của từng giá trị tuổi thọ bóng đèn:
+		\begin{itemize}
+			\item Giá trị $1150$: xuất hiện 3 lần.
+			\item Giá trị $1160$: xuất hiện 6 lần.
+			\item Giá trị $1170$: xuất hiện 12 lần.
+			\item Giá trị $1180$: xuất hiện 6 lần.
+			\item Giá trị $1190$: xuất hiện 3 lần.
+		\end{itemize}
+		Giá trị $1170$ xuất hiện nhiều nhất với tần số là 12 lần.\\
+		Vậy mốt của bảng số liệu là $M_o = 1170$ giờ.
+	}
+\end{ex}
+
+% Bài 6
+\begin{ex}
+	\textbf{(Bài 6).} Kết quả kiểm tra chất lượng đầu năm (thang điểm 30) của 41 học sinh của một lớp được cho bởi bảng số liệu thống kê dưới đây:
+	\begin{center}
+	\begin{tabular}{|l|c|c|c|c|c|c|c|c|c|c|c|}
+		\hline
+		Điểm & 9 & 11 & 14 & 16 & 17 & 18 & 20 & 21 & 23 & 25 & Tổng \\
+		\hline
+		Tần số & 3 & 7 & 4 & 4 & 6 & 7 & 3 & 3 & 2 & 2 & 41 \\
+		\hline
+	\end{tabular}
+	\end{center}
+	Hãy tính mốt của bảng số liệu thống kê trên.
+	\loigiai{
+		Nhìn vào bảng tần số, tần số lớn nhất là $7$, đạt được tại hai giá trị điểm là $11$ và $18$.\\
+		Do đó, mẫu số liệu có 2 mốt là:
+		\[M_{o1} = 11\text{ và } M_{o2} = 18.\]
+	}
+\end{ex}
+
+% Bài 7
+\begin{ex}
+	\textbf{(Bài 7).} Chiều cao (đơn vị: xăng-ti-mét) của các bạn tổ I ở lớp 10A lần lượt là:
+	\[165;\; 155;\; 171;\; 167;\; 159;\; 175;\; 165;\; 160;\; 158.\]
+	Đối với mẫu số liệu trên, hãy tìm:
+	\begin{enumerate}[a)]
+		\item Số trung bình cộng.
+		\item Trung vị.
+		\item Mốt.
+		\item Tứ phân vị.
+	\end{enumerate}
+	\loigiai{
+		Sắp xếp mẫu số liệu theo thứ tự không giảm ($n = 9$):
+		\[155;\; 158;\; 159;\; 160;\; \mathbf{165};\; 165;\; 167;\; 171;\; 175.\]
+		\begin{enumerate}[a)]
+			\item Số trung bình cộng:
+			\[\overline{x} = \frac{155 + 158 + 159 + 160 + 165 + 165 + 167 + 171 + 175}{9} = \frac{1475}{9} \approx 163{,}89\text{ (cm)}.\]
+			\item Trung vị: Cỡ mẫu $n = 9$ lẻ nên trung vị là số ở vị trí thứ $5$:
+			\[M_e = 165\text{ cm}.\]
+			\item Mốt: Giá trị $165$ xuất hiện 2 lần (nhiều nhất), các giá trị khác xuất hiện 1 lần.
+			\[M_o = 165\text{ cm}.\]
+			\item Tứ phân vị:
+			\begin{itemize}
+				\item $Q_2 = M_e = 165\text{ cm}$.
+				\item Nửa dãy dưới: $155, 158, 159, 160 \implies Q_1 = \dfrac{158 + 159}{2} = 158{,}5\text{ cm}$.
+				\item Nửa dãy trên: $165, 167, 171, 175 \implies Q_3 = \dfrac{167 + 171}{2} = 169\text{ cm}$.
+			\end{itemize}
+		\end{enumerate}
+	}
+\end{ex}
+
+% Bài 8
+\begin{ex}
+	\textbf{(Bài 8).} Số đôi giày bán ra trong Quý IV năm 2020 của một cửa hàng được thống kê trong bảng tần số sau:
+	\begin{center}
+	\begin{tabular}{|l|c|c|c|c|c|c|c|c|}
+		\hline
+		Cỡ giày & 37 & 38 & 39 & 40 & 41 & 42 & 43 & 44 \\
+		\hline
+		Tần số (số đôi bán được) & 40 & 48 & 52 & 70 & 54 & 47 & 28 & 3 \\
+		\hline
+	\end{tabular}
+	\end{center}
+	\begin{enumerate}[a)]
+		\item Mốt của mẫu số liệu trên là bao nhiêu?
+		\item Cửa hàng đó nên nhập về nhiều hơn cỡ giày nào để bán trong tháng tiếp theo?
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}[a)]
+			\item Tần số lớn nhất trong bảng là $70$, ứng với cỡ giày $40$. Vậy mốt của mẫu số liệu là $M_o = 40$.
+			\item Cỡ giày 40 là cỡ giày có sức mua cao nhất (bán chạy nhất), do đó cửa hàng nên ưu tiên nhập về nhiều hơn cỡ giày \textbf{40} trong tháng tiếp theo để đáp ứng nhu cầu khách hàng.
+		\end{enumerate}
+	}
+\end{ex}
+
+% Bài 9
+\begin{ex}
+	\textbf{(Bài 9).} Cho biết nhiệt độ trung bình các tháng trong năm ở Hà Nội:
+	\begin{center}
+	\begin{tabular}{|l|c|c|c|c|c|c|c|c|c|c|c|c|}
+		\hline
+		Tháng & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 \\
+		\hline
+		Nhiệt độ ($^\circ\text{C}$) & 16,4 & 17,0 & 20,2 & 23,7 & 27,3 & 28,8 & 28,9 & 28,2 & 27,2 & 24,6 & 21,4 & 18,2 \\
+		\hline
+	\end{tabular}
+	\end{center}
+	\begin{enumerate}[a)]
+		\item Nhiệt độ trung bình trong năm ở Hà Nội là bao nhiêu?
+		\item Nhiệt độ trung bình của tháng có giá trị thấp nhất là bao nhiêu $^\circ\text{C}$? Cao nhất là bao nhiêu $^\circ\text{C}$?
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}[a)]
+			\item Nhiệt độ trung bình cả năm (12 tháng) ở Hà Nội là:
+			\[\overline{x} = \frac{16{,}4 + 17{,}0 + 20{,}2 + 23{,}7 + 27{,}3 + 28{,}8 + 28{,}9 + 28{,}2 + 27{,}2 + 24{,}6 + 21{,}4 + 18{,}2}{12}\]
+			\[= \frac{281{,}9}{12} \approx 23{,}49^\circ\text{C}.\]
+			\item Nhìn vào bảng số liệu:
+			\begin{itemize}
+				\item Nhiệt độ thấp nhất là vào Tháng 1 với $16{,}4^\circ\text{C}$.
+				\item Nhiệt độ cao nhất là vào Tháng 7 với $28{,}9^\circ\text{C}$.
+			\end{itemize}
+		\end{enumerate}
+	}
+\end{ex}
+
+% Bài 10
+\begin{ex}
+	\textbf{(Bài 10).} Cho biết tổng diện tích rừng từ năm 2008 đến năm 2019 ở nước ta (triệu ha):
+	\begin{center}
+	\begin{tabular}{|l|c|c|c|c|c|c|c|c|c|c|c|c|}
+		\hline
+		Năm & 2008 & 2009 & 2010 & 2011 & 2012 & 2013 & 2014 & 2015 & 2016 & 2017 & 2018 & 2019 \\
+		\hline
+		DT rừng & 13,1 & 13,2 & 13,4 & 13,5 & 13,9 & 14,0 & 13,8 & 14,1 & 14,4 & 14,4 & 14,5 & 14,6 \\
+		\hline
+	\end{tabular}
+	\end{center}
+	\begin{enumerate}[a)]
+		\item Diện tích rừng trung bình của nước ta từ năm 2008 đến năm 2019 là bao nhiêu?
+		\item Từ năm 2008 đến năm 2019, diện tích rừng thấp nhất và cao nhất là bao nhiêu triệu héc-ta?
+		\item So với năm 2008, tỉ lệ tổng diện tích rừng năm 2019 tăng lên bao nhiêu phần trăm?
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}[a)]
+			\item Diện tích rừng trung bình qua 12 năm:
+			\[\overline{x} = \frac{13{,}1 + 13{,}2 + 13{,}4 + 13{,}5 + 13{,}9 + 14{,}0 + 13{,}8 + 14{,}1 + 14{,}4 + 14{,}4 + 14{,}5 + 14{,}6}{12}\]
+			\[= \frac{166{,}9}{12} \approx 13{,}91\text{ (triệu ha)}.\]
+			\item Giá trị thấp nhất là năm 2008 với $13{,}1\text{ triệu ha}$. Giá trị cao nhất là năm 2019 với $14{,}6\text{ triệu ha}$.
+			\item Tỉ lệ tăng diện tích rừng từ năm 2008 đến năm 2019:
+			\[\frac{14{,}6 - 13{,}1}{13{,}1} \times 100\% = \frac{1{,}5}{13{,}1} \times 100\% \approx 11{,}45\%.\]
+			Tỉ lệ tăng $11{,}45\%$ sau 11 năm là một mức tăng trưởng tích cực, cho thấy nỗ lực trồng rừng và bảo vệ môi trường đạt kết quả tốt.
+		\end{enumerate}
+	}
+\end{ex}
+
+% Bài 11
+\begin{ex}
+	\textbf{(Bài 11).} Tìm số trung bình, trung vị, mốt và tứ phân vị của mỗi mẫu số liệu sau đây:
+	\begin{enumerate}[a)]
+		\item Số điểm mà năm vận động viên bóng rổ ghi được trong một trận đấu: $9;\; 8;\; 15;\; 8;\; 20$.
+		\item Giá của một số loại giày (nghìn đồng): $350;\; 300;\; 650;\; 300;\; 450;\; 500;\; 300;\; 250$.
+		\item Số kênh được chiếu của một số hãng truyền hình cáp: $36;\; 38;\; 33;\; 34;\; 32;\; 30;\; 34;\; 35$.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}[a)]
+			\item Mẫu số liệu: $9, 8, 15, 8, 20$. Sắp xếp: $8, 8, 9, 15, 20$ ($n = 5$).
+			\begin{itemize}
+				\item Số trung bình: $\overline{x} = \dfrac{8 + 8 + 9 + 15 + 20}{5} = \dfrac{60}{5} = 12$.
+				\item Trung vị: $M_e = Q_2 = 9$.
+				\item Mốt: $M_o = 8$ (xuất hiện 2 lần).
+				\item Tứ phân vị: Nửa dưới là $8, 8 \implies Q_1 = 8$. Nửa trên là $15, 20 \implies Q_3 = \dfrac{15 + 20}{2} = 17{,}5$.
+			\end{itemize}
+			\item Mẫu: $350, 300, 650, 300, 450, 500, 300, 250$. Sắp xếp: $250, 300, 300, 300, 350, 450, 500, 650$ ($n = 8$).
+			\begin{itemize}
+				\item Số trung bình: $\overline{x} = \dfrac{3100}{8} = 387{,}5$ nghìn đồng.
+				\item Trung vị: $M_e = Q_2 = \dfrac{300 + 350}{2} = 325$ nghìn đồng.
+				\item Mốt: $M_o = 300$ nghìn đồng (xuất hiện 3 lần).
+				\item Tứ phân vị: Nửa dưới $250, 300, 300, 300 \implies Q_1 = 300$. Nửa trên $350, 450, 500, 650 \implies Q_3 = \dfrac{450 + 500}{2} = 475$ nghìn đồng.
+			\end{itemize}
+			\item Mẫu: $36, 38, 33, 34, 32, 30, 34, 35$. Sắp xếp: $30, 32, 33, 34, 34, 35, 36, 38$ ($n = 8$).
+			\begin{itemize}
+				\item Số trung bình: $\overline{x} = \dfrac{282}{8} = 35{,}25$.
+				\item Trung vị: $M_e = Q_2 = \dfrac{34 + 34}{2} = 34$.
+				\item Mốt: $M_o = 34$ (xuất hiện 2 lần).
+				\item Tứ phân vị: Nửa dưới $30, 32, 33, 34 \implies Q_1 = \dfrac{32 + 33}{2} = 32{,}5$. Nửa trên $34, 35, 36, 38 \implies Q_3 = \dfrac{35 + 36}{2} = 35{,}5$.
+			\end{itemize}
+		\end{enumerate}
+	}
+\end{ex}
+
+% Bài 12
+\begin{ex}
+	\textbf{(Bài 12).} Chọn số đặc trưng đo xu thế trung tâm phù hợp cho mỗi mẫu số liệu sau, giải thích và tính giá trị của số đặc trưng đó:
+	\begin{enumerate}[a)]
+		\item Số mặt trăng đã biết của 8 hành tinh: $0;\; 0;\; 1;\; 2;\; 63;\; 34;\; 27;\; 13$.
+		\item Số đường chuyền thành công của một cầu thủ: $32;\; 24;\; 20;\; 14;\; 23$.
+		\item Chỉ số IQ của nhóm học sinh: $60;\; 72;\; 63;\; 83;\; 68;\; 74;\; 90;\; 86;\; 74;\; 80$.
+		\item Các sai số trong một phép đo: $10;\; 15;\; 18;\; 15;\; 14;\; 13;\; 42;\; 15;\; 12;\; 14;\; 42$.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}[a)]
+			\item Mẫu số liệu có sự chênh lệch rất lớn giữa các hành tinh (Mộc tinh có 63, Thổ tinh 34 trong khi Thủy tinh, Kim tinh có 0). Có các giá trị bất thường lớn nên \textbf{trung vị} là số đo đại diện phù hợp nhất.\\
+			Sắp xếp dãy ($n = 8$): $0, 0, 1, 2, 13, 27, 34, 63 \implies M_e = \dfrac{2 + 13}{2} = 7{,}5$ mặt trăng.
+			\item Các số liệu phân bố tương đối đều, không có giá trị bất thường nên chọn \textbf{số trung bình cộng}:
+			\[\overline{x} = \frac{32 + 24 + 20 + 14 + 23}{5} = \frac{113}{5} = 22{,}6\text{ (đường chuyền)}.\]
+			\item Mẫu số liệu IQ không có giá trị quá dị biệt nên \textbf{số trung bình} là đại diện tốt nhất:
+			\[\overline{x} = \frac{60 + 72 + 63 + 83 + 68 + 74 + 90 + 86 + 74 + 80}{10} = \frac{750}{10} = 75.\]
+			(Hoặc dùng trung vị $M_e = 74$).
+			\item Mẫu có hai giá trị $42$ lớn bất thường so với phần còn lại (quanh 10 - 18), do đó nên dùng \textbf{trung vị}:\\
+			Sắp xếp ($n = 11$): $10, 12, 13, 14, 14, \mathbf{15}, 15, 15, 18, 42, 42 \implies M_e = 15$.
+		\end{enumerate}
+	}
+\end{ex}
+
+% Bài 13
+\begin{ex}
+	\textbf{(Bài 13).} Số lượng học sinh giỏi Quốc gia năm học 2018 - 2019 của 10 trường THPT:
+	\[0;\; 0;\; 4;\; 0;\; 0;\; 0;\; 10;\; 0;\; 6;\; 0.\]
+	\begin{enumerate}[a)]
+		\item Tìm số trung bình, mốt, các tứ phân vị của mẫu số liệu trên.
+		\item Giải thích tại sao tứ phân vị thứ nhất và trung vị trùng nhau.
+	\end{enumerate}
+	\loigiai{
+		Sắp xếp mẫu số liệu theo thứ tự không giảm ($n = 10$):
+		\[0;\; 0;\; 0;\; 0;\; 0;\; 0;\; 0;\; 4;\; 6;\; 10.\]
+		\begin{enumerate}[a)]
+			\item 
+			\begin{itemize}
+				\item Số trung bình: $\overline{x} = \dfrac{0 \cdot 7 + 4 + 6 + 10}{10} = \dfrac{20}{10} = 2$.
+				\item Mốt: $M_o = 0$ (xuất hiện 7 lần).
+				\item Trung vị $Q_2 = \dfrac{0 + 0}{2} = 0$.
+				\item Tứ phân vị: Nửa dưới gồm 5 số $0 \implies Q_1 = 0$. Nửa trên gồm $0, 0, 4, 6, 10 \implies Q_3 = 4$.
+			\end{itemize}
+			\item Tứ phân vị thứ nhất và trung vị trùng nhau ($Q_1 = Q_2 = 0$) vì trong mẫu số liệu có đa số các giá trị là $0$ (chiếm tới $70\%$ số quan sát), dẫn tới cả vị trí của trung vị nửa dưới và trung vị toàn mẫu đều rơi vào giá trị $0$.
+		\end{enumerate}
+	}
+\end{ex}
+
+% Bài 14
+\begin{ex}
+	\textbf{(Bài 14).} Cho biết số chỗ ngồi của một số sân vận động: Cẩm Phả ($20\,120$), Thiên Trường ($21\,315$), Hàng Đẫy ($23\,405$), Thanh Hóa ($20\,120$), Mỹ Đình ($37\,546$). Các giá trị số trung bình, trung vị, mốt bị ảnh hưởng thế nào nếu bỏ đi số liệu của Sân vận động Quốc gia Mỹ Đình?
+	\loigiai{
+		Mẫu ban đầu (5 sân, sắp xếp): $20\,120;\; 20\,120;\; 21\,315;\; 23\,405;\; 37\,546$.\\
+		- Số trung bình ban đầu: $\overline{x} = \dfrac{122\,506}{5} = 24\,501{,}2$.\\
+		- Trung vị ban đầu: $M_e = 21\,315$.\\
+		- Mốt ban đầu: $M_o = 20\,120$.\\
+		Khi bỏ đi sân Mỹ Đình ($37\,546$ chỗ - giá trị lớn nhất): Mẫu còn 4 sân: $20\,120;\; 20\,120;\; 21\,315;\; 23\,405$.\\
+		- Số trung bình mới: $\overline{x}' = \dfrac{84\,960}{4} = 21\,240$ (giảm mạnh từ $24\,501{,}2$ xuống $21\,240$, giảm $3261{,}2$).\\
+		- Trung vị mới: $M_e' = \dfrac{20\,120 + 21\,315}{2} = 20\,717{,}5$ (giảm nhẹ từ $21\,315$ xuống $20\,717{,}5$).\\
+		- Mốt mới: $M_o' = 20\,120$ (không đổi).\\
+		\textbf{Kết luận:} Số trung bình bị ảnh hưởng nhiều nhất (giảm mạnh), trung vị bị ảnh hưởng ít hơn, mốt không bị ảnh hưởng.
+	}
+\end{ex}
+
+% Bài 15
+\begin{ex}
+	\textbf{(Bài 15).} Tuổi của 30 bệnh nhân đau mắt hột:
+	\begin{center}
+	\begin{tabular}{ccccccccccccccc}
+		21 & 17 & 22 & 18 & 20 & 17 & 15 & 13 & 15 & 20 & 15 & 12 & 18 & 17 & 25 \\
+		17 & 21 & 15 & 12 & 18 & 16 & 23 & 14 & 18 & 19 & 13 & 16 & 19 & 18 & 17
+	\end{tabular}
+	\end{center}
+	Tính mốt $M_o$ của bảng số liệu đã cho.
+	\loigiai{
+		Đếm số lần xuất hiện của các độ tuổi:
+		\begin{itemize}
+			\item Tuổi 12: 2 người; Tuổi 13: 2 người; Tuổi 14: 1 người; Tuổi 15: 4 người; Tuổi 16: 2 người;
+			\item Tuổi 17: 5 người; Tuổi 18: 5 người; Tuổi 19: 2 người; Tuổi 20: 2 người; Tuổi 21: 2 người;
+			\item Tuổi 22: 1 người; Tuổi 23: 1 người; Tuổi 25: 1 người.
+		\end{itemize}
+		Hai độ tuổi $17$ và $18$ cùng có tần số xuất hiện cao nhất là 5 lần.\\
+		Vậy bảng số liệu có 2 mốt: $M_{o1} = 17$ tuổi và $M_{o2} = 18$ tuổi.
+	}
+\end{ex}
+
+% Bài 16
+\begin{ex}
+	\textbf{(Bài 16).} Điểm kiểm tra môn Toán của 40 học sinh lớp 11A1 được thống kê như sau:
+	\begin{center}
+	\begin{tabular}{|l|c|c|c|c|c|c|c|c|c|}
+		\hline
+		Điểm & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & Cộng \\
+		\hline
+		Số học sinh & 2 & 3 & $3n - 8$ & $2n + 4$ & 3 & 2 & 4 & 5 & 40 \\
+		\hline
+	\end{tabular}
+	\end{center}
+	Trong đó $n \in \mathbb{N}, n \ge 4$. Tính mốt của bảng số liệu thống kê đã cho.
+	\loigiai{
+		Tổng số học sinh là 40, do đó:
+		\[2 + 3 + (3n - 8) + (2n + 4) + 3 + 2 + 4 + 5 = 40 \iff 5n + 11 = 40 \iff 5n = 29.\]
+		Wait: $2+3-8+4+3+2+4+5 = 11$. $5n = 29 \implies n$ không nguyên. Ta kiểm tra lại đề bài:\\
+		Nếu đề in tổng là 40, kiểm tra hệ số: $3n - 8 + 2n + 4 = 5n - 4$. Tổng các số còn lại: $2 + 3 + 3 + 2 + 4 + 5 = 19$. $19 + 5n - 4 = 5n + 15 = 40 \iff 5n = 25 \iff n = 5$ (thỏa mãn $n \in \mathbb{N}, n \ge 4$).\\
+		Với $n = 5$:\\
+		- Số học sinh đạt điểm 5 là: $3(5) - 8 = 7$.\\
+		- Số học sinh đạt điểm 6 là: $2(5) + 4 = 14$.\\
+		Tần số lớn nhất trong bảng là $14$, ứng với điểm 6.\\
+		Vậy mốt của bảng số liệu là $M_o = 6$ điểm.
+	}
+\end{ex}
+
+% Bài 17
+\begin{ex}
+	\textbf{(Bài 17).} Cho bảng phân bố tần số:
+	\begin{center}
+	\begin{tabular}{|l|c|c|c|c|c|}
+		\hline
+		Giá trị & $x_1$ & $x_2$ & $x_3$ & $x_4$ & $x_5$ \\
+		\hline
+		Tần số & 12 & 5 & $n^2$ & 16 & $6n - 5$ \\
+		\hline
+	\end{tabular}
+	\end{center}
+	Tìm tất cả các số tự nhiên $n$ để $M_o = x_3$ là mốt duy nhất của bảng phân bố tần số đã cho.
+	\loigiai{
+		Để $M_o = x_3$ là mốt duy nhất thì tần số $n^2$ của $x_3$ phải lớn hơn hẳn tần số của tất cả các giá trị còn lại:\\
+		1) $n^2 > 16 \iff n > 4$ (vì $n \in \mathbb{N}$).\\
+		2) $n^2 > 12$ (thỏa mãn khi $n > 4$).\\
+		3) $n^2 > 6n - 5 \iff n^2 - 6n + 5 > 0 \iff (n - 1)(n - 5) > 0 \iff n < 1$ hoặc $n > 5$.\\
+		Kết hợp các điều kiện trên với $n \in \mathbb{N}$:\\
+		Ta cần $n > 4$ và $(n < 1 \text{ hoặc } n > 5) \implies n > 5$.\\
+		Đồng thời tần số $6n - 5 \ge 0 \iff n \ge 1$ (thỏa mãn khi $n > 5$).\\
+		Vậy tất cả các số tự nhiên $n \ge 6$ (tức $n \in \{6, 7, 8, \ldots\}$) thì $x_3$ là mốt duy nhất.
+	}
+\end{ex}
+
+% Bài 18
+\begin{ex}
+	\textbf{(Bài 18).} Cho bảng phân bố tần số:
+	\begin{center}
+	\begin{tabular}{|l|c|c|c|c|c|}
+		\hline
+		Giá trị & $x_1$ & $x_2$ & $x_3$ & $x_4$ & $x_5$ \\
+		\hline
+		Tần số & 5 & 2 & $n$ & $20 - n$ & 8 \\
+		\hline
+	\end{tabular}
+	\end{center}
+	Tìm các số tự nhiên $n$ để $M_o = x_4$ là mốt duy nhất của bảng số liệu thống kê đã cho.
+	\loigiai{
+		Để $x_4$ là mốt duy nhất thì tần số $20 - n$ của $x_4$ phải lớn hơn hẳn tần số của các giá trị khác:\\
+		1) $20 - n > 8 \iff n < 12$.\\
+		2) $20 - n > n \iff 2n < 20 \iff n < 10$.\\
+		3) $20 - n > 5 \iff n < 15$.\\
+		4) $20 - n > 2 \iff n < 18$.\\
+		Vì các tần số phải không âm: $n \ge 0$ và $20 - n \ge 0 \implies 0 \le n \le 20$.\\
+		Do đó ta cần $0 \le n < 10$.\\
+		Vì $n \in \mathbb{N}$ nên $n \in \{0, 1, 2, 3, 4, 5, 6, 7, 8, 9\}$.
+	}
+\end{ex}
+
+% Bài 19
+\begin{ex}
+	\textbf{(Bài 19).} Cho bảng phân bố tần số:
+	\begin{center}
+	\begin{tabular}{|l|c|c|c|c|c|c|}
+		\hline
+		Giá trị & $x_1$ & $x_2$ & $x_3$ & $x_4$ & $x_5$ & $x_6$ \\
+		\hline
+		Tần số & 5 & $n^2 + 3$ & 3 & $7n - 9$ & $n + 1$ & 7 \\
+		\hline
+	\end{tabular}
+	\end{center}
+	Gọi $S$ là tập hợp tất cả các số $n$ nguyên dương sao cho $M_o = x_2$ và $M_o = x_4$ là hai mốt của bảng phân bố tần số đã cho. Tính số phần tử của tập hợp $S$.
+	\loigiai{
+		Để $x_2$ và $x_4$ là hai mốt của bảng số liệu thì tần số của chúng phải bằng nhau và lớn hơn tần số của tất cả các giá trị còn lại:\\
+		1) $n^2 + 3 = 7n - 9 \iff n^2 - 7n + 12 = 0 \iff (n - 3)(n - 4) = 0 \iff n = 3$ hoặc $n = 4$.\\
+		Kiểm tra từng giá trị:\\
+		- Với $n = 3$:\\
+		Tần số $x_2 = 3^2 + 3 = 12$; tần số $x_4 = 7(3) - 9 = 12$.\\
+		Tần số $x_5 = 3 + 1 = 4$.\\
+		Các tần số khác là $5, 3, 7$ đều $< 12$. Do đó $x_2, x_4$ là 2 mốt duy nhất (thỏa mãn).\\
+		- Với $n = 4$:\\
+		Tần số $x_2 = 4^2 + 3 = 19$; tần số $x_4 = 7(4) - 9 = 19$.\\
+		Tần số $x_5 = 4 + 1 = 5$.\\
+		Các tần số khác là $5, 3, 7$ đều $< 19$. Do đó $x_2, x_4$ là 2 mốt duy nhất (thỏa mãn).\\
+		Vậy tập hợp $S = \{3; 4\}$, số phần tử của tập $S$ là 2.
+	}
+\end{ex}
+
+% Bài 20
+\begin{ex}
+	\textbf{(Bài 20).} Quan sát 9 con chuột chạy qua một mê cung và ghi lại thời gian (phút) của chúng:
+	\begin{center}
+	\begin{tabular}{|l|c|c|c|c|c|c|c|c|c|}
+		\hline
+		Con chuột & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\
+		\hline
+		Thời gian chạy & 1 & 2,5 & 3 & 1,5 & 2 & 1,25 & 1 & 0,9 & 30 \\
+		\hline
+	\end{tabular}
+	\end{center}
+	\begin{enumerate}[a)]
+		\item Tính số trung bình, số trung vị và mốt của thời gian chuột ra khỏi mê cung.
+		\item Trong trường hợp này nên chọn đại lượng nào để thể hiện xu thế trung bình của mẫu?
+	\end{enumerate}
+	\loigiai{
+		Sắp xếp thời gian chạy theo thứ tự không giảm ($n = 9$):
+		\[0{,}9;\; 1;\; 1;\; 1{,}25;\; \mathbf{1{,}5};\; 2;\; 2{,}5;\; 3;\; 30.\]
+		\begin{enumerate}[a)]
+			\item 
+			\begin{itemize}
+				\item Số trung bình:
+				\[\overline{x} = \frac{0{,}9 + 1 + 1 + 1{,}25 + 1{,}5 + 2 + 2{,}5 + 3 + 30}{9} = \frac{43{,}15}{9} \approx 4{,}79\text{ (phút)}.\]
+				\item Số trung vị: $n = 9$ lẻ nên trung vị là số ở vị trí thứ $5$:
+				\[M_e = 1{,}5\text{ phút}.\]
+				\item Mốt: Giá trị $1$ phút xuất hiện 2 lần:
+				\[M_o = 1\text{ phút}.\]
+			\end{itemize}
+			\item Trong mẫu số liệu này có giá trị $30$ phút lớn bất thường so với các con chuột khác (chỉ chạy từ $0{,}9$ đến $3$ phút), làm cho số trung bình $\overline{x} \approx 4{,}79$ phút bị kéo lên cao và không phản ánh đúng năng lực chung của bầy chuột. Vì vậy, ta nên chọn \textbf{trung vị ($M_e = 1{,}5$ phút)} để đại diện cho xu thế trung tâm của mẫu số liệu.
+		\end{enumerate}
+	}
+\end{ex}
+"""
+
+def get_answer_key_tex():
+    ans_p1 = [
+        "C", "A", "A", "A", "C", "B", "B", "A", "C", "B",
+        "A", "B", "A", "A", "C", "A", "A", "A", "A", "B"
+    ]
+    s = "\n\\vspace{0.3cm}\n\\noindent\\begin{minipage}{\\linewidth}\n"
+    s += "\\begin{center}{\\large\\bfseries\\color{red!80!black} BẢNG ĐÁP ÁN TRẮC NGHIỆM}\\end{center}\\smallskip\n"
+    s += "\\begin{center}\\begin{tabular}{|c|" + "c|" * 10 + "}\\hline\n"
+    s += "\\textbf{Câu} & " + " & ".join(str(i) for i in range(1, 11)) + " \\\\ \\hline\n"
+    s += "\\textbf{Đ/A} & " + " & ".join(f"\\textbf{{{ans_p1[i-1]}}}" for i in range(1, 11)) + " \\\\ \\hline\n"
+    s += "\\end{tabular}\\end{center}\\smallskip\n"
+    s += "\\begin{center}\\begin{tabular}{|c|" + "c|" * 10 + "}\\hline\n"
+    s += "\\textbf{Câu} & " + " & ".join(str(i) for i in range(11, 21)) + " \\\\ \\hline\n"
+    s += "\\textbf{Đ/A} & " + " & ".join(f"\\textbf{{{ans_p1[i-1]}}}" for i in range(11, 21)) + " \\\\ \\hline\n"
+    s += "\\end{tabular}\\end{center}\n\\end{minipage}\n"
+    return s
+
+def build_latex_wrapper(is_sol):
+    master_name = "Master_HDG.tex" if is_sol else "Master_De.tex"
+    kythi = "HƯỚNG DẪN GIẢI CHI TIẾT" if is_sol else "PHIẾU BÀI TẬP VÀ LÝ THUYẾT"
+    ans_line = "\\def\\inbangdapan{\\input{bang_dap_an.tex}}" if is_sol else ""
+    return f"""\\def\\tentruong{{}}
+\\def\\tenkythi{{{kythi}}}
+\\def\\monhoc{{TOÁN 10 (Bộ sách Kết nối tri thức \\& Cánh Diều)}}
+\\def\\tieudetrai{{BÀI 2: CÁC SỐ ĐẶC TRƯNG ĐO XU THẾ TRUNG TÂM}}
+\\def\\tieudephai{{CHƯƠNG V: SỐ LIỆU THỐNG KÊ}}
+\\def\\namhoc{{2025 -- 2026}}
+\\def\\made{{102}}
+\\def\\headertype{{phieubaitap}}
+\\def\\brand{{{BRAND}}}
+\\def\\giaovien{{HỒ THỊ THÚY}}
+\\def\\noidungfile{{noi_dung.tex}}
+{ans_line}
+
+\\input{{../Master/{master_name}}}
+"""
+
+def compile_latex(name, content):
+    tex_path = os.path.join(LATEX_DIR, name + ".tex")
+    with open(tex_path, "w", encoding="utf-8") as f:
+        f.write(content)
+    for run in range(2):
+        res = subprocess.run(["pdflatex", "-interaction=nonstopmode", name + ".tex"], cwd=LATEX_DIR,
+                             capture_output=True, text=True, encoding="utf-8", errors="ignore")
+    log = open(os.path.join(LATEX_DIR, name + ".log"), encoding="utf-8", errors="ignore").read()
+    errors = [l for l in log.splitlines() if l.startswith("!")]
+    pages = re.search(r"Output written on .*?\((\d+) pages?", log)
+    print(f"[LaTeX] {name}: {len(errors)} lỗi, {pages.group(1) if pages else '?'} trang")
+    for e in errors[:10]:
+        print("   ", e)
+    return len(errors) == 0
+
+def safe_copy(src, dst):
+    try:
+        shutil.copy2(src, dst)
+        print(f"[COPY] {os.path.basename(dst)}")
+    except PermissionError:
+        print(f"[CẢNH BÁO] {os.path.basename(dst)} đang được mở, bỏ qua sao chép.")
+
+# Word conversion
+def set_spacing(p, before_pt10=0, after_pt10=0, align="left", line_rule="auto"):
+    pPr = p._p.get_or_add_pPr()
+    sp = parse_xml(r'<w:spacing %s w:before="%d" w:after="%d" w:line="240" w:lineRule="%s"/>'
+                   % (nsdecls('w'), before_pt10, after_pt10, line_rule))
+    pPr.append(sp)
+    if align == "center":
+        p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    elif align == "right":
+        p.alignment = WD_ALIGN_PARAGRAPH.RIGHT
+    elif align == "both":
+        p.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
+    else:
+        p.alignment = WD_ALIGN_PARAGRAPH.LEFT
+
+def add_run(p, text, bold=False, italic=False, size=11, color=None):
+    r = p.add_run(text)
+    r.bold = bold
+    r.italic = italic
+    r.font.name = "Times New Roman"
+    r.font.size = Pt(size)
+    if color:
+        r.font.color.rgb = RGBColor(*color)
+    return r
+
+def create_header_table(doc, is_sol):
+    tbl = doc.add_table(rows=2, cols=2)
+    tbl.alignment = WD_TABLE_ALIGNMENT.CENTER
+    for row in tbl.rows:
+        for cell in row.cells:
+            tcPr = cell._tc.get_or_add_tcPr()
+            tcBorders = parse_xml(r'<w:tcBorders %s><w:top w:val="single" w:sz="6" w:space="0" w:color="000000"/><w:left w:val="single" w:sz="6" w:space="0" w:color="000000"/><w:bottom w:val="single" w:sz="6" w:space="0" w:color="000000"/><w:right w:val="single" w:sz="6" w:space="0" w:color="000000"/></w:tcBorders>' % nsdecls('w'))
+            tcPr.append(tcBorders)
+
+    c00 = tbl.cell(0, 0)
+    c00.width = Cm(8.0)
+    p = c00.paragraphs[0]
+    add_run(p, "LỚP TOÁN CÔ THÚY", True, False, 11.5, (0, 32, 96))
+    set_spacing(p, 40, 20, "center")
+    p2 = c00.add_paragraph()
+    add_run(p2, "SĐT: 0935.322.328\nĐịa chỉ: 50/2C Phạm Thị Liên", False, False, 10.5)
+    set_spacing(p2, 0, 40, "center")
+
+    c01 = tbl.cell(0, 1)
+    c01.width = Cm(10.0)
+    p = c01.paragraphs[0]
+    title_text = "HƯỚNG DẪN GIẢI CHI TIẾT" if is_sol else "PHIẾU BÀI TẬP VÀ LÝ THUYẾT"
+    add_run(p, title_text, True, False, 12, (192, 0, 0))
+    set_spacing(p, 40, 20, "center")
+    p2 = c01.add_paragraph()
+    add_run(p2, "Môn: TOÁN 10 – BÀI 2: ĐO XU THẾ TRUNG TÂM\nChương V: Mẫu số liệu không ghép nhóm", False, True, 10.5)
+    set_spacing(p2, 0, 40, "center")
+
+    c10 = tbl.cell(1, 0)
+    c10.width = Cm(8.0)
+    p = c10.paragraphs[0]
+    add_run(p, "BÀI 2: CÁC SỐ ĐẶC TRƯNG ĐO XU THẾ TRUNG TÂM", True, False, 10.5)
+    set_spacing(p, 30, 30, "center")
+
+    c11 = tbl.cell(1, 1)
+    c11.width = Cm(10.0)
+    p = c11.paragraphs[0]
+    if is_sol:
+        add_run(p, "Giáo viên: HỒ THỊ THÚY", True, False, 10.5)
+    else:
+        add_run(p, "Họ và tên: .............................................................", False, False, 10)
+    set_spacing(p, 30, 30, "center")
+
+def convert_latex_to_word_md(is_sol):
+    raw = get_latex_content()
+    raw = re.sub(r"\\section\*\{(.*?)\}", r"\n\n# \1\n\n", raw)
+    raw = re.sub(r"\\subsection\*\{(.*?)\}", r"\n\n## \1\n\n", raw)
+    raw = re.sub(r"\\textbf\{\(Ví dụ (\d+)\)\.\}", r"**Ví dụ \1.**", raw)
+    raw = re.sub(r"\\textbf\{\(Bài (\d+)\)\.\}", r"**Bài \1.**", raw)
+    
+    if not is_sol:
+        raw = re.sub(r"\\loigiai\{.*?\}(?=\s*\\end\{ex\})", "", raw, flags=re.DOTALL)
+    else:
+        raw = re.sub(r"\\loigiai\{([\s\S]*?)\}(?=\s*\\end\{ex\})", r"\n\n**Lời giải.**\n\n\1\n\n", raw)
+
+    def choice_repl(m):
+        choices = re.findall(r"\{([\s\S]*?)\}", m.group(1))
+        letters = "ABCD"
+        out = ["\n"]
+        for i, c in enumerate(choices[:4]):
+            c_clean = c.replace(r"\True", "").strip()
+            is_true = r"\True" in c and is_sol
+            mark = "@@CHON@@" if is_true else ""
+            out.append(f"{mark}**{letters[i]}.** {c_clean}{mark}")
+        return "\n\n@@TAB@@" + "@@TAB@@".join(out[1:]) + "\n\n"
+
+    raw = re.sub(r"\\choice([\s\S]*?)(?=\\loigiai|\\end\{ex\})", choice_repl, raw)
+    raw = re.sub(r"\\begin\{ex\}", "\n\n", raw)
+    raw = re.sub(r"\\end\{ex\}", "\n\n", raw)
+    raw = re.sub(r"\\begin\{enumerate\}\[[^\]]*\]", "", raw)
+    raw = re.sub(r"\\end\{enumerate\}", "", raw)
+    raw = re.sub(r"\\begin\{itemize\}", "", raw)
+    raw = re.sub(r"\\end\{itemize\}", "", raw)
+    raw = re.sub(r"\\item", "\n- ", raw)
+    raw = re.sub(r"\\begin\{multicols\}\{\d+\}", "", raw)
+    raw = re.sub(r"\\end\{multicols\}", "", raw)
+    raw = re.sub(r"\\vspace\{[^}]*\}", "", raw)
+    raw = re.sub(r"\\textbf\{(.*?)\}", r"**\1**", raw)
+    raw = re.sub(r"\\textit\{(.*?)\}", r"*\1*", raw)
+
+    if is_sol:
+        ans_md = "\n\n# BẢNG ĐÁP ÁN TRẮC NGHIỆM\n\n"
+        ans_p1 = [
+            "C", "A", "A", "A", "C", "B", "B", "A", "C", "B",
+            "A", "B", "A", "A", "C", "A", "A", "A", "A", "B"
+        ]
+        ans_md += "| Câu | " + " | ".join(str(i) for i in range(1, 11)) + " |\n"
+        ans_md += "| :---: | " + " | ".join(":---:" for _ in range(1, 11)) + " |\n"
+        ans_md += "| **Đ/A** | " + " | ".join(f"**{ans_p1[i-1]}**" for i in range(1, 11)) + " |\n\n"
+        ans_md += "| Câu | " + " | ".join(str(i) for i in range(11, 21)) + " |\n"
+        ans_md += "| :---: | " + " | ".join(":---:" for _ in range(11, 21)) + " |\n"
+        ans_md += "| **Đ/A** | " + " | ".join(f"**{ans_p1[i-1]}**" for i in range(11, 21)) + " |\n\n"
+        raw += ans_md
+
+    raw += "\n\n---\n\n<p align='center'>**--------- HẾT ---------**</p>\n"
+    return raw
+
+def apply_tabs(p):
+    text = p.text
+    for r in list(p.runs):
+        r._r.getparent().remove(r._r)
+    parts = text.split("@@TAB@@")
+    parts = [pt for pt in parts if pt != ""]
+    pPr = p._p.get_or_add_pPr()
+    tabs = OxmlElement('w:tabs')
+    if len(parts) == 4:
+        pos_list = [0, 4800, 9600, 14400]
+    elif len(parts) == 2:
+        pos_list = [0, 9600]
+    else:
+        pos_list = [0]
+    for pos in pos_list[1:]:
+        tab = parse_xml(r'<w:tab %s w:val="left" w:pos="%d"/>' % (nsdecls('w'), pos))
+        tabs.append(tab)
+    pPr.append(tabs)
+    set_spacing(p, 40, 40, "left")
+    for i, pt in enumerate(parts):
+        if i > 0:
+            p.add_run().add_tab()
+        pt_clean = pt.strip()
+        m = re.match(r"(\([A-D]\)|[A-D]\.)\s*(.*)", pt_clean)
+        if m:
+            add_run(p, m.group(1) + " ", True, False, 11)
+            add_run(p, m.group(2), False, False, 11)
+        else:
+            add_run(p, pt_clean, False, False, 11)
+
+def build_word_doc(is_sol, out_path):
+    md = convert_latex_to_word_md(is_sol)
+    tag = "hdg" if is_sol else "de"
+    md_file = os.path.join(SCRATCH_DIR, f"temp_{tag}.md")
+    tmp_docx = os.path.join(SCRATCH_DIR, f"temp_{tag}.docx")
+    with open(md_file, "w", encoding="utf-8") as f:
+        f.write(md)
+
+    cmd = [PANDOC, md_file, "-o", tmp_docx, "--from=markdown", "--to=docx"]
+    res = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8")
+    if res.returncode != 0:
+        print(f"[LỖI PANDOC] {res.stderr}")
+        return False
+
+    doc = docx.Document(tmp_docx)
+
+    sec = doc.sections[0]
+    sec.page_width = Cm(21.0)
+    sec.page_height = Cm(29.7)
+    sec.top_margin = Cm(1.2)
+    sec.bottom_margin = Cm(1.5)
+    sec.left_margin = Cm(1.5)
+    sec.right_margin = Cm(1.5)
+
+    sec.different_first_page_header_footer = False
+    hf = sec.footer
+    hp = hf.paragraphs[0]
+    hp.text = ""
+    add_run(hp, BRAND_W, False, True, 9.5, (100, 100, 100))
+    set_spacing(hp, 0, 0, "left")
+
+    first_p = doc.paragraphs[0]
+    tbl_p = first_p.insert_paragraph_before()
+    create_header_table(doc, is_sol)
+    first_tbl = doc.tables[-1]
+    tbl_p._p.addprevious(first_tbl._tbl)
+    p_to_del = tbl_p._p
+    p_to_del.getparent().remove(p_to_del)
+    sp_p = first_p.insert_paragraph_before()
+    set_spacing(sp_p, 40, 40, "left")
+
+    for p in list(doc.paragraphs):
+        t = p.text
+        if "@@TAB" in p._p.xml or "@@TAB" in t:
+            apply_tabs(p)
+            continue
+        if "@@CHON@@" in t:
+            p.text = t.replace("@@CHON@@", "")
+            for r in p.runs:
+                r.bold = True
+                r.font.color.rgb = RGBColor(192, 0, 0)
+        if t.startswith("Lời giải.") or "**Lời giải.**" in t:
+            for r in p.runs:
+                if "Lời giải." in r.text:
+                    r.bold = True
+                    r.font.color.rgb = RGBColor(31, 73, 125)
+        for r in p.runs:
+            r.font.name = "Times New Roman"
+            if r.font.size is None:
+                r.font.size = Pt(11)
+
+    body_xml = doc.element.body.xml
+    omml = body_xml.count("<m:oMath>") + body_xml.count("<m:oMath ")
+    try:
+        doc.save(out_path)
+    except PermissionError:
+        alt = out_path.replace(".docx", "_moi.docx")
+        doc.save(alt)
+        print(f"[CẢNH BÁO] {os.path.basename(out_path)} đang mở -> lưu {os.path.basename(alt)}")
+        out_path = alt
+    print(f"[Word] {os.path.basename(out_path)}: {omml} công thức OMML")
+    return True
+
+def main():
+    print("=" * 70)
+    print(" XUẤT BẢN TOÁN 10 - CHƯƠNG 5 - BÀI 2: ĐO XU THẾ TRUNG TÂM")
+    print("=" * 70)
+    
+    with open(os.path.join(LATEX_DIR, "noi_dung.tex"), "w", encoding="utf-8") as f:
+        f.write(get_latex_content())
+    with open(os.path.join(LATEX_DIR, "bang_dap_an.tex"), "w", encoding="utf-8") as f:
+        f.write(get_answer_key_tex())
+    print("[TeX] Đã tạo noi_dung.tex và bang_dap_an.tex")
+
+    ok_de = compile_latex(NAME_DE, build_latex_wrapper(False))
+    ok_hdg = compile_latex(NAME_HDG, build_latex_wrapper(True))
+
+    build_word_doc(False, os.path.join(SAN_PHAM_DIR, NAME_DE + ".docx"))
+    build_word_doc(True, os.path.join(SAN_PHAM_DIR, NAME_HDG + ".docx"))
+
+    for n in (NAME_DE, NAME_HDG):
+        src = os.path.join(LATEX_DIR, n + ".pdf")
+        if os.path.exists(src):
+            safe_copy(src, os.path.join(SAN_PHAM_DIR, n + ".pdf"))
+
+    print("=" * 70)
+    print("HOÀN TẤT BÀI 2!" if ok_de and ok_hdg else "CÓ LỖI LATEX – kiểm tra log.")
+    print("=" * 70)
+
+if __name__ == "__main__":
+    main()
