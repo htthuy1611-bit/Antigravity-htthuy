@@ -102,8 +102,8 @@ def get_latex_content():
 \vspace{0.3cm}
 \section*{II. CÁC VÍ DỤ MINH HỌA}
 
-\begin{ex}
-	\textbf{(Ví dụ 1).} Trong một cuộc thi tìm hiểu lịch sử địa phương, kết quả điểm số của 30 học sinh một lớp được ghi lại trong bảng sau:
+\begin{vd}
+	Trong một cuộc thi tìm hiểu lịch sử địa phương, kết quả điểm số của 30 học sinh một lớp được ghi lại trong bảng sau:
 	\begin{center}
 	\begin{tabular}{|l|c|c|c|c|}
 		\hline
@@ -119,10 +119,10 @@ def get_latex_content():
 		Số điểm trung bình của mỗi học sinh trong lớp là:
 		\[\overline{x} = \frac{5 \cdot 5 + 12 \cdot 6 + 10 \cdot 7 + 3 \cdot 9}{30} = \frac{25 + 72 + 70 + 27}{30} = \frac{194}{30} \approx 6{,}47\text{ (điểm)}.\]
 	}
-\end{ex}
+\end{vd}
 
-\begin{ex}
-	\textbf{(Ví dụ 2).} Nghiên cứu tuổi thọ của 10 bóng đèn (tính theo giờ) được ghi lại như sau:
+\begin{vd}
+	Nghiên cứu tuổi thọ của 10 bóng đèn (tính theo giờ) được ghi lại như sau:
 	\begin{center}
 	\begin{tabular}{|l|c|c|c|c|}
 		\hline
@@ -138,10 +138,10 @@ def get_latex_content():
 		Tuổi thọ trung bình là:
 		\[\overline{x} = \frac{2 \cdot 1150 + 3 \cdot 1160 + 4 \cdot 1170 + 1 \cdot 1180}{10} = \frac{2300 + 3480 + 4680 + 1180}{10} = \frac{11\,640}{10} = 1164\text{ (giờ)}.\]
 	}
-\end{ex}
+\end{vd}
 
-\begin{ex}
-	\textbf{(Ví dụ 3).} Trong đợt kiểm tra bắn súng AK, mỗi người bắn 5 phát. Thang điểm là các số $0, 4, 5, 6, 7, 8, 9, 10$. Ở 4 lần bắn trước, anh Nam đạt được $8; 7; 0; 9$ điểm. Để vượt qua bài kiểm tra, điểm trung bình 5 lần phải từ $6{,}5$ trở lên. Tính số điểm ít nhất anh Nam cần đạt ở lần bắn thứ 5.
+\begin{vd}
+	Trong đợt kiểm tra bắn súng AK, mỗi người bắn 5 phát. Thang điểm là các số $0, 4, 5, 6, 7, 8, 9, 10$. Ở 4 lần bắn trước, anh Nam đạt được $8; 7; 0; 9$ điểm. Để vượt qua bài kiểm tra, điểm trung bình 5 lần phải từ $6{,}5$ trở lên. Tính số điểm ít nhất anh Nam cần đạt ở lần bắn thứ 5.
 	\loigiai{
 		Gọi số điểm ở lần bắn thứ 5 là $x$ ($x \in \{0, 4, 5, 6, 7, 8, 9, 10\}$).\\
 		Điểm trung bình sau 5 lần bắn là:
@@ -150,20 +150,20 @@ def get_latex_content():
 		\[\overline{x} \ge 6{,}5 \iff \frac{24 + x}{5} \ge 6{,}5 \iff 24 + x \ge 32{,}5 \iff x \ge 8{,}5.\]
 		Vì thang điểm là các số nguyên nên số điểm ít nhất anh Nam cần đạt ở lần thứ 5 là \textbf{9 điểm}.
 	}
-\end{ex}
+\end{vd}
 
-\begin{ex}
-	\textbf{(Ví dụ 4).} Điểm thi của 7 học sinh là: $89, 69, 65, 0, 80, 0, 90$. Tìm trung vị của mẫu số liệu trên.
+\begin{vd}
+	Điểm thi của 7 học sinh là: $89, 69, 65, 0, 80, 0, 90$. Tìm trung vị của mẫu số liệu trên.
 	\loigiai{
 		Sắp xếp mẫu số liệu theo thứ tự không giảm:
 		\[0;\; 0;\; 65;\; 69;\; 80;\; 89;\; 90.\]
 		Vì cỡ mẫu $n = 7$ là số lẻ nên trung vị là số đứng ở vị trí thứ $\dfrac{7 + 1}{2} = 4$.\\
 		Do đó $M_e = 69$.
 	}
-\end{ex}
+\end{vd}
 
-\begin{ex}
-	\textbf{(Ví dụ 5).} Số áo bán được trong một quý của một cửa hàng được ghi lại như sau:
+\begin{vd}
+	Số áo bán được trong một quý của một cửa hàng được ghi lại như sau:
 	\begin{center}
 	\begin{tabular}{|l|c|c|c|c|c|c|c|}
 		\hline
@@ -188,30 +188,30 @@ def get_latex_content():
 		Vì $184 < 233 \le 294$ nên giá trị ở vị trí 233 mang cỡ số 39.\\
 		Vậy trung vị là $M_e = 39$.
 	}
-\end{ex}
+\end{vd}
 
-\begin{ex}
-	\textbf{(Ví dụ 6).} Số tấn hàng bán ra trong 6 tháng đầu năm của một công ty là: $4, 7, 9, 11, 12, 20$. Tìm tứ phân vị dưới của mẫu số liệu.
+\begin{vd}
+	Số tấn hàng bán ra trong 6 tháng đầu năm của một công ty là: $4, 7, 9, 11, 12, 20$. Tìm tứ phân vị dưới của mẫu số liệu.
 	\loigiai{
 		Dãy số đã được sắp xếp theo thứ tự không giảm: $4, 7, 9, 11, 12, 20$ ($n = 6$ là số chẵn).\\
 		Trung vị của cả mẫu là $Q_2 = \dfrac{9 + 11}{2} = 10$.\\
 		Nửa dãy phía dưới gồm 3 số: $4, 7, 9$.\\
 		Tứ phân vị dưới $Q_1$ là trung vị của nửa dãy dưới: $Q_1 = 7$.
 	}
-\end{ex}
+\end{vd}
 
-\begin{ex}
-	\textbf{(Ví dụ 7).} Số buổi nghỉ học của một nhóm học sinh là: $5, 8, 10, 11, 15, 18, 23$. Tìm tứ phân vị trên của mẫu số liệu.
+\begin{vd}
+	Số buổi nghỉ học của một nhóm học sinh là: $5, 8, 10, 11, 15, 18, 23$. Tìm tứ phân vị trên của mẫu số liệu.
 	\loigiai{
 		Mẫu số liệu đã sắp xếp có $n = 7$ (lẻ): $5, 8, 10, 11, 15, 18, 23$.\\
 		Trung vị của mẫu là $Q_2 = 11$.\\
 		Nửa dãy phía trên (không gồm $Q_2$) là: $15, 18, 23$.\\
 		Tứ phân vị trên $Q_3$ là trung vị của nửa dãy trên: $Q_3 = 18$.
 	}
-\end{ex}
+\end{vd}
 
-\begin{ex}
-	\textbf{(Ví dụ 8).} Giá thành một sản phẩm (nghìn đồng) của 20 cơ sở sản xuất:
+\begin{vd}
+	Giá thành một sản phẩm (nghìn đồng) của 20 cơ sở sản xuất:
 	\begin{center}
 	\begin{tabular}{cccccccccc}
 		15 & 25 & 25 & 30 & 20 & 25 & 35 & 30 & 25 & 30 \\
@@ -231,10 +231,10 @@ def get_latex_content():
 		Giá trị $25$ có tần số xuất hiện lớn nhất ($9$ lần).\\
 		Vậy mốt của mẫu số liệu là $M_o = 25$ (nghìn đồng).
 	}
-\end{ex}
+\end{vd}
 
-\begin{ex}
-	\textbf{(Ví dụ 9).} Cân nặng của 20 học sinh:
+\begin{vd}
+	Cân nặng của 20 học sinh:
 	\begin{center}
 	\begin{tabular}{cccccccccc}
 		28 & 35 & 29 & 37 & 30 & 35 & 37 & 30 & 35 & 29 \\
@@ -251,7 +251,7 @@ def get_latex_content():
 		Giá trị $35$ có tần số xuất hiện lớn nhất ($6$ lần).\\
 		Vậy mốt của mẫu số liệu là $M_o = 35\text{ kg}$.
 	}
-\end{ex}
+\end{vd}
 
 \vspace{0.4cm}
 \section*{III. BÀI TẬP VẬN DỤNG}
@@ -745,11 +745,11 @@ def get_latex_content():
 \vspace{0.4cm}
 \subsection*{PHẦN II. CÂU HỎI TỰ LUẬN}
 \textit{\small (Học sinh trình bày chi tiết lời giải các bài toán sau)}
-\setcounter{ex}{0}
+
 
 % Bài 1
-\begin{ex}
-	\textbf{(Bài 1).} Khối lượng 30 chi tiết máy được cho bởi bảng sau:
+\begin{bt}
+	Khối lượng 30 chi tiết máy được cho bởi bảng sau:
 	\begin{center}
 	\begin{tabular}{|l|c|c|c|c|c|c|c|}
 		\hline
@@ -765,11 +765,11 @@ def get_latex_content():
 		\[\overline{x} = \frac{250 \cdot 4 + 300 \cdot 4 + 350 \cdot 5 + 400 \cdot 6 + 450 \cdot 4 + 500 \cdot 7}{30}\]
 		\[= \frac{1000 + 1200 + 1750 + 2400 + 1800 + 3500}{30} = \frac{11\,650}{30} \approx 388{,}33\text{ (gam)}.\]
 	}
-\end{ex}
+\end{bt}
 
 % Bài 2
-\begin{ex}
-	\textbf{(Bài 2).} Bảng số liệu sau đây thống kê thời gian nảy mầm của một loại hạt mới trong các điều kiện khác nhau:
+\begin{bt}
+	Bảng số liệu sau đây thống kê thời gian nảy mầm của một loại hạt mới trong các điều kiện khác nhau:
 	\begin{center}
 	\begin{tabular}{|l|c|c|c|c|c|c|}
 		\hline
@@ -788,11 +788,11 @@ def get_latex_content():
 		\[= \frac{3360 + 7480 + 8100 + 7680 + 5500 + 5400}{80} = \frac{37\,520}{80} = 469\text{ (phút)}.\]
 		Kết quả chính xác là $469$ phút (hay $469{,}00$ phút).
 	}
-\end{ex}
+\end{bt}
 
 % Bài 3
-\begin{ex}
-	\textbf{(Bài 3).} Điều tra số học sinh giỏi khối 10 của 15 trường cấp ba trên địa bàn tỉnh A, ta được bảng số liệu như sau:
+\begin{bt}
+	Điều tra số học sinh giỏi khối 10 của 15 trường cấp ba trên địa bàn tỉnh A, ta được bảng số liệu như sau:
 	\begin{center}
 	\begin{tabular}{ccccccccccccccc}
 		22 & 29 & 29 & 29 & 30 & 31 & 32 & 32 & 33 & 34 & 34 & 35 & 35 & 35 & 36
@@ -805,11 +805,11 @@ def get_latex_content():
 		Đếm từ trái sang phải, giá trị ở vị trí thứ 8 là $32$.\\
 		Vậy số trung vị là $M_e = 32$ học sinh.
 	}
-\end{ex}
+\end{bt}
 
 % Bài 4
-\begin{ex}
-	\textbf{(Bài 4).} Điều tra số học sinh của 30 lớp học, ta được bảng số liệu như sau:
+\begin{bt}
+	Điều tra số học sinh của 30 lớp học, ta được bảng số liệu như sau:
 	\begin{center}
 	\begin{tabular}{ccccccccccccccc}
 		35 & 39 & 39 & 40 & 40 & 41 & 41 & 41 & 41 & 44 & 44 & 45 & 45 & 45 & 46 \\
@@ -825,11 +825,11 @@ def get_latex_content():
 		Vậy số trung vị là:
 		\[M_e = \frac{46 + 48}{2} = 47\text{ (học sinh)}.\]
 	}
-\end{ex}
+\end{bt}
 
 % Bài 5
-\begin{ex}
-	\textbf{(Bài 5).} Tuổi thọ của 30 bóng đèn được thắp thử (đơn vị: giờ) được cho bởi bảng số liệu thống kê dưới đây:
+\begin{bt}
+	Tuổi thọ của 30 bóng đèn được thắp thử (đơn vị: giờ) được cho bởi bảng số liệu thống kê dưới đây:
 	\begin{center}
 	\begin{tabular}{ccccccccccccccc}
 		1180 & 1150 & 1190 & 1170 & 1180 & 1170 & 1160 & 1170 & 1160 & 1150 & 1190 & 1180 & 1170 & 1170 & 1170 \\
@@ -849,11 +849,11 @@ def get_latex_content():
 		Giá trị $1170$ xuất hiện nhiều nhất với tần số là 12 lần.\\
 		Vậy mốt của bảng số liệu là $M_o = 1170$ giờ.
 	}
-\end{ex}
+\end{bt}
 
 % Bài 6
-\begin{ex}
-	\textbf{(Bài 6).} Kết quả kiểm tra chất lượng đầu năm (thang điểm 30) của 41 học sinh của một lớp được cho bởi bảng số liệu thống kê dưới đây:
+\begin{bt}
+	Kết quả kiểm tra chất lượng đầu năm (thang điểm 30) của 41 học sinh của một lớp được cho bởi bảng số liệu thống kê dưới đây:
 	\begin{center}
 	\begin{tabular}{|l|c|c|c|c|c|c|c|c|c|c|c|}
 		\hline
@@ -869,11 +869,11 @@ def get_latex_content():
 		Do đó, mẫu số liệu có 2 mốt là:
 		\[M_{o1} = 11\text{ và } M_{o2} = 18.\]
 	}
-\end{ex}
+\end{bt}
 
 % Bài 7
-\begin{ex}
-	\textbf{(Bài 7).} Chiều cao (đơn vị: xăng-ti-mét) của các bạn tổ I ở lớp 10A lần lượt là:
+\begin{bt}
+	Chiều cao (đơn vị: xăng-ti-mét) của các bạn tổ I ở lớp 10A lần lượt là:
 	\[165;\; 155;\; 171;\; 167;\; 159;\; 175;\; 165;\; 160;\; 158.\]
 	Đối với mẫu số liệu trên, hãy tìm:
 	\begin{enumerate}[a)]
@@ -900,11 +900,11 @@ def get_latex_content():
 			\end{itemize}
 		\end{enumerate}
 	}
-\end{ex}
+\end{bt}
 
 % Bài 8
-\begin{ex}
-	\textbf{(Bài 8).} Số đôi giày bán ra trong Quý IV năm 2020 của một cửa hàng được thống kê trong bảng tần số sau:
+\begin{bt}
+	Số đôi giày bán ra trong Quý IV năm 2020 của một cửa hàng được thống kê trong bảng tần số sau:
 	\begin{center}
 	\begin{tabular}{|l|c|c|c|c|c|c|c|c|}
 		\hline
@@ -924,11 +924,11 @@ def get_latex_content():
 			\item Cỡ giày 40 là cỡ giày có sức mua cao nhất (bán chạy nhất), do đó cửa hàng nên ưu tiên nhập về nhiều hơn cỡ giày \textbf{40} trong tháng tiếp theo để đáp ứng nhu cầu khách hàng.
 		\end{enumerate}
 	}
-\end{ex}
+\end{bt}
 
 % Bài 9
-\begin{ex}
-	\textbf{(Bài 9).} Cho biết nhiệt độ trung bình các tháng trong năm ở Hà Nội:
+\begin{bt}
+	Cho biết nhiệt độ trung bình các tháng trong năm ở Hà Nội:
 	\begin{center}
 	\begin{tabular}{|l|c|c|c|c|c|c|c|c|c|c|c|c|}
 		\hline
@@ -954,11 +954,11 @@ def get_latex_content():
 			\end{itemize}
 		\end{enumerate}
 	}
-\end{ex}
+\end{bt}
 
 % Bài 10
-\begin{ex}
-	\textbf{(Bài 10).} Cho biết tổng diện tích rừng từ năm 2008 đến năm 2019 ở nước ta (triệu ha):
+\begin{bt}
+	Cho biết tổng diện tích rừng từ năm 2008 đến năm 2019 ở nước ta (triệu ha):
 	\begin{center}
 	\begin{tabular}{|l|c|c|c|c|c|c|c|c|c|c|c|c|}
 		\hline
@@ -984,11 +984,11 @@ def get_latex_content():
 			Tỉ lệ tăng $11{,}45\%$ sau 11 năm là một mức tăng trưởng tích cực, cho thấy nỗ lực trồng rừng và bảo vệ môi trường đạt kết quả tốt.
 		\end{enumerate}
 	}
-\end{ex}
+\end{bt}
 
 % Bài 11
-\begin{ex}
-	\textbf{(Bài 11).} Tìm số trung bình, trung vị, mốt và tứ phân vị của mỗi mẫu số liệu sau đây:
+\begin{bt}
+	Tìm số trung bình, trung vị, mốt và tứ phân vị của mỗi mẫu số liệu sau đây:
 	\begin{enumerate}[a)]
 		\item Số điểm mà năm vận động viên bóng rổ ghi được trong một trận đấu: $9;\; 8;\; 15;\; 8;\; 20$.
 		\item Giá của một số loại giày (nghìn đồng): $350;\; 300;\; 650;\; 300;\; 450;\; 500;\; 300;\; 250$.
@@ -1019,11 +1019,11 @@ def get_latex_content():
 			\end{itemize}
 		\end{enumerate}
 	}
-\end{ex}
+\end{bt}
 
 % Bài 12
-\begin{ex}
-	\textbf{(Bài 12).} Chọn số đặc trưng đo xu thế trung tâm phù hợp cho mỗi mẫu số liệu sau, giải thích và tính giá trị của số đặc trưng đó:
+\begin{bt}
+	Chọn số đặc trưng đo xu thế trung tâm phù hợp cho mỗi mẫu số liệu sau, giải thích và tính giá trị của số đặc trưng đó:
 	\begin{enumerate}[a)]
 		\item Số mặt trăng đã biết của 8 hành tinh: $0;\; 0;\; 1;\; 2;\; 63;\; 34;\; 27;\; 13$.
 		\item Số đường chuyền thành công của một cầu thủ: $32;\; 24;\; 20;\; 14;\; 23$.
@@ -1043,11 +1043,11 @@ def get_latex_content():
 			Sắp xếp ($n = 11$): $10, 12, 13, 14, 14, \mathbf{15}, 15, 15, 18, 42, 42 \implies M_e = 15$.
 		\end{enumerate}
 	}
-\end{ex}
+\end{bt}
 
 % Bài 13
-\begin{ex}
-	\textbf{(Bài 13).} Số lượng học sinh giỏi Quốc gia năm học 2018 - 2019 của 10 trường THPT:
+\begin{bt}
+	Số lượng học sinh giỏi Quốc gia năm học 2018 - 2019 của 10 trường THPT:
 	\[0;\; 0;\; 4;\; 0;\; 0;\; 0;\; 10;\; 0;\; 6;\; 0.\]
 	\begin{enumerate}[a)]
 		\item Tìm số trung bình, mốt, các tứ phân vị của mẫu số liệu trên.
@@ -1067,11 +1067,11 @@ def get_latex_content():
 			\item Tứ phân vị thứ nhất và trung vị trùng nhau ($Q_1 = Q_2 = 0$) vì trong mẫu số liệu có đa số các giá trị là $0$ (chiếm tới $70\%$ số quan sát), dẫn tới cả vị trí của trung vị nửa dưới và trung vị toàn mẫu đều rơi vào giá trị $0$.
 		\end{enumerate}
 	}
-\end{ex}
+\end{bt}
 
 % Bài 14
-\begin{ex}
-	\textbf{(Bài 14).} Cho biết số chỗ ngồi của một số sân vận động: Cẩm Phả ($20\,120$), Thiên Trường ($21\,315$), Hàng Đẫy ($23\,405$), Thanh Hóa ($20\,120$), Mỹ Đình ($37\,546$). Các giá trị số trung bình, trung vị, mốt bị ảnh hưởng thế nào nếu bỏ đi số liệu của Sân vận động Quốc gia Mỹ Đình?
+\begin{bt}
+	Cho biết số chỗ ngồi của một số sân vận động: Cẩm Phả ($20\,120$), Thiên Trường ($21\,315$), Hàng Đẫy ($23\,405$), Thanh Hóa ($20\,120$), Mỹ Đình ($37\,546$). Các giá trị số trung bình, trung vị, mốt bị ảnh hưởng thế nào nếu bỏ đi số liệu của Sân vận động Quốc gia Mỹ Đình?
 	\loigiai{
 		Mẫu ban đầu (5 sân, sắp xếp): $20\,120;\; 20\,120;\; 21\,315;\; 23\,405;\; 37\,546$.\\
 		- Số trung bình ban đầu: $\overline{x} = \dfrac{122\,506}{5} = 24\,501{,}2$.\\
@@ -1083,11 +1083,11 @@ def get_latex_content():
 		- Mốt mới: $M_o' = 20\,120$ (không đổi).\\
 		\textbf{Kết luận:} Số trung bình bị ảnh hưởng nhiều nhất (giảm mạnh), trung vị bị ảnh hưởng ít hơn, mốt không bị ảnh hưởng.
 	}
-\end{ex}
+\end{bt}
 
 % Bài 15
-\begin{ex}
-	\textbf{(Bài 15).} Tuổi của 30 bệnh nhân đau mắt hột:
+\begin{bt}
+	Tuổi của 30 bệnh nhân đau mắt hột:
 	\begin{center}
 	\begin{tabular}{ccccccccccccccc}
 		21 & 17 & 22 & 18 & 20 & 17 & 15 & 13 & 15 & 20 & 15 & 12 & 18 & 17 & 25 \\
@@ -1105,11 +1105,11 @@ def get_latex_content():
 		Hai độ tuổi $17$ và $18$ cùng có tần số xuất hiện cao nhất là 5 lần.\\
 		Vậy bảng số liệu có 2 mốt: $M_{o1} = 17$ tuổi và $M_{o2} = 18$ tuổi.
 	}
-\end{ex}
+\end{bt}
 
 % Bài 16
-\begin{ex}
-	\textbf{(Bài 16).} Điểm kiểm tra môn Toán của 40 học sinh lớp 11A1 được thống kê như sau:
+\begin{bt}
+	Điểm kiểm tra môn Toán của 40 học sinh lớp 11A1 được thống kê như sau:
 	\begin{center}
 	\begin{tabular}{|l|c|c|c|c|c|c|c|c|c|}
 		\hline
@@ -1131,11 +1131,11 @@ def get_latex_content():
 		Tần số lớn nhất trong bảng là $14$, ứng với điểm 6.\\
 		Vậy mốt của bảng số liệu là $M_o = 6$ điểm.
 	}
-\end{ex}
+\end{bt}
 
 % Bài 17
-\begin{ex}
-	\textbf{(Bài 17).} Cho bảng phân bố tần số:
+\begin{bt}
+	Cho bảng phân bố tần số:
 	\begin{center}
 	\begin{tabular}{|l|c|c|c|c|c|}
 		\hline
@@ -1156,11 +1156,11 @@ def get_latex_content():
 		Đồng thời tần số $6n - 5 \ge 0 \iff n \ge 1$ (thỏa mãn khi $n > 5$).\\
 		Vậy tất cả các số tự nhiên $n \ge 6$ (tức $n \in \{6, 7, 8, \ldots\}$) thì $x_3$ là mốt duy nhất.
 	}
-\end{ex}
+\end{bt}
 
 % Bài 18
-\begin{ex}
-	\textbf{(Bài 18).} Cho bảng phân bố tần số:
+\begin{bt}
+	Cho bảng phân bố tần số:
 	\begin{center}
 	\begin{tabular}{|l|c|c|c|c|c|}
 		\hline
@@ -1181,11 +1181,11 @@ def get_latex_content():
 		Do đó ta cần $0 \le n < 10$.\\
 		Vì $n \in \mathbb{N}$ nên $n \in \{0, 1, 2, 3, 4, 5, 6, 7, 8, 9\}$.
 	}
-\end{ex}
+\end{bt}
 
 % Bài 19
-\begin{ex}
-	\textbf{(Bài 19).} Cho bảng phân bố tần số:
+\begin{bt}
+	Cho bảng phân bố tần số:
 	\begin{center}
 	\begin{tabular}{|l|c|c|c|c|c|c|}
 		\hline
@@ -1210,11 +1210,11 @@ def get_latex_content():
 		Các tần số khác là $5, 3, 7$ đều $< 19$. Do đó $x_2, x_4$ là 2 mốt duy nhất (thỏa mãn).\\
 		Vậy tập hợp $S = \{3; 4\}$, số phần tử của tập $S$ là 2.
 	}
-\end{ex}
+\end{bt}
 
 % Bài 20
-\begin{ex}
-	\textbf{(Bài 20).} Quan sát 9 con chuột chạy qua một mê cung và ghi lại thời gian (phút) của chúng:
+\begin{bt}
+	Quan sát 9 con chuột chạy qua một mê cung và ghi lại thời gian (phút) của chúng:
 	\begin{center}
 	\begin{tabular}{|l|c|c|c|c|c|c|c|c|c|}
 		\hline
@@ -1244,7 +1244,7 @@ def get_latex_content():
 			\item Trong mẫu số liệu này có giá trị $30$ phút lớn bất thường so với các con chuột khác (chỉ chạy từ $0{,}9$ đến $3$ phút), làm cho số trung bình $\overline{x} \approx 4{,}79$ phút bị kéo lên cao và không phản ánh đúng năng lực chung của bầy chuột. Vì vậy, ta nên chọn \textbf{trung vị ($M_e = 1{,}5$ phút)} để đại diện cho xu thế trung tâm của mẫu số liệu.
 		\end{enumerate}
 	}
-\end{ex}
+\end{bt}
 """
 
 def get_answer_key_tex():
@@ -1285,18 +1285,31 @@ def build_latex_wrapper(is_sol):
 """
 
 def compile_latex(name, content):
-    tex_path = os.path.join(LATEX_DIR, name + ".tex")
+    target_pdf = os.path.join(LATEX_DIR, name + ".pdf")
+    is_locked = False
+    if os.path.exists(target_pdf):
+        try:
+            with open(target_pdf, "r+b"):
+                pass
+        except PermissionError:
+            is_locked = True
+
+    job_name = name if not is_locked else name + "_moi"
+    tex_path = os.path.join(LATEX_DIR, job_name + ".tex")
     with open(tex_path, "w", encoding="utf-8") as f:
         f.write(content)
     for run in range(2):
-        res = subprocess.run(["pdflatex", "-interaction=nonstopmode", name + ".tex"], cwd=LATEX_DIR,
+        res = subprocess.run(["pdflatex", "-interaction=nonstopmode", job_name + ".tex"], cwd=LATEX_DIR,
                              capture_output=True, text=True, encoding="utf-8", errors="ignore")
-    log = open(os.path.join(LATEX_DIR, name + ".log"), encoding="utf-8", errors="ignore").read()
+    log = open(os.path.join(LATEX_DIR, job_name + ".log"), encoding="utf-8", errors="ignore").read()
     errors = [l for l in log.splitlines() if l.startswith("!")]
     pages = re.search(r"Output written on .*?\((\d+) pages?", log)
-    print(f"[LaTeX] {name}: {len(errors)} lỗi, {pages.group(1) if pages else '?'} trang")
+    print(f"[LaTeX] {job_name}: {len(errors)} lỗi, {pages.group(1) if pages else '?'} trang")
     for e in errors[:10]:
         print("   ", e)
+    if is_locked and len(errors) == 0:
+        print(f"[CẢNH BÁO] {name}.pdf đang mở -> đã biên dịch thành công ra {job_name}.pdf")
+        safe_copy(os.path.join(LATEX_DIR, job_name + ".pdf"), os.path.join(SAN_PHAM_DIR, job_name + ".pdf"))
     return len(errors) == 0
 
 def safe_copy(src, dst):
@@ -1378,8 +1391,6 @@ def convert_latex_to_word_md(is_sol):
     raw = get_latex_content()
     raw = re.sub(r"\\section\*\{(.*?)\}", r"\n\n# \1\n\n", raw)
     raw = re.sub(r"\\subsection\*\{(.*?)\}", r"\n\n## \1\n\n", raw)
-    raw = re.sub(r"\\textbf\{\(Ví dụ (\d+)\)\.\}", r"**Ví dụ \1.**", raw)
-    raw = re.sub(r"\\textbf\{\(Bài (\d+)\)\.\}", r"**Bài \1.**", raw)
     
     if not is_sol:
         raw = re.sub(r"\\loigiai\{.*?\}(?=\s*\\end\{ex\})", "", raw, flags=re.DOTALL)
@@ -1398,8 +1409,28 @@ def convert_latex_to_word_md(is_sol):
         return "\n\n@@TAB@@" + "@@TAB@@".join(out[1:]) + "\n\n"
 
     raw = re.sub(r"\\choice([\s\S]*?)(?=\\loigiai|\\end\{ex\})", choice_repl, raw)
-    raw = re.sub(r"\\begin\{ex\}", "\n\n", raw)
+    raw = re.sub(r"(?m)^\s*%.*$\n?", "", raw)
+
+    vd_c = [0]
+    def vd_fn(m):
+        vd_c[0] += 1
+        return f"\n\n**Ví dụ {vd_c[0]}.** "
+    raw = re.sub(r"\\begin\{vd\}", vd_fn, raw)
+    raw = re.sub(r"\\end\{vd\}", "\n\n", raw)
+
+    ex_c = [0]
+    def ex_fn(m):
+        ex_c[0] += 1
+        return f"\n\n**Câu {ex_c[0]}.** "
+    raw = re.sub(r"\\begin\{ex\}", ex_fn, raw)
     raw = re.sub(r"\\end\{ex\}", "\n\n", raw)
+
+    bt_c = [0]
+    def bt_fn(m):
+        bt_c[0] += 1
+        return f"\n\n**Bài {bt_c[0]}.** "
+    raw = re.sub(r"\\begin\{bt\}", bt_fn, raw)
+    raw = re.sub(r"\\end\{bt\}", "\n\n", raw)
     raw = re.sub(r"\\begin\{enumerate\}\[[^\]]*\]", "", raw)
     raw = re.sub(r"\\end\{enumerate\}", "", raw)
     raw = re.sub(r"\\begin\{itemize\}", "", raw)

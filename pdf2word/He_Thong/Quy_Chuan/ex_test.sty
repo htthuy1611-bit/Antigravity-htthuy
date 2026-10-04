@@ -2027,6 +2027,10 @@
 \theoremseparator{.}
 \theorembodyfont{\rm}
 \newtheorem{ex}{\nameex}
+\makeatletter
+\@ifundefined{vd}{\newtheorem{vd}{\namevd}}{}
+\@ifundefined{bt}{\newtheorem{bt}{\namebt}}{}
+\makeatother
 \newtheorem{chc}{}[ex]
 \newtheorem{printex}{\nameprintex}
 \Newassociation{EXsol}{Solution}{ans}

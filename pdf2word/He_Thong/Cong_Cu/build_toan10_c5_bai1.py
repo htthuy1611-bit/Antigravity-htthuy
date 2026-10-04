@@ -88,15 +88,15 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 
 \subsection*{Dạng 1. Xác định số gần đúng và đánh giá độ chính xác}
 
-\begin{ex}
-	\textbf{(Ví dụ 1).} Đỉnh Everest được mệnh danh là "nóc nhà của thế giới" với nhiều con số từng công bố như: $8848\text{ m}$; $8848{,}13\text{ m}$; $8844{,}43\text{ m}$; $8850\text{ m}$. Hãy giải thích tại sao các con số này đều là số gần đúng.
+\begin{vd}
+	Đỉnh Everest được mệnh danh là "nóc nhà của thế giới" với nhiều con số từng công bố như: $8848\text{ m}$; $8848{,}13\text{ m}$; $8844{,}43\text{ m}$; $8850\text{ m}$. Hãy giải thích tại sao các con số này đều là số gần đúng.
 	\loigiai{
 		Chiều cao của đỉnh Everest là một đại lượng vật lí biến đổi liên tục theo thời gian (do lớp băng tuyết dày mỏng theo mùa, do sự dịch chuyển của mảng kiến tạo Trái Đất) và kết quả đo đạc phụ thuộc vào công nghệ, thiết bị đo tại từng thời điểm. Do đó, các con số được công bố đều chỉ là các giá trị xấp xỉ chiều cao thực tế tại thời điểm đo, tức là các \textbf{số gần đúng}.
 	}
-\end{ex}
+\end{vd}
 
-\begin{ex}
-	\textbf{(Ví dụ 2).} Xác định các thông tin sau là số đúng hay số gần đúng:
+\begin{vd}
+	Xác định các thông tin sau là số đúng hay số gần đúng:
 	\begin{enumerate}[a)]
 		\item Bán kính đường Xích Đạo của Trái Đất là $6\,378\text{ km}$.
 		\item Khoảng cách từ Mặt Trăng đến Trái Đất là $384\,400\text{ km}$.
@@ -109,19 +109,19 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 			\item "$1\text{ m} = 100\text{ cm}$" là \textbf{số đúng} vì đây là định nghĩa quy ước chuẩn trong hệ đo lường quốc tế SI.
 		\end{enumerate}
 	}
-\end{ex}
+\end{vd}
 
-\begin{ex}
-	\textbf{(Ví dụ 3).} Gọi $d$ là độ dài đường chéo của hình vuông có cạnh bằng 1. Trong hai số $\sqrt{2}$ và $1{,}41$, số nào là số đúng, số nào là số gần đúng của $d$?
+\begin{vd}
+	Gọi $d$ là độ dài đường chéo của hình vuông có cạnh bằng 1. Trong hai số $\sqrt{2}$ và $1{,}41$, số nào là số đúng, số nào là số gần đúng của $d$?
 	\loigiai{
 		Theo định lí Pythagore, độ dài đường chéo của hình vuông cạnh 1 là $d = \sqrt{1^2 + 1^2} = \sqrt{2}$.\\
 		- Số $\sqrt{2}$ là \textbf{số đúng} biểu diễn độ dài chính xác của đường chéo.\\
 		- Số $1{,}41$ là \textbf{số gần đúng} của $\sqrt{2}$ (vì $\sqrt{2} = 1{,}41421356...$).
 	}
-\end{ex}
+\end{vd}
 
-\begin{ex}
-	\textbf{(Ví dụ 4).} Giả sử khối lượng đúng của một hộp kẹo là $0{,}85\text{ kg}$. Hai bạn Bình và An cân hộp kẹo này và ghi nhận kết quả lần lượt là $0{,}8\text{ kg}$ và $1\text{ kg}$.
+\begin{vd}
+	Giả sử khối lượng đúng của một hộp kẹo là $0{,}85\text{ kg}$. Hai bạn Bình và An cân hộp kẹo này và ghi nhận kết quả lần lượt là $0{,}8\text{ kg}$ và $1\text{ kg}$.
 	\begin{enumerate}[a)]
 		\item Tìm sai số tuyệt đối của kết quả cân của mỗi bạn.
 		\item Kết quả cân của bạn nào chính xác hơn? Vì sao?
@@ -135,10 +135,10 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 			\item Vì $\Delta_{\text{Bình}} = 0{,}05\text{ kg} < 0{,}15\text{ kg} = \Delta_{\text{An}}$ nên kết quả cân của bạn Bình chính xác hơn kết quả của bạn An.
 		\end{enumerate}
 	}
-\end{ex}
+\end{vd}
 
-\begin{ex}
-	\textbf{(Ví dụ 5).} Người ta dùng một đồng hồ bấm giờ có độ chia nhỏ nhất là $0{,}1\text{ giây}$ để đo thời gian hoàn thành cự li bơi của một vận động viên và được kết quả là $27{,}2\text{ giây}$.
+\begin{vd}
+	Người ta dùng một đồng hồ bấm giờ có độ chia nhỏ nhất là $0{,}1\text{ giây}$ để đo thời gian hoàn thành cự li bơi của một vận động viên và được kết quả là $27{,}2\text{ giây}$.
 	\begin{enumerate}[a)]
 		\item Tìm độ chính xác $d$ của phép đo.
 		\item Nếu thời gian đúng là $a\text{ giây}$, hãy tìm khoảng giá trị mà $a$ có thể nhận được.
@@ -151,20 +151,20 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 			Nếu lấy $d = 0{,}05\text{ s}$ (nửa độ chia) thì $27{,}15 \le a \le 27{,}25\text{ (giây)}$.
 		\end{enumerate}
 	}
-\end{ex}
+\end{vd}
 
 \subsection*{Dạng 2. Xác định sai số tương đối của số gần đúng}
 
-\begin{ex}
-	\textbf{(Ví dụ 1).} Cho $a = 3{,}14$ là số gần đúng của $\overline{a} = \pi$. Biết $\Delta_a = |\pi - 3{,}14| < 0{,}01$. Đánh giá sai số tương đối của $a$.
+\begin{vd}
+	Cho $a = 3{,}14$ là số gần đúng của $\overline{a} = \pi$. Biết $\Delta_a = |\pi - 3{,}14| < 0{,}01$. Đánh giá sai số tương đối của $a$.
 	\loigiai{
 		Ta có độ chính xác $d = 0{,}01$. Sai số tương đối của số gần đúng $a = 3{,}14$ thỏa mãn:
 		\[\delta_a = \frac{\Delta_a}{|a|} \le \frac{d}{|a|} = \frac{0{,}01}{3{,}14} \approx 0{,}00318 = 0{,}318\%.\]
 	}
-\end{ex}
+\end{vd}
 
-\begin{ex}
-	\textbf{(Ví dụ 2).} Một bồn hoa hình tròn có bán kính $r = 0{,}8\text{ m}$. Bạn Ngân lấy giá trị gần đúng $\pi \approx 3{,}1$ được diện tích $S_1$. Bạn Ánh lấy $\pi \approx 3{,}14$ được diện tích $S_2$. So sánh sai số tuyệt đối $\Delta_{S_1}$ và $\Delta_{S_2}$. Bạn nào cho kết quả chính xác hơn?
+\begin{vd}
+	Một bồn hoa hình tròn có bán kính $r = 0{,}8\text{ m}$. Bạn Ngân lấy giá trị gần đúng $\pi \approx 3{,}1$ được diện tích $S_1$. Bạn Ánh lấy $\pi \approx 3{,}14$ được diện tích $S_2$. So sánh sai số tuyệt đối $\Delta_{S_1}$ và $\Delta_{S_2}$. Bạn nào cho kết quả chính xác hơn?
 	\loigiai{
 		Diện tích đúng của bồn hoa là $S = \pi r^2 = \pi \cdot (0{,}8)^2 = 0{,}64\pi\text{ m}^2$.\\
 		- Kết quả của bạn Ngân: $S_1 = 3{,}1 \cdot 0{,}64 = 1{,}984\text{ m}^2$. Sai số tuyệt đối:
@@ -173,10 +173,10 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 		\[\Delta_{S_2} = |S - S_2| = 0{,}64 \cdot |\pi - 3{,}14| \approx 0{,}64 \cdot 0{,}00159 = 0{,}0010\text{ m}^2.\]
 		Vì $\Delta_{S_2} < \Delta_{S_1}$ nên bạn Ánh cho kết quả chính xác hơn bạn Ngân.
 	}
-\end{ex}
+\end{vd}
 
-\begin{ex}
-	\textbf{(Ví dụ 3).} Một tờ giấy A4 có chiều dài $29{,}7\text{ cm}$ và chiều rộng $21\text{ cm}$. Tính độ dài đường chéo tờ giấy và xác định độ chính xác của kết quả khi làm tròn đến hàng phần mười.
+\begin{vd}
+	Một tờ giấy A4 có chiều dài $29{,}7\text{ cm}$ và chiều rộng $21\text{ cm}$. Tính độ dài đường chéo tờ giấy và xác định độ chính xác của kết quả khi làm tròn đến hàng phần mười.
 	\loigiai{
 		Độ dài đúng của đường chéo là:
 		\[d = \sqrt{29{,}7^2 + 21^2} = \sqrt{882{,}09 + 441} = \sqrt{1323{,}09} \approx 36{,}3743\text{ cm}.\]
@@ -184,22 +184,21 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 		Sai số tuyệt đối của phép làm tròn không vượt quá nửa đơn vị hàng làm tròn: $\Delta \le 0{,}05\text{ cm}$.\\
 		Vậy độ chính xác của kết quả làm tròn là $d = 0{,}05\text{ cm}$.
 	}
-\end{ex}
+\end{vd}
 
 \subsection*{Dạng 3. Xác định số quy tròn của số gần đúng với độ chính xác cho trước}
 
-\begin{ex}
-	\textbf{(Ví dụ 1).} Quy tròn số $3{,}141$ đến hàng phần trăm rồi tính sai số tuyệt đối của số quy tròn.
+\begin{vd}
+	Quy tròn số $3{,}141$ đến hàng phần trăm rồi tính sai số tuyệt đối của số quy tròn.
 	\loigiai{
 		Chữ số hàng phần trăm là $4$, chữ số ngay bên phải là $1 < 5$ nên ta giữ nguyên chữ số hàng phần trăm và bỏ chữ số sau đó.\\
 		Số quy tròn là $3{,}14$.\\
 		Sai số tuyệt đối của số quy tròn:
 		\[\Delta = |3{,}141 - 3{,}14| = 0{,}001.\]
 	}
-\end{ex}
+\end{vd}
 
-\begin{ex}
-	\textbf{(Ví dụ 2).} 
+\begin{vd}
 	\begin{enumerate}[a)]
 		\item Làm tròn số $2395{,}3$ đến hàng chục, số $18{,}693$ đến hàng phần trăm và số đúng $d \in [5{,}5; 6{,}5)$ đến hàng đơn vị. Đánh giá sai số tuyệt đối của phép làm tròn số đúng $d$.
 		\item Cho số gần đúng $a = 2{,}53$ với độ chính xác $d = 0{,}01$. Số đúng $\overline{a}$ thuộc đoạn nào? Nếu làm tròn số $a$ thì nên làm tròn đến hàng nào? Vì sao?
@@ -215,19 +214,19 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 			Độ chính xác $d = 0{,}01$ ở hàng phần trăm, do đó chữ số hàng phần trăm trong số gần đúng chưa đáng tin cậy. Vì vậy, ta nên làm tròn số $a$ đến \textbf{hàng phần mười} (hàng cao hơn hàng của $d$ một bậc). Khi đó số quy tròn là $2{,}5$.
 		\end{enumerate}
 	}
-\end{ex}
+\end{vd}
 
-\begin{ex}
-	\textbf{(Ví dụ 3).} Cho số gần đúng $a = 581\,268$ với độ chính xác $d = 200$. Hãy viết số quy tròn của số $a$.
+\begin{vd}
+	Cho số gần đúng $a = 581\,268$ với độ chính xác $d = 200$. Hãy viết số quy tròn của số $a$.
 	\loigiai{
 		Độ chính xác $d = 200$ thỏa mãn $100 \le d < 1000$, tức là hàng của độ chính xác là hàng trăm. Do đó ta làm tròn số $a$ đến \textbf{hàng nghìn}.\\
 		Chữ số hàng nghìn là $1$, chữ số ngay sau nó (hàng trăm) là $2 < 5$ nên giữ nguyên.\\
 		Vậy số quy tròn của $a$ là $581\,000$.
 	}
-\end{ex}
+\end{vd}
 
-\begin{ex}
-	\textbf{(Ví dụ 4).} Viết số quy tròn của mỗi số sau với độ chính xác $d$:
+\begin{vd}
+	Viết số quy tròn của mỗi số sau với độ chính xác $d$:
 	\begin{enumerate}[a)]
 		\item $2\,841\,331$ với $d = 400$;
 		\item $4{,}1463$ với $d = 0{,}01$;
@@ -240,37 +239,37 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 			\item Với $d = 0{,}001$ (hàng phần nghìn), ta làm tròn đến hàng phần trăm. Chữ số hàng phần nghìn là $4 < 5$ nên số quy tròn là $1{,}41$.
 		\end{enumerate}
 	}
-\end{ex}
+\end{vd}
 
 \subsection*{Dạng 4. Sử dụng máy tính cầm tay để tính toán với số gần đúng}
 
-\begin{ex}
-	\textbf{(Ví dụ 1).} Sử dụng máy tính cầm tay, tính $3^7 \cdot \sqrt{14}$ (trong kết quả lấy bốn chữ số ở phần thập phân).
+\begin{vd}
+	Sử dụng máy tính cầm tay, tính $3^7 \cdot \sqrt{14}$ (trong kết quả lấy bốn chữ số ở phần thập phân).
 	\loigiai{
 		Nhập vào máy tính biểu thức $3^7 \times \sqrt{14}$ ta được kết quả hiển thị xấp xỉ:\\
 		$3^7 \cdot \sqrt{14} = 2187 \cdot \sqrt{14} \approx 8182{,}806847...$\\
 		Lấy bốn chữ số ở phần thập phân (làm tròn đến hàng phần chục nghìn): kết quả là \textbf{$8182{,}8068$}.
 	}
-\end{ex}
+\end{vd}
 
-\begin{ex}
-	\textbf{(Ví dụ 2).} Dùng máy tính cầm tay, tính kết quả của phép tính $\sqrt[3]{15} : 5 - 2$ (trong kết quả lấy hai chữ số ở phần thập phân).
+\begin{vd}
+	Dùng máy tính cầm tay, tính kết quả của phép tính $\sqrt[3]{15} : 5 - 2$ (trong kết quả lấy hai chữ số ở phần thập phân).
 	\loigiai{
 		Thực hiện bấm máy tính biểu thức $\sqrt[3]{15} \div 5 - 2$:\\
 		Ta có $\sqrt[3]{15} \approx 2{,}466212 \implies \dfrac{\sqrt[3]{15}}{5} \approx 0{,}493242$.\\
 		Do đó $\sqrt[3]{15} : 5 - 2 \approx 0{,}493242 - 2 = -1{,}506757...$\\
 		Làm tròn đến hai chữ số ở phần thập phân (chữ số thứ ba là $6 \ge 5$): kết quả là \textbf{$-1{,}51$}.
 	}
-\end{ex}
+\end{vd}
 
-\begin{ex}
-	\textbf{(Ví dụ 3).} Gọi $P$ là chu vi của đường tròn bán kính $1\text{ cm}$. Hãy tìm giá trị gần đúng của $P$ (trong kết quả lấy hai chữ số ở phần thập phân).
+\begin{vd}
+	Gọi $P$ là chu vi của đường tròn bán kính $1\text{ cm}$. Hãy tìm giá trị gần đúng của $P$ (trong kết quả lấy hai chữ số ở phần thập phân).
 	\loigiai{
 		Chu vi đường tròn bán kính $R = 1\text{ cm}$ là $P = 2\pi R = 2\pi\text{ cm}$.\\
 		Sử dụng máy tính bấm $2 \times \pi$ ta được $P \approx 6{,}283185...$\\
 		Lấy hai chữ số ở phần thập phân: kết quả là \textbf{$6{,}28\text{ cm}$}.
 	}
-\end{ex}
+\end{vd}
 
 \vspace{0.4cm}
 \section*{III. BÀI TẬP VẬN DỤNG}
@@ -616,11 +615,11 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 \vspace{0.4cm}
 \subsection*{PHẦN II. CÂU HỎI TỰ LUẬN}
 \textit{\small (Học sinh trình bày chi tiết lời giải các bài toán sau)}
-\setcounter{ex}{0}
+
 
 % Bài 1
-\begin{ex}
-	\textbf{(Bài 1).} Một bao gạo ghi thông tin khối lượng là $5 \pm 0{,}2\text{ kg}$.
+\begin{bt}
+	Một bao gạo ghi thông tin khối lượng là $5 \pm 0{,}2\text{ kg}$.
 	\begin{enumerate}[a)]
 		\item Xác định khối lượng đúng, khối lượng gần đúng và độ chính xác của bao gạo.
 		\item Khối lượng thực của bao gạo nằm trong đoạn nào?
@@ -634,22 +633,22 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 			\[[5 - 0{,}2; 5 + 0{,}2] = [4{,}8; 5{,}2]\text{ (kg)}.\]
 		\end{enumerate}
 	}
-\end{ex}
+\end{bt}
 
 % Bài 2
-\begin{ex}
-	\textbf{(Bài 2).} Một phép đo đường kính nhân tế bào cho kết quả là $5 \pm 0{,}3\ \mu\text{m}$. Đường kính thực của nhân tế bào thuộc đoạn nào?
+\begin{bt}
+	Một phép đo đường kính nhân tế bào cho kết quả là $5 \pm 0{,}3\ \mu\text{m}$. Đường kính thực của nhân tế bào thuộc đoạn nào?
 	\loigiai{
 		Gọi $\overline{D}$ là đường kính thực của nhân tế bào.\\
 		Theo giả thiết, đường kính gần đúng là $D = 5\ \mu\text{m}$ với độ chính xác $d = 0{,}3\ \mu\text{m}$.\\
 		Do đó, đường kính thực của nhân tế bào thuộc đoạn:
 		\[[5 - 0{,}3; 5 + 0{,}3] = [4{,}7; 5{,}3]\ (\mu\text{m}).\]
 	}
-\end{ex}
+\end{bt}
 
 % Bài 3
-\begin{ex}
-	\textbf{(Bài 3).} Chiều dài một cái cầu là $\ell = 1745{,}25\text{ m} \pm 0{,}01\text{ m}$.
+\begin{bt}
+	Chiều dài một cái cầu là $\ell = 1745{,}25\text{ m} \pm 0{,}01\text{ m}$.
 	\begin{enumerate}[a)]
 		\item Xác định chiều dài đúng, chiều dài gần đúng và độ chính xác của cái cầu.
 		\item Chiều dài thực của cái cầu nằm trong đoạn nào?
@@ -663,11 +662,11 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 			\[[1745{,}25 - 0{,}01; 1745{,}25 + 0{,}01] = [1745{,}24; 1745{,}26]\text{ (m)}.\]
 		\end{enumerate}
 	}
-\end{ex}
+\end{bt}
 
 % Bài 4
-\begin{ex}
-	\textbf{(Bài 4).} Biết $\sqrt{7} = 2{,}6457513...$
+\begin{bt}
+	Biết $\sqrt{7} = 2{,}6457513...$
 	\begin{enumerate}[a)]
 		\item Làm tròn kết quả đến phần mười và ước lượng sai số tuyệt đối.
 		\item Làm tròn kết quả đến phần nghìn và ước lượng sai số tuyệt đối.
@@ -684,11 +683,11 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 			\[\Delta = |\sqrt{7} - 2{,}646| \approx |2{,}6457513 - 2{,}646| = 0{,}0002487 < 0{,}0005.\]
 		\end{enumerate}
 	}
-\end{ex}
+\end{bt}
 
 % Bài 5
-\begin{ex}
-	\textbf{(Bài 5).} Ở Babylon, một tấm đất sét có niên đại khoảng $1900 - 1600$ trước Công nguyên đã ghi lại ước lượng số $\pi$ bằng $\dfrac{25}{8} = 3{,}1250$. Hãy ước lượng sai số tuyệt đối và sai số tương đối của giá trị gần đúng này, biết $3{,}141 < \pi < 3{,}142$.
+\begin{bt}
+	Ở Babylon, một tấm đất sét có niên đại khoảng $1900 - 1600$ trước Công nguyên đã ghi lại ước lượng số $\pi$ bằng $\dfrac{25}{8} = 3{,}1250$. Hãy ước lượng sai số tuyệt đối và sai số tương đối của giá trị gần đúng này, biết $3{,}141 < \pi < 3{,}142$.
 	\loigiai{
 		Ta có số gần đúng $a = 3{,}1250 < \pi$.\\
 		Sai số tuyệt đối là $\Delta = |\pi - 3{,}1250| = \pi - 3{,}1250$.\\
@@ -698,11 +697,11 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 		Sai số tương đối của giá trị gần đúng thỏa mãn:
 		\[\delta = \frac{\Delta}{|a|} < \frac{0{,}0170}{3{,}1250} = 0{,}00544 = 0{,}544\%.\]
 	}
-\end{ex}
+\end{bt}
 
 % Bài 6
-\begin{ex}
-	\textbf{(Bài 6).} Cho số gần đúng $a = 6547$ với độ chính xác $d = 100$. Hãy viết số quy tròn của số $a$ và ước lượng sai số tương đối của số quy tròn đó.
+\begin{bt}
+	Cho số gần đúng $a = 6547$ với độ chính xác $d = 100$. Hãy viết số quy tròn của số $a$ và ước lượng sai số tương đối của số quy tròn đó.
 	\loigiai{
 		Vì độ chính xác $d = 100$ là hàng trăm nên ta quy tròn số $a$ đến \textbf{hàng nghìn}.\\
 		Chữ số hàng nghìn là $6$, chữ số ngay bên phải là $5 \ge 5$ nên tăng lên 1 đơn vị:\\
@@ -713,11 +712,11 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 		Ước lượng sai số tương đối của số quy tròn:
 		\[\delta_{a^*} = \frac{\Delta_{a^*}}{|a^*|} \le \frac{553}{7000} \approx 0{,}079 = 7{,}9\%.\]
 	}
-\end{ex}
+\end{bt}
 
 % Bài 7
-\begin{ex}
-	\textbf{(Bài 7).} Cho số gần đúng $a = 23\,748\,023$ với độ chính xác $d = 101$. Hãy viết số quy tròn của số $a$ và ước lượng sai số tương đối của số quy tròn đó.
+\begin{bt}
+	Cho số gần đúng $a = 23\,748\,023$ với độ chính xác $d = 101$. Hãy viết số quy tròn của số $a$ và ước lượng sai số tương đối của số quy tròn đó.
 	\loigiai{
 		Vì $100 \le d = 101 < 1000$ nên hàng của độ chính xác là hàng trăm. Do đó ta quy tròn số $a$ đến \textbf{hàng nghìn}.\\
 		Chữ số hàng nghìn là $8$, chữ số hàng trăm là $0 < 5$ nên giữ nguyên chữ số hàng nghìn:\\
@@ -727,11 +726,11 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 		Ước lượng sai số tương đối của số quy tròn:
 		\[\delta_{a^*} \le \frac{124}{23\,748\,000} \approx 5{,}22 \times 10^{-6} \approx 0{,}000522\%.\]
 	}
-\end{ex}
+\end{bt}
 
 % Bài 8
-\begin{ex}
-	\textbf{(Bài 8).} Cho biết $\sqrt{3} = 1{,}7320508...$ Hãy quy tròn $\sqrt{3}$ đến hàng phần trăm và ước lượng sai số tương đối.
+\begin{bt}
+	Cho biết $\sqrt{3} = 1{,}7320508...$ Hãy quy tròn $\sqrt{3}$ đến hàng phần trăm và ước lượng sai số tương đối.
 	\loigiai{
 		Làm tròn $\sqrt{3}$ đến hàng phần trăm (chữ số thập phân thứ hai):\\
 		Chữ số hàng phần trăm là $3$, chữ số kế tiếp là $2 < 5$ nên số quy tròn là $1{,}73$.\\
@@ -740,22 +739,22 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 		Sai số tương đối:
 		\[\delta = \frac{\Delta}{1{,}73} < \frac{0{,}005}{1{,}73} \approx 0{,}00289 = 0{,}289\%.\]
 	}
-\end{ex}
+\end{bt}
 
 % Bài 9
-\begin{ex}
-	\textbf{(Bài 9).} Cho $\overline{a} = \dfrac{1}{1 + x}$ ($0 < x < 1$). Giả sử ta lấy $a = 1 - x$ làm giá trị gần đúng của $\overline{a}$. Hãy tính sai số tương đối của $a$ theo $x$.
+\begin{bt}
+	Cho $\overline{a} = \dfrac{1}{1 + x}$ ($0 < x < 1$). Giả sử ta lấy $a = 1 - x$ làm giá trị gần đúng của $\overline{a}$. Hãy tính sai số tương đối của $a$ theo $x$.
 	\loigiai{
 		Sai số tuyệt đối:
 		\[\Delta_a = |\overline{a} - a| = \left|\frac{1}{1 + x} - (1 - x)\right| = \left|\frac{1 - (1 - x^2)}{1 + x}\right| = \frac{x^2}{1 + x}\text{ (do $0 < x < 1$)}.\]
 		Sai số tương đối:
 		\[\delta_a = \frac{\Delta_a}{|a|} = \frac{\dfrac{x^2}{1 + x}}{1 - x} = \frac{x^2}{(1 + x)(1 - x)} = \frac{x^2}{1 - x^2}.\]
 	}
-\end{ex}
+\end{bt}
 
 % Bài 10
-\begin{ex}
-	\textbf{(Bài 10).} Làm tròn các số sau đến chữ số hàng chục:
+\begin{bt}
+	Làm tròn các số sau đến chữ số hàng chục:
 	\begin{multicols}{5}
 		\begin{enumerate}[a)]
 			\item $199$
@@ -807,11 +806,11 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 		\end{itemize}
 		\end{multicols}
 	}
-\end{ex}
+\end{bt}
 
 % Bài 11
-\begin{ex}
-	\textbf{(Bài 11).} Làm tròn các số sau đến chữ số hàng trăm:
+\begin{bt}
+	Làm tròn các số sau đến chữ số hàng trăm:
 	\begin{multicols}{5}
 		\begin{enumerate}[a)]
 			\item $199$
@@ -861,11 +860,11 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 		\end{itemize}
 		\end{multicols}
 	}
-\end{ex}
+\end{bt}
 
 % Bài 12
-\begin{ex}
-	\textbf{(Bài 12).} Làm tròn các số sau đến chữ số hàng nghìn:
+\begin{bt}
+	Làm tròn các số sau đến chữ số hàng nghìn:
 	\begin{multicols}{5}
 		\begin{enumerate}[a)]
 			\item $12\,345$
@@ -917,11 +916,11 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 		\end{itemize}
 		\end{multicols}
 	}
-\end{ex}
+\end{bt}
 
 % Bài 13
-\begin{ex}
-	\textbf{(Bài 13).} Làm tròn các số sau đến hàng phần mười:
+\begin{bt}
+	Làm tròn các số sau đến hàng phần mười:
 	\begin{multicols}{5}
 		\begin{enumerate}[a)]
 			\item $10{,}00905$
@@ -953,11 +952,11 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 		\end{itemize}
 		\end{multicols}
 	}
-\end{ex}
+\end{bt}
 
 % Bài 14
-\begin{ex}
-	\textbf{(Bài 14).} Làm tròn các số sau đến hàng phần trăm:
+\begin{bt}
+	Làm tròn các số sau đến hàng phần trăm:
 	\begin{multicols}{5}
 		\begin{enumerate}[a)]
 			\item $3{,}0468$
@@ -999,11 +998,11 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 		\end{itemize}
 		\end{multicols}
 	}
-\end{ex}
+\end{bt}
 
 % Bài 15
-\begin{ex}
-	\textbf{(Bài 15).} Viết số quy tròn của mỗi số sau với độ chính xác $d$:
+\begin{bt}
+	Viết số quy tròn của mỗi số sau với độ chính xác $d$:
 	\begin{enumerate}[a)]
 		\item $1\,234\,567$ với $d = 400$.
 		\item $8{,}7654$ với $d = 0{,}01$.
@@ -1022,11 +1021,11 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 			Chữ số hàng phần chục nghìn là $0 < 5 \implies$ số quy tròn là $1{,}732$.
 		\end{enumerate}
 	}
-\end{ex}
+\end{bt}
 
 % Bài 16
-\begin{ex}
-	\textbf{(Bài 16).} Hãy viết số quy tròn của:
+\begin{bt}
+	Hãy viết số quy tròn của:
 	\begin{enumerate}[a)]
 		\item $a$ biết $\overline{a} = 1\,951\,890 \pm 200$.
 		\item $b$ biết $\overline{b} = 1{,}236 \pm 0{,}002$.
@@ -1042,21 +1041,21 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 			Chữ số hàng phần nghìn là $6 \ge 5 \implies$ số quy tròn là $3{,}15$.
 		\end{enumerate}
 	}
-\end{ex}
+\end{bt}
 
 % Bài 17
-\begin{ex}
-	\textbf{(Bài 17).} Chiều dài một cái cầu là $\ell = 1745{,}25\text{ m} \pm 0{,}01\text{ m}$. Hãy viết số quy tròn của số gần đúng $1745{,}25$.
+\begin{bt}
+	Chiều dài một cái cầu là $\ell = 1745{,}25\text{ m} \pm 0{,}01\text{ m}$. Hãy viết số quy tròn của số gần đúng $1745{,}25$.
 	\loigiai{
 		Độ chính xác $d = 0{,}01\text{ m}$ ở hàng phần trăm, do đó ta quy tròn số gần đúng $\ell = 1745{,}25$ đến \textbf{hàng phần mười}.\\
 		Chữ số hàng phần mười là $2$, chữ số ngay sau nó là $5 \ge 5$ nên cộng thêm 1 đơn vị vào hàng phần mười:\\
 		Số quy tròn là \textbf{$1745{,}3\text{ m}$}.
 	}
-\end{ex}
+\end{bt}
 
 % Bài 18
-\begin{ex}
-	\textbf{(Bài 18).} Sử dụng máy tính bỏ túi tính gần đúng các số sau (kết quả lấy 4 chữ số thập phân):
+\begin{bt}
+	Sử dụng máy tính bỏ túi tính gần đúng các số sau (kết quả lấy 4 chữ số thập phân):
 	\begin{multicols}{3}
 		\begin{enumerate}[a)]
 			\item $3^7 \cdot \sqrt{14}$
@@ -1071,11 +1070,11 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 			\item $\sqrt[3]{15 \cdot 14^4} = \sqrt[3]{15 \cdot 38416} = \sqrt[3]{576240} \approx 83{,}214777... \implies \mathbf{83{,}2148}$.
 		\end{enumerate}
 	}
-\end{ex}
+\end{bt}
 
 % Bài 19
-\begin{ex}
-	\textbf{(Bài 19).} Thực hiện các phép tính sau trên máy tính cầm tay (trong kết quả lấy 4 chữ số ở phần thập phân):
+\begin{bt}
+	Thực hiện các phép tính sau trên máy tính cầm tay (trong kết quả lấy 4 chữ số ở phần thập phân):
 	\begin{multicols}{3}
 		\begin{enumerate}[a)]
 			\item $4^6 \cdot \sqrt{0{,}1}$
@@ -1092,7 +1091,7 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 			\item $\dfrac{1{,}5^3}{\sqrt[3]{6{,}8}} = \dfrac{3{,}375}{\sqrt[3]{6{,}8}} \approx \dfrac{3{,}375}{1{,}894536} \approx 1{,}781439... \implies \mathbf{1{,}7814}$.
 		\end{enumerate}
 	}
-\end{ex}
+\end{bt}
 """
 
 def get_answer_key_tex():
@@ -1134,18 +1133,31 @@ def build_latex_wrapper(is_sol):
 """
 
 def compile_latex(name, content):
-    tex_path = os.path.join(LATEX_DIR, name + ".tex")
+    target_pdf = os.path.join(LATEX_DIR, name + ".pdf")
+    is_locked = False
+    if os.path.exists(target_pdf):
+        try:
+            with open(target_pdf, "r+b"):
+                pass
+        except PermissionError:
+            is_locked = True
+
+    job_name = name if not is_locked else name + "_moi"
+    tex_path = os.path.join(LATEX_DIR, job_name + ".tex")
     with open(tex_path, "w", encoding="utf-8") as f:
         f.write(content)
     for run in range(2):
-        res = subprocess.run(["pdflatex", "-interaction=nonstopmode", name + ".tex"], cwd=LATEX_DIR,
+        res = subprocess.run(["pdflatex", "-interaction=nonstopmode", job_name + ".tex"], cwd=LATEX_DIR,
                              capture_output=True, text=True, encoding="utf-8", errors="ignore")
-    log = open(os.path.join(LATEX_DIR, name + ".log"), encoding="utf-8", errors="ignore").read()
+    log = open(os.path.join(LATEX_DIR, job_name + ".log"), encoding="utf-8", errors="ignore").read()
     errors = [l for l in log.splitlines() if l.startswith("!")]
     pages = re.search(r"Output written on .*?\((\d+) pages?", log)
-    print(f"[LaTeX] {name}: {len(errors)} lỗi, {pages.group(1) if pages else '?'} trang")
+    print(f"[LaTeX] {job_name}: {len(errors)} lỗi, {pages.group(1) if pages else '?'} trang")
     for e in errors[:10]:
         print("   ", e)
+    if is_locked and len(errors) == 0:
+        print(f"[CẢNH BÁO] {name}.pdf đang mở -> đã biên dịch thành công ra {job_name}.pdf")
+        safe_copy(os.path.join(LATEX_DIR, job_name + ".pdf"), os.path.join(SAN_PHAM_DIR, job_name + ".pdf"))
     return len(errors) == 0
 
 def safe_copy(src, dst):
@@ -1233,8 +1245,6 @@ def convert_latex_to_word_md(is_sol):
     # Tiêu đề
     raw = re.sub(r"\\section\*\{(.*?)\}", r"\n\n# \1\n\n", raw)
     raw = re.sub(r"\\subsection\*\{(.*?)\}", r"\n\n## \1\n\n", raw)
-    raw = re.sub(r"\\textbf\{\(Ví dụ (\d+)\)\.\}", r"**Ví dụ \1.**", raw)
-    raw = re.sub(r"\\textbf\{\(Bài (\d+)\)\.\}", r"**Bài \1.**", raw)
     
     # Ẩn hoặc hiện lời giải
     if not is_sol:
@@ -1255,8 +1265,28 @@ def convert_latex_to_word_md(is_sol):
         return "\n\n@@TAB@@" + "@@TAB@@".join(out[1:]) + "\n\n"
 
     raw = re.sub(r"\\choice([\s\S]*?)(?=\\loigiai|\\end\{ex\})", choice_repl, raw)
-    raw = re.sub(r"\\begin\{ex\}", "\n\n", raw)
+    raw = re.sub(r"(?m)^\s*%.*$\n?", "", raw)
+
+    vd_c = [0]
+    def vd_fn(m):
+        vd_c[0] += 1
+        return f"\n\n**Ví dụ {vd_c[0]}.** "
+    raw = re.sub(r"\\begin\{vd\}", vd_fn, raw)
+    raw = re.sub(r"\\end\{vd\}", "\n\n", raw)
+
+    ex_c = [0]
+    def ex_fn(m):
+        ex_c[0] += 1
+        return f"\n\n**Câu {ex_c[0]}.** "
+    raw = re.sub(r"\\begin\{ex\}", ex_fn, raw)
     raw = re.sub(r"\\end\{ex\}", "\n\n", raw)
+
+    bt_c = [0]
+    def bt_fn(m):
+        bt_c[0] += 1
+        return f"\n\n**Bài {bt_c[0]}.** "
+    raw = re.sub(r"\\begin\{bt\}", bt_fn, raw)
+    raw = re.sub(r"\\end\{bt\}", "\n\n", raw)
     raw = re.sub(r"\\begin\{enumerate\}\[[^\]]*\]", "", raw)
     raw = re.sub(r"\\end\{enumerate\}", "", raw)
     raw = re.sub(r"\\begin\{itemize\}", "", raw)
