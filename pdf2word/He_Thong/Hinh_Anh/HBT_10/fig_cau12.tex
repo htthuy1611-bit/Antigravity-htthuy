@@ -1,0 +1,32 @@
+﻿\documentclass[tikz,border=5pt]{standalone}
+\usepackage{amsmath,amssymb}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta}
+\begin{document}
+\begin{tikzpicture}[>=stealth, line join=round, line cap=round, font=\footnotesize, scale=1.2]
+	% Định nghĩa điểm
+	\path (0,0) coordinate (O);
+	\path (0,2.5) coordinate (A);
+	\path (2.5,0) coordinate (B);
+	\path (5,-2.5) coordinate (C);
+	\path (5,0) coordinate (T5);
+	\path (0,-2.5) coordinate (V5);
+	% Vẽ hệ trục tọa độ
+	\draw[->, thick] (-1, 0) -- (6, 0) node[below] {$t\text{ (s)}$};
+	\draw[->, thick] (0, -3.2) -- (0, 3.2) node[left] {$v\text{ (m/s)}$};
+	% Vẽ đường biểu diễn (đồ thị)
+	\draw[thick, blue!80!black] (A) -- (C);
+	% Vẽ nét đứt gióng tọa độ
+	\draw[dashed, gray!80] (C) -- (T5);
+	\draw[dashed, gray!80] (C) -- (V5);
+	% Nhãn các giá trị trên trục tọa độ
+	\node[below left] at (O) {$O$};
+	\node[left] at (A) {$2{,}5$};
+	\node[left] at (V5) {$-2{,}5$};
+	\node[below left] at (B) {$2{,}5$};
+	\node[below] at (T5) {$5$};
+	% Nhãn điểm
+	\foreach \p/\g in {A/0, B/45, C/0}
+	\fill[black] (\p) circle (1.5pt) ++(\g:0.25) node{$\p$};
+\end{tikzpicture}
+\end{document}

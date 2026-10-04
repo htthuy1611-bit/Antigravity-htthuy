@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-10-03 14:45:00",
-  "total_files": 4,
-  "completed_files": 4,
+  "updated_at": "2026-10-04 09:10:00",
+  "total_files": 10,
+  "completed_files": 10,
   "pending_files": 0,
   "records": {
     "De_Thi_Goc_2009.pdf": {
@@ -103,6 +103,132 @@
         "He_Thong/LaTeX/TN9_Chuong5_Bai17/TN9_Chuong5_Bai17_HDG.tex"
       ],
       "note": "THỬ THÁCH ĐỀ GỐC LÀ WORD (TOÁN 9 - KẾT NỐI TRI THỨC - CHƯƠNG V - BÀI 17: VỊ TRÍ TƯƠNG ĐỐI CỦA HAI ĐƯỜNG TRÒN). Đề gốc chứa 100 ảnh công thức web rời rạc (math formulas as inline web images). Đã giải quyết xuất sắc: (1) Phục hồi và chuyển đổi 100% công thức toán học sang Word Math OMML bản địa (không dán ảnh công thức); (2) Vẽ lại toàn bộ 9 hình hình học minh họa bằng TikZ vector siêu sắc nét (xuất PNG 300 DPI nhúng Word); (3) Biên soạn Hướng dẫn giải chi tiết 15 câu trắc nghiệm với lập luận hình học chặt chẽ, phát hiện và hiệu đính lỗi sai số liệu trong đề gốc (Câu 7); (4) Biên dịch pdflatex 0 lỗi, bản Đề vừa khít đúng 2 trang, bản HDG 9 trang; (5) Xuất bản Word (.docx) chuẩn Macro BTPro với tiêu đề Lớp Toán Cô Thúy, bảng đáp án trắc nghiệm chuẩn mực."
+    },
+    "VL10-GHKI-HBT-2526.tex": {
+      "file_name": "VL10-GHKI-HBT-2526.tex",
+      "file_relpath": "De_Goc/2026-Dethi-GHK1-10/VL10-GHKI-HBT-2526.tex",
+      "date_added": "2026-10-04 07:00:00",
+      "date_processed": "2026-10-04 09:10:00",
+      "status": "HOAN_THANH",
+      "current_code": "209",
+      "output_docx": [
+        "San_Pham/VL10_HBT_De_209.docx",
+        "San_Pham/VL10_HBT_HDG_209.docx"
+      ],
+      "output_pdf": [
+        "San_Pham/VL10_HBT_De_209.pdf",
+        "San_Pham/VL10_HBT_HDG_209.pdf"
+      ],
+      "source_tex": [
+        "He_Thong/LaTeX/HBT_10/VL10_HBT_De_209.tex",
+        "He_Thong/LaTeX/HBT_10/VL10_HBT_HDG_209.tex"
+      ],
+      "note": "Vật lí 10 Giữa kì I - THPT Hai Bà Trưng (Mã 209). Vẽ lại 5 hình TikZ vector, 100% OMML Word, LaTeX PDF 0 lỗi, GV: HỒ THỊ THÚY."
+    },
+    "VL10-GHKI-BTX-2526.tex": {
+      "file_name": "VL10-GHKI-BTX-2526.tex",
+      "file_relpath": "De_Goc/2026-Dethi-GHK1-10/VL10-GHKI-BTX-2526.tex",
+      "date_added": "2026-10-04 07:00:00",
+      "date_processed": "2026-10-04 09:10:00",
+      "status": "HOAN_THANH",
+      "current_code": "207",
+      "output_docx": [
+        "San_Pham/VL10_BTX_De_207.docx",
+        "San_Pham/VL10_BTX_HDG_207.docx"
+      ],
+      "output_pdf": [
+        "San_Pham/VL10_BTX_De_207.pdf",
+        "San_Pham/VL10_BTX_HDG_207.pdf"
+      ],
+      "source_tex": [
+        "He_Thong/LaTeX/BTX_10/VL10_BTX_De_207.tex",
+        "He_Thong/LaTeX/BTX_10/VL10_BTX_HDG_207.tex"
+      ],
+      "note": "Vật lí 10 Giữa kì I - THPT Bùi Thị Xuân (Mã 207). Vẽ lại 4 hình TikZ vector, 100% OMML Word, LaTeX PDF 0 lỗi, GV: HỒ THỊ THÚY."
+    },
+    "VL10-GHKI-NH-2526.tex": {
+      "file_name": "VL10-GHKI-NH-2526.tex",
+      "file_relpath": "De_Goc/2026-Dethi-GHK1-10/VL10-GHKI-NH-2526.tex",
+      "date_added": "2026-10-04 07:00:00",
+      "date_processed": "2026-10-04 09:10:00",
+      "status": "HOAN_THANH",
+      "current_code": "494",
+      "output_docx": [
+        "San_Pham/VL10_NH_De_494.docx",
+        "San_Pham/VL10_NH_HDG_494.docx"
+      ],
+      "output_pdf": [
+        "San_Pham/VL10_NH_De_494.pdf",
+        "San_Pham/VL10_NH_HDG_494.pdf"
+      ],
+      "source_tex": [
+        "He_Thong/LaTeX/NH_10/VL10_NH_De_494.tex",
+        "He_Thong/LaTeX/NH_10/VL10_NH_HDG_494.tex"
+      ],
+      "note": "Vật lí 10 Giữa kì I - THPT Nguyễn Huệ (Mã 494). Vẽ lại 2 hình TikZ vector, xử lý đồ thị ghép 4 hình và bài rơi đáy vực h=306m, GV: HỒ THỊ THÚY."
+    },
+    "VL10-GHKI-NTT-2526.tex": {
+      "file_name": "VL10-GHKI-NTT-2526.tex",
+      "file_relpath": "De_Goc/2026-Dethi-GHK1-10/VL10-GHKI-NTT-2526.tex",
+      "date_added": "2026-10-04 07:00:00",
+      "date_processed": "2026-10-04 09:10:00",
+      "status": "HOAN_THANH",
+      "current_code": "102",
+      "output_docx": [
+        "San_Pham/VL10_NTT_De_102.docx",
+        "San_Pham/VL10_NTT_HDG_102.docx"
+      ],
+      "output_pdf": [
+        "San_Pham/VL10_NTT_De_102.pdf",
+        "San_Pham/VL10_NTT_HDG_102.pdf"
+      ],
+      "source_tex": [
+        "He_Thong/LaTeX/NTT_10/VL10_NTT_De_102.tex",
+        "He_Thong/LaTeX/NTT_10/VL10_NTT_HDG_102.tex"
+      ],
+      "note": "Vật lí 10 Giữa kì I - THPT Nguyễn Trường Tộ (Mã 102). Vẽ lại biển báo nguy hại và đồ thị d-t 2 xe, sửa lỗi nghiệm thuyền máy xuôi dòng v=7.95 km/h, GV: HỒ THỊ THÚY."
+    },
+    "VL10-GHKI-PDL-2526.tex": {
+      "file_name": "VL10-GHKI-PDL-2526.tex",
+      "file_relpath": "De_Goc/2026-Dethi-GHK1-10/VL10-GHKI-PDL-2526.tex",
+      "date_added": "2026-10-04 07:00:00",
+      "date_processed": "2026-10-04 09:10:00",
+      "status": "HOAN_THANH",
+      "current_code": "1008",
+      "output_docx": [
+        "San_Pham/VL10_PDL_De_1008.docx",
+        "San_Pham/VL10_PDL_HDG_1008.docx"
+      ],
+      "output_pdf": [
+        "San_Pham/VL10_PDL_De_1008.pdf",
+        "San_Pham/VL10_PDL_HDG_1008.pdf"
+      ],
+      "source_tex": [
+        "He_Thong/LaTeX/PDL_10/VL10_PDL_De_1008.tex",
+        "He_Thong/LaTeX/PDL_10/VL10_PDL_HDG_1008.tex"
+      ],
+      "note": "Vật lí 10 Giữa kì I - THPT Phan Đăng Lưu (Mã 1008). Vẽ lại đồ thị v-t ABCD và sơ đồ người bơi qua sông, GV: HỒ THỊ THÚY."
+    },
+    "VL10-GHKI-QUOCHOC-2526.tex": {
+      "file_name": "VL10-GHKI-QUOCHOC-2526.tex",
+      "file_relpath": "De_Goc/2026-Dethi-GHK1-10/VL10-GHKI-QUOCHOC-2526.tex",
+      "date_added": "2026-10-04 07:00:00",
+      "date_processed": "2026-10-04 09:10:00",
+      "status": "HOAN_THANH",
+      "current_code": "104",
+      "output_docx": [
+        "San_Pham/VL10_QH_De_104.docx",
+        "San_Pham/VL10_QH_HDG_104.docx"
+      ],
+      "output_pdf": [
+        "San_Pham/VL10_QH_De_104.pdf",
+        "San_Pham/VL10_QH_HDG_104.pdf"
+      ],
+      "source_tex": [
+        "He_Thong/LaTeX/QH_10/VL10_QH_De_104.tex",
+        "He_Thong/LaTeX/QH_10/VL10_QH_HDG_104.tex"
+      ],
+      "note": "Vật lí 10 Giữa kì I - THPT Chuyên Quốc Học Huế (Mã 104). Vẽ lại 5 hình TikZ vector, phục hồi giải bài toán shipper SBT KNTT và bài 2 xe gặp nhau t=36s x=522m chuẩn xác 100%, GV: HỒ THỊ THÚY."
     }
   }
 }

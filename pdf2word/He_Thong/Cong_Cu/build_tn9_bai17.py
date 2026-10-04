@@ -115,11 +115,11 @@ def insert_header_and_code(doc, target_p, is_solution=False):
         r_ht_v.font.name = "Times New Roman"
         r_ht_v.font.size = Pt(10.5)
         
-        r_mh = p_info.add_run("Tác giả sưu tầm: ")
+        r_mh = p_info.add_run("Môn học: ")
         r_mh.bold = True
         r_mh.font.name = "Times New Roman"
         r_mh.font.size = Pt(10.5)
-        r_mh_v = p_info.add_run("Phan Đình Quân")
+        r_mh_v = p_info.add_run("TOÁN 9 (KNTT)")
         r_mh_v.font.name = "Times New Roman"
         r_mh_v.font.size = Pt(10.5)
         
@@ -910,6 +910,12 @@ build_tn9_doc(tex_de, OUTPUT_DE_DOCX, is_solution=False)
 build_tn9_doc(tex_hdg, OUTPUT_HDG_DOCX, is_solution=True)
 
 # Copy PDFs to San_Pham
-shutil.copyfile(os.path.join(LATEX_DIR, "TN9_Chuong5_Bai17_De.pdf"), OUTPUT_DE_PDF)
-shutil.copyfile(os.path.join(LATEX_DIR, "TN9_Chuong5_Bai17_HDG.pdf"), OUTPUT_HDG_PDF)
-print(f"[THÀNH CÔNG] Đã sao chép PDF vào {SAN_PHAM_DIR}")
+def safe_copy(src, dst):
+    try:
+        shutil.copyfile(src, dst)
+        print(f"[THÀNH CÔNG] Đã sao chép PDF: {os.path.basename(dst)}")
+    except PermissionError:
+        print(f"[CHÚ Ý] File {os.path.basename(dst)} đang được mở trong Acrobat Reader. Bản cập nhật mới nằm tại {src}.")
+
+safe_copy(os.path.join(LATEX_DIR, "TN9_Chuong5_Bai17_De.pdf"), OUTPUT_DE_PDF)
+safe_copy(os.path.join(LATEX_DIR, "TN9_Chuong5_Bai17_HDG.pdf"), OUTPUT_HDG_PDF)
