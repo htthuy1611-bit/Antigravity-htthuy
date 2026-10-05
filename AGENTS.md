@@ -67,3 +67,29 @@ Khi nhận bất kỳ đề bài hay tài liệu nào, **BẮT BUỘC PHẢI PH�
    - TUYỆT ĐỐI KHÔNG TỰ Ý VẼ LẠI BẰNG TIKZ để tránh vẽ sai lệch đồ thị, sai điểm tọa độ hoặc mất nét so với đề gốc.
 2. **Bảng biến thiên (BBT)**: Bắt buộc vẽ lại bằng TikZ / `tkz-tab` để chuẩn font chữ.
 3. **TikZ hình học/đồ thị**: CHỈ vẽ lại khi PDF gốc là ảnh chụp máy ảnh/điện thoại bị mờ, nghiêng, méo không thể crop sạch.
+
+---
+
+## 6. QUY TẮC XỬ LÝ VĂN BẢN & TÁCH TỪ TIẾNG VIỆT
+- **Lỗi chữ dính nhau do font PDF gốc**: Khi trích xuất văn bản từ các tệp PDF gốc, do đặc tính nhúng font chữ hoặc bảng mã, các âm tiết tiếng Việt có dấu rất hay bị dính chùm vào nhau (ví dụ: `sốtuyệt`, `sốtỉđối`, `nhỏnhất`, `trịtrung`, `đolà`, `kếtquả`, `vềnguyên`,...).
+- **YÊU CẦU BẮT BUỘC**:
+  - Phải kiểm tra, đối chiếu và tách từ sạch sẽ 100%, đảm bảo các từ có đầy đủ dấu cách (space) chuẩn ngữ pháp tiếng Việt.
+  - Tuyệt đối KHÔNG ĐỂ SÓT bất kỳ từ dính âm nào trong mã nguồn LaTeX đầu ra.
+
+---
+
+## 7. QUY TẮC ĐỊNH DẠNG `\shortans` TRONG MÔI TRƯỜNG `ex_test`
+- **BẮT BUỘC CÓ ĐÚNG 1 DÒNG TRỐNG TRƯỚC `\shortans`**:
+  - Trong các câu hỏi trắc nghiệm điền khuyết / trả lời ngắn sử dụng gói `ex_test.sty`, giữa phần kết thúc nội dung văn bản câu hỏi và lệnh `\shortans{...}` **BẮT BUỘC PHẢI CÓ ĐÚNG 1 DÒNG TRỐNG (BLANK LINE)**.
+  - **Mục đích**: Tránh việc `\shortans` dính liền dòng text phía trên gây lỗi hiển thị hoặc dính chữ khi biên dịch.
+  - **Ví dụ chuẩn**:
+    ```latex
+    \begin{ex}
+    Một học sinh dùng thước chia độ đến milimét để đo chiều dài một chiếc bút chì. Kết quả đo được là bao nhiêu xentimét?
+
+    \shortans{6{,}15\text{ cm}}
+    \loigiai{
+    ...
+    }
+    \end{ex}
+    ```
