@@ -65,6 +65,9 @@ Khi nhận bất kỳ đề bài hay tài liệu nào, **BẮT BUỘC PHẢI PH�
 1. **PDF gốc đã đẹp / vector**:
    - BẮT BUỘC CROP ẢNH TỪ PDF GỐC (độ phân giải cao 300 DPI).
    - TUYỆT ĐỐI KHÔNG TỰ Ý VẼ LẠI BẰNG TIKZ để tránh vẽ sai lệch đồ thị, sai điểm tọa độ hoặc mất nét so với đề gốc.
+   - **CẮT HÌNH PHẢI CHÍNH XÁC KHUNG HÌNH (BOUNDING BOX)**:
+     + Tuyệt đối không cắt lẹm vào hình làm mất trục, mất chữ, mất số hoặc mất nét đồ thị.
+     + Tuyệt đối không lấy dư các dòng chữ lý thuyết, đường nét kẻ đứt phân cách, hoặc tiêu đề trang ở bên trên/bên dưới hình vẽ.
 2. **Bảng biến thiên (BBT)**: Bắt buộc vẽ lại bằng TikZ / `tkz-tab` để chuẩn font chữ.
 3. **TikZ hình học/đồ thị**: CHỈ vẽ lại khi PDF gốc là ảnh chụp máy ảnh/điện thoại bị mờ, nghiêng, méo không thể crop sạch.
 
@@ -93,3 +96,46 @@ Khi nhận bất kỳ đề bài hay tài liệu nào, **BẮT BUỘC PHẢI PH�
     }
     \end{ex}
     ```
+
+---
+
+## 8. QUY TẮC CUỐI CÁC PHƯƠNG ÁN (`\choice` & `\choiceTF`): KHÔNG CÓ DẤU CHẤM TRƯỚC `}`
+- **Nguyên lý của gói `ex_test.sty`**: Mặc định gói lệnh `ex_test` đã tự động chèn dấu chấm `.` vào cuối mỗi phương án lựa chọn và mệnh đề đúng sai qua lệnh `\dotEX`.
+- **YÊU CẦU BẮT BUỘC**:
+  - Ở cuối nội dung của TẤT CẢ các phương án trong `\choice` và `\choiceTF`, **TUYỆT ĐỐI KHÔNG ĐƯỢC CÓ DẤU CHẤM `.` TRƯỚC DẤU ĐÓNG NGOẶC `}`** (chỉ có `}` chứ không được `.}`, ví dụ: `{... 19{,}9\text{ mm}}` thay vì `{... 19{,}9\text{ mm}.}`).
+  - Nếu để dấu chấm `.` trước `}`, gói lệnh sẽ in ra hai dấu chấm liên tiếp `..` cạnh nhau ở cuối phương án.
+
+---
+
+## 9. QUY TẮC TUYỆT ĐỐI KHÔNG HARDCODE "CHỌN ĐÁP ÁN..." TRONG LỜI GIẢI
+- **Nguyên lý của gói `ex_test.sty`**: Gói lệnh đã tự động trích xuất đáp án từ thẻ `\True` và hiển thị khối đáp án chuẩn:
+  + Đối với trắc nghiệm 4 phương án: tự động in `Chọn đáp án (A) . . . . . . □`.
+  + Đối với Đúng/Sai: tự động in `Chọn đáp án [ a đúng | b sai | c đúng | d sai ] . . . . . . □`.
+- **YÊU CẦU BẮT BUỘC**:
+  - **TUYỆT ĐỐI KHÔNG ghi thủ công (hardcode) dòng chữ `Chọn đáp án ...` vào trong phần `\loigiai{...}`**.
+  - Việc hardcode thủ công sẽ gây trùng lặp 2 lần dòng "Chọn đáp án" trong PDF, đồng thời khi hoán vị/xáo trộn đề (shuffle options), đáp án hardcode sẽ bị sai lệch hoàn toàn so với khóa đáp án.
+
+---
+
+## 10. QUY TẮC LỜI GIẢI CÂU ĐÚNG / SAI (`\choiceTF`): BẮT BUỘC DÙNG `\itemch`
+- **Cấu trúc chuẩn**: Trong phần `\loigiai{...}` của câu hỏi Đúng/Sai (`\choiceTF`), **BẮT BUỘC PHẢI DÙNG môi trường `itemchoice` với các lệnh `\itemch`**:
+  ```latex
+  \loigiai{
+  \begin{itemchoice}
+      \itemch Lời giải giải thích cho mệnh đề a.
+      \itemch Lời giải giải thích cho mệnh đề b.
+      \itemch Lời giải giải thích cho mệnh đề c.
+      \itemch Lời giải giải thích cho mệnh đề d.
+  \end{itemchoice}
+  }
+  ```
+- **Lưu ý**: Lệnh `\itemch` tự động tạo nhãn `a) Đ` hoặc `a) S` dựa trên thuộc tính `\True` của từng ý trong đề bài. Tuyệt đối không gõ thủ công `a) Đ Đúng...` hay `b) S Sai...`.
+
+---
+
+## 11. QUY TẮC LỜI GIẢI CÂU TRẢ LỜI NGẮN (`\shortans`): KHÔNG THỪA DÒNG "ĐÁP ÁN: ..."
+- **Nguyên lý của gói `ex_test.sty`**: Lệnh `\shortans{...}` đã tự động tạo dòng kết luận chuẩn: `Đáp án: [Giá trị] . . . . . . □`.
+- **YÊU CẦU BẮT BUỘC**:
+  - Trong phần `\loigiai{...}` của câu hỏi trả lời ngắn, **TUYỆT ĐỐI KHÔNG ghi thừa dòng `Đáp án: ...`**.
+  - Phần lời giải chỉ tập trung trình bày các bước suy luận, công thức và phép tính toán ra kết quả cuối cùng.
+
