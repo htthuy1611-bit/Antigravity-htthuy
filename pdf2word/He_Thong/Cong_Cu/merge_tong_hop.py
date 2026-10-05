@@ -125,9 +125,9 @@ def generate_cover_pdf(col, is_sol):
 \begin{tcolorbox}[colback=blue!5!white,colframe=blue!80!black,arc=4mm,boxrule=1.5pt,center,width=\textwidth]
 \centering
 \vspace{0.15cm}
-{\Large\bfseries\color{blue!85!black} LỚP TOÁN CÔ THÚY}\\[4pt]
-{\small\bfseries SĐT: 0935.322.328 \quad $\bullet$ \quad Địa chỉ: 50/2C Phạm Thị Liên}\\[2pt]
-{\footnotesize\color{gray!90!black} Giáo viên: HỒ THỊ THÚY}
+{\Large\bfseries\color{blue!85!black} LỚP LÝ THẦY NGỌC}\\[4pt]
+{\small\bfseries SĐT: 0935216256 \quad $\bullet$ \quad Giáo viên: TRẦN VĂN THIỆN NGỌC}\\[3pt]
+{\footnotesize\textbf{CS1:} 50/2C Phạm Thị Liên \quad $\bullet$ \quad \textbf{CS2:} P A15 THPT Nguyễn Huệ \quad $\bullet$ \quad \textbf{CS3:} 24 Đặng Thái Thân}
 \vspace{0.15cm}
 \end{tcolorbox}
 
@@ -151,7 +151,7 @@ def generate_cover_pdf(col, is_sol):
 
 \vfill
 \begin{center}
-{\footnotesize\color{gray!80!black}\textit{Tài liệu lưu hành nội bộ Lớp Toán Cô Thúy -- Chúc các em học tập và ôn luyện đạt kết quả xuất sắc!}}
+{\footnotesize\color{gray!80!black}\textit{Tài liệu lưu hành nội bộ Lớp Lý Thầy Ngọc -- Chúc các em học tập và ôn luyện đạt kết quả xuất sắc!}}
 \end{center}
 
 \end{document}
@@ -197,14 +197,27 @@ def merge_pdf_collection(col, is_sol):
     role_str = "Giáo viên (Hướng dẫn giải chi tiết)" if is_sol else "Học sinh (Đề bài kiểm tra)"
     master.set_metadata({
         "title": f"Tuyển tập Bộ đề thi Giữa kỳ I - {col['subject']} ({role_str})",
-        "author": "HỒ THỊ THÚY - LỚP TOÁN CÔ THÚY",
+        "author": "TRẦN VĂN THIỆN NGỌC - LỚP LÝ THẦY NGỌC",
         "subject": f"{col['subject']} - Thừa Thiên Huế",
-        "keywords": "Lớp Toán Cô Thúy, Vật lý 11, Vật lý 12, Đề thi giữa kỳ 1, Thừa Thiên Huế"
+        "keywords": "Lớp Lý Thầy Ngọc, Trần Văn Thiện Ngọc, Vật lý 11, Vật lý 12, Đề thi giữa kỳ 1, Thừa Thiên Huế"
     })
 
     # Save
-    master.save(main_path, garbage=4, deflate=True)
-    shutil.copy2(main_path, alias_path)
+    saved_src = main_path
+    try:
+        master.save(main_path, garbage=4, deflate=True)
+    except PermissionError:
+        saved_src = main_path.replace(".pdf", "_moi.pdf")
+        master.save(saved_src, garbage=4, deflate=True)
+        print(f"  [CẢNH BÁO] {main_name} đang mở trong ứng dụng khác -> Đã lưu thành {os.path.basename(saved_src)}")
+
+    try:
+        shutil.copy2(saved_src, alias_path)
+    except PermissionError:
+        alt_alias = alias_path.replace(".pdf", "_moi.pdf")
+        shutil.copy2(saved_src, alt_alias)
+        print(f"  [CẢNH BÁO] {alias_name} đang mở trong ứng dụng khác -> Đã lưu thành {os.path.basename(alt_alias)}")
+
     print(f"  [XUẤT BẢN] {main_name} ({len(master)} trang) & alias {alias_name}")
 
 def main():

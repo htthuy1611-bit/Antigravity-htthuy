@@ -29,7 +29,13 @@ STY_SRC = os.path.join(BASE_DIR, "He_Thong", "Quy_Chuan", "ex_test.sty")
 
 os.makedirs(SAN_PHAM_DIR, exist_ok=True)
 
-BRAND = r"Lớp Toán Cô Thúy -- SĐT: 0935.322.328 -- 50/2C Phạm Thị Liên"
+BRAND_NAME = "LỚP LÝ THẦY NGỌC"
+GIAOVIEN = "TRẦN VĂN THIỆN NGỌC"
+SDT = "0935216256"
+BRAND_INFO = r"""\textbf{GV: TRẦN VĂN THIỆN NGỌC -- SĐT: 0935216256}\\[2pt]
+{\scriptsize\textbf{CS1:} 50/2C Phạm Thị Liên -- \textbf{CS2:} P A15 THPT Nguyễn Huệ}\\[1pt]
+{\scriptsize\textbf{CS3:} 24 Đặng Thái Thân}"""
+BRAND_FOOTER = r"Lớp Lý Thầy Ngọc -- SĐT: 0935.216.256 -- CS1: 50/2C Phạm Thị Liên"
 LETTERS = "ABCD"
 
 # TikZ thay thế cho VL11-DHKH
@@ -431,29 +437,37 @@ def process_single_exam(exam):
     print("  [2/4] Đã tạo bang_dap_an.tex")
 
     # 4. Tạo wrapper Đề và HDG
-    wrapper_de = f"""\\def\\tentruong{{{exam['school']}}}
+    wrapper_de = f"""% !TeX program = pdflatex
+\\def\\tentruong{{{exam['school']}}}
 \\def\\tenkythi{{{exam['exam_de']}}}
 \\def\\monhoc{{{exam['subject']}}}
 \\def\\namhoc{{{exam['year']}}}
 \\def\\made{{{exam['made']}}}
 \\def\\thoigian{{{exam['time']}}}
 \\def\\headertype{{dethi}}
-\\def\\brand{{{BRAND}}}
-\\def\\giaovien{{HỒ THỊ THÚY}}
+\\def\\brandname{{{BRAND_NAME}}}
+\\def\\giaovien{{{GIAOVIEN}}}
+\\def\\sdt{{{SDT}}}
+\\def\\brandinfo{{{BRAND_INFO}}}
+\\def\\brand{{{BRAND_FOOTER}}}
 \\def\\noidungfile{{noi_dung.tex}}
 
 \\input{{../Master/Master_De.tex}}
 """
 
-    wrapper_hdg = f"""\\def\\tentruong{{{exam['school']}}}
+    wrapper_hdg = f"""% !TeX program = pdflatex
+\\def\\tentruong{{{exam['school']}}}
 \\def\\tenkythi{{{exam['exam_hdg']}}}
 \\def\\monhoc{{{exam['subject']}}}
 \\def\\namhoc{{{exam['year']}}}
 \\def\\made{{{exam['made']}}}
 \\def\\thoigian{{{exam['time']}}}
 \\def\\headertype{{dethi}}
-\\def\\brand{{{BRAND}}}
-\\def\\giaovien{{HỒ THỊ THÚY}}
+\\def\\brandname{{{BRAND_NAME}}}
+\\def\\giaovien{{{GIAOVIEN}}}
+\\def\\sdt{{{SDT}}}
+\\def\\brandinfo{{{BRAND_INFO}}}
+\\def\\brand{{{BRAND_FOOTER}}}
 \\def\\noidungfile{{noi_dung.tex}}
 \\def\\inbangdapan{{\\input{{bang_dap_an.tex}}}}
 

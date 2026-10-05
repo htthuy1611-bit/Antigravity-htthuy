@@ -42,8 +42,11 @@ NAME_HDG = f"VL10_HBT_HDG_{MADE}"
 SCHOOL = "THPT HAI BÀ TRƯNG"
 YEAR = "2025 -- 2026"
 YEAR_W = "2025 – 2026"
-BRAND = "Lớp Toán Cô Thúy -- SĐT: 0935.322.328 -- 50/2C Phạm Thị Liên"
-BRAND_W = "Lớp Toán Cô Thúy  •  SĐT: 0935.322.328  •  50/2C Phạm Thị Liên"
+BRAND_NAME = "LỚP LÝ THẦY NGỌC"
+GIAOVIEN = "TRẦN VĂN THIỆN NGỌC"
+SDT = "0935216256"
+BRAND = "Lớp Lý Thầy Ngọc -- SĐT: 0935.216.256 -- CS1: 50/2C Phạm Thị Liên"
+BRAND_W = "Lớp Lý Thầy Ngọc  •  SĐT: 0935216256  •  CS1: 50/2C Phạm Thị Liên  •  CS2: THPT Nguyễn Huệ  •  CS3: 24 Đặng Thái Thân"
 LETTERS = "ABCD"
 FOLDER = "HBT_10"
 
@@ -82,7 +85,7 @@ def tex_header(is_sol):
         top = r"{\bfseries\color{red!80!black} HƯỚNG DẪN GIẢI CHI TIẾT GIỮA KỲ I}\\[3pt]" + "\n" + \
               r"\textbf{Môn: VẬT LÍ 10 -- %s}\\[2pt]" % SCHOOL + "\n" + \
               r"\textit{Năm học %s -- Mã đề: %s}" % (YEAR, MADE)
-        row2 = (r"\rule{0pt}{14pt}\textbf{Giáo viên:} HỒ THỊ THÚY &" + "\n" +
+        row2 = (r"\rule{0pt}{14pt}\textbf{Giáo viên:} TRẦN VĂN THIỆN NGỌC &" + "\n" +
                 r"\rule{0pt}{14pt}\textbf{Môn học:} VẬT LÍ 10 &" + "\n" +
                 r"\rule{0pt}{14pt}\textbf{Mã đề thi %s}\rule[-4pt]{0pt}{4pt} \\" % MADE)
     else:
@@ -98,9 +101,10 @@ def tex_header(is_sol):
 \begin{minipage}{6.6cm}
 \vspace{3pt}
 \centering
-{\large\bfseries\color{blue!80!black} LỚP TOÁN CÔ THÚY}\\[3pt]
-\textbf{SĐT:} 0935.322.328\\[2pt]
-\textbf{Địa chỉ:} 50/2C Phạm Thị Liên
+{\large\bfseries\color{blue!80!black} LỚP LÝ THẦY NGỌC}\\[2pt]
+\textbf{GV: TRẦN VĂN THIỆN NGỌC -- SĐT: 0935216256}\\[2pt]
+{\scriptsize\textbf{CS1:} 50/2C Phạm Thị Liên -- \textbf{CS2:} P A15 THPT Nguyễn Huệ}\\[1pt]
+{\scriptsize\textbf{CS3:} 24 Đặng Thái Thân}
 \vspace{3pt}
 \end{minipage}
 &
