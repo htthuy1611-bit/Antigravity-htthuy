@@ -1,6 +1,6 @@
 ================================================================================
 MẪU PROMPT GIAO VIỆC DỰ ÁN: LATEX HÓA VẬT LÝ 10 - PHONG TỎA HỌC KÌ 1
-(Copy toàn bộ phần bên dưới khung này, điền [X] và [Y], rồi gửi cho Anti)
+(Copy toàn bộ phần trong khung bên dưới, điền [X] và [Y], rồi gửi cho Anti)
 ================================================================================
 
 [DỰ ÁN: LATEX HÓA VẬT LÝ 10 - PHONG TỎA HỌC KÌ 1]
@@ -28,4 +28,31 @@ Yêu cầu thực hiện:
    - Tạo file module con trong thư mục chapters/ đặt tên theo số trang và chuyên đề (ví dụ: bai_X_Y.tex).
    - Nạp vào file main_Teacher.tex và main_Student.tex.
    - Biên dịch pdflatex đạt chuẩn 0 lỗi, đảm bảo thầy cô mở TeXstudio nhấn F5 build ra PDF ngay lập tức.
+================================================================================
+
+================================================================================
+BẢNG TRA CỨU MỤC LỤC & PHẠM VI TRANG TOÀN BỘ CUỐN SÁCH (422 TRANG)
+================================================================================
+1. CHƯƠNG 1: MỞ ĐẦU
+   • Bài 3: Sai số trong phép đo. Ghi kết quả đo ............ Trang   1 --  30 (30 trang)
+
+2. CHƯƠNG 2: ĐỘNG HỌC
+   • Bài 1: Hệ quy chiếu - Độ dịch chuyển .................... Trang  31 --  53 (23 trang)
+   • Bài 2: Tốc độ - Vận tốc ................................ Trang  54 --  81 (28 trang)
+   • Bài 3: Tính tương đối của chuyển động ................... Trang  82 -- 107 (26 trang)
+   • Bài 4: Chuyển động thẳng đều - Đồ thị độ dịch chuyển .... Trang 108 -- 133 (26 trang)
+   • Bài 5: Chuyển động thẳng biến đổi đều .................. Trang 134 -- 168 (35 trang)
+   • Bài 6: Sự rơi tự do .................................... Trang 169 -- 191 (23 trang)
+   • Bài 10: Chuyển động ném (Ném ngang & Ném xiên) .......... Trang 192 -- 228 (37 trang)
+
+3. CHƯƠNG 3: ĐỘNG LỰC HỌC
+   • Bài 11: Tổng hợp và phân tích lực. Cân bằng lực ........ Trang 229 -- 271 (43 trang)
+   • Bài 12: Định luật 1 Newton - Quán tính ................. Trang 272 -- 287 (16 trang)
+   • Bài 13: Định luật 2 Newton - Khối lượng và gia tốc ...... Trang 288 -- 311 (24 trang)
+   • Bài 14: Định luật 3 Newton - Tương tác giữa các vật .... Trang 312 -- 324 (13 trang)
+   • Bài 15: Lực ma sát (Ma sát trượt, lăn, nghỉ) ............ Trang 325 -- 348 (24 trang)
+   • Bài 16: Lực cản và lực nâng của chất lưu ............... Trang 349 -- 372 (24 trang)
+   • Bài 17: Phương pháp giải các bài toán động lực học ...... Trang 373 -- 391 (19 trang)
+   • Bài 18: Moment lực. Cân bằng của vật rắn ................ Trang 392 -- 413 (22 trang)
+   • Bài 19: Ngẫu lực - Moment của ngẫu lực ................. Trang 414 -- 422 ( 9 trang)
 ================================================================================
