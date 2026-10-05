@@ -22,9 +22,15 @@ Yêu cầu thực hiện:
    - Bản Học sinh (Student): Đầy đủ đề bài, ẩn toàn bộ lời giải chi tiết (được điều khiển qua toggle switch hoặc wrapper riêng).
 4. QUY TẮC XỬ LÝ HÌNH ẢNH:
    - PDF gốc vector rõ nét: BẮT BUỘC CROP ẢNH độ phân giải cao 300 DPI lưu vào thư mục figures/, chèn bằng \includegraphics. TUYỆT ĐỐI KHÔNG tự ý vẽ lại bằng TikZ để tránh vẽ sai lệch đồ thị hoặc mất nét so với đề gốc.
+   - RESIZE TẤT CẢ CÁC HÌNH: Toàn bộ hình ảnh BẮT BUỘC resize nhỏ gọn tinh tế (1.6cm -- 3.8cm, trục tọa độ ngang tối đa 5cm -- 7cm). Tuyệt đối không để hình to đùng choán trang.
+   - BỐ CỤC \immini: BẮT BUỘC dùng \immini{Nội dung bên trái}{Hình ảnh bên phải} để hình nằm bên phải. Đối với câu Đúng/Sai (\choiceTF), đặt dẫn đề vào \immini, khối \choiceTF đặt ngay sau \immini.
    - Bảng biến thiên (BBT): Bắt buộc vẽ lại bằng TikZ / tkz-tab.
    - TikZ hình học/đồ thị: CHỈ vẽ lại khi ảnh chụp mờ, nghiêng, méo không crop sạch.
-5. XUẤT BẢN & KIỂM THỬ:
+5. MÃ CÂU HỎI (\macau{...}):
+   - MỌI câu hỏi (\begin{ex}), ví dụ mẫu, bài tập tự luyện BẮT BUỘC có 1 MÃ CÂU HỎI duy nhất \macau{...} (ví dụ: \macau{ID: C...}).
+   - MÃ CHỈ HIỆN Ở BẢN GIÁO VIÊN (\main_Teacher.tex), HOÀN TOÀN ẨN Ở BẢN HỌC SINH (\main_Student.tex).
+   - Dùng để phục vụ tìm kiếm, trích xuất và lọc đề sau này theo danh sách mã yêu cầu.
+6. XUẤT BẢN & KIỂM THỬ:
    - Tạo file module con trong thư mục chapters/ đặt tên theo số trang và chuyên đề (ví dụ: bai_X_Y.tex).
    - Nạp vào file main_Teacher.tex và main_Student.tex.
    - Biên dịch pdflatex đạt chuẩn 0 lỗi, đảm bảo thầy cô mở TeXstudio nhấn F5 build ra PDF ngay lập tức.

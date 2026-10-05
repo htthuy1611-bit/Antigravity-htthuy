@@ -139,3 +139,39 @@ Khi nhận bất kỳ đề bài hay tài liệu nào, **BẮT BUỘC PHẢI PH�
   - Trong phần `\loigiai{...}` của câu hỏi trả lời ngắn, **TUYỆT ĐỐI KHÔNG ghi thừa dòng `Đáp án: ...`**.
   - Phần lời giải chỉ tập trung trình bày các bước suy luận, công thức và phép tính toán ra kết quả cuối cùng.
 
+---
+
+## 12. QUY TẮC MÃ CÂU HỎI (`\macau{...}`) CHO TẤT CẢ CÂU HỎI, VÍ DỤ, BÀI TẬP
+- **YÊU CẦU BẮT BUỘC**:
+  - MỌI câu hỏi trắc nghiệm / Đúng--Sai / trả lời ngắn (`\begin{ex}`), MỌI ví dụ mẫu (`Ví dụ`), MỌI bài tập tự luyện sau khi LaTeX hóa **BẮT BUỘC PHẢI CÓ ĐÚNG 1 MÃ CÂU HỎI DUY NHẤT** thông qua macro `\macau{...}`.
+  - Cấu trúc mã rõ ràng, dễ nhận biết và tìm kiếm theo bài/chương (ví dụ: `[ID: C1B3-VD01]`, `[ID: C1B3-D1-P1-C01]`, `[ID: C2B1-VD01]`, `[ID: C2B1-D1-P2-C03]`,...).
+  - **MÃ CÂU HỎI CHỈ ĐƯỢC HIỂN THỊ Ở BẢN GIÁO VIÊN, HOÀN TOÀN ẨN Ở BẢN HỌC SINH**:
+    + Trong wrapper bản Giáo viên (`main_Teacher.tex`):
+      ```latex
+      \newcommand{\macau}[1]{{\color{blue!80!black}\bfseries\footnotesize [#1]}\space}
+      ```
+    + Trong wrapper bản Học sinh (`main_Student.tex`):
+      ```latex
+      \newcommand{\macau}[1]{}
+      ```
+  - **Vị trí chèn macro `\macau{...}`**:
+    + Đối với câu hỏi `\begin{ex}`: Đặt ngay đầu nội dung câu hỏi (hoặc ngay đầu tham số thứ nhất của `\immini`).
+    + Đối với ví dụ mẫu: Đặt kèm theo tiêu đề ví dụ (ví dụ: `\noindent\textbf{Ví dụ 1} \macau{ID: C2B1-VD01}: ...`).
+  - **Mục đích sử dụng**: Mã câu hỏi này không cần tái sử dụng, mà đóng vai trò làm định danh cố định để khi người dùng yêu cầu: *"Hãy trích xuất các câu có mã câu hỏi sau: ... và biên dịch thành đề mới"*, hệ thống có thể tự động tìm đúng file `.tex`, trích xuất chính xác câu hỏi và xuất bản đề thi theo yêu cầu.
+
+---
+
+## 13. QUY TẮC RESIZE KÍCH THƯỚC HÌNH ẢNH VÀ BỐ CỤC `\immini` NẰM BÊN PHẢI
+- **YÊU CẦU RESIZE TẤT CẢ CÁC HÌNH ẢNH**:
+  - **TẤT CẢ các hình ảnh** khi chèn vào bài học/câu hỏi/ví dụ **PHẢI ĐƯỢC RESIZE GỌN GÀNG, TINH TẾ**, tuyệt đối không để bất kỳ hình nào quá to làm vỡ trang in hoặc chiếm dụng diện tích trang giấy.
+  - **Kích thước chiều rộng chuẩn**:
+    + Sơ đồ mũi tên, tam giác nhỏ, hình minh họa đơn giản: `width=1.6cm` -- `2.2cm`.
+    + Hình thang máy, vòng tròn, đồ thị nhỏ: `width=2.5cm` -- `3.2cm`.
+    + Hệ toạ độ Oxy, bản đồ vị trí, hình khối chi tiết: `width=3.2cm` -- `3.8cm` (tối đa không vượt quá `4.0cm` với hình thông thường).
+    + Đối với sơ đồ trục tọa độ dài nằm ngang hoặc hình phong cảnh/trường học dàn hàng ngang: tối đa `5.0cm` -- `7.0cm` (hoặc `width=0.55\linewidth` -- `0.65\linewidth`).
+- **QUY TẮC BỐ CỤC `\immini` ĐẶT HÌNH BÊN PHẢI**:
+  - Khi câu hỏi/ví dụ có hình minh họa, **BẮT BUỘC DÙNG `\immini{Nội dung bên trái}{Hình ảnh bên phải}`** để hình luôn nằm bên phải và văn bản nằm bên trái.
+  - **TUYỆT ĐỐI KHÔNG dùng môi trường `minipage` tự do** bên trong `\begin{ex}` vì nhãn câu (`Câu X.`) sẽ làm tụt dòng hoặc đẩy hình sang trái.
+  - **ĐỐI VỚI CÂU HỎI ĐÚNG / SAI (`\choiceTF`)**: BẮT BUỘC chỉ đặt phần dẫn đề vào `\immini`, còn khối `\choiceTF` **PHẢI ĐẶT SAU `\immini`** để các ý a), b), c), d) dàn đều toàn bộ chiều rộng trang giấy (100% full width) và tránh lỗi box của LaTeX.
+
+

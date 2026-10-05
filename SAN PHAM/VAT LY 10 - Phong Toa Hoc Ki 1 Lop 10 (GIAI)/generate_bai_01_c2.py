@@ -114,10 +114,9 @@ Hệ quy chiếu bao gồm:
 \setcounter{vd}{0}
 \subsection*{Dạng 1: Quãng đường đi được và độ dịch chuyển}
 
-\begin{vd}
-Bạn A đi xe đạp từ nhà qua trạm xăng, tới siêu thị mua đồ rồi quay về nhà cất đồ, sau đó đi xe đến trường. Chọn hệ tọa độ có gốc là vị trí nhà bạn A, trục $Ox$ trùng với đường đi từ nhà bạn A tới trường như hình vẽ.
+\begin{vd}\macau{ID: C2B1-VD01} Bạn A đi xe đạp từ nhà qua trạm xăng, tới siêu thị mua đồ rồi quay về nhà cất đồ, sau đó đi xe đến trường. Chọn hệ tọa độ có gốc là vị trí nhà bạn A, trục $Ox$ trùng với đường đi từ nhà bạn A tới trường như hình vẽ.
 \begin{center}
-\includegraphics[width=0.75\linewidth]{fig_c2b1_p33_vd01_truc_ox.png}
+\includegraphics[width=6.0cm]{fig_c2b1_p33_vd01_truc_ox.png}
 \end{center}
 \begin{enumerate}[a)]
     \item Tính quãng đường đi được và độ dịch chuyển của bạn A đi từ trạm xăng tới siêu thị.
@@ -152,8 +151,7 @@ Bạn A đi xe đạp từ nhà qua trạm xăng, tới siêu thị mua đồ r�
 }
 \end{vd}
 
-\begin{vd}
-Bạn Phong bơi trong bể bơi dài $40\text{ m}$. Phong bắt đầu xuất phát từ đầu bể bơi đến cuối bể bơi thì quay lại bơi tiếp về đầu bể rồi nghỉ. Quãng đường mà bạn Phong bơi được là
+\begin{vd}\macau{ID: C2B1-VD02} Bạn Phong bơi trong bể bơi dài $40\text{ m}$. Phong bắt đầu xuất phát từ đầu bể bơi đến cuối bể bơi thì quay lại bơi tiếp về đầu bể rồi nghỉ. Quãng đường mà bạn Phong bơi được là
 \choice
 {$0\text{ m}$}
 {\True $80\text{ m}$}
@@ -167,8 +165,7 @@ s = 40 + 40 = 80\text{ m}
 }
 \end{vd}
 
-\begin{vd}
-\immini{
+\begin{vd}\macau{ID: C2B1-VD03} \immini{
 Xác định vị trí của vật A trên trục $Ox$ ở hình bên tại thời điểm $12\text{ h}$. Biết vật xuất phát từ $O$ tại thời điểm $8\text{ h}$, đi theo chiều dương của trục $Ox$, mỗi giờ đi được $40\text{ km}$.
 }{
 \includegraphics[width=4.0cm]{fig_c2b1_p33_vd03_vat_a.png}
@@ -186,8 +183,7 @@ Vậy tại thời điểm $12\text{ h}$, vật A ở tọa độ $x = 160\text{
 }
 \end{vd}
 
-\begin{vd}
-Một người đi xe máy từ nhà đến bến xe bus cách nhà $6\text{ km}$ về phía Đông. Đến bến xe, người đó lên xe bus đi tiếp $20\text{ km}$ về phía Bắc. Quãng đường đi được trong cả chuyến đi là
+\begin{vd}\macau{ID: C2B1-VD04} Một người đi xe máy từ nhà đến bến xe bus cách nhà $6\text{ km}$ về phía Đông. Đến bến xe, người đó lên xe bus đi tiếp $20\text{ km}$ về phía Bắc. Quãng đường đi được trong cả chuyến đi là
 \choice
 {$23\text{ km}$}
 {$24\text{ km}$}
@@ -201,8 +197,7 @@ s = s_1 + s_2 = 6 + 20 = 26\text{ km}
 }
 \end{vd}
 
-\begin{vd}
-Một người lái mô tô đi thẳng $3\text{ km}$ theo hướng Tây, sau đó rẽ trái đi thẳng theo hướng Nam $2\text{ km}$ rồi quay sang hướng Đông $3\text{ km}$. Quãng đường đi được của người đó là
+\begin{vd}\macau{ID: C2B1-VD05} Một người lái mô tô đi thẳng $3\text{ km}$ theo hướng Tây, sau đó rẽ trái đi thẳng theo hướng Nam $2\text{ km}$ rồi quay sang hướng Đông $3\text{ km}$. Quãng đường đi được của người đó là
 \choice
 {$6\text{ km}$}
 {$2\text{ km}$}
@@ -216,8 +211,7 @@ s = 3 + 2 + 3 = 8\text{ km}
 }
 \end{vd}
 
-\begin{vd}
-\immini{
+\begin{vd}\macau{ID: C2B1-VD06} \immini{
 Một thang máy mang một người từ tầng trệt đi xuống tầng hầm sâu $5\text{ m}$, rồi lên đến tầng 3. Biết rằng mỗi tầng cách nhau $4\text{ m}$. Trục tọa độ có gốc và chiều dương như hình vẽ. Độ dịch chuyển từ hầm lên đến tầng 3 của thang máy là
 }{
 \includegraphics[width=2.2cm]{fig_c2b1_p34_vd06_thang_may.png}
@@ -240,8 +234,7 @@ d = x_3 - x_{\text{hầm}} = 12 - (-5) = 17\text{ m}
 }
 \end{vd}
 
-\begin{vd}
-Biết $\vec{d}_1$ là độ dịch chuyển $10\text{ m}$ về phía Đông, còn $\vec{d}_2$ là độ dịch chuyển $6\text{ m}$ về phía Tây. Độ dịch chuyển tổng hợp $\vec{d}$ khi $\vec{d} = \vec{d}_1 + \vec{d}_2$ là
+\begin{vd}\macau{ID: C2B1-VD07} Biết $\vec{d}_1$ là độ dịch chuyển $10\text{ m}$ về phía Đông, còn $\vec{d}_2$ là độ dịch chuyển $6\text{ m}$ về phía Tây. Độ dịch chuyển tổng hợp $\vec{d}$ khi $\vec{d} = \vec{d}_1 + \vec{d}_2$ là
 \choice
 {$4\text{ m}$ (Tây)}
 {$16\text{ m}$ (Đông)}
@@ -256,8 +249,7 @@ Vì $d > 0$ nên vectơ độ dịch chuyển tổng hợp hướng về phía �
 }
 \end{vd}
 
-\begin{vd}
-Biết $\vec{d}_1$ là độ dịch chuyển $10\text{ m}$ về phía Đông, còn $\vec{d}_2$ là độ dịch chuyển $6\text{ m}$ về phía Tây. Độ dịch chuyển tổng hợp $\vec{d}$ khi $\vec{d} = \vec{d}_1 + 3\vec{d}_2$ là
+\begin{vd}\macau{ID: C2B1-VD08} Biết $\vec{d}_1$ là độ dịch chuyển $10\text{ m}$ về phía Đông, còn $\vec{d}_2$ là độ dịch chuyển $6\text{ m}$ về phía Tây. Độ dịch chuyển tổng hợp $\vec{d}$ khi $\vec{d} = \vec{d}_1 + 3\vec{d}_2$ là
 \choice
 {$16\text{ m}$ (Tây)}
 {$16\text{ m}$ (Đông)}
@@ -272,8 +264,7 @@ Dấu âm cho biết độ dịch chuyển tổng hợp ngược chiều dương
 }
 \end{vd}
 
-\begin{vd}
-Xét quãng đường $AB$ dài $1500\text{ m}$ với $A$ là vị trí nhà của em và $B$ là vị trí của bưu điện. Tiệm tạp hóa nằm tại vị trí $C$ là trung điểm của $AB$. Nếu chọn nhà em làm gốc tọa độ và chiều dương hướng từ nhà em đến bưu điện. Độ dịch chuyển của em trong trường hợp đi từ tiệm tạp hóa đến bưu điện rồi quay về nhà là
+\begin{vd}\macau{ID: C2B1-VD09} Xét quãng đường $AB$ dài $1500\text{ m}$ với $A$ là vị trí nhà của em và $B$ là vị trí của bưu điện. Tiệm tạp hóa nằm tại vị trí $C$ là trung điểm của $AB$. Nếu chọn nhà em làm gốc tọa độ và chiều dương hướng từ nhà em đến bưu điện. Độ dịch chuyển của em trong trường hợp đi từ tiệm tạp hóa đến bưu điện rồi quay về nhà là
 \choice
 {$1500\text{ m}$}
 {$0\text{ m}$}
@@ -288,8 +279,7 @@ d = x_A - x_C = 0 - 750 = -750\text{ m}
 }
 \end{vd}
 
-\begin{vd}
-Một người đi xe máy từ nhà đến bến xe bus cách nhà $6\text{ km}$ về phía Đông. Đến bến xe, người đó lên xe bus đi tiếp $20\text{ km}$ về phía Bắc. Độ dịch chuyển tổng hợp của người đó là
+\begin{vd}\macau{ID: C2B1-VD10} Một người đi xe máy từ nhà đến bến xe bus cách nhà $6\text{ km}$ về phía Đông. Đến bến xe, người đó lên xe bus đi tiếp $20\text{ km}$ về phía Bắc. Độ dịch chuyển tổng hợp của người đó là
 \choice
 {\True $20{,}88\text{ km}$}
 {$26{,}00\text{ km}$}
@@ -303,8 +293,7 @@ d = \sqrt{d_1^2 + d_2^2} = \sqrt{6^2 + 20^2} = \sqrt{436} \approx 20{,}88\text{ 
 }
 \end{vd}
 
-\begin{vd}
-Một người bơi ngang từ bờ bên này sang bờ bên kia của một dòng sông rộng $50\text{ m}$ có dòng chảy theo hướng từ Bắc xuống Nam. Do nước sông chảy mạnh nên khi sang đến bờ bên kia thì người đó đã trôi xuôi theo dòng nước $50\text{ m}$. Xác định độ dịch chuyển của người đó.
+\begin{vd}\macau{ID: C2B1-VD11} Một người bơi ngang từ bờ bên này sang bờ bên kia của một dòng sông rộng $50\text{ m}$ có dòng chảy theo hướng từ Bắc xuống Nam. Do nước sông chảy mạnh nên khi sang đến bờ bên kia thì người đó đã trôi xuôi theo dòng nước $50\text{ m}$. Xác định độ dịch chuyển của người đó.
 \loigiai{
 Độ dịch chuyển ngang theo dự định $OA = 50\text{ m}$.\\
 Đoạn trôi xuôi dòng theo hướng Bắc -- Nam là $AB = 50\text{ m}$.\\
@@ -316,8 +305,7 @@ Hướng của độ dịch chuyển lệch góc $45^\circ$ so với bờ sông.
 }
 \end{vd}
 
-\begin{vd}
-An chạy bộ qua cầu đi thẳng $120\text{ m}$ theo hướng Đông, sau đó rẽ trái chạy thẳng theo hướng Bắc $60\text{ m}$ rồi quay sang hướng Tây đi $40\text{ m}$. Độ dịch chuyển của An là
+\begin{vd}\macau{ID: C2B1-VD12} An chạy bộ qua cầu đi thẳng $120\text{ m}$ theo hướng Đông, sau đó rẽ trái chạy thẳng theo hướng Bắc $60\text{ m}$ rồi quay sang hướng Tây đi $40\text{ m}$. Độ dịch chuyển của An là
 \choice
 {$0\text{ m}$}
 {$220\text{ m}$}
@@ -333,8 +321,7 @@ d = \sqrt{d_x^2 + d_y^2} = \sqrt{80^2 + 60^2} = 100\text{ m}
 }
 \end{vd}
 
-\begin{vd}
-Một con kiến bò trên miệng của một cái chén đi được $\frac{1}{2}$ vòng. Bán kính của miệng chén là $6\text{ cm}$. Lấy $\pi = 3{,}14$. Độ dịch chuyển của kiến là
+\begin{vd}\macau{ID: C2B1-VD13} Một con kiến bò trên miệng của một cái chén đi được $\frac{1}{2}$ vòng. Bán kính của miệng chén là $6\text{ cm}$. Lấy $\pi = 3{,}14$. Độ dịch chuyển của kiến là
 \choice
 {\True $12\text{ cm}$}
 {$18{,}84\text{ cm}$}
@@ -349,8 +336,7 @@ d = 2r = 2 \cdot 6 = 12\text{ cm}
 }
 \end{vd}
 
-\begin{vd}
-Biết $\vec{d}_1$ là độ dịch chuyển $3\text{ m}$ về phía Đông, còn $\vec{d}_2$ là độ dịch chuyển $4\text{ m}$ về phía Bắc. Độ lớn, phương và chiều của độ dịch chuyển tổng hợp $\vec{d}$ là
+\begin{vd}\macau{ID: C2B1-VD14} Biết $\vec{d}_1$ là độ dịch chuyển $3\text{ m}$ về phía Đông, còn $\vec{d}_2$ là độ dịch chuyển $4\text{ m}$ về phía Bắc. Độ lớn, phương và chiều của độ dịch chuyển tổng hợp $\vec{d}$ là
 \choice
 {$5\text{ m}$ (hướng Đông -- Nam $43^\circ$)}
 {\True $5\text{ m}$ (hướng Đông -- Bắc $53^\circ$)}
@@ -369,8 +355,7 @@ Vậy hướng dịch chuyển là hướng Đông -- Bắc lệch $53^\circ$ so
 }
 \end{vd}
 
-\begin{vd}
-Một người chuyển động $30\text{ m}$ theo hướng Bắc, sau đó đi $20\text{ m}$ theo hướng Đông và cuối cùng là $20\sqrt{2}\text{ m}$ theo hướng Tây Nam một góc $45^\circ$ so với hướng Tây. Sự dịch chuyển của người từ vị trí đầu sẽ là
+\begin{vd}\macau{ID: C2B1-VD15} Một người chuyển động $30\text{ m}$ theo hướng Bắc, sau đó đi $20\text{ m}$ theo hướng Đông và cuối cùng là $20\sqrt{2}\text{ m}$ theo hướng Tây Nam một góc $45^\circ$ so với hướng Tây. Sự dịch chuyển của người từ vị trí đầu sẽ là
 \choice
 {\True $10\text{ m}$ dọc theo phía Bắc}
 {$10\text{ m}$ về phía Nam}
@@ -388,8 +373,7 @@ Vậy độ dịch chuyển tổng hợp là $10\text{ m}$ dọc theo phía Bắ
 }
 \end{vd}
 
-\begin{vd}
-Một xe ô tô xuất phát từ tỉnh A đi đến tỉnh B cách A $10\text{ km}$ sau đó đi theo chiều ngược lại tới vị trí cách tỉnh A $2\text{ km}$ (chưa đi qua tỉnh A) thì dừng lại. Phát biểu nào sau đây là đúng?
+\begin{vd}\macau{ID: C2B1-VD16} Một xe ô tô xuất phát từ tỉnh A đi đến tỉnh B cách A $10\text{ km}$ sau đó đi theo chiều ngược lại tới vị trí cách tỉnh A $2\text{ km}$ (chưa đi qua tỉnh A) thì dừng lại. Phát biểu nào sau đây là đúng?
 \choice
 {Quãng đường mà ô tô đó đi được là $12\text{ km}$. Độ dịch chuyển là $8\text{ km}$}
 {Quãng đường mà ô tô đó đi được là $20\text{ km}$. Độ dịch chuyển là $0\text{ km}$}
@@ -403,8 +387,7 @@ Quãng đường đi được: $s = 10 + 8 = 18\text{ km}$.\\
 }
 \end{vd}
 
-\begin{vd}
-\immini{
+\begin{vd}\macau{ID: C2B1-VD17} \immini{
 Hai người đi xe đạp từ A đến C, người thứ nhất đi theo đường từ A đến B, rồi từ B đến C; người thứ hai đi thẳng từ A đến C. Cả hai đều về đích cùng một lúc. Tính quãng đường đi được và độ dịch chuyển của người thứ nhất và người thứ hai.
 }{
 \includegraphics[width=3.2cm]{fig_c2b1_p36_vd17_hai_nguoi_dap_xe.png}
@@ -439,8 +422,7 @@ Quãng đường đi được & $s_1 = 8\text{ km}$ & $s_2 = 5{,}7\text{ km}$ \\
 }
 \end{vd}
 
-\begin{vd}
-\immini{
+\begin{vd}\macau{ID: C2B1-VD18} \immini{
 Một xe bắt đầu chuyển động theo chiều kim đồng hồ từ điểm P đến điểm Q theo đường tròn bán kính $r = 8\text{ m}$ như hình vẽ bên. Biết $OP$ vuông góc với $OQ$. Tính quãng đường đi được và độ dịch chuyển của xe.
 }{
 \includegraphics[width=2.8cm]{fig_c2b1_p37_vd18_duong_tron.png}
@@ -467,8 +449,7 @@ Một xe bắt đầu chuyển động theo chiều kim đồng hồ từ điể
 \subsection*{PHẦN I. Câu hỏi trắc nghiệm nhiều phương án lựa chọn}
 \textit{Thí sinh trả lời từ câu 1 đến câu 18. Mỗi câu hỏi thí sinh chỉ chọn một phương án.}
 
-\begin{ex}
-Trường hợp nào sau đây quỹ đạo của vật là đường thẳng?
+\begin{ex}\macau{ID: C2B1-D1-P1-C01} Trường hợp nào sau đây quỹ đạo của vật là đường thẳng?
 \choice
 {Một học sinh đi xe từ nhà đến trường}
 {\True Một viên bi sắt được thả rơi}
@@ -479,8 +460,7 @@ Viên bi sắt được thả rơi tự do chuyển động thẳng đứng hư�
 }
 \end{ex}
 
-\begin{ex}
-Độ lớn độ dịch chuyển phụ thuộc vào
+\begin{ex}\macau{ID: C2B1-D1-P1-C02} Độ lớn độ dịch chuyển phụ thuộc vào
 \choice
 {\True khoảng cách vị trí đầu và vị trí cuối}
 {thời điểm xuất phát}
@@ -491,8 +471,7 @@ Viên bi sắt được thả rơi tự do chuyển động thẳng đứng hư�
 }
 \end{ex}
 
-\begin{ex}
-Một chất điểm chuyển động trên trục $Ox$ từ tọa độ $x_1$ đến tọa độ $x_2$. Độ dịch chuyển của chất điểm này là
+\begin{ex}\macau{ID: C2B1-D1-P1-C03} Một chất điểm chuyển động trên trục $Ox$ từ tọa độ $x_1$ đến tọa độ $x_2$. Độ dịch chuyển của chất điểm này là
 \choice
 {$d = x_1 - x_2$}
 {\True $d = x_2 - x_1$}
@@ -503,8 +482,7 @@ Một chất điểm chuyển động trên trục $Ox$ từ tọa độ $x_1$ �
 }
 \end{ex}
 
-\begin{ex}
-Đối với vật chuyển động, quãng đường đi được
+\begin{ex}\macau{ID: C2B1-D1-P1-C04} Đối với vật chuyển động, quãng đường đi được
 \choice
 {là đại lượng vectơ}
 {\True có đơn vị đo là $\text{m}$ (mét)}
@@ -515,8 +493,7 @@ Quãng đường đi được là đại lượng vô hướng đặc trưng cho
 }
 \end{ex}
 
-\begin{ex}
-Độ dịch chuyển và quãng đường đi được bằng nhau
+\begin{ex}\macau{ID: C2B1-D1-P1-C05} Độ dịch chuyển và quãng đường đi được bằng nhau
 \choice
 {\True khi vật chuyển động thẳng, không đổi chiều}
 {khi vật chuyển động thẳng, đổi chiều}
@@ -527,8 +504,7 @@ Khi vật chuyển động thẳng và không đổi chiều chuyển động, k
 }
 \end{ex}
 
-\begin{ex}
-Trường hợp nào dưới đây có thể coi vật chuyển động như một chất điểm?
+\begin{ex}\macau{ID: C2B1-D1-P1-C06} Trường hợp nào dưới đây có thể coi vật chuyển động như một chất điểm?
 \choice
 {Quyển sách rơi từ trên bàn xuống sàn nhà}
 {Chiếc ô tô trong bến xe}
@@ -539,8 +515,7 @@ Kích thước Mặt Trăng rất nhỏ so với khoảng cách giữa Trái Đ�
 }
 \end{ex}
 
-\begin{ex}
-Trong trường hợp nào sau đây không thể coi vật chuyển động như một chất điểm?
+\begin{ex}\macau{ID: C2B1-D1-P1-C07} Trong trường hợp nào sau đây không thể coi vật chuyển động như một chất điểm?
 \choice
 {Trái Đất trong chuyển động quanh Mặt Trời}
 {Ô tô đi từ Hà Nội đến Quảng Ninh}
@@ -551,8 +526,7 @@ Kích thước người ngư dân so với chiều dài con thuyền là đáng 
 }
 \end{ex}
 
-\begin{ex}
-Số liệu về độ dịch chuyển và thời gian của chuyển động thẳng của một xe ô tô đồ chơi chạy bằng pin được ghi trong bảng bên. Dựa vào bảng này để xác định từ giây thứ 3 đến 5 xe chuyển động như thế nào?
+\begin{ex}\macau{ID: C2B1-D1-P1-C08} Số liệu về độ dịch chuyển và thời gian của chuyển động thẳng của một xe ô tô đồ chơi chạy bằng pin được ghi trong bảng bên. Dựa vào bảng này để xác định từ giây thứ 3 đến 5 xe chuyển động như thế nào?
 \begin{center}
 \renewcommand{\arraystretch}{1.2}
 \begin{tabular}{|l|c|c|c|c|c|c|}
@@ -573,8 +547,7 @@ Từ giây thứ 3 đến giây thứ 5, độ dịch chuyển của xe không t
 }
 \end{ex}
 
-\begin{ex}
-\immini{
+\begin{ex}\macau{ID: C2B1-D1-P1-C09} \immini{
 Một vận động viên chạy từ một siêu thị (A) đến cổng Sân Vận Động (D) theo hai quỹ đạo khác nhau. Hãy so sánh độ dịch chuyển và quãng đường chạy được của người vận động viên trong trường hợp đi từ $A \to B \to C \to D$.
 }{
 \includegraphics[width=4.0cm]{fig_c2b1_p39_de1_c09_san_vd.png}
@@ -589,8 +562,7 @@ Một vận động viên chạy từ một siêu thị (A) đến cổng Sân V
 }
 \end{ex}
 
-\begin{ex}
-Trường hợp nào dưới đây có thể coi vật là chất điểm?
+\begin{ex}\macau{ID: C2B1-D1-P1-C10} Trường hợp nào dưới đây có thể coi vật là chất điểm?
 \choice
 {Trái Đất trong chuyển động tự quay quanh mình nó}
 {Hai hòn bi lúc va chạm với nhau}
@@ -601,8 +573,7 @@ Giọt nước mưa có kích thước rất nhỏ so với quãng đường rơ
 }
 \end{ex}
 
-\begin{ex}
-Trong các trường hợp sau đây, trường hợp nào có thể xem vật như một chất điểm?
+\begin{ex}\macau{ID: C2B1-D1-P1-C11} Trong các trường hợp sau đây, trường hợp nào có thể xem vật như một chất điểm?
 \choice
 {Trái Đất đang chuyển động tự quay quanh mình nó}
 {Viên đạn đang chuyển động trong nòng súng}
@@ -613,8 +584,7 @@ Trong các trường hợp sau đây, trường hợp nào có thể xem vật n
 }
 \end{ex}
 
-\begin{ex}
-Để xác định vị trí một ô tô du lịch thám hiểm giữa sa mạc người ta sử dụng
+\begin{ex}\macau{ID: C2B1-D1-P1-C12} Để xác định vị trí một ô tô du lịch thám hiểm giữa sa mạc người ta sử dụng
 \choice
 {khoảng cách theo đường chim bay thẳng đến một thành phố ven sa mạc}
 {\True kinh độ và vĩ độ địa lí của xe}
@@ -625,8 +595,7 @@ Giữa sa mạc mênh mông không có vật mốc cố định ven đường, n
 }
 \end{ex}
 
-\begin{ex}
-Một người lái xe ô tô đi thẳng $6\text{ km}$ theo hướng Tây, sau đó rẽ trái đi thẳng theo hướng Nam $4\text{ km}$ rồi quay sang hướng Đông đi $3\text{ km}$. Quãng đường đi được của ô tô là
+\begin{ex}\macau{ID: C2B1-D1-P1-C13} Một người lái xe ô tô đi thẳng $6\text{ km}$ theo hướng Tây, sau đó rẽ trái đi thẳng theo hướng Nam $4\text{ km}$ rồi quay sang hướng Đông đi $3\text{ km}$. Quãng đường đi được của ô tô là
 \choice
 {$16\text{ km}$}
 {\True $13\text{ km}$}
@@ -640,10 +609,9 @@ s = 6 + 4 + 3 = 13\text{ km}
 }
 \end{ex}
 
-\begin{ex}
-Bạn Việt đi xe đạp đến trường theo đường thẳng như hình vẽ. Khi đến quầy báo, bạn sực nhớ đã quên một cuốn sách ở nhà nên quay về nhà lấy sách rồi lại đạp xe đến trường. Độ dịch chuyển khi bạn quay từ quầy báo về nhà và độ dịch chuyển khi bạn từ quầy báo đến trường lần lượt là
+\begin{ex}\macau{ID: C2B1-D1-P1-C14} Bạn Việt đi xe đạp đến trường theo đường thẳng như hình vẽ. Khi đến quầy báo, bạn sực nhớ đã quên một cuốn sách ở nhà nên quay về nhà lấy sách rồi lại đạp xe đến trường. Độ dịch chuyển khi bạn quay từ quầy báo về nhà và độ dịch chuyển khi bạn từ quầy báo đến trường lần lượt là
 \begin{center}
-\includegraphics[width=0.65\linewidth]{fig_c2b1_p41_de1_c14_ban_viet.png}
+\includegraphics[width=6.0cm]{fig_c2b1_p41_de1_c14_ban_viet.png}
 \end{center}
 \choice
 {$400\text{ m}$ và $600\text{ m}$}
@@ -665,8 +633,7 @@ Chọn trục tọa độ gốc tại nhà $O$, chiều dương từ nhà đến
 }
 \end{ex}
 
-\begin{ex}
-Một ô tô đi $12\text{ km}$ theo hướng Tây và sau đó đi $16\text{ km}$ về hướng Nam. Quãng đường đi được và độ dịch chuyển của ô tô là
+\begin{ex}\macau{ID: C2B1-D1-P1-C15} Một ô tô đi $12\text{ km}$ theo hướng Tây và sau đó đi $16\text{ km}$ về hướng Nam. Quãng đường đi được và độ dịch chuyển của ô tô là
 \choice
 {$28\text{ km}$ và $28\text{ km}$}
 {\True $28\text{ km}$ và $20\text{ km}$}
@@ -683,8 +650,7 @@ Một ô tô đi $12\text{ km}$ theo hướng Tây và sau đó đi $16\text{ km
 }
 \end{ex}
 
-\begin{ex}
-Một người lái ô tô đi thẳng $6\text{ km}$ theo hướng Tây, sau đó rẽ trái đi thẳng theo hướng Nam $8\text{ km}$. Quãng đường $s$ đi được và độ dịch chuyển $d$ của ô tô lần lượt là
+\begin{ex}\macau{ID: C2B1-D1-P1-C16} Một người lái ô tô đi thẳng $6\text{ km}$ theo hướng Tây, sau đó rẽ trái đi thẳng theo hướng Nam $8\text{ km}$. Quãng đường $s$ đi được và độ dịch chuyển $d$ của ô tô lần lượt là
 \choice
 {\True $14\text{ km}$; $10\text{ km}$}
 {$10\text{ km}$; $14\text{ km}$}
@@ -698,8 +664,7 @@ Một người lái ô tô đi thẳng $6\text{ km}$ theo hướng Tây, sau đ�
 }
 \end{ex}
 
-\begin{ex}
-Một vật chuyển động thẳng trên một đoạn đường. Nếu chọn $10\text{ giờ}$ làm mốc tính thời gian và thời điểm $11\text{ giờ}$ lúc xuất phát thì thời điểm bắt đầu đo thời gian là
+\begin{ex}\macau{ID: C2B1-D1-P1-C17} Một vật chuyển động thẳng trên một đoạn đường. Nếu chọn $10\text{ giờ}$ làm mốc tính thời gian và thời điểm $11\text{ giờ}$ lúc xuất phát thì thời điểm bắt đầu đo thời gian là
 \choice
 {$30\text{ phút}$}
 {\True $1\text{ giờ}$}
@@ -713,8 +678,7 @@ t = 11\text{ h} - 10\text{ h} = 1\text{ h}
 }
 \end{ex}
 
-\begin{ex}
-Một người điều khiển thuyền đi được $5{,}6\text{ km}$ theo hướng Bắc trên mặt hồ phẳng lặng trong thời gian $1{,}0\text{ h}$. Sau đó, anh ta quay thuyền đi về phía Tây $3{,}4\text{ km}$ trong $30\text{ phút}$. Độ dịch chuyển tổng hợp của thuyền có độ lớn
+\begin{ex}\macau{ID: C2B1-D1-P1-C18} Một người điều khiển thuyền đi được $5{,}6\text{ km}$ theo hướng Bắc trên mặt hồ phẳng lặng trong thời gian $1{,}0\text{ h}$. Sau đó, anh ta quay thuyền đi về phía Tây $3{,}4\text{ km}$ trong $30\text{ phút}$. Độ dịch chuyển tổng hợp của thuyền có độ lớn
 \choice
 {\True $6{,}6\text{ km}$ và hướng lệch về phía Tây $31^\circ$ so với hướng Bắc}
 {$13{,}2\text{ km}$ và hướng lệch về phía Tây $31^\circ$ so với hướng Bắc}
@@ -738,8 +702,7 @@ Một người điều khiển thuyền đi được $5{,}6\text{ km}$ theo hư�
 \subsection*{PHẦN II. Câu hỏi trắc nghiệm Đúng / Sai}
 \textit{Thí sinh trả lời từ câu 1 đến câu 4. Trong mỗi ý a), b), c), d) ở mỗi câu, thí sinh chọn đúng hoặc sai.}
 
-\begin{ex}
-Một người đi thang máy từ tầng G xuống tầng hầm cách tầng G $5\text{ m}$, rồi lên tới tầng cao nhất của toà nhà cách tầng G $50\text{ m}$.
+\begin{ex}\macau{ID: C2B1-D1-P2-C01} Một người đi thang máy từ tầng G xuống tầng hầm cách tầng G $5\text{ m}$, rồi lên tới tầng cao nhất của toà nhà cách tầng G $50\text{ m}$.
 \choiceTF
 {Khi đi từ tầng G xuống tầng hầm thì quãng đường đi được là $-5\text{ m}$}
 {\True Khi đi từ tầng G xuống tầng hầm độ lớn độ dịch chuyển là $5\text{ m}$}
@@ -755,8 +718,7 @@ Một người đi thang máy từ tầng G xuống tầng hầm cách tầng G 
 }
 \end{ex}
 
-\begin{ex}
-\immini{
+\begin{ex}\macau{ID: C2B1-D1-P2-C02} \immini{
 Trong hình bên, người đi xe máy (1), người đi bộ (2), người đi ô tô (3) đều khởi hành từ siêu thị A để đi đến bưu điện B.
 }{
 \includegraphics[width=3.2cm]{fig_c2b1_p42_de1_p2_c02_xe_may.png}
@@ -776,8 +738,7 @@ Trong hình bên, người đi xe máy (1), người đi bộ (2), người đi 
 }
 \end{ex}
 
-\begin{ex}
-\immini{
+\begin{ex}\macau{ID: C2B1-D1-P2-C03} \immini{
 Độ lớn độ dịch chuyển mô tả ở hình vẽ trong hệ tọa độ địa lí. Biết chuyển động là chuyển động thẳng. Tỉ xích $1\text{ cm}$ ứng với $100\text{ m}$.
 }{
 \includegraphics[width=3.6cm]{fig_c2b1_p43_de1_p2_c03_toa_do.png}
@@ -797,8 +758,7 @@ Trong hình bên, người đi xe máy (1), người đi bộ (2), người đi 
 }
 \end{ex}
 
-\begin{ex}
-\immini{
+\begin{ex}\macau{ID: C2B1-D1-P2-C04} \immini{
 Một người đi bộ $5{,}0\text{ km}$ trên một con đường thẳng theo hướng Bắc rồi quay đầu lại và đi $12\text{ km}$ theo hướng Nam theo sơ đồ như hình.
 }{
 \includegraphics[width=1.6cm]{fig_c2b1_p43_de1_p2_c04_bac_nam.png}
@@ -824,8 +784,7 @@ Một người đi bộ $5{,}0\text{ km}$ trên một con đường thẳng theo
 
 \textbf{Sử dụng thông tin sau cho Câu 1 và Câu 2:} Một người đi xe máy từ nhà đến bến xe bus cách nhà $6\text{ km}$ về phía Đông. Đến bến xe, người đó lên xe bus đi tiếp $20\text{ km}$ về phía Bắc.
 
-\begin{ex}
-Quãng đường đi được trong cả chuyến đi là bao nhiêu kilômét?
+\begin{ex}\macau{ID: C2B1-D1-P3-C01} Quãng đường đi được trong cả chuyến đi là bao nhiêu kilômét?
 
 \shortans{26}
 \loigiai{
@@ -836,8 +795,7 @@ s = s_1 + s_2 = 6 + 20 = 26\text{ km}
 }
 \end{ex}
 
-\begin{ex}
-Độ dịch chuyển tổng hợp của người đó có độ lớn là bao nhiêu kilômét (làm tròn kết quả đến chữ số hàng phần mười)?
+\begin{ex}\macau{ID: C2B1-D1-P3-C02} Độ dịch chuyển tổng hợp của người đó có độ lớn là bao nhiêu kilômét (làm tròn kết quả đến chữ số hàng phần mười)?
 
 \shortans{20{,}9}
 \loigiai{
@@ -850,11 +808,10 @@ d = \sqrt{d_1^2 + d_2^2} = \sqrt{6^2 + 20^2} = \sqrt{36 + 400} = \sqrt{436} \app
 
 \textbf{Sử dụng thông tin sau cho Câu 3 và Câu 4:} Bạn A đi xe đạp từ nhà qua trạm xăng, tới siêu thị mua đồ rồi quay về nhà cất đồ, sau đó đi xe đến trường.
 \begin{center}
-\includegraphics[width=0.7\linewidth]{fig_c2b1_p44_de1_p3_c03_04_ban_a.png}
+\includegraphics[width=6.0cm]{fig_c2b1_p44_de1_p3_c03_04_ban_a.png}
 \end{center}
 
-\begin{ex}
-Quãng đường đi được từ trạm xăng đến siêu thị là bao nhiêu mét?
+\begin{ex}\macau{ID: C2B1-D1-P3-C03} Quãng đường đi được từ trạm xăng đến siêu thị là bao nhiêu mét?
 
 \shortans{400}
 \loigiai{
@@ -866,8 +823,7 @@ s = x_2 - x_1 = 800 - 400 = 400\text{ m}
 }
 \end{ex}
 
-\begin{ex}
-Độ dịch chuyển của cả chuyến đi có độ lớn là bao nhiêu mét?
+\begin{ex}\macau{ID: C2B1-D1-P3-C04} Độ dịch chuyển của cả chuyến đi có độ lớn là bao nhiêu mét?
 
 \shortans{1200}
 \loigiai{
@@ -881,8 +837,7 @@ d = x - x_0 = 1200 - 0 = 1200\text{ m}
 
 \textbf{Sử dụng thông tin sau cho Câu 5 và Câu 6:} Một thang máy mang một người từ tầng trệt đi xuống tầng hầm sâu $5\text{ m}$ rồi đi lên tầng 3. Biết chiều cao tầng trệt và các tầng lầu là $4\text{ m}$. Chọn gốc tọa độ tại mặt đất (tầng trệt).
 
-\begin{ex}
-Quãng đường chuyển động khi người này lên tới lầu 3 là bao nhiêu mét?
+\begin{ex}\macau{ID: C2B1-D1-P3-C05} Quãng đường chuyển động khi người này lên tới lầu 3 là bao nhiêu mét?
 
 \shortans{18}
 \loigiai{
@@ -898,8 +853,7 @@ s = s_1 + s_2 = 5 + 13 = 18\text{ m}
 }
 \end{ex}
 
-\begin{ex}
-Độ dịch chuyển từ khi thang máy đi từ tầng hầm đến khi dừng tại lầu 3 là bao nhiêu mét?
+\begin{ex}\macau{ID: C2B1-D1-P3-C06} Độ dịch chuyển từ khi thang máy đi từ tầng hầm đến khi dừng tại lầu 3 là bao nhiêu mét?
 
 \shortans{13}
 \loigiai{
@@ -923,8 +877,7 @@ d = x_{\text{lầu 3}} - x_{\text{hầm}} = 8 - (-5) = 13\text{ m}
 \subsection*{PHẦN I. Câu hỏi trắc nghiệm nhiều phương án lựa chọn}
 \textit{Thí sinh trả lời từ câu 1 đến câu 18. Mỗi câu hỏi thí sinh chỉ chọn một phương án.}
 
-\begin{ex}
-Phát biểu nào sau đây đúng khi nói về quỹ đạo của vật?
+\begin{ex}\macau{ID: C2B1-D2-P1-C01} Phát biểu nào sau đây đúng khi nói về quỹ đạo của vật?
 \choice
 {Quỹ đạo là một đường thẳng mà trên đó chất điểm chuyển động}
 {Một đường vạch sẵn trong không gian trên đó chất điểm chuyển động gọi là quỹ đạo}
@@ -935,8 +888,7 @@ Quỹ đạo là tập hợp tất cả các vị trí liên tiếp của chất
 }
 \end{ex}
 
-\begin{ex}
-Độ dịch chuyển là đại lượng
+\begin{ex}\macau{ID: C2B1-D2-P1-C02} Độ dịch chuyển là đại lượng
 \choice
 {\True vectơ}
 {vô hướng}
@@ -947,8 +899,7 @@ Quỹ đạo là tập hợp tất cả các vị trí liên tiếp của chất
 }
 \end{ex}
 
-\begin{ex}
-Độ dịch chuyển của một vật là
+\begin{ex}\macau{ID: C2B1-D2-P1-C03} Độ dịch chuyển của một vật là
 \choice
 {quãng đường vật đi được trong khoảng thời gian đó}
 {khoảng thời gian vật đi từ điểm đầu đến điểm cuối}
@@ -959,8 +910,7 @@ Theo định nghĩa, độ dịch chuyển được biểu diễn bằng một v
 }
 \end{ex}
 
-\begin{ex}
-Quãng đường đi được là một đại lượng luôn có giá trị
+\begin{ex}\macau{ID: C2B1-D2-P1-C04} Quãng đường đi được là một đại lượng luôn có giá trị
 \choice
 {âm}
 {dương, âm hoặc bằng không}
@@ -971,8 +921,7 @@ Quãng đường là chiều dài quỹ đạo mà vật đã đi qua, do đó n
 }
 \end{ex}
 
-\begin{ex}
-Phát biểu nào sau đây là đúng khi nói về độ dịch chuyển và quãng đường đi được của một vật?
+\begin{ex}\macau{ID: C2B1-D2-P1-C05} Phát biểu nào sau đây là đúng khi nói về độ dịch chuyển và quãng đường đi được của một vật?
 \choice
 {Độ dịch chuyển và quãng đường đi được đều là đại lượng vectơ}
 {\True Độ dịch chuyển là đại lượng vectơ còn quãng đường đi được là đại lượng vô hướng}
@@ -983,8 +932,7 @@ Phát biểu nào sau đây là đúng khi nói về độ dịch chuyển và q
 }
 \end{ex}
 
-\begin{ex}
-Phát biểu nào sau đây là đúng khi so sánh quãng đường và độ dịch chuyển?
+\begin{ex}\macau{ID: C2B1-D2-P1-C06} Phát biểu nào sau đây là đúng khi so sánh quãng đường và độ dịch chuyển?
 \choice
 {\True Quãng đường luôn luôn lớn hơn hoặc bằng độ lớn của độ dịch chuyển}
 {Quãng đường luôn luôn nhỏ hơn hoặc bằng độ lớn của độ dịch chuyển}
@@ -995,8 +943,7 @@ Vì đường thẳng là khoảng cách ngắn nhất giữa hai điểm nên q
 }
 \end{ex}
 
-\begin{ex}
-Để xác định vị trí của một tàu biển giữa đại dương, người ta sử dụng
+\begin{ex}\macau{ID: C2B1-D2-P1-C07} Để xác định vị trí của một tàu biển giữa đại dương, người ta sử dụng
 \choice
 {độ sâu của nước biển tại vị trí của tàu}
 {\True kinh độ và vĩ độ địa lí của tàu}
@@ -1007,8 +954,7 @@ Trên biển khơi mênh mông, hệ tọa độ địa lí (kinh độ và vĩ 
 }
 \end{ex}
 
-\begin{ex}
-Một người đi bộ $5\text{ km}$ trên một con đường thẳng theo hướng Bắc rồi quay đầu lại và đi $12\text{ km}$ theo hướng Nam. Độ dịch chuyển của người đó là
+\begin{ex}\macau{ID: C2B1-D2-P1-C08} Một người đi bộ $5\text{ km}$ trên một con đường thẳng theo hướng Bắc rồi quay đầu lại và đi $12\text{ km}$ theo hướng Nam. Độ dịch chuyển của người đó là
 \choice
 {$17\text{ km}$, hướng Nam}
 {$5\text{ km}$, hướng Bắc}
@@ -1023,8 +969,7 @@ Vậy độ dịch chuyển có độ lớn $7\text{ km}$ theo hướng Nam.
 }
 \end{ex}
 
-\begin{ex}
-Một con nhện bò dọc theo các cạnh của một chiếc bàn hình chữ nhật. Biết hai cạnh bàn có chiều dài lần lượt là $0{,}8\text{ m}$ và $1{,}2\text{ m}$. Độ dịch chuyển của con nhện khi nó xuất phát từ một đỉnh hình chữ nhật và đi được quãng đường $2{,}0\text{ m}$ là
+\begin{ex}\macau{ID: C2B1-D2-P1-C09} Một con nhện bò dọc theo các cạnh của một chiếc bàn hình chữ nhật. Biết hai cạnh bàn có chiều dài lần lượt là $0{,}8\text{ m}$ và $1{,}2\text{ m}$. Độ dịch chuyển của con nhện khi nó xuất phát từ một đỉnh hình chữ nhật và đi được quãng đường $2{,}0\text{ m}$ là
 \choice
 {\True $1{,}4\text{ m}$}
 {$1{,}5\text{ m}$}
@@ -1039,8 +984,7 @@ d = \sqrt{0{,}8^2 + 1{,}2^2} = \sqrt{0{,}64 + 1{,}44} = \sqrt{2{,}08} \approx 1{
 }
 \end{ex}
 
-\begin{ex}
-\immini{
+\begin{ex}\macau{ID: C2B1-D2-P1-C10} \immini{
 Một vật bắt đầu chuyển động từ điểm $O$ về điểm $B$, sau đó chuyển động đến điểm $A$ như hình vẽ. Quãng đường và độ dịch chuyển của vật tương ứng bằng
 }{
 \includegraphics[width=3.8cm]{fig_c2b1_p48_de2_p1_c10_truc_toa_do.png}
@@ -1063,8 +1007,7 @@ Một vật bắt đầu chuyển động từ điểm $O$ về điểm $B$, sau
 }
 \end{ex}
 
-\begin{ex}
-Một người chỉ cho một người khách du lịch như sau: ``Ông hãy đi dọc theo phố này đến một bờ hồ lớn. Đứng tại đó, nhìn sang bên kia hồ theo hướng Tây Bắc, ông sẽ thấy tòa nhà của khách sạn S''. Người chỉ đường đã xác định vị trí của khách sạn S theo cách nào?
+\begin{ex}\macau{ID: C2B1-D2-P1-C11} Một người chỉ cho một người khách du lịch như sau: ``Ông hãy đi dọc theo phố này đến một bờ hồ lớn. Đứng tại đó, nhìn sang bên kia hồ theo hướng Tây Bắc, ông sẽ thấy tòa nhà của khách sạn S''. Người chỉ đường đã xác định vị trí của khách sạn S theo cách nào?
 \choice
 {Cách dùng đường đi và vật làm mốc}
 {Cách dùng hệ tọa độ địa lí}
@@ -1075,8 +1018,7 @@ Người chỉ đường đã kết hợp dùng vật làm mốc (bờ hồ, đi
 }
 \end{ex}
 
-\begin{ex}
-Một người đi thang máy từ tầng G xuống tầng hầm cách tầng G $5\text{ m}$. Quãng đường và độ dịch chuyển của người đó khi đi từ tầng G xuống tầng hầm là
+\begin{ex}\macau{ID: C2B1-D2-P1-C12} Một người đi thang máy từ tầng G xuống tầng hầm cách tầng G $5\text{ m}$. Quãng đường và độ dịch chuyển của người đó khi đi từ tầng G xuống tầng hầm là
 \choice
 {Quãng đường $s = 50\text{ m}$; $d = 5\text{ m}$ (xuống dưới)}
 {Quãng đường $s = 5\text{ m}$; $d = 5\text{ m}$ (lên trên)}
@@ -1089,11 +1031,10 @@ Quãng đường đi được $s = 5\text{ m}$. Độ dịch chuyển có độ 
 
 \textbf{Sử dụng dữ kiện sau cho Câu 13 đến Câu 18:} Một người di chuyển ở bốn địa điểm: xe buýt đậu bên đường, cây xanh, trường học, công viên.
 \begin{center}
-\includegraphics[width=0.7\linewidth]{fig_c2b1_p48_de2_p1_c13_18_bon_dia_diem.png}
+\includegraphics[width=6.0cm]{fig_c2b1_p48_de2_p1_c13_18_bon_dia_diem.png}
 \end{center}
 
-\begin{ex}
-Quãng đường đi được của người đó di chuyển từ chỗ xe buýt đến trường rồi đến công viên là
+\begin{ex}\macau{ID: C2B1-D2-P1-C13} Quãng đường đi được của người đó di chuyển từ chỗ xe buýt đến trường rồi đến công viên là
 \choice
 {$80\text{ m}$}
 {$100\text{ m}$}
@@ -1107,8 +1048,7 @@ s = 80 + 100 = 180\text{ m}
 }
 \end{ex}
 
-\begin{ex}
-Độ lớn độ dịch chuyển khi người đó di chuyển từ chỗ xe buýt đến trường rồi đến công viên là
+\begin{ex}\macau{ID: C2B1-D2-P1-C14} Độ lớn độ dịch chuyển khi người đó di chuyển từ chỗ xe buýt đến trường rồi đến công viên là
 \choice
 {$80\text{ m}$}
 {$100\text{ m}$}
@@ -1122,8 +1062,7 @@ d = \sqrt{80^2 + 100^2} = \sqrt{6400 + 10000} = \sqrt{16400} \approx 128\text{ m
 }
 \end{ex}
 
-\begin{ex}
-Quãng đường đi được của người đó di chuyển từ chỗ xe buýt đến trường rồi đến công viên và cuối cùng đến chỗ cây xanh là
+\begin{ex}\macau{ID: C2B1-D2-P1-C15} Quãng đường đi được của người đó di chuyển từ chỗ xe buýt đến trường rồi đến công viên và cuối cùng đến chỗ cây xanh là
 \choice
 {$80\text{ m}$}
 {$100\text{ m}$}
@@ -1137,8 +1076,7 @@ s = 80 + 100 + 80 = 260\text{ m}
 }
 \end{ex}
 
-\begin{ex}
-Độ lớn độ dịch chuyển khi người đó di chuyển từ chỗ xe buýt đến trường rồi đến công viên và cuối cùng đến chỗ cây xanh là
+\begin{ex}\macau{ID: C2B1-D2-P1-C16} Độ lớn độ dịch chuyển khi người đó di chuyển từ chỗ xe buýt đến trường rồi đến công viên và cuối cùng đến chỗ cây xanh là
 \choice
 {$80\text{ m}$}
 {\True $100\text{ m}$}
@@ -1149,8 +1087,7 @@ Vị trí đầu là chỗ xe buýt, vị trí cuối là chỗ cây xanh. Kho�
 }
 \end{ex}
 
-\begin{ex}
-Quãng đường đi được của người đó di chuyển từ chỗ xe buýt đến trường rồi đến công viên rồi đến chỗ cây xanh và cuối cùng đến chỗ xe buýt là
+\begin{ex}\macau{ID: C2B1-D2-P1-C17} Quãng đường đi được của người đó di chuyển từ chỗ xe buýt đến trường rồi đến công viên rồi đến chỗ cây xanh và cuối cùng đến chỗ xe buýt là
 \choice
 {$80\text{ m}$}
 {\True $360\text{ m}$}
@@ -1164,8 +1101,7 @@ s = 80 + 100 + 80 + 100 = 360\text{ m}
 }
 \end{ex}
 
-\begin{ex}
-Độ lớn độ dịch chuyển khi người đó di chuyển từ chỗ xe buýt đến trường rồi đến công viên rồi đến chỗ cây xanh và cuối cùng đến chỗ xe buýt là
+\begin{ex}\macau{ID: C2B1-D2-P1-C18} Độ lớn độ dịch chuyển khi người đó di chuyển từ chỗ xe buýt đến trường rồi đến công viên rồi đến chỗ cây xanh và cuối cùng đến chỗ xe buýt là
 \choice
 {$80\text{ m}$}
 {$100\text{ m}$}
@@ -1180,8 +1116,7 @@ Vị trí cuối trùng với vị trí đầu xuất phát (đều là chỗ xe
 \subsection*{PHẦN II. Câu hỏi trắc nghiệm Đúng / Sai}
 \textit{Thí sinh trả lời từ câu 1 đến câu 4. Trong mỗi ý a), b), c), d) ở mỗi câu, thí sinh chọn đúng hoặc sai.}
 
-\begin{ex}
-Xét một vật chuyển động.
+\begin{ex}\macau{ID: C2B1-D2-P2-C01} Xét một vật chuyển động.
 \choiceTF
 {\True Quãng đường là đại lượng vô hướng, không âm, chỉ được đặc trưng bởi độ lớn}
 {\True Quãng đường đi được không thể hiện được chiều chuyển động của vật}
@@ -1197,8 +1132,7 @@ Xét một vật chuyển động.
 }
 \end{ex}
 
-\begin{ex}
-\immini{
+\begin{ex}\macau{ID: C2B1-D2-P2-C02} \immini{
 Hai người đạp xe đạp từ A đến C, người thứ nhất đi theo đường từ A đến B, rồi từ B đến C, người thứ hai đi thẳng từ A đến C như hình vẽ.
 }{
 \includegraphics[width=2.2cm]{fig_c2b1_p50_de2_p2_c02_dap_xe.png}
@@ -1218,8 +1152,7 @@ Hai người đạp xe đạp từ A đến C, người thứ nhất đi theo đ
 }
 \end{ex}
 
-\begin{ex}
-Em của An chơi trò chơi tìm kho báu ở ngoài vườn với các bạn của mình. Em của An giấu kho báu của mình là một chiếc vòng nhựa vào trong một chiếc giày rồi viết mật thư tìm kho báu như sau: Bắt đầu từ gốc cây ổi, đi 10 bước về phía Bắc, sau đó đi 4 bước về phía Tây, 15 bước về phía Nam, 5 bước về phía Đông và 5 bước về phía Bắc là tới chỗ giấu kho báu.
+\begin{ex}\macau{ID: C2B1-D2-P2-C03} Em của An chơi trò chơi tìm kho báu ở ngoài vườn với các bạn của mình. Em của An giấu kho báu của mình là một chiếc vòng nhựa vào trong một chiếc giày rồi viết mật thư tìm kho báu như sau: Bắt đầu từ gốc cây ổi, đi 10 bước về phía Bắc, sau đó đi 4 bước về phía Tây, 15 bước về phía Nam, 5 bước về phía Đông và 5 bước về phía Bắc là tới chỗ giấu kho báu.
 \choiceTF
 {Không thể tìm ra kho báu theo cách mô tả này}
 {Quãng đường phải đi (theo bước) để tìm ra kho báu là 34 bước}
@@ -1235,10 +1168,9 @@ Em của An chơi trò chơi tìm kho báu ở ngoài vườn với các bạn c
 }
 \end{ex}
 
-\begin{ex}
-Xét hai xe chuyển động như hình. Chọn gốc toạ độ tại vị trí O trên hình vẽ, chiều dương hướng từ trái sang phải. Tại một thời điểm nào đó, xe màu xanh và xe màu cam đang lần lượt ở vị trí có toạ độ $x_A = 10\text{ km}$ và $x_B = 20\text{ km}$. Sau khoảng thời gian $\Delta t_1$, xe màu xanh đến được vị trí $x_B$ và xe màu cam đến được vị trí $x_A$.
+\begin{ex}\macau{ID: C2B1-D2-P2-C04} Xét hai xe chuyển động như hình. Chọn gốc toạ độ tại vị trí O trên hình vẽ, chiều dương hướng từ trái sang phải. Tại một thời điểm nào đó, xe màu xanh và xe màu cam đang lần lượt ở vị trí có toạ độ $x_A = 10\text{ km}$ và $x_B = 20\text{ km}$. Sau khoảng thời gian $\Delta t_1$, xe màu xanh đến được vị trí $x_B$ và xe màu cam đến được vị trí $x_A$.
 \begin{center}
-\includegraphics[width=0.65\linewidth]{fig_c2b1_p51_de2_p2_c04_hai_xe.png}
+\includegraphics[width=5.5cm]{fig_c2b1_p51_de2_p2_c04_hai_xe.png}
 \end{center}
 \choiceTF
 {\True Hai xe chuyển động ngược chiều nhau}
@@ -1265,8 +1197,7 @@ Xét hai xe chuyển động như hình. Chọn gốc toạ độ tại vị tr�
 \includegraphics[width=3.2cm]{fig_c2b1_p52_de2_p3_c01_02_nua_tron.png}
 }
 
-\begin{ex}
-Độ lớn độ dịch chuyển là bao nhiêu mét?
+\begin{ex}\macau{ID: C2B1-D2-P3-C01} Độ lớn độ dịch chuyển là bao nhiêu mét?
 
 \shortans{10}
 \loigiai{
@@ -1278,8 +1209,7 @@ d = 2r = 2 \cdot 5{,}0 = 10\text{ m}
 }
 \end{ex}
 
-\begin{ex}
-Quãng đường đã đi là bao nhiêu mét (làm tròn kết quả đến chữ số hàng phần mười)?
+\begin{ex}\macau{ID: C2B1-D2-P3-C02} Quãng đường đã đi là bao nhiêu mét (làm tròn kết quả đến chữ số hàng phần mười)?
 
 \shortans{15{,}7}
 \loigiai{
@@ -1296,8 +1226,7 @@ s = \pi r = 3{,}1416 \cdot 5{,}0 \approx 15{,}7\text{ m}
 \includegraphics[width=2.2cm]{fig_c2b1_p52_de2_p3_c03_04_tam_giac.png}
 }
 
-\begin{ex}
-Quãng đường đi được của người thứ nhất là bao nhiêu kilômét?
+\begin{ex}\macau{ID: C2B1-D2-P3-C03} Quãng đường đi được của người thứ nhất là bao nhiêu kilômét?
 
 \shortans{8}
 \loigiai{
@@ -1308,8 +1237,7 @@ s_1 = AB + BC = 4 + 4 = 8\text{ km}
 }
 \end{ex}
 
-\begin{ex}
-Độ lớn độ dịch chuyển của người thứ hai là bao nhiêu kilômét (làm tròn kết quả đến chữ số hàng phần mười)?
+\begin{ex}\macau{ID: C2B1-D2-P3-C04} Độ lớn độ dịch chuyển của người thứ hai là bao nhiêu kilômét (làm tròn kết quả đến chữ số hàng phần mười)?
 
 \shortans{5{,}7}
 \loigiai{
@@ -1323,8 +1251,7 @@ d_2 = AC = \sqrt{AB^2 + BC^2} = \sqrt{4^2 + 4^2} = 4\sqrt{2} \approx 5{,}7\text{
 
 \textbf{Sử dụng thông tin sau cho Câu 5 và Câu 6:} Một người lái ô tô đi thẳng $6\text{ km}$ theo hướng Tây, sau đó rẽ trái đi thẳng theo hướng Nam $4\text{ km}$ rồi quay sang hướng Đông đi $3\text{ km}$.
 
-\begin{ex}
-Quãng đường đi được của ô tô là bao nhiêu kilômét?
+\begin{ex}\macau{ID: C2B1-D2-P3-C05} Quãng đường đi được của ô tô là bao nhiêu kilômét?
 
 \shortans{13}
 \loigiai{
@@ -1335,8 +1262,7 @@ s = 6 + 4 + 3 = 13\text{ km}
 }
 \end{ex}
 
-\begin{ex}
-Độ lớn độ dịch chuyển của ô tô là bao nhiêu kilômét?
+\begin{ex}\macau{ID: C2B1-D2-P3-C06} Độ lớn độ dịch chuyển của ô tô là bao nhiêu kilômét?
 
 \shortans{5}
 \loigiai{
