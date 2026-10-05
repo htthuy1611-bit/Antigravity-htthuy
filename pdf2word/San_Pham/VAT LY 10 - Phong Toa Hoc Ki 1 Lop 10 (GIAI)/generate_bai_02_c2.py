@@ -1,0 +1,1800 @@
+# -*- coding: utf-8 -*-
+"""
+Generator script for chapters/bai_02_toc_do_van_toc_trang_54_81.tex
+Chương 2 - Bài 2: Tốc độ - Vận tốc (Trang 54 -- 81)
+LỚP LÝ THẦY NGỌC - GV: TRẦN VĂN THIỆN NGỌC - SĐT: 0935216256
+Tuân thủ đầy đủ 14 quy tắc hệ thống:
+- Bản quyền Thầy Ngọc, tiêu đề tcolorbox, footer chuẩn
+- \macau{ID: ...} cho 100% câu hỏi và ví dụ
+- Resize hình ảnh tinh tế 1.6cm - 3.8cm, \immini hình bên phải
+- \shortans có đúng 1 dòng trống trước lệnh, không thừa dòng "Đáp án:" trong \loigiai
+- Không có dấu chấm trước } trong \choice và \choiceTF
+- \choiceTF sử dụng \begin{itemchoice} \itemch ... \end{itemchoice}
+- 0 lỗi LaTeX, build F5 TeXstudio mượt mà
+"""
+import os, sys
+
+def get_content():
+    parts = []
+
+    # =========================================================================
+    # A. TÓM TẮT LÝ THUYẾT TRỌNG TÂM (Trang 54)
+    # =========================================================================
+    parts.append(r'''\tieudebaihoc{CHƯƠNG 2: ĐỘNG HỌC}{BÀI 2: TỐC ĐỘ -- VẬN TỐC}{Trang 54 -- 81}
+
+\section*{A. TÓM TẮT LÝ THUYẾT TRỌNG TÂM}
+
+\subsection*{1. Tốc độ}
+
+\subsubsection*{a) Tốc độ trung bình}
+Tốc độ trung bình là đại lượng vật lí đặc trưng cho sự nhanh, chậm của chuyển động trong một khoảng thời gian:
+\[
+v_{\text{tb}} = \frac{s}{t}
+\]
+trong đó:
+\begin{itemize}
+    \item $s$: quãng đường đi được ($\text{m}$; $\text{km}$).
+    \item $t$: thời gian chuyển động ($\text{s}$; $\text{h}$).
+\end{itemize}
+
+\subsubsection*{b) Chuyển động thẳng đều}
+Chuyển động thẳng đều là chuyển động có quỹ đạo là đường thẳng và có tốc độ trung bình như nhau trên mọi quãng đường.
+
+\subsubsection*{c) Quãng đường đi được trong chuyển động thẳng đều}
+\[
+s = v \cdot t
+\]
+\textit{Chú ý:} Trong chuyển động thẳng đều, tốc độ là không đổi, quãng đường đi tỉ lệ thuận với thời gian chuyển động.
+
+\subsection*{2. Vận tốc}
+
+\subsubsection*{a) Vận tốc trung bình}
+Vận tốc trung bình là đại lượng vectơ được xác định bằng thương số giữa độ dịch chuyển và khoảng thời gian dịch chuyển:
+\[
+\vec{v} = \frac{\vec{d}}{t}
+\]
+\begin{itemize}
+    \item Vì độ dịch chuyển $\vec{d}$ là một đại lượng vectơ nên vận tốc $\vec{v}$ cũng là một đại lượng vectơ.
+    \item Vectơ vận tốc có:
+    \begin{itemize}
+        \item Gốc nằm trên vật chuyển động.
+        \item Hướng là hướng của độ dịch chuyển $\vec{d}$.
+        \item Độ dài tỉ lệ với độ lớn của vận tốc.
+    \end{itemize}
+    \item Trong chuyển động thẳng không đổi chiều: quãng đường bằng độ dịch chuyển ($s = d$), do đó tốc độ trung bình bằng độ lớn của vận tốc trung bình ($v_{\text{tb}} = v$).
+    \item Khi vật chuyển động có đổi chiều: quãng đường lớn hơn độ lớn độ dịch chuyển ($s > d$), do đó tốc độ trung bình lớn hơn độ lớn vận tốc trung bình ($v_{\text{tb}} > v$).
+\end{itemize}
+
+\subsubsection*{b) Vận tốc tức thời}
+Vận tốc tức thời là vận tốc tại một thời điểm xác định, được kí hiệu là $\vec{v}_t$:
+\[
+\vec{v}_t = \frac{\Delta\vec{d}}{\Delta t} \quad \text{với } \Delta t \text{ rất nhỏ}
+\]
+\begin{itemize}
+    \item Vectơ vận tốc tức thời có phương tiếp tuyến với quỹ đạo tại điểm đang xét, có chiều là chiều chuyển động.
+    \item Tốc độ tức thời là độ lớn của vận tốc tức thời tại thời điểm đó. Tốc kế trên các phương tiện giao thông (ô tô, xe máy) cho biết giá trị của tốc độ tức thời.
+\end{itemize}
+
+\subsection*{3. Thực hành đo tốc độ trong phòng thí nghiệm}
+\begin{itemize}
+    \item \textbf{Phương pháp đo trực tiếp quãng đường và thời gian:}
+    \begin{itemize}
+        \item Dùng thước đo quãng đường $s$ và đồng hồ bấm giây để đo thời gian $t$.
+        \item Tốc độ trung bình: $v = \frac{s}{t}$.
+        \item Sai số tỉ đối của phép đo: $\delta v = \frac{\Delta v}{\overline{v}} = \frac{\Delta s}{\overline{s}} + \frac{\Delta t}{\overline{t}}$.
+    \end{itemize}
+    \item \textbf{Sử dụng đồng hồ đo thời gian hiện số và cổng quang điện:}
+    \begin{itemize}
+        \item Cổng quang điện đóng vai trò như công tắc điều khiển đóng/ngắt đồng hồ hiện số khi có vật chắn sáng.
+        \item Cho kết quả đo chính xác cao đến phần nghìn giây ($0{,}001\text{ s}$), giảm thiểu sai số do con người.
+        \item Núm xoay chọn chức năng: MODE A (đo qua cổng A), MODE B (đo qua cổng B), MODE A $\leftrightarrow$ B (đo khoảng thời gian chuyển động từ cổng A đến cổng B).
+    \end{itemize}
+\end{itemize}
+''')
+
+    # =========================================================================
+    # B. CÁC DẠNG BÀI TẬP VÀ VÍ DỤ MINH HỌA (Ví dụ 1 - 18, Trang 55 -- 60)
+    # =========================================================================
+    parts.append(r'''\section*{B. CÁC DẠNG BÀI TẬP VÀ VÍ DỤ MINH HỌA}
+
+\setcounter{vd}{0}
+\subsection*{Dạng 1: Tốc độ và vận tốc}
+
+\begin{vd}\macau{ID: C2B2-VD01} Hãy tính tốc độ trung bình ra $\text{m/s}$ và $\text{km/h}$ của nữ vận động viên tại một số giải thi đấu dựa vào số liệu trong bảng bên dưới.
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|l|c|c|}
+\hline
+\textbf{Giải thi đấu} & \textbf{Cự li chạy (m)} & \textbf{Thời gian chạy (s)} \\
+\hline
+Điền kinh quốc gia 2016 & 100 & 11{,}64 \\
+\hline
+SEA Games 29 (2017) & 100 & 11{,}56 \\
+\hline
+SEA Games 30 (2019) & 100 & 11{,}54 \\
+\hline
+\end{tabular}
+\end{center}
+\loigiai{
+Tốc độ trung bình của nữ vận động viên tại các giải thi đấu:
+\begin{itemize}
+    \item Điền kinh quốc gia 2016:
+    \[
+    v_{\text{tb}} = \frac{100}{11{,}64} \approx 8{,}59\text{ m/s} \approx 30{,}92\text{ km/h}
+    \]
+    \item SEA Games 29 (2017):
+    \[
+    v_{\text{tb}} = \frac{100}{11{,}56} \approx 8{,}65\text{ m/s} \approx 31{,}14\text{ km/h}
+    \]
+    \item SEA Games 30 (2019):
+    \[
+    v_{\text{tb}} = \frac{100}{11{,}54} \approx 8{,}67\text{ m/s} \approx 31{,}21\text{ km/h}
+    \]
+\end{itemize}
+}
+\end{vd}
+
+\begin{vd}\macau{ID: C2B2-VD02} \immini{
+Bạn Mapi đi học từ nhà đến trường theo lộ trình $ABC$ như hình vẽ bên. Biết bạn Mapi đi đoạn đường $AB = 200\text{ m}$ mất $4\text{ phút}$, đoạn đường $BC = 300\text{ m}$ hết $5\text{ phút}$. Xác định tốc độ trung bình và vận tốc trung bình của bạn Mapi khi đi từ nhà đến trường.
+}{
+\includegraphics[width=3.6cm]{fig_c2b2_p55_vd02_mapi.png}
+}
+\loigiai{
+\begin{itemize}
+    \item \textbf{Tốc độ trung bình của bạn Mapi:}
+    \begin{itemize}
+        \item Quãng đường đi được: $s = AB + BC = 200 + 300 = 500\text{ m}$.
+        \item Thời gian đi: $t = 4 + 5 = 9\text{ phút} = 540\text{ s}$.
+        \item Tốc độ trung bình:
+        \[
+        v_{\text{tb}} = \frac{s}{t} = \frac{500}{540} \approx 0{,}93\text{ m/s}
+        \]
+    \end{itemize}
+    \item \textbf{Vận tốc trung bình của bạn Mapi:}
+    \begin{itemize}
+        \item Chọn trục $Ox$ hướng từ A đến C. Do góc $\widehat{ABC} = 90^\circ$, độ dịch chuyển là:
+        \[
+        d = AC = \sqrt{AB^2 + BC^2} = \sqrt{200^2 + 300^2} \approx 360{,}6\text{ m}
+        \]
+        \item Vận tốc trung bình:
+        \[
+        v = \frac{d}{t} = \frac{360{,}6}{540} \approx 0{,}67\text{ m/s}
+        \]
+    \end{itemize}
+\end{itemize}
+}
+\end{vd}
+
+\begin{vd}\macau{ID: C2B2-VD03} Một con kiến bò quanh miệng của một cái chén được 1 vòng hết $3\text{ giây}$. Bán kính của miệng chén là $3\text{ cm}$.
+\begin{enumerate}[a)]
+    \item Tính quãng đường đi được và độ dịch chuyển của kiến.
+    \item Tính tốc độ trung bình và vận tốc trung bình của con kiến ra $\text{cm/s}$.
+\end{enumerate}
+\loigiai{
+\begin{enumerate}[a)]
+    \item Quãng đường con kiến đi được bằng chu vi miệng chén:
+    \[
+    s = 2\pi r = 2\pi \cdot 3 \approx 18{,}84\text{ cm}
+    \]
+    Vì con kiến bò 1 vòng rồi trở về vị trí xuất phát ban đầu nên độ dịch chuyển là $d = 0$.
+    \item Tốc độ trung bình:
+    \[
+    v_{\text{tb}} = \frac{s}{t} = \frac{18{,}84}{3} = 6{,}28\text{ cm/s}
+    \]
+    Do độ dịch chuyển $d = 0$ nên vận tốc trung bình của con kiến là:
+    \[
+    v = \frac{d}{t} = 0\text{ cm/s}
+    \]
+\end{enumerate}
+}
+\end{vd}
+
+\begin{vd}\macau{ID: C2B2-VD04} Một người đi bằng thuyền với tốc độ $2\text{ m/s}$ về phía Đông. Sau khi đi được $2{,}2\text{ km}$, người này lên ô tô đi về phía Bắc trong $15\text{ phút}$ với tốc độ $60\text{ km/h}$.
+\begin{enumerate}[a)]
+    \item Tính quãng đường đi được.
+    \item Tính độ dịch chuyển.
+    \item Tính tốc độ trung bình.
+    \item Tính vận tốc trung bình.
+\end{enumerate}
+\loigiai{
+Đổi đơn vị: $v_1 = 2\text{ m/s} = 7{,}2\text{ km/h}$; $t_2 = 15\text{ phút} = 0{,}25\text{ h}$.
+\begin{itemize}
+    \item Thời gian đi thuyền: $t_1 = \frac{s_1}{v_1} = \frac{2{,}2}{7{,}2} \approx 0{,}306\text{ h}$.
+    \item Quãng đường đi ô tô: $s_2 = v_2 t_2 = 60 \cdot 0{,}25 = 15\text{ km}$.
+    \item a) Tổng quãng đường đã đi:
+    \[
+    s = s_1 + s_2 = 2{,}2 + 15 = 17{,}2\text{ km}
+    \]
+    \item b) Do hai hướng Đông và Bắc vuông góc nhau, độ dịch chuyển:
+    \[
+    d = \sqrt{s_1^2 + s_2^2} = \sqrt{2{,}2^2 + 15^2} \approx 15{,}16\text{ km}
+    \]
+    \item c) Tổng thời gian chuyển động: $t = t_1 + t_2 = \frac{2{,}2}{7{,}2} + 0{,}25 \approx 0{,}556\text{ h}$.\\
+    Tốc độ trung bình:
+    \[
+    v_{\text{tb}} = \frac{s}{t} = \frac{17{,}2}{0{,}556} \approx 30{,}96\text{ km/h} \approx 8{,}6\text{ m/s}
+    \]
+    \item d) Vận tốc trung bình:
+    \[
+    v = \frac{d}{t} = \frac{15{,}16}{0{,}556} \approx 27{,}29\text{ km/h} \approx 7{,}58\text{ m/s}
+    \]
+\end{itemize}
+}
+\end{vd}
+
+\begin{vd}\macau{ID: C2B2-VD05} Một người đi xe máy chuyển động thẳng đều từ A lúc 5 giờ sáng và tới B lúc 7 giờ 30 phút, quãng đường $AB = 150\text{ km}$. Tốc độ của xe là
+\choice
+{$40\text{ km/h}$}
+{$50\text{ km/h}$}
+{\True $60\text{ km/h}$}
+{$70\text{ km/h}$}
+\loigiai{
+Thời gian xe máy đi từ A đến B:
+\[
+t = 7{,}5\text{ h} - 5\text{ h} = 2{,}5\text{ h}
+\]
+Tốc độ của xe:
+\[
+v = \frac{s}{t} = \frac{150}{2{,}5} = 60\text{ km/h}
+\]
+}
+\end{vd}
+
+\begin{vd}\macau{ID: C2B2-VD06} Một người bơi dọc theo chiều dài $100\text{ m}$ của bể bơi hết $60\text{ s}$ rồi bơi quay về lại chỗ xuất phát trong $70\text{ s}$. Trong suốt quãng đường bơi đi và bơi về, vận tốc trung bình của người đó là
+\choice
+{\True $0\text{ m/s}$}
+{$0{,}769\text{ m/s}$}
+{$1{,}538\text{ m/s}$}
+{$1{,}43\text{ m/s}$}
+\loigiai{
+Vì người đó bơi quay về lại đúng vị trí xuất phát ban đầu, độ dịch chuyển tổng hợp bằng không ($d = 0$).\\
+Do đó, vận tốc trung bình trong suốt quá trình bơi đi và về là:
+\[
+v = \frac{d}{t} = 0\text{ m/s}
+\]
+}
+\end{vd}
+
+\begin{vd}\macau{ID: C2B2-VD07} Trong một lần thử xe ô tô, người ta xác định được độ dịch chuyển của xe tại các thời điểm cách nhau cùng khoảng thời gian $1\text{ s}$ như bảng bên dưới.
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|l|c|c|c|c|c|c|}
+\hline
+\textbf{Độ dịch chuyển $d$ (m)} & 0 & 2{,}3 & 9{,}2 & 20{,}7 & 36{,}8 & 57{,}5 \\
+\hline
+\textbf{Thời gian $t$ (s)} & 0 & 1{,}0 & 2{,}0 & 3{,}0 & 4{,}0 & 5{,}0 \\
+\hline
+\end{tabular}
+\end{center}
+Vận tốc trung bình của ô tô trong 3 giây cuối cùng là
+\choice
+{\True $16{,}1\text{ m/s}$}
+{$2{,}3\text{ m/s}$}
+{$12{,}27\text{ m/s}$}
+{$11{,}5\text{ m/s}$}
+\loigiai{
+Trong 3 giây cuối cùng (từ thời điểm $t_1 = 2{,}0\text{ s}$ đến $t_2 = 5{,}0\text{ s}$):
+\begin{itemize}
+    \item Độ biến thiên độ dịch chuyển: $\Delta d = d(5) - d(2) = 57{,}5 - 9{,}2 = 48{,}3\text{ m}$.
+    \item Khoảng thời gian: $\Delta t = 5{,}0 - 2{,}0 = 3{,}0\text{ s}$.
+\end{itemize}
+Vận tốc trung bình:
+\[
+v = \frac{\Delta d}{\Delta t} = \frac{48{,}3}{3{,}0} = 16{,}1\text{ m/s}
+\]
+}
+\end{vd}
+
+\begin{vd}\macau{ID: C2B2-VD08} Một vật chuyển động thẳng không đổi chiều trên quãng đường dài $35\text{ m}$. Nửa quãng đường đầu vật chuyển động thẳng đều hết thời gian $t_1 = 5\text{ s}$, nửa quãng đường sau vật chuyển động thẳng đều hết thời gian $t_2 = 2\text{ s}$. Tốc độ trung bình trên cả quãng đường là
+\choice
+{$7\text{ m/s}$}
+{$6\text{ m/s}$}
+{\True $5\text{ m/s}$}
+{$4\text{ m/s}$}
+\loigiai{
+Tổng thời gian chuyển động trên cả quãng đường:
+\[
+t = t_1 + t_2 = 5 + 2 = 7\text{ s}
+\]
+Tốc độ trung bình trên cả quãng đường:
+\[
+v_{\text{tb}} = \frac{s}{t} = \frac{35}{7} = 5\text{ m/s}
+\]
+}
+\end{vd}
+
+\begin{vd}\macau{ID: C2B2-VD09} Một người bơi dọc theo chiều dài $60\text{ m}$ của bể bơi hết $40\text{ s}$, rồi quay lại về chỗ xuất phát trong $60\text{ s}$. Gọi $v_1, v_2$ và $v_3$ lần lượt là tốc độ trung bình: trong lần bơi đầu tiên theo chiều dài bể bơi; trong lần bơi về và trong suốt quãng đường đi và về. Tổng $(v_1 + v_2 - v_3)$ có giá trị là
+\choice
+{\True $1{,}3\text{ m/s}$}
+{$4{,}2\text{ m/s}$}
+{$3{,}6\text{ m/s}$}
+{$3{,}5\text{ m/s}$}
+\loigiai{
+Tốc độ trung bình ở từng giai đoạn:
+\begin{itemize}
+    \item Lượt bơi đi: $v_1 = \frac{60}{40} = 1{,}5\text{ m/s}$.
+    \item Lượt bơi về: $v_2 = \frac{60}{60} = 1{,}0\text{ m/s}$.
+    \item Cả quá trình đi và về: $v_3 = \frac{s_1 + s_2}{t_1 + t_2} = \frac{60 + 60}{40 + 60} = \frac{120}{100} = 1{,}2\text{ m/s}$.
+\end{itemize}
+Vậy:
+\[
+v_1 + v_2 - v_3 = 1{,}5 + 1{,}0 - 1{,}2 = 1{,}3\text{ m/s}
+\]
+}
+\end{vd}
+
+\begin{vd}\macau{ID: C2B2-VD10} Một người đi xe đạp đã đi quãng đường $s_1 = 4\text{ km}$ với tốc độ trung bình $v_1 = 12\text{ km/h}$. Sau đó người ấy dừng lại để sửa xe trong $t_2 = 40\text{ phút}$ rồi đi tiếp quãng đường $s_3 = 8\text{ km}$ với tốc độ trung bình $v_3 = 8\text{ km/h}$. Tốc độ trung bình của người ấy trên tất cả quãng đường đã đi là
+\choice
+{$8\text{ km/h}$}
+{\True $6\text{ km/h}$}
+{$12\text{ km/h}$}
+{$10\text{ km/h}$}
+\loigiai{
+\begin{itemize}
+    \item Thời gian đi chặng 1: $t_1 = \frac{s_1}{v_1} = \frac{4}{12} = \frac{1}{3}\text{ h}$.
+    \item Thời gian sửa xe: $t_2 = 40\text{ phút} = \frac{2}{3}\text{ h}$ (trong thời gian này $s_2 = 0$).
+    \item Thời gian đi chặng 3: $t_3 = \frac{s_3}{v_3} = \frac{8}{8} = 1\text{ h}$.
+\end{itemize}
+Tổng thời gian chuyển động: $t = t_1 + t_2 + t_3 = \frac{1}{3} + \frac{2}{3} + 1 = 2\text{ h}$.\\
+Tổng quãng đường: $s = s_1 + s_2 + s_3 = 4 + 0 + 8 = 12\text{ km}$.\\
+Tốc độ trung bình:
+\[
+v_{\text{tb}} = \frac{s}{t} = \frac{12}{2} = 6\text{ km/h}
+\]
+}
+\end{vd}
+
+\begin{vd}\macau{ID: C2B2-VD11} Một người tập thể dục chạy trên một đường thẳng. Lúc đầu người đó chạy với tốc độ trung bình $5\text{ m/s}$ trong thời gian $4\text{ phút}$. Sau đó người ấy giảm tốc độ còn $4\text{ m/s}$ trong thời gian $6\text{ phút}$. Tốc độ trung bình trong toàn bộ thời gian chạy có giá trị là
+\choice
+{$3{,}5\text{ m/s}$}
+{$5{,}6\text{ m/s}$}
+{$4{,}8\text{ m/s}$}
+{\True $4{,}4\text{ m/s}$}
+\loigiai{
+Đổi đơn vị: $t_1 = 4\text{ phút} = 240\text{ s}$; $t_2 = 6\text{ phút} = 360\text{ s}$.\\
+Quãng đường đi được ở từng đoạn:
+\begin{itemize}
+    \item $s_1 = v_1 t_1 = 5 \cdot 240 = 1200\text{ m}$.
+    \item $s_2 = v_2 t_2 = 4 \cdot 360 = 1440\text{ m}$.
+\end{itemize}
+Tốc độ trung bình toàn bộ thời gian:
+\[
+v_{\text{tb}} = \frac{s_1 + s_2}{t_1 + t_2} = \frac{1200 + 1440}{240 + 360} = \frac{2640}{600} = 4{,}4\text{ m/s}
+\]
+}
+\end{vd}
+
+\begin{vd}\macau{ID: C2B2-VD12} Một ô tô chạy trên một đoạn đường thẳng từ địa điểm A đến địa điểm B phải mất một khoảng thời gian $t$. Tốc độ của ô tô trong một phần tư của khoảng thời gian này là $60\text{ km/h}$ và trong phần còn lại là $40\text{ km/h}$. Tốc độ trung bình của ô tô trên cả đoạn đường AB là
+\choice
+{$48\text{ km/h}$}
+{$50\text{ km/h}$}
+{$36\text{ km/h}$}
+{\True $45\text{ km/h}$}
+\loigiai{
+Quãng đường ô tô đi được:
+\begin{itemize}
+    \item Trong $\frac{1}{4}$ thời gian đầu: $s_1 = v_1 \cdot 0{,}25t = 60 \cdot 0{,}25t = 15t$.
+    \item Trong $\frac{3}{4}$ thời gian còn lại: $s_2 = v_2 \cdot 0{,}75t = 40 \cdot 0{,}75t = 30t$.
+\end{itemize}
+Tốc độ trung bình trên cả đoạn đường:
+\[
+v_{\text{tb}} = \frac{s_1 + s_2}{t} = \frac{15t + 30t}{t} = 45\text{ km/h}
+\]
+}
+\end{vd}
+
+\begin{vd}\macau{ID: C2B2-VD13} Một xe đi nửa đoạn đường đầu tiên với tốc độ trung bình $v_1 = 12\text{ km/h}$ và nửa đoạn đường sau với tốc độ trung bình $v_2 = 20\text{ km/h}$. Tốc độ trung bình trên cả đoạn đường là
+\choice
+{$10\text{ km/h}$}
+{$12\text{ km/h}$}
+{$14\text{ km/h}$}
+{\True $15\text{ km/h}$}
+\loigiai{
+Gọi tổng chiều dài đoạn đường là $s$.
+\begin{itemize}
+    \item Thời gian đi nửa đoạn đường đầu: $t_1 = \frac{s/2}{v_1} = \frac{s}{2 \cdot 12} = \frac{s}{24}$.
+    \item Thời gian đi nửa đoạn đường sau: $t_2 = \frac{s/2}{v_2} = \frac{s}{2 \cdot 20} = \frac{s}{40}$.
+\end{itemize}
+Tốc độ trung bình trên cả đoạn đường:
+\[
+v_{\text{tb}} = \frac{s}{t_1 + t_2} = \frac{s}{\frac{s}{24} + \frac{s}{40}} = \frac{2v_1 v_2}{v_1 + v_2} = \frac{2 \cdot 12 \cdot 20}{12 + 20} = 15\text{ km/h}
+\]
+}
+\end{vd}
+
+\begin{vd}\macau{ID: C2B2-VD14} Một người đi xe đạp chuyển động trên một đoạn đường thẳng AB có độ dài là $s$. Tốc độ của xe đạp trong một phần tư đầu của đoạn đường này là $12\text{ km/h}$, trong một phần năm tiếp theo là $16\text{ km/h}$ và trong phần còn lại là $22\text{ km/h}$. Tốc độ trung bình của xe đạp trên cả đoạn đường AB có giá trị là
+\choice
+{$48{,}23\text{ km/h}$}
+{$15{,}15\text{ km/h}$}
+{$14{,}23\text{ km/h}$}
+{\True $17{,}14\text{ km/h}$}
+\loigiai{
+Phần đoạn đường còn lại:
+\[
+s_3 = s - \frac{s}{4} - \frac{s}{5} = \frac{11}{20}s
+\]
+Thời gian đi trên từng đoạn:
+\[
+t_1 = \frac{s/4}{12} = \frac{s}{48}, \quad t_2 = \frac{s/5}{16} = \frac{s}{80}, \quad t_3 = \frac{11s/20}{22} = \frac{s}{40}
+\]
+Tổng thời gian đi:
+\[
+t = t_1 + t_2 + t_3 = s \left(\frac{1}{48} + \frac{1}{80} + \frac{1}{40}\right) = \frac{7}{120}s
+\]
+Tốc độ trung bình:
+\[
+v_{\text{tb}} = \frac{s}{t} = \frac{120}{7} \approx 17{,}14\text{ km/h}
+\]
+}
+\end{vd}
+
+\begin{vd}\macau{ID: C2B2-VD15} Một máy bay phản lực chuyển động thẳng đều có tốc độ bằng $2400\text{ km/h}$. Nếu muốn bay liên tục trên khoảng cách $6000\text{ km}$ thì máy bay phải bay trong
+\choice
+{$2\text{ giờ } 50\text{ phút}$}
+{$5\text{ giờ } 20\text{ phút}$}
+{\True $2\text{ giờ } 30\text{ phút}$}
+{$3\text{ giờ } 20\text{ phút}$}
+\loigiai{
+Thời gian máy bay bay được quãng đường $6000\text{ km}$ là:
+\[
+t = \frac{s}{v} = \frac{6000}{2400} = 2{,}5\text{ h} = 2\text{ giờ } 30\text{ phút}
+\]
+}
+\end{vd}
+
+\begin{vd}\macau{ID: C2B2-VD16} Một người đi bộ với tốc độ không đổi bằng $1{,}9\text{ m/s}$. Nếu người đó đi không nghỉ thì sau bao lâu sẽ đến một địa điểm cách nơi xuất phát $780\text{ m}$?
+\choice
+{$6{,}50\text{ phút}$}
+{\True $6\text{ phút } 50\text{ giây}$}
+{$650\text{ giây}$}
+{$7\text{ phút}$}
+\loigiai{
+Thời gian người đó đi hết quãng đường $780\text{ m}$:
+\[
+t = \frac{s}{v} = \frac{780}{1{,}9} \approx 410{,}5\text{ s} \approx 6\text{ phút } 50\text{ giây}
+\]
+}
+\end{vd}
+
+\begin{vd}\macau{ID: C2B2-VD17} Một người đi xe máy chuyển động thẳng đều từ A lúc 5 giờ sáng và tới B lúc 7 giờ 30 phút, quãng đường $AB = 150\text{ km}$. Tới B xe dừng lại 45 phút rồi đi về A với tốc độ $v = 50\text{ km/h}$. Xe tới A lúc mấy giờ?
+\choice
+{$11\text{h}45'$}
+{$10\text{h}45'$}
+{\True $11\text{h}15'$}
+{$9\text{h}15'$}
+\loigiai{
+\begin{itemize}
+    \item Thời điểm xe bắt đầu quay về từ B: $t_1 = 7\text{h}30' + 45' = 8\text{h}15'$.
+    \item Thời gian đi từ B về A: $t_2 = \frac{s}{v} = \frac{150}{50} = 3\text{h}$.
+    \item Thời điểm xe về tới A: $t = 8\text{h}15' + 3\text{h} = 11\text{h}15'$.
+\end{itemize}
+}
+\end{vd}
+
+\begin{vd}\macau{ID: C2B2-VD18} \immini{
+Một người xuất phát từ A tới bờ sông để lấy nước rồi từ đó mang nước đến B. A cách bờ sông một khoảng $AM = 60\text{ m}$; B cách bờ sông một khoảng $BN = 300\text{ m}$. Khúc sông $MN$ dài $480\text{ m}$ và coi là thẳng. Từ A và B tới bất kì điểm nào của bờ sông $MN$ đều có thể đi theo các đường thẳng (hình vẽ bên). Hỏi muốn quãng đường cần đi là ngắn nhất thì người đó phải đi theo con đường như thế nào và tính chiều dài quãng đường ấy? Nếu người ấy chạy với tốc độ $v = 6\text{ m/s}$ thì thời gian chạy hết bao nhiêu?
+}{
+\includegraphics[width=3.6cm]{fig_c2b2_p59_vd18_bo_song.png}
+}
+\loigiai{
+\immini{
+Giả sử người đi theo đường $AIB$ ($I \in MN$).
+\begin{itemize}
+    \item Lấy điểm $B'$ đối xứng với $B$ qua bờ sông $MN$. Khi đó $IB = IB'$ với mọi điểm $I$ trên bờ sông.
+    \item Chiều dài đường đi: $L = AI + IB = AI + IB'$.
+    \item Để quãng đường $L$ ngắn nhất thì ba điểm $A, I, B'$ phải thẳng hàng, tức là $I$ trùng với giao điểm $J$ của đoạn thẳng $AB'$ với bờ sông $MN$.
+    \item Từ hình vẽ: dựng hình chữ nhật $AMPN$, ta có:
+    \[
+    AP = MN = 480\text{ m}
+    \]
+    \[
+    B'P = B'N + NP = BN + AM = 300 + 60 = 360\text{ m}
+    \]
+    \item Chiều dài quãng đường ngắn nhất:
+    \[
+    s_{\min} = AB' = \sqrt{AP^2 + B'P^2} = \sqrt{480^2 + 360^2} = 600\text{ m}
+    \]
+    \item Thời gian chạy ít nhất:
+    \[
+    t_{\min} = \frac{s_{\min}}{v} = \frac{600}{6} = 100\text{ s}
+    \]
+\end{itemize}
+}{
+\includegraphics[width=3.2cm]{fig_c2b2_p60_vd18_bo_song_loigiai.png}
+}
+}
+\end{vd}
+''')
+
+    # =========================================================================
+    # C. CÂU HỎI VÀ BÀI TẬP TỰ LUYỆN -- ĐỀ SỐ 1 (Đề 6 gốc, Trang 61 -- 67)
+    # =========================================================================
+    parts.append(r'''\section*{C. CÂU HỎI VÀ BÀI TẬP TỰ LUYỆN -- ĐỀ SỐ 1}
+
+\setcounter{ex}{0}
+\subsection*{PHẦN I. Câu hỏi trắc nghiệm nhiều phương án lựa chọn}
+\textit{Thí sinh trả lời từ câu 1 đến câu 18. Mỗi câu hỏi thí sinh chỉ chọn một phương án.}
+
+\begin{ex}\macau{ID: C2B2-D1-P1-C01} Một vật chuyển động, có quãng đường đi được trong khoảng thời gian $t$ là $s$. Khi đó, tốc độ trung bình được tính bằng công thức
+\choice
+{$v_{\text{tb}} = \frac{s}{t^2}$}
+{$v_{\text{tb}} = \frac{t}{s}$}
+{\True $v_{\text{tb}} = \frac{s}{t}$}
+{$v_{\text{tb}} = s \cdot t$}
+\loigiai{
+Tốc độ trung bình bằng thương số giữa quãng đường đi được và khoảng thời gian đi hết quãng đường đó: $v_{\text{tb}} = \frac{s}{t}$.
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D1-P1-C02} Một người chuyển động thẳng có độ dịch chuyển $d_1$ tại thời điểm $t_1$ và độ dịch chuyển $d_2$ tại thời điểm $t_2$. Vận tốc trung bình của vật trong khoảng thời gian từ $t_1$ đến $t_2$ là
+\choice
+{$v = \frac{d_1 - d_2}{t_1 + t_2}$}
+{\True $v = \frac{d_2 - d_1}{t_2 - t_1}$}
+{$v = \frac{d_1 + d_2}{t_2 - t_1}$}
+{$v = \frac{1}{2}\left(\frac{d_1}{t_1} + \frac{d_2}{t_2}\right)$}
+\loigiai{
+Vận tốc trung bình được xác định bằng độ biến thiên độ dịch chuyển chia cho khoảng thời gian dịch chuyển: $v = \frac{\Delta d}{\Delta t} = \frac{d_2 - d_1}{t_2 - t_1}$.
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D1-P1-C03} Đơn vị nào sau đây không phải đơn vị đo tốc độ?
+\choice
+{$\text{km/h}$}
+{$\text{m/s}$}
+{$\text{km/phút}$}
+{\True $\text{m}$}
+\loigiai{
+Mét ($\text{m}$) là đơn vị đo chiều dài hoặc quãng đường, không phải đơn vị đo tốc độ.
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D1-P1-C04} Vào lúc 10 giờ, người lái xe nhìn vào tốc kế và thấy tốc kế chỉ $40\text{ km/h}$. Số liệu này cho biết
+\choice
+{\True tốc độ tức thời của xe}
+{vận tốc trung bình của xe}
+{tốc độ trung bình của xe}
+{vận tốc tức thời của xe}
+\loigiai{
+Tốc kế gắn trên bảng điều khiển xe cho biết giá trị tốc độ tức thời của xe tại thời điểm quan sát.
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D1-P1-C05} Vectơ vận tốc tức thời
+\choice
+{\True luôn cùng hướng chuyển động}
+{có gốc tại vị trí ban đầu}
+{cùng chiều dương của trục $Ox$}
+{có độ dài bằng độ dịch chuyển}
+\loigiai{
+Vectơ vận tốc tức thời luôn có hướng trùng với hướng chuyển động của vật tại thời điểm đang xét.
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D1-P1-C06} Phát biểu nào sau đây về vận tốc là sai?
+\choice
+{Vận tốc là đại lượng vectơ}
+{Vận tốc có thể cho biết chiều chuyển động}
+{Vận tốc cho biết sự nhanh hay chậm của chuyển động}
+{\True Vận tốc luôn có giá trị dương}
+\loigiai{
+Vận tốc là đại lượng vectơ, giá trị đại số của vận tốc trên một trục tọa độ có thể dương, âm hoặc bằng 0 tùy thuộc vào chiều chuyển động so với chiều dương đã chọn.
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D1-P1-C07} Khi vật chuyển động thẳng, đổi chiều thì độ lớn của vận tốc so với tốc độ là
+\choice
+{bằng nhau}
+{lớn hơn}
+{\True nhỏ hơn}
+{lớn hơn hoặc bằng}
+\loigiai{
+Khi vật chuyển động thẳng có đổi chiều thì quãng đường lớn hơn độ lớn độ dịch chuyển ($s > d$), do đó tốc độ trung bình lớn hơn độ lớn của vận tốc trung bình (hay độ lớn vận tốc nhỏ hơn tốc độ).
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D1-P1-C08} Chuyển động thẳng đều có tốc độ
+\choice
+{\True như nhau trên mọi quãng đường}
+{tăng dần khi chiều dài đoạn đường tăng}
+{giảm dần khi chiều dài đoạn đường tăng}
+{có thể tăng dần hoặc giảm dần khi chiều dài đoạn đường tăng}
+\loigiai{
+Theo định nghĩa, chuyển động thẳng đều có tốc độ không đổi và như nhau trên mọi quãng đường.
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D1-P1-C09} Một ô tô chuyển động trên đường thẳng và không đổi chiều. Tại thời điểm $t_1$, ô tô ở cách vị trí xuất phát $8\text{ km}$. Tại thời điểm $t_2$, ô tô cách vị trí xuất phát $15\text{ km}$. Từ $t_1$ đến $t_2$, độ dịch chuyển của ô tô đã thay đổi một đoạn bằng
+\choice
+{$24\text{ km}$}
+{$8\text{ km}$}
+{\True $7\text{ km}$}
+{$15\text{ km}$}
+\loigiai{
+Độ biến thiên độ dịch chuyển của ô tô:
+\[
+\Delta d = d_2 - d_1 = 15 - 8 = 7\text{ km}
+\]
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D1-P1-C10} Trong thí nghiệm đo tốc độ trung bình của viên bi thép chuyển động trên máng nghiêng dài $0{,}5\text{ m}$, người ta tính được giá trị trung bình của thời gian chuyển động trong 3 lần đo là $0{,}778\text{ s}$. Tốc độ trung bình của viên bi có giá trị là
+\choice
+{\True $0{,}643\text{ m/s}$}
+{$0{,}625\text{ m/s}$}
+{$0{,}647\text{ m/s}$}
+{$0{,}629\text{ m/s}$}
+\loigiai{
+Tốc độ trung bình của viên bi:
+\[
+v_{\text{tb}} = \frac{s}{t} = \frac{0{,}5}{0{,}778} \approx 0{,}643\text{ m/s}
+\]
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D1-P1-C11} Một xe máy đi nửa đoạn đường đầu tiên với tốc độ trung bình $v_1 = 60\text{ km/h}$ và nửa đoạn đường sau với tốc độ trung bình $v_2 = 40\text{ km/h}$. Tốc độ trung bình trên cả đoạn đường là
+\choice
+{$35\text{ km/h}$}
+{$44\text{ km/h}$}
+{$65\text{ km/h}$}
+{\True $48\text{ km/h}$}
+\loigiai{
+Gọi chiều dài cả quãng đường là $2s$. Thời gian đi nửa đường đầu và nửa đường sau:
+\[
+t_1 = \frac{s}{v_1}, \quad t_2 = \frac{s}{v_2}
+\]
+Tốc độ trung bình trên cả quãng đường:
+\[
+v_{\text{tb}} = \frac{2s}{t_1 + t_2} = \frac{2v_1 v_2}{v_1 + v_2} = \frac{2 \cdot 60 \cdot 40}{60 + 40} = 48\text{ km/h}
+\]
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D1-P1-C12} Cho quãng đường $s = 0{,}5\text{ m}$ và bảng kết quả thí nghiệm thời gian đo bên dưới.
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+\textbf{Lần đo} & Lần 1 & Lần 2 & Lần 3 & Giá trị trung bình \\
+\hline
+\textbf{Thời gian $t$ (s)} & 0{,}777 & 0{,}780 & 0{,}776 & \\
+\hline
+\end{tabular}
+\end{center}
+Tốc độ trung bình là
+\choice
+{\True $0{,}643\text{ m/s}$}
+{$0{,}732\text{ m/s}$}
+{$0{,}824\text{ m/s}$}
+{$0{,}657\text{ m/s}$}
+\loigiai{
+Thời gian trung bình trong 3 lần đo:
+\[
+\overline{t} = \frac{0{,}777 + 0{,}780 + 0{,}776}{3} \approx 0{,}7777\text{ s}
+\]
+Tốc độ trung bình:
+\[
+v_{\text{tb}} = \frac{s}{\overline{t}} = \frac{0{,}5}{0{,}7777} \approx 0{,}643\text{ m/s}
+\]
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D1-P1-C13} Để xác định tốc độ của một vật chuyển động đều, một người đã đo quãng đường vật đi được bằng $(16{,}0 \pm 0{,}4)\text{ m}$ trong khoảng thời gian là $(4{,}0 \pm 0{,}2)\text{ s}$. Tốc độ của vật là
+\choice
+{\True $(4{,}0 \pm 0{,}3)\text{ m/s}$}
+{$(4{,}0 \pm 0{,}6)\text{ m/s}$}
+{$(4{,}0 \pm 0{,}2)\text{ m/s}$}
+{$(4{,}0 \pm 0{,}1)\text{ m/s}$}
+\loigiai{
+Giá trị trung bình của tốc độ:
+\[
+\overline{v} = \frac{\overline{s}}{\overline{t}} = \frac{16{,}0}{4{,}0} = 4{,}0\text{ m/s}
+\]
+Sai số tỉ đối:
+\[
+\frac{\Delta v}{\overline{v}} = \frac{\Delta s}{\overline{s}} + \frac{\Delta t}{\overline{t}} = \frac{0{,}4}{16{,}0} + \frac{0{,}2}{4{,}0} = 0{,}025 + 0{,}05 = 0{,}075
+\]
+Sai số tuyệt đối:
+\[
+\Delta v = 0{,}075 \cdot 4{,}0 = 0{,}3\text{ m/s}
+\]
+Kết quả đo: $v = (4{,}0 \pm 0{,}3)\text{ m/s}$.
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D1-P1-C14} Trong thí nghiệm thực hành đo tốc độ của vật chuyển động, sử dụng hai cổng quang điện để đo
+\choice
+{\True thời gian chuyển động của viên bi thép}
+{tốc độ trung bình của viên bi thép}
+{đường kính của viên bi thép}
+{tốc độ tức thời của viên bi thép}
+\loigiai{
+Hai cổng quang điện nối với đồng hồ hiện số ở chế độ đo thời gian chuyển động giữa hai cổng để đo khoảng thời gian vật đi qua khoảng cách giữa hai cổng đó.
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D1-P1-C15} Sử dụng đồng hồ đo thời gian hiện số và cổng quang điện để đo tốc độ chuyển động, phát biểu nào sau đây là sai?
+\choice
+{Ưu điểm: Độ chính xác cao đến hàng nghìn giây}
+{Nhược điểm: Thiết bị đo cồng kềnh}
+{Nhược điểm: Tốn kém kinh phí}
+{\True Ưu điểm: Thiết bị đo gọn nhẹ}
+\loigiai{
+Bộ thiết bị gồm đồng hồ hiện số, giá đỡ, cổng quang điện, máng trượt tương đối cồng kềnh, không phải là thiết bị nhỏ gọn cầm tay.
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D1-P1-C16} Dụng cụ nào sau đây không dùng để thực hiện thí nghiệm đo tốc độ trong phòng thí nghiệm?
+\choice
+{Đồng hồ đo thời gian hiện số}
+{Cổng quang điện}
+{\True Ampe kế}
+{Viên bi thép}
+\loigiai{
+Ampe kế là dụng cụ dùng để đo cường độ dòng điện, không dùng trong thí nghiệm đo tốc độ.
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D1-P1-C17} Dụng cụ nào sau đây không có trong thực hành đo tốc độ chuyển động của một viên bi sử dụng cổng quang điện?
+\choice
+{Viên bi thép}
+{\True Thước kẹp để đo đường kính viên bi}
+{Cổng quang điện}
+{Đồng hồ bấm giây}
+\loigiai{
+Trong bài thực hành đo tốc độ bằng cổng quang điện nối với đồng hồ hiện số, ta không sử dụng thước kẹp để đo đường kính viên bi vì đồng hồ hiện số đo trực tiếp thời gian qua hai cổng.
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D1-P1-C18} Để xác định tốc độ của một vật chuyển động thẳng đều, một nhóm học sinh tiến hành đo quãng đường $s$ vật đi được trong khoảng thời gian $t$. Kết quả đo được quãng đường $s = (24{,}0 \pm 0{,}2)\text{ m}$ và thời gian $t = (4{,}0 \pm 0{,}1)\text{ s}$. Tốc độ của vật là
+\choice
+{$v = (4{,}0 \pm 0{,}2)\text{ m/s}$}
+{$v = (6{,}0 \pm 0{,}3)\text{ m/s}$}
+{$v = (4{,}0 \pm 0{,}3)\text{ m/s}$}
+{\True $v = (6{,}0 \pm 0{,}2)\text{ m/s}$}
+\loigiai{
+Giá trị trung bình: $\overline{v} = \frac{24{,}0}{4{,}0} = 6{,}0\text{ m/s}$.\\
+Sai số tỉ đối:
+\[
+\delta v = \frac{0{,}2}{24{,}0} + \frac{0{,}1}{4{,}0} = \frac{1}{120} + \frac{1}{40} = \frac{1}{30}
+\]
+Sai số tuyệt đối: $\Delta v = \frac{1}{30} \cdot 6{,}0 = 0{,}2\text{ m/s}$.\\
+Kết quả: $v = (6{,}0 \pm 0{,}2)\text{ m/s}$.
+}
+\end{ex}
+
+\setcounter{ex}{0}
+\subsection*{PHẦN II. Câu hỏi trắc nghiệm Đúng / Sai}
+\textit{Thí sinh trả lời từ câu 1 đến câu 4. Trong mỗi ý a), b), c), d) ở mỗi câu, thí sinh chọn đúng hoặc sai.}
+
+\begin{ex}\macau{ID: C2B2-D1-P2-C01} Một ô tô chạy từ địa điểm A đến địa điểm B với tốc độ $40\text{ km/h}$, sau đó trở về A với tốc độ $60\text{ km/h}$.
+\choiceTF
+{\True Ô tô đi từ A đến B chậm hơn đi từ B trở về A}
+{\True Thời gian ô tô đi từ A đến B gấp 1{,}5 lần thời gian ô tô đi từ B về A}
+{Tốc độ trung bình trên cả quãng đường (đi và về) của ô tô là $50\text{ km/h}$}
+{\True Vận tốc trung bình trên cả quãng đường (đi và về) của ô tô là 0}
+\loigiai{
+\begin{itemchoice}
+    \itemch Tốc độ đi ($40\text{ km/h}$) nhỏ hơn tốc độ về ($60\text{ km/h}$) nên ô tô đi từ A đến B chậm hơn đi từ B về A.
+    \itemch Tỉ số thời gian: $\frac{t_1}{t_2} = \frac{s/v_1}{s/v_2} = \frac{v_2}{v_1} = \frac{60}{40} = 1{,}5$.
+    \itemch Tốc độ trung bình trên cả quãng đường: $v_{\text{tb}} = \frac{2s}{t_1 + t_2} = \frac{2v_1 v_2}{v_1 + v_2} = \frac{2 \cdot 40 \cdot 60}{40 + 60} = 48\text{ km/h} \ne 50\text{ km/h}$.
+    \itemch Vì điểm cuối trùng với điểm đầu nên độ dịch chuyển tổng hợp bằng 0, dẫn tới vận tốc trung bình bằng 0.
+\end{itemchoice}
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D1-P2-C02} Nhân dịp nghỉ lễ Quốc tế lao động, gia đình nhà bạn Tùng quyết định về quê nghỉ lễ. Biết gia đình nhà Tùng di chuyển bằng xe ô tô chuyển động đều từ Hà Nội về quê Thái Bình với quãng đường $130\text{ km}$. Xe ô tô xuất phát từ Hà Nội lúc 6 giờ sáng và chạy liên tục không nghỉ với tốc độ giả sử không đổi là $13\text{ m/s}$ trên suốt quãng đường.
+\choiceTF
+{\True Độ dịch chuyển của xe luôn tăng dần theo thời gian}
+{\True Tốc độ tức thời của xe tại thời điểm 7 giờ sáng là $13\text{ m/s}$}
+{Tốc độ trung bình của xe trên cả quãng đường là $13\text{ km/h}$}
+{Sau 2{,}5 giờ thì gia đình nhà bạn Tùng về tới quê Thái Bình}
+\loigiai{
+\begin{itemchoice}
+    \itemch Xe chuyển động thẳng đều không đổi chiều rời xa vị trí xuất phát nên độ dịch chuyển luôn tăng dần theo thời gian.
+    \itemch Vì xe chuyển động đều với tốc độ không đổi $13\text{ m/s}$ nên tốc độ tức thời tại mọi thời điểm (kể cả lúc 7 giờ sáng) đều bằng $13\text{ m/s}$.
+    \itemch Tốc độ trung bình là $13\text{ m/s} = 13 \cdot 3{,}6 = 46{,}8\text{ km/h} \ne 13\text{ km/h}$.
+    \itemch Thời gian đi hết quãng đường: $t = \frac{s}{v} = \frac{130}{46{,}8} \approx 2{,}78\text{ h} \ne 2{,}5\text{ h}$.
+\end{itemchoice}
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D1-P2-C03} Một ô tô chở khách trong hành trình 5 giờ đi từ Hà Nội đến Bắc Ninh. Biết ô tô khởi hành lúc 6 giờ sáng với quãng đường đi được khi tới nơi là $40{,}5\text{ km}$. Xem tốc độ của ô tô trên cả quãng đường là không đổi.
+\choiceTF
+{\True Ô tô đến Bắc Ninh vào lúc 11 giờ}
+{Tốc độ trung bình của ô tô trên cả quãng đường là $8{,}5\text{ km/h}$}
+{\True Tốc độ trung bình của ô tô bằng độ lớn vận tốc trung bình của ô tô}
+{\True Lúc 7 giờ có một xe máy cũng bắt đầu xuất phát từ Hà Nội với lộ trình như ô tô. Khoảng cách lúc này của hai xe lớn hơn $8\text{ km}$}
+\loigiai{
+\begin{itemchoice}
+    \itemch Khởi hành lúc 6 giờ, đi trong 5 giờ nên xe đến nơi lúc $6 + 5 = 11\text{ giờ}$.
+    \itemch Tốc độ trung bình: $v_{\text{tb}} = \frac{s}{t} = \frac{40{,}5}{5} = 8{,}1\text{ km/h} \ne 8{,}5\text{ km/h}$.
+    \itemch Xe chuyển động trên đường thẳng không đổi chiều nên quãng đường bằng độ dịch chuyển, do đó tốc độ trung bình bằng độ lớn vận tốc trung bình.
+    \itemch Từ 6 giờ đến 7 giờ (sau 1 giờ), ô tô đã đi được $s = 8{,}1 \cdot 1 = 8{,}1\text{ km} > 8\text{ km}$.
+\end{itemchoice}
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D1-P2-C04} \immini{
+Bạn Hoa đi học từ nhà A đến trường C theo lộ trình ABC như hình vẽ bên. Bạn Hoa đi đoạn đường $AB = 400\text{ m}$ hết $6\text{ phút}$, đoạn đường $BC = 300\text{ m}$ hết $4\text{ phút}$.
+}{
+\includegraphics[width=2.5cm]{fig_c2b2_p66_de1_p2_c04_ban_hoa.png}
+}
+\choiceTF
+{\True Khi bạn Hoa đi từ B đến C, độ lớn của độ dịch chuyển cũng chính bằng quãng đường mà Hoa đi được}
+{Độ dịch chuyển của bạn Hoa khi đi từ nhà đến trường có độ lớn là $700\text{ m}$}
+{Tốc độ trung bình của bạn Hoa khi đi từ nhà đến trường là $\frac{7}{6}\text{ m/phút}$}
+{Vận tốc trung bình của bạn Hoa khi đi từ nhà đến trường là $\frac{25}{12}\text{ m/s}$}
+\loigiai{
+\begin{itemchoice}
+    \itemch Trên đoạn thẳng BC không đổi chiều, độ lớn độ dịch chuyển bằng quãng đường đi được ($d_{BC} = s_{BC} = 300\text{ m}$).
+    \itemch Do $AB \perp BC$, độ lớn độ dịch chuyển từ nhà đến trường là $d = AC = \sqrt{400^2 + 300^2} = 500\text{ m} \ne 700\text{ m}$.
+    \itemch Tổng quãng đường $s = 400 + 300 = 700\text{ m}$, tổng thời gian $t = 6 + 4 = 10\text{ phút}$. Tốc độ trung bình là $v_{\text{tb}} = \frac{700}{10} = 70\text{ m/phút} \ne \frac{7}{6}\text{ m/phút}$.
+    \itemch Thời gian $t = 10\text{ phút} = 600\text{ s}$. Vận tốc trung bình $v = \frac{d}{t} = \frac{500}{600} = \frac{5}{6}\text{ m/s} \ne \frac{25}{12}\text{ m/s}$.
+\end{itemchoice}
+}
+\end{ex}
+
+\setcounter{ex}{0}
+\subsection*{PHẦN III. Câu hỏi trắc nghiệm trả lời ngắn}
+\textit{Thí sinh trả lời từ câu 1 đến câu 6.}
+
+\begin{ex}\macau{ID: C2B2-D1-P3-C01} Một máy bay phản lực bay theo đường thẳng với tốc độ trung bình là $2400\text{ km/h}$. Nếu muốn bay liên tục trên khoảng cách $6000\text{ km}$ thì máy bay phải bay trong bao nhiêu giờ?
+
+\shortans{2{,}5}
+\loigiai{
+Thời gian máy bay bay được khoảng cách $6000\text{ km}$:
+\[
+t = \frac{s}{v} = \frac{6000}{2400} = 2{,}5\text{ h}
+\]
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D1-P3-C02} Một người đi xe máy chuyển động thẳng đều từ A lúc 5 giờ sáng và tới B lúc 7 giờ 30 phút, biết độ dài quãng đường AB là $150\text{ km}$. Tới B xe dừng lại 45 phút rồi đi về A với vận tốc $50\text{ km/h}$. Xe tới A lúc 11 giờ $x$ phút. Tìm $x$.
+
+\shortans{15}
+\loigiai{
+Thời điểm xe rời B để quay về: $7\text{h}30' + 45' = 8\text{h}15'$.\\
+Thời gian xe chạy từ B về A:
+\[
+t = \frac{s}{v} = \frac{150}{50} = 3\text{h}
+\]
+Thời điểm xe về tới A: $8\text{h}15' + 3\text{h} = 11\text{h}15'$. Vậy $x = 15$.
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D1-P3-C03} Một vật chuyển động thẳng không đổi chiều trên quãng đường dài $35\text{ m}$. Nửa quãng đường đầu vật đi hết thời gian $5\text{ s}$, nửa quãng đường sau vật đi hết thời gian $2\text{ s}$. Tốc độ trung bình trên cả quãng đường là bao nhiêu $\text{km/h}$?
+
+\shortans{18}
+\loigiai{
+Tổng thời gian chuyển động: $t = 5 + 2 = 7\text{ s}$.\\
+Tốc độ trung bình:
+\[
+v_{\text{tb}} = \frac{s}{t} = \frac{35}{7} = 5\text{ m/s} = 5 \cdot 3{,}6 = 18\text{ km/h}
+\]
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D1-P3-C04} Một xe chuyển động thẳng không đổi chiều có tốc độ trung bình là $20\text{ km/h}$ trên $\frac{1}{4}$ đoạn đường đầu và $40\text{ km/h}$ trên đoạn đường còn lại. Tốc độ trung bình của xe trên cả đoạn đường là bao nhiêu $\text{km/h}$?
+
+\shortans{32}
+\loigiai{
+Gọi tổng chiều dài đoạn đường là $s$.
+\begin{itemize}
+    \item Thời gian đi $\frac{1}{4}$ đoạn đường đầu: $t_1 = \frac{s/4}{20} = \frac{s}{80}$.
+    \item Thời gian đi $\frac{3}{4}$ đoạn đường còn lại: $t_2 = \frac{3s/4}{40} = \frac{3s}{160}$.
+\end{itemize}
+Tổng thời gian chuyển động:
+\[
+t = t_1 + t_2 = \frac{2s + 3s}{160} = \frac{5s}{160} = \frac{s}{32}
+\]
+Tốc độ trung bình trên cả đoạn đường:
+\[
+v_{\text{tb}} = \frac{s}{t} = \frac{s}{s/32} = 32\text{ km/h}
+\]
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D1-P3-C05} Một chiếc xe chạy $50\text{ km}$ đầu tiên với tốc độ $25\text{ km/h}$; $70\text{ km}$ sau với tốc độ $35\text{ km/h}$. Tốc độ trung bình của xe trong suốt quãng đường chuyển động là bao nhiêu $\text{km/h}$ (làm tròn kết quả đến chữ số hàng đơn vị)?
+
+\shortans{30}
+\loigiai{
+Thời gian đi ở từng đoạn:
+\[
+t_1 = \frac{s_1}{v_1} = \frac{50}{25} = 2\text{ h}, \quad t_2 = \frac{s_2}{v_2} = \frac{70}{35} = 2\text{ h}
+\]
+Tốc độ trung bình trên toàn bộ quãng đường:
+\[
+v_{\text{tb}} = \frac{s_1 + s_2}{t_1 + t_2} = \frac{50 + 70}{2 + 2} = \frac{120}{4} = 30\text{ km/h}
+\]
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D1-P3-C06} Một vật chuyển động với tốc độ $v$ đi hết quãng đường $42\text{ km}$ mất thời gian là $t$. Nếu tốc độ tăng gấp đôi, nhưng thời gian giảm bớt $\frac{1}{3}$ thì vật đi được quãng đường là bao nhiêu kilômét (làm tròn kết quả đến chữ số hàng đơn vị)?
+
+\shortans{56}
+\loigiai{
+Ban đầu: $s = v \cdot t = 42\text{ km}$.\\
+Khi tốc độ mới là $v' = 2v$ và thời gian mới là $t' = t - \frac{1}{3}t = \frac{2}{3}t$, quãng đường mới vật đi được là:
+\[
+s' = v' \cdot t' = (2v) \cdot \left(\frac{2}{3}t\right) = \frac{4}{3}(v \cdot t) = \frac{4}{3} \cdot 42 = 56\text{ km}
+\]
+}
+\end{ex}
+''')
+
+    # =========================================================================
+    # D. CÂU HỎI VÀ BÀI TẬP TỰ LUYỆN -- ĐỀ SỐ 2 (Đề 7 gốc, Trang 68 -- 74)
+    # =========================================================================
+    parts.append(r'''\section*{D. CÂU HỎI VÀ BÀI TẬP TỰ LUYỆN -- ĐỀ SỐ 2}
+
+\setcounter{ex}{0}
+\subsection*{PHẦN I. Câu hỏi trắc nghiệm nhiều phương án lựa chọn}
+\textit{Thí sinh trả lời từ câu 1 đến câu 18. Mỗi câu hỏi thí sinh chỉ chọn một phương án.}
+
+\begin{ex}\macau{ID: C2B2-D2-P1-C01} Người ta thường dùng quãng đường đi được trong cùng một đơn vị thời gian để xác định độ nhanh, chậm của chuyển động. Đại lượng này gọi là
+\choice
+{Vận tốc tức thời}
+{Vận tốc trung bình}
+{Tốc độ tức thời}
+{\True Tốc độ trung bình}
+\loigiai{
+Đại lượng đo bằng quãng đường đi được trong một đơn vị thời gian diễn tả sự nhanh hay chậm của chuyển động gọi là tốc độ.
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D2-P1-C02} Vận tốc trung bình là đại lượng được đo bởi
+\choice
+{\True thương số của độ dịch chuyển và thời gian dịch chuyển}
+{tích của quãng đường đi được và thời gian dịch chuyển}
+{tích của độ dịch chuyển và thời gian dịch chuyển}
+{thương số của quãng đường đi được và khoảng thời gian đi hết quãng đường}
+\loigiai{
+Theo định nghĩa, vận tốc trung bình bằng thương số giữa vectơ độ dịch chuyển và khoảng thời gian thực hiện độ dịch chuyển đó.
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D2-P1-C03} Tốc độ trung bình trong một thời gian rất ngắn được gọi là
+\choice
+{vận tốc}
+{tốc độ}
+{\True tốc độ tức thời}
+{vận tốc trung bình}
+\loigiai{
+Tốc độ trung bình xét trong khoảng thời gian vô cùng ngắn được gọi là tốc độ tức thời.
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D2-P1-C04} Khi vật chuyển động có độ dịch chuyển $\Delta\vec{d}$ trong khoảng thời gian $\Delta t$ rất nhỏ. Vận tốc tức thời của vật được tính bằng
+\choice
+{\True $\vec{v}_t = \frac{\Delta\vec{d}}{\Delta t}$}
+{$\vec{v}_t = \Delta\vec{d} \cdot \Delta t$}
+{$\vec{v}_t = \frac{\Delta t}{\Delta\vec{d}}$}
+{$\vec{v}_t = \Delta\vec{d} + \Delta t$}
+\loigiai{
+Vận tốc tức thời: $\vec{v}_t = \frac{\Delta\vec{d}}{\Delta t}$ với $\Delta t$ rất nhỏ.
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D2-P1-C05} Trong chuyển động thẳng, vectơ vận tốc tức thời có
+\choice
+{phương và chiều luôn thay đổi}
+{phương không đổi, chiều có thể thay đổi}
+{\True phương và chiều không thay đổi}
+{phương không đổi, chiều luôn thay đổi}
+\loigiai{
+Trong chuyển động thẳng, phương của vectơ vận tốc luôn trùng với đường thẳng quỹ đạo; nếu không đổi chiều thì phương và chiều của nó không đổi.
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D2-P1-C06} Phát biểu nào sau đây về vận tốc là đúng?
+\choice
+{Vận tốc là đại lượng vectơ có hướng ngược hướng với hướng của độ dịch chuyển}
+{Vận tốc là đại lượng vô hướng có thể âm hoặc dương}
+{\True Vận tốc là đại lượng vectơ có hướng là hướng của độ dịch chuyển}
+{Vận tốc là đại lượng vô hướng không âm}
+\loigiai{
+Vì $\vec{v} = \frac{\vec{d}}{t}$ và $t > 0$ nên vectơ vận tốc $\vec{v}$ luôn cùng hướng với vectơ độ dịch chuyển $\vec{d}$.
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D2-P1-C07} Phát biểu nào sau đây là đúng?
+\choice
+{\True Vận tốc trung bình là một đại lượng có hướng}
+{Vận tốc trung bình là một đại lượng vô hướng}
+{Tốc độ trung bình là một đại lượng có hướng}
+{Tốc độ tức thời là một đại lượng có hướng}
+\loigiai{
+Vận tốc là đại lượng vectơ nên nó có hướng (phương và chiều). Tốc độ là đại lượng vô hướng (chỉ có độ lớn).
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D2-P1-C08} Một vận động viên chạy theo bốn chặng như sau:
+\begin{itemize}
+    \item Chặng 1 dài $200\text{ m}$ mất $20\text{ s}$.
+    \item Chặng 2 dài $100\text{ m}$ mất $10\text{ s}$.
+    \item Chặng 3 dài $400\text{ m}$ mất $43{,}5\text{ s}$.
+    \item Chặng 4 dài $150\text{ m}$ mất $13\text{ s}$.
+\end{itemize}
+Vận động viên chạy nhanh nhất ở
+\choice
+{chặng 1}
+{chặng 2}
+{chặng 3}
+{\True chặng 4}
+\loigiai{
+Tốc độ ở từng chặng:
+\begin{itemize}
+    \item $v_1 = \frac{200}{20} = 10\text{ m/s}$.
+    \item $v_2 = \frac{100}{10} = 10\text{ m/s}$.
+    \item $v_3 = \frac{400}{43{,}5} \approx 9{,}2\text{ m/s}$.
+    \item $v_4 = \frac{150}{13} \approx 11{,}54\text{ m/s}$.
+\end{itemize}
+Tốc độ lớn nhất ở chặng 4, do đó vận động viên chạy nhanh nhất ở chặng 4.
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D2-P1-C09} Một người đi xe máy từ nhà đến hiệu sách với quãng đường $3\text{ km}$ mất 15 phút, sau đó đi đến trường với quãng đường $2\text{ km}$ mất 12 phút. Biết trường nằm giữa nhà và nhà sách và cùng nằm trên một đường thẳng. Vận tốc trung bình của người đi xe máy là
+\choice
+{\True $11{,}1\text{ km/h}$}
+{$0{,}98\text{ m/s}$}
+{$0{,}29\text{ km/h}$}
+{$0{,}38\text{ m/s}$}
+\loigiai{
+Chọn trục tọa độ trùng với đường thẳng từ nhà qua trường đến nhà sách, gốc tại nhà.\\
+Tọa độ nhà sách: $x_1 = 3\text{ km}$. Trường nằm giữa nhà và nhà sách, cách nhà sách $2\text{ km}$, nên tọa độ trường là:
+\[
+x_2 = 3 - 2 = 1\text{ km}
+\]
+Độ dịch chuyển tổng hợp: $d = x_2 - 0 = 1\text{ km}$.\\
+Tổng thời gian: $t = 15 + 12 = 27\text{ phút} = \frac{27}{60}\text{ h} = 0{,}45\text{ h}$.\\
+Vận tốc trung bình:
+\[
+v = \frac{d}{t} = \frac{1}{0{,}45} \approx 2{,}22\text{ km/h} \approx 0{,}62\text{ m/s}
+\]
+Nếu tính tốc độ trung bình: $v_{\text{tb}} = \frac{3 + 2}{0{,}45} = \frac{5}{0{,}45} \approx 11{,}1\text{ km/h}$.
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D2-P1-C10} \immini{
+Một người đi xe máy đi từ ngã tư với tốc độ trung bình $30\text{ km/h}$ theo hướng Bắc. Sau 3 phút người đó đến vị trí nào trên hình vẽ bên?
+}{
+\includegraphics[width=2.5cm]{fig_c2b2_p70_de2_p1_c10_nga_tu.png}
+}
+\choice
+{\True E}
+{G}
+{I}
+{C}
+\loigiai{
+Đổi đơn vị: $t = 3\text{ phút} = \frac{3}{60}\text{ h} = 0{,}05\text{ h}$.\\
+Quãng đường đi được theo hướng Bắc:
+\[
+s = v \cdot t = 30 \cdot 0{,}05 = 1{,}5\text{ km}
+\]
+Theo tỉ xích trên hình, mỗi đoạn cách nhau $0{,}5\text{ km}$, ngã tư đi về phía Bắc $1{,}5\text{ km}$ (ứng với 3 đoạn: C, D, E) đưa người đó đến vị trí E.
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D2-P1-C11} Một người đi xe máy từ nhà đến siêu thị mất $0{,}25\text{ h}$, sau đó trở về nhà trong thời gian $0{,}2\text{ h}$. Hai địa điểm cách nhau $9\text{ km}$. Coi quỹ đạo đi được là đường thẳng. Tốc độ trung bình của người đó là
+\choice
+{$40{,}5\text{ km/h}$}
+{$20\text{ km/h}$}
+{$40\text{ m/s}$}
+{\True $40\text{ km/h}$}
+\loigiai{
+Tổng quãng đường cả đi và về: $s = 9 + 9 = 18\text{ km}$.\\
+Tổng thời gian: $t = 0{,}25 + 0{,}2 = 0{,}45\text{ h}$.\\
+Tốc độ trung bình:
+\[
+v_{\text{tb}} = \frac{s}{t} = \frac{18}{0{,}45} = 40\text{ km/h}
+\]
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D2-P1-C12} Một người đi xe đạp trên $\frac{2}{3}$ đoạn đường đầu với tốc độ trung bình $15\text{ km/h}$ và $\frac{1}{3}$ đoạn đường sau với tốc độ trung bình $20\text{ km/h}$. Tốc độ trung bình của người đi xe đạp trên cả quãng đường là
+\choice
+{$17{,}5\text{ km/h}$}
+{$12\text{ km/h}$}
+{$15\text{ km/h}$}
+{\True $16{,}36\text{ km/h}$}
+\loigiai{
+Gọi tổng quãng đường là $s$.
+\begin{itemize}
+    \item Thời gian đi $\frac{2}{3}$ quãng đường đầu: $t_1 = \frac{2s/3}{15} = \frac{2s}{45}$.
+    \item Thời gian đi $\frac{1}{3}$ quãng đường sau: $t_2 = \frac{s/3}{20} = \frac{s}{60}$.
+\end{itemize}
+Tổng thời gian:
+\[
+t = t_1 + t_2 = s \left(\frac{2}{45} + \frac{1}{60}\right) = s \left(\frac{8 + 3}{180}\right) = \frac{11s}{180}
+\]
+Tốc độ trung bình trên cả quãng đường:
+\[
+v_{\text{tb}} = \frac{s}{t} = \frac{180}{11} \approx 16{,}36\text{ km/h}
+\]
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D2-P1-C13} Để xác định tốc độ của một vật chuyển động đều, một người đã đo quãng đường vật đi được bằng $(20{,}0 \pm 0{,}4)\text{ m}$ trong khoảng thời gian là $(4{,}0 \pm 0{,}2)\text{ s}$. Sai số tuyệt đối của vận tốc là
+\choice
+{$0{,}3\text{ m/s}$}
+{$0{,}4\text{ m/s}$}
+{\True $0{,}35\text{ m/s}$}
+{$0{,}45\text{ m/s}$}
+\loigiai{
+Tốc độ trung bình: $\overline{v} = \frac{\overline{s}}{\overline{t}} = \frac{20{,}0}{4{,}0} = 5{,}0\text{ m/s}$.\\
+Sai số tỉ đối:
+\[
+\delta v = \frac{\Delta s}{\overline{s}} + \frac{\Delta t}{\overline{t}} = \frac{0{,}4}{20{,}0} + \frac{0{,}2}{4{,}0} = 0{,}02 + 0{,}05 = 0{,}07
+\]
+Sai số tuyệt đối của tốc độ:
+\[
+\Delta v = \overline{v} \cdot \delta v = 5{,}0 \cdot 0{,}07 = 0{,}35\text{ m/s}
+\]
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D2-P1-C14} Ưu điểm của việc sử dụng đồng hồ đo thời gian hiện số để đo tốc độ chuyển động là
+\choice
+{\True đo thời gian chính xác đến phần nghìn giây}
+{thao tác thực hiện phức tạp}
+{thời gian bắt đầu đo kém chính xác}
+{cấu tạo cồng kềnh, phức tạp}
+\loigiai{
+Đồng hồ hiện số kết hợp cổng quang điện có độ chính xác rất cao, có thể đo thời gian chính xác đến một phần nghìn giây ($0{,}001\text{ s}$).
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D2-P1-C15} Ưu điểm khi sử dụng đồng hồ đo thời gian hiện số và cổng quang điện là
+\choice
+{\True kết quả có độ chính xác cao}
+{thiết bị nhỏ, gọn}
+{tuổi thọ cao}
+{chi phí thấp}
+\loigiai{
+Cổng quang điện loại bỏ hoàn toàn phản xạ bấm tay của con người nên mang lại kết quả có độ chính xác rất cao và độ tin cậy lớn.
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D2-P1-C16} Sử dụng đồng hồ đo thời gian hiện số để xác định thời gian chuyển động của vật từ A đến B ta điều chỉnh núm xoay về MODE nào sau đây?
+\choice
+{MODE A}
+{MODE B}
+{\True MODE A $\leftrightarrow$ B}
+{MODE A+B}
+\loigiai{
+Chế độ MODE A $\leftrightarrow$ B dùng để đo khoảng thời gian từ lúc vật chắn cổng quang điện A đến lúc vật chắn cổng quang điện B.
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D2-P1-C17} Để đo tốc độ tức thời và tốc độ trung bình của một vật chuyển động trong phòng thí nghiệm ta có thể dùng cổng quang điện kết hợp với
+\choice
+{\True thước và đồng hồ đo thời gian hiện số}
+{nam châm điện, quả dọi và đồng hồ bấm giây}
+{đồng hồ đo thời gian hiện số và nam châm điện}
+{thước và nam châm điện}
+\loigiai{
+Cần dùng thước đo quãng đường dịch chuyển và đồng hồ đo thời gian hiện số kết nối với cổng quang điện để ghi nhận thời gian chuyển động.
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D2-P1-C18} Muốn đo tốc độ trung bình của một vật chuyển động thẳng thì người ta cần đo những đại lượng nào?
+\choice
+{Đo đường kính và khối lượng của vật}
+{\True Đo quãng đường và thời gian chuyển động của vật}
+{Đo khối lượng và thời gian chuyển động của vật}
+{Đo quãng đường và khối lượng của vật}
+\loigiai{
+Công thức tốc độ trung bình là $v_{\text{tb}} = \frac{s}{t}$, do đó ta cần đo hai đại lượng cơ bản là quãng đường $s$ và thời gian $t$.
+}
+\end{ex}
+
+\setcounter{ex}{0}
+\subsection*{PHẦN II. Câu hỏi trắc nghiệm Đúng / Sai}
+\textit{Thí sinh trả lời từ câu 1 đến câu 4. Trong mỗi ý a), b), c), d) ở mỗi câu, thí sinh chọn đúng hoặc sai.}
+
+\begin{ex}\macau{ID: C2B2-D2-P2-C01} \immini{
+Hai học sinh chở nhau bằng xe đạp điện từ trường THPT Chuyên Quốc Học dọc theo đường Lê Lợi đến quán chè Hẻm trên đường Hùng Vương như hình bên hết thời gian 5 phút.
+}{
+\includegraphics[width=3.6cm]{fig_c2b2_p72_de2_p2_c01_che_hem.png}
+}
+\choiceTF
+{Độ dịch chuyển của xe là $1{,}5\text{ km}$}
+{\True Vận tốc trung bình của xe là $13{,}4\text{ km/h}$}
+{\True Quãng đường đi được của xe là $1{,}5\text{ km}$}
+{\True Xe chuyển động với tốc độ trung bình $18\text{ km/h}$}
+\loigiai{
+\begin{itemchoice}
+    \itemch Do hai đường Lê Lợi và Hùng Vương vuông góc nhau, độ lớn độ dịch chuyển là $d = \sqrt{1^2 + 0{,}5^2} \approx 1{,}12\text{ km} \ne 1{,}5\text{ km}$.
+    \itemch Vận tốc trung bình: $v = \frac{d}{t} = \frac{1{,}118}{5/60} \approx 13{,}4\text{ km/h}$.
+    \itemch Quãng đường xe đi bằng tổng hai chặng: $s = 1\text{ km} + 500\text{ m} = 1{,}5\text{ km}$.
+    \itemch Tốc độ trung bình: $v_{\text{tb}} = \frac{s}{t} = \frac{1{,}5}{5/60} = 18\text{ km/h}$.
+\end{itemchoice}
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D2-P2-C02} Một xe buýt chuyển động thẳng không đổi chiều trên quãng đường từ A đến B dài $350\text{ m}$. Nửa quãng đường đầu vật đi hết thời gian 50 giây, nửa quãng đường sau vật đi hết thời gian 20 giây.
+\choiceTF
+{\True Nếu nửa quãng đường đầu, xe buýt chạy với tốc độ bằng tốc độ trên nửa quãng đường sau thì tổng thời gian chuyển động sẽ giảm 30 giây}
+{\True Tốc độ của vật trên nửa quãng đường đầu nhỏ hơn trên nửa quãng đường sau}
+{Tốc độ trung bình của vật trên cả quãng đường nhỏ hơn tốc độ của vật trên nửa quãng đường đầu}
+{Nếu một ô tô cũng xuất phát từ A cùng lúc với xe buýt, chuyển động với tốc độ không đổi là $4{,}7\text{ m/s}$ trên cả quãng đường thì sẽ đến B trước xe buýt}
+\loigiai{
+\begin{itemchoice}
+    \itemch Nửa đầu mất $50\text{ s}$, nếu chỉ mất $20\text{ s}$ (như nửa sau) thì thời gian giảm đi $50 - 20 = 30\text{ s}$.
+    \itemch Tốc độ nửa đầu $v_1 = \frac{175}{50} = 3{,}5\text{ m/s}$ nhỏ hơn tốc độ nửa sau $v_2 = \frac{175}{20} = 8{,}75\text{ m/s}$.
+    \itemch Tốc độ trung bình trên cả đoạn: $v_{\text{tb}} = \frac{350}{50 + 20} = 5\text{ m/s} > v_1 = 3{,}5\text{ m/s}$.
+    \itemch Thời gian ô tô chạy: $t_{\text{ô tô}} = \frac{350}{4{,}7} \approx 74{,}5\text{ s} > 70\text{ s}$ (thời gian xe buýt) nên ô tô đến sau xe buýt.
+\end{itemchoice}
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D2-P2-C03} Một ô tô chạy thẳng từ địa điểm A đến địa điểm B với tốc độ $40\text{ km/h}$, sau đó quay về A với tốc độ $60\text{ km/h}$. Giả sử tốc độ của ô tô luôn không đổi.
+\choiceTF
+{Vận tốc là đại lượng vectơ, có thể bằng 0 hoặc dương, không có giá trị âm}
+{Thời gian ô tô đi từ A đến B và thời gian đi từ B trở về A là bằng nhau}
+{\True Độ dịch chuyển trên cả quãng đường đi và về của ô tô là $0\text{ km}$}
+{\True Tốc độ trung bình trên cả quãng đường đi và về của ô tô là $48\text{ km/h}$}
+\loigiai{
+\begin{itemchoice}
+    \itemch Vận tốc là đại lượng vectơ, hình chiếu của vận tốc lên trục tọa độ có thể nhận giá trị âm khi vật chuyển động ngược chiều dương.
+    \itemch Do tốc độ đi và về khác nhau ($40\text{ km/h} \ne 60\text{ km/h}$) trên cùng quãng đường nên thời gian đi và về là khác nhau ($t_1 = 1{,}5 t_2$).
+    \itemch Xe quay trở về vị trí xuất phát ban đầu nên điểm cuối trùng điểm đầu, độ dịch chuyển bằng $0\text{ km}$.
+    \itemch Tốc độ trung bình: $v_{\text{tb}} = \frac{2v_1 v_2}{v_1 + v_2} = \frac{2 \cdot 40 \cdot 60}{40 + 60} = 48\text{ km/h}$.
+\end{itemchoice}
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D2-P2-C04} Một tàu ngầm sử dụng hệ thống phát sóng âm để đo độ sâu $h$ của biển. Hệ thống phát ra sóng âm và đo thời gian quay trở lại của sóng âm sau khi chúng bị phản xạ tại đáy biển. Tại một vị trí trên mặt biển, thời gian mà hệ thống ghi nhận được là $0{,}13\text{ s}$ kể từ khi sóng âm được truyền đi. Biết tốc độ truyền sóng âm trong nước là $1500\text{ m/s}$.
+\choiceTF
+{Quãng đường sóng âm truyền bằng độ sâu của mực nước biển}
+{Độ dịch chuyển của sóng âm chính bằng quãng đường sóng âm truyền}
+{\True Tốc độ trung bình của sóng âm truyền trong nước kể từ khi sóng âm được truyền đi đến khi hệ thống ghi nhận được là $1500\text{ m/s}$}
+{\True Độ sâu của mực nước biển là $97{,}5\text{ m}$}
+\loigiai{
+\begin{itemchoice}
+    \itemch Sóng âm truyền từ mặt biển xuống đáy rồi phản xạ ngược lại lên mặt biển nên quãng đường sóng truyền gấp đôi độ sâu đáy biển: $s = 2h$.
+    \itemch Sóng âm quay trở lại vị trí máy thu trên mặt biển nên độ dịch chuyển tổng hợp của sóng âm bằng 0, không bằng quãng đường sóng truyền.
+    \itemch Tốc độ truyền sóng âm trong nước coi như không đổi và bằng $1500\text{ m/s}$.
+    \itemch Độ sâu của biển: $h = \frac{v \cdot t}{2} = \frac{1500 \cdot 0{,}13}{2} = 97{,}5\text{ m}$.
+\end{itemchoice}
+}
+\end{ex}
+
+\setcounter{ex}{0}
+\subsection*{PHẦN III. Câu hỏi trắc nghiệm trả lời ngắn}
+\textit{Thí sinh trả lời từ câu 1 đến câu 6.}
+
+\begin{ex}\macau{ID: C2B2-D2-P3-C01} Một vật chuyển động trên quãng đường $s$ mất 3 giờ. Nếu phải đi quãng đường dài gấp 3 lần nhưng tốc độ trung bình chỉ tăng gấp đôi thì phải mất bao nhiêu giờ (làm tròn kết quả đến chữ số hàng phần mười)?
+
+\shortans{4{,}5}
+\loigiai{
+Ban đầu: $t = \frac{s}{v} = 3\text{ h}$.\\
+Khi quãng đường mới là $s' = 3s$ và tốc độ mới là $v' = 2v$, thời gian chuyển động mới là:
+\[
+t' = \frac{s'}{v'} = \frac{3s}{2v} = \frac{3}{2} \cdot \frac{s}{v} = 1{,}5 \cdot 3 = 4{,}5\text{ h}
+\]
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D2-P3-C02} Một người đi với tốc độ $60\text{ km/h}$ trên nửa đoạn đường đầu, trên nửa đoạn đường còn lại, người đó đi nửa thời gian đầu với tốc độ $40\text{ km/h}$ và nửa thời gian sau với tốc độ $20\text{ km/h}$. Tốc độ trung bình trên cả đoạn đường là bao nhiêu $\text{km/h}$ (làm tròn kết quả đến chữ số hàng đơn vị)?
+
+\shortans{40}
+\loigiai{
+Trên nửa đoạn đường sau: người đó đi nửa thời gian với $v_2 = 40\text{ km/h}$ và nửa thời gian với $v_3 = 20\text{ km/h}$.\\
+Tốc độ trung bình trên nửa đoạn đường sau là:
+\[
+v' = \frac{v_2 + v_3}{2} = \frac{40 + 20}{2} = 30\text{ km/h}
+\]
+Xe đi nửa quãng đường đầu với $v_1 = 60\text{ km/h}$ và nửa quãng đường sau với $v' = 30\text{ km/h}$.\\
+Tốc độ trung bình trên toàn bộ quãng đường:
+\[
+v_{\text{tb}} = \frac{2v_1 v'}{v_1 + v'} = \frac{2 \cdot 60 \cdot 30}{60 + 30} = 40\text{ km/h}
+\]
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D2-P3-C03} Khi lái xe trên đường, tài xế chỉ mất tập trung một khoảng thời gian rất nhỏ có thể gây ra va chạm không mong muốn. Khi một người hắt hơi mạnh, mắt của người đó có thể nhắm lại trong $0{,}5\text{ s}$. Nếu người đó đang lái xe với tốc độ $90\text{ km/h}$ thì trong thời gian nhắm mắt đó xe sẽ đi được quãng đường bao nhiêu mét?
+
+\shortans{12{,}5}
+\loigiai{
+Đổi tốc độ sang $\text{m/s}$: $v = 90\text{ km/h} = \frac{90}{3{,}6} = 25\text{ m/s}$.\\
+Quãng đường xe chạy được trong thời gian nhắm mắt $t = 0{,}5\text{ s}$:
+\[
+s = v \cdot t = 25 \cdot 0{,}5 = 12{,}5\text{ m}
+\]
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D2-P3-C04} Một người đi bộ $3\text{ km}$ trên một con đường thẳng theo hướng Bắc rồi quay đầu lại và đi $1\text{ km}$ theo hướng Nam và tổng thời gian đi của người này là 1 giờ. Tốc độ trung bình của người này là bao nhiêu $\text{m/s}$ (làm tròn kết quả đến chữ số hàng phần trăm)?
+
+\shortans{1{,}11}
+\loigiai{
+Tổng quãng đường người đó đã đi:
+\[
+s = s_1 + s_2 = 3 + 1 = 4\text{ km} = 4000\text{ m}
+\]
+Thời gian đi: $t = 1\text{ h} = 3600\text{ s}$.\\
+Tốc độ trung bình:
+\[
+v_{\text{tb}} = \frac{s}{t} = \frac{4000}{3600} \approx 1{,}11\text{ m/s}
+\]
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D2-P3-C05} Để xác định tốc độ của một vật chuyển động đều, một người đã đo quãng đường vật đi được bằng $(16{,}0 \pm 0{,}4)\text{ m}$ trong khoảng thời gian là $(4{,}0 \pm 0{,}2)\text{ s}$. Sai số phép đo tốc độ trung bình của vật là bao nhiêu $\text{m/s}$?
+
+\shortans{0{,}3}
+\loigiai{
+Tốc độ trung bình: $\overline{v} = \frac{16{,}0}{4{,}0} = 4{,}0\text{ m/s}$.\\
+Sai số tỉ đối:
+\[
+\delta v = \frac{0{,}4}{16{,}0} + \frac{0{,}2}{4{,}0} = 0{,}025 + 0{,}05 = 0{,}075
+\]
+Sai số tuyệt đối của phép đo tốc độ:
+\[
+\Delta v = \overline{v} \cdot \delta v = 4{,}0 \cdot 0{,}075 = 0{,}3\text{ m/s}
+\]
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D2-P3-C06} Một ô tô xuất phát từ A lúc 6 giờ sáng, chuyển động thẳng đều tới B cách A $90\text{ km}$, biết rằng xe tới B lúc 8 giờ 30 phút. Tốc độ của xe là bao nhiêu $\text{km/h}$?
+
+\shortans{36}
+\loigiai{
+Thời gian ô tô chuyển động:
+\[
+t = 8\text{h}30' - 6\text{h} = 2{,}5\text{ h}
+\]
+Tốc độ của xe:
+\[
+v = \frac{s}{t} = \frac{90}{2{,}5} = 36\text{ km/h}
+\]
+}
+\end{ex}
+''')
+
+    # =========================================================================
+    # E. CÂU HỎI VÀ BÀI TẬP TỰ LUYỆN -- ĐỀ SỐ 3 (Đề 8 gốc, Trang 75 -- 81)
+    # =========================================================================
+    parts.append(r'''\section*{E. CÂU HỎI VÀ BÀI TẬP TỰ LUYỆN -- ĐỀ SỐ 3}
+
+\setcounter{ex}{0}
+\subsection*{PHẦN I. Câu hỏi trắc nghiệm nhiều phương án lựa chọn}
+\textit{Thí sinh trả lời từ câu 1 đến câu 18. Mỗi câu hỏi thí sinh chỉ chọn một phương án.}
+
+\begin{ex}\macau{ID: C2B2-D3-P1-C01} Công thức tính vận tốc trung bình của một vật chuyển động là
+\choice
+{$\vec{v} = \frac{\vec{s}}{t}$}
+{\True $\vec{v} = \frac{\vec{d}}{t}$}
+{$v = \frac{d}{t}$}
+{$v = \frac{s}{t}$}
+\loigiai{
+Vận tốc trung bình là đại lượng vectơ bằng thương số giữa vectơ độ dịch chuyển và khoảng thời gian dịch chuyển: $\vec{v} = \frac{\vec{d}}{t}$.
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D3-P1-C02} Đơn vị đo tốc độ là
+\choice
+{\True $\text{m/s}$}
+{$\text{m}$}
+{$\text{m/s}^2$}
+{$\text{s/m}$}
+\loigiai{
+Trong hệ đơn vị quốc tế SI, đơn vị đo tốc độ là mét trên giây ($\text{m/s}$).
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D3-P1-C03} Phát biểu nào sau đây là đúng khi nói về tốc độ tức thời?
+\choice
+{Tốc độ tức thời diễn tả sự nhanh chậm của chuyển động trên cả quãng đường vật đi được}
+{\True Tốc độ tức thời diễn tả sự nhanh chậm của chuyển động tại một thời điểm xác định}
+{Tốc độ tức thời là tốc độ trung bình trong toàn bộ thời gian chuyển động}
+{Tốc độ tức thời là cách gọi khác của tốc độ trung bình}
+\loigiai{
+Tốc độ tức thời đặc trưng cho sự nhanh hay chậm của chuyển động tại một thời điểm hoặc tại một vị trí xác định.
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D3-P1-C04} Vận tốc tức thời là
+\choice
+{\True vận tốc trung bình xét trong một khoảng thời gian rất nhỏ trong quá trình chuyển động của vật}
+{tốc độ trung bình xét trong một khoảng thời gian rất nhỏ trong quá trình chuyển động của vật}
+{tốc độ trung bình xét trong toàn bộ quá trình chuyển động của vật}
+{vận tốc trung bình xét trong toàn bộ quá trình chuyển động của vật}
+\loigiai{
+Vận tốc tức thời là giới hạn của vận tốc trung bình khi khoảng thời gian xét $\Delta t$ tiến tới 0 (rất nhỏ).
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D3-P1-C05} Tốc độ là đại lượng đặc trưng cho
+\choice
+{\True tính chất nhanh hay chậm của chuyển động}
+{sự thay đổi hướng của chuyển động}
+{khả năng duy trì chuyển động của vật}
+{sự thay đổi vị trí của vật trong không gian}
+\loigiai{
+Tốc độ là đại lượng vô hướng đặc trưng cho mức độ nhanh hay chậm của chuyển động.
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D3-P1-C06} Hai đại lượng nào sau đây là đại lượng vectơ?
+\choice
+{Quãng đường và độ dịch chuyển}
+{\True Độ dịch chuyển và vận tốc}
+{Quãng đường và tốc độ}
+{Tốc độ và vận tốc}
+\loigiai{
+Độ dịch chuyển $\vec{d}$ và vận tốc $\vec{v}$ đều là các đại lượng vectơ (có hướng xác định). Quãng đường và tốc độ là các đại lượng vô hướng.
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D3-P1-C07} Bố bạn A đưa A đi học bằng xe máy, xuất phát lúc 7 giờ đến trường trên quãng đường $15\text{ km}$. Đến gần trường, xe giảm dần tốc độ và dừng trước cổng trường lúc 7 giờ 30 phút. Tốc độ trung bình của xe trên quãng đường đến trường là
+\choice
+{\True $30\text{ km/h}$}
+{$20\text{ km/h}$}
+{$10\text{ km/h}$}
+{$40\text{ km/h}$}
+\loigiai{
+Thời gian chuyển động: $t = 7\text{h}30' - 7\text{h}00' = 30\text{ phút} = 0{,}5\text{ h}$.\\
+Tốc độ trung bình:
+\[
+v_{\text{tb}} = \frac{s}{t} = \frac{15}{0{,}5} = 30\text{ km/h}
+\]
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D3-P1-C08} Khi vật chuyển động thẳng đổi chiều, thì trong khoảng thời gian ngược chiều đó
+\choice
+{quãng đường đi được vẫn bằng độ dịch chuyển}
+{tốc độ có giá trị âm, vận tốc có giá trị dương}
+{\True tốc độ và vận tốc có độ lớn bằng nhau}
+{tốc độ có giá trị dương còn vận tốc có giá trị âm}
+\loigiai{
+Trong khoảng thời gian chỉ xét chiều chuyển động ngược lại mà không đổi chiều thêm lần nào, độ lớn của độ dịch chuyển bằng quãng đường, nên độ lớn của vận tốc bằng tốc độ.
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D3-P1-C09} Một xe chạy liên tục trong $2{,}5\text{ giờ}$, trong $1\text{ giờ}$ đầu, tốc độ trung bình của xe là $60\text{ km/h}$, trong $1{,}5\text{ giờ}$ sau, tốc độ trung bình của xe là $40\text{ km/h}$. Tốc độ trung bình của xe trong toàn bộ khoảng thời gian chuyển động là
+\choice
+{\True $48\text{ km/h}$}
+{$37\text{ km/h}$}
+{$54\text{ km/h}$}
+{$45\text{ km/h}$}
+\loigiai{
+Tổng quãng đường xe chạy:
+\[
+s = s_1 + s_2 = v_1 t_1 + v_2 t_2 = 60 \cdot 1 + 40 \cdot 1{,}5 = 60 + 60 = 120\text{ km}
+\]
+Tốc độ trung bình trong toàn bộ thời gian:
+\[
+v_{\text{tb}} = \frac{s}{t} = \frac{120}{2{,}5} = 48\text{ km/h}
+\]
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D3-P1-C10} Một xe chuyển động thẳng không đổi chiều; 2 giờ đầu xe chạy với tốc độ trung bình $40\text{ km/h}$, 3 giờ sau xe chạy với tốc độ trung bình $25\text{ km/h}$. Tốc độ trung bình của xe trong suốt thời gian chạy là
+\choice
+{$30\text{ km/h}$}
+{\True $31\text{ km/h}$}
+{$32\text{ km/h}$}
+{$33\text{ km/h}$}
+\loigiai{
+Tổng quãng đường: $s = 40 \cdot 2 + 25 \cdot 3 = 80 + 75 = 155\text{ km}$.\\
+Tổng thời gian: $t = 2 + 3 = 5\text{ h}$.\\
+Tốc độ trung bình:
+\[
+v_{\text{tb}} = \frac{s}{t} = \frac{155}{5} = 31\text{ km/h}
+\]
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D3-P1-C11} Một vận động viên chạy một quãng đường $4\text{ km}$ theo 3 chặng như sau:
+\begin{itemize}
+    \item Nửa quãng đường đầu anh ta chạy hết thời gian 6 phút 40 giây.
+    \item $\frac{2}{3}$ quãng đường còn lại anh ta chạy hết thời gian 5 phút 33 giây.
+    \item $\frac{1}{3}$ đoạn đường cuối chạy hết 1 phút 45 giây.
+\end{itemize}
+Tốc độ trung bình của vận động viên đó trên cả quãng đường xấp xỉ
+\choice
+{$9{,}5\text{ m/s}$}
+{$8{,}5\text{ m/s}$}
+{\True $4{,}77\text{ m/s}$}
+{$5{,}17\text{ m/s}$}
+\loigiai{
+Tổng thời gian chạy:
+\[
+t = (6 \cdot 60 + 40) + (5 \cdot 60 + 33) + (1 \cdot 60 + 45) = 400 + 333 + 105 = 838\text{ s}
+\]
+Tổng quãng đường: $s = 4\text{ km} = 4000\text{ m}$.\\
+Tốc độ trung bình:
+\[
+v_{\text{tb}} = \frac{s}{t} = \frac{4000}{838} \approx 4{,}77\text{ m/s}
+\]
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D3-P1-C12} Hai xe máy chuyển động thẳng cùng xuất phát từ bưu điện đến hai vị trí khác nhau. Xe thứ nhất đi được quãng đường $1\text{ km}$ hết $1{,}5\text{ phút}$, xe thứ hai đi được $0{,}75\text{ km}$ hết $1\text{ phút}$. Tốc độ $v_1$ của xe thứ nhất và tốc độ $v_2$ của xe thứ hai được thể hiện ở liên hệ nào dưới đây?
+\choice
+{$4v_1 = 5v_2$}
+{$8v_1 = 9v_2$}
+{\True $9v_1 = 8v_2$}
+{$5v_1 = 4v_2$}
+\loigiai{
+Tốc độ của mỗi xe:
+\[
+v_1 = \frac{1}{1{,}5} = \frac{2}{3}\text{ km/phút}, \quad v_2 = \frac{0{,}75}{1} = \frac{3}{4}\text{ km/phút}
+\]
+Tỉ số tốc độ:
+\[
+\frac{v_1}{v_2} = \frac{2/3}{3/4} = \frac{8}{9} \implies 9v_1 = 8v_2
+\]
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D3-P1-C13} Một vật chuyển động với quãng đường vật đi được $s = (13{,}8 \pm 0{,}2)\text{ m}$ trong khoảng thời gian $t = (4{,}0 \pm 0{,}3)\text{ s}$. Phép đo tốc độ trung bình có sai số tỉ đối bằng
+\choice
+{$3{,}5\%$}
+{$6{,}5\%$}
+{\True $8{,}9\%$}
+{$2{,}2\%$}
+\loigiai{
+Sai số tỉ đối của phép đo tốc độ:
+\[
+\delta v = \left(\frac{\Delta s}{\overline{s}} + \frac{\Delta t}{\overline{t}}\right) \cdot 100\% = \left(\frac{0{,}2}{13{,}8} + \frac{0{,}3}{4{,}0}\right) \cdot 100\% \approx (0{,}0145 + 0{,}075) \cdot 100\% \approx 8{,}9\%
+\]
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D3-P1-C14} Trong bộ thí nghiệm đo tốc độ chuyển động của viên bi thép, cổng quang điện có vai trò giống như bộ phận nào?
+\choice
+{Công tắc bấm thả viên bi}
+{Đồng hồ đo điện số}
+{Công tắc điều khiển mở}
+{\True Công tắc điều khiển đóng/mở đồng hồ đo}
+\loigiai{
+Cổng quang điện hoạt động như một công tắc tự động điều khiển bắt đầu tính giờ khi vật đi vào và ngắt tính giờ khi vật đi ra khỏi cổng quang.
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D3-P1-C15} Khi sử dụng đồng hồ đo thời gian hiện số và cổng quang điện thì
+\choice
+{\True Kết quả đo chính xác, giảm thiểu sai số}
+{Kết quả đo chưa chính xác, sai số nhiều}
+{Đo chưa chính xác, thiết bị cồng kềnh}
+{Kết quả đo chính xác, thiết bị nhỏ gọn}
+\loigiai{
+Sự kết hợp giữa đồng hồ đo thời gian hiện số và cổng quang điện mang lại độ chính xác rất cao và giảm thiểu tối đa sai số do phản xạ thao tác của con người.
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D3-P1-C16} Chức năng của đồng hồ đo thời gian hiện số:
+\choice
+{\True MODE B: Đo thời gian vật chắn cổng quang điện nối với ổ B}
+{MODE A $\leftrightarrow$ B: Đo tổng của hai khoảng thời gian vật chắn cổng quang điện nối với ổ A và vật chắn cổng quang điện nối với ổ B}
+{MODE A: Đo thời gian từ lúc vật chuyển động đến khi vật chắn cổng quang điện nối với ổ A}
+{MODE A+B: Đo thời gian vật chuyển động từ cổng quang điện nối với ổ A tới cổng quang điện nối với ổ B}
+\loigiai{
+Ở chế độ MODE B, đồng hồ đo thời gian từ lúc vật bắt đầu chắn cổng B đến khi vật đi qua hết cổng B.
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D3-P1-C17} Trong thí nghiệm đo tốc độ chuyển động của viên bi thép, đường kính viên bi được đo bằng dụng cụ nào sau đây?
+\choice
+{\includegraphics[width=2.5cm]{fig_c2b2_p78_de3_p1_c17_opt_a.png}}
+{\True \includegraphics[width=2.8cm]{fig_c2b2_p78_de3_p1_c17_opt_b.png}}
+{\includegraphics[width=2.8cm]{fig_c2b2_p78_de3_p1_c17_opt_c.png}}
+{\includegraphics[width=2.5cm]{fig_c2b2_p78_de3_p1_c17_opt_d.png}}
+\loigiai{
+Đường kính ngoài của viên bi thép hình cầu nhỏ được đo chính xác nhất bằng thước kẹp (hình B).
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D3-P1-C18} Để đo tốc độ tức thời của viên bi chuyển động thẳng, người ta cho viên bi chuyển động qua cổng quang điện trong khoảng thời gian $t$ rất nhỏ. Độ dịch chuyển của bi trong khoảng thời gian $t$ là $d$. Kết quả đo $d$ và $t$ như sau: $d = (10{,}08 \pm 0{,}02)\text{ mm}$ và $t = (0{,}036 \pm 0{,}001)\text{ s}$. Sai số tương đối (tỉ đối) của phép đo vận tốc của viên bi là
+\choice
+{$\delta v = 7{,}1\%$}
+{$\delta v = 0{,}2\%$}
+{\True $\delta v = 3{,}0\%$}
+{$\delta v = 2{,}6\%$}
+\loigiai{
+Sai số tỉ đối của phép đo:
+\[
+\delta v = \left(\frac{\Delta d}{\overline{d}} + \frac{\Delta t}{\overline{t}}\right) \cdot 100\% = \left(\frac{0{,}02}{10{,}08} + \frac{0{,}001}{0{,}036}\right) \cdot 100\% \approx (0{,}00198 + 0{,}02778) \cdot 100\% \approx 3{,}0\%
+\]
+}
+\end{ex}
+
+\setcounter{ex}{0}
+\subsection*{PHẦN II. Câu hỏi trắc nghiệm Đúng / Sai}
+\textit{Thí sinh trả lời từ câu 1 đến câu 4. Trong mỗi ý a), b), c), d) ở mỗi câu, thí sinh chọn đúng hoặc sai.}
+
+\begin{ex}\macau{ID: C2B2-D3-P2-C01} Một người bơi dọc theo chiều dài $50\text{ m}$ của bể bơi hết $20\text{ s}$, rồi quay về lại chỗ xuất phát trong $22\text{ s}$.
+\choiceTF
+{\True Trong lần bơi đầu, vận tốc trung bình là $2{,}5\text{ m/s}$}
+{Trong lần bơi về, vận tốc trung bình là $2{,}38\text{ m/s}$}
+{\True Trong toàn bộ quá trình đi và về, độ dịch chuyển bằng 0}
+{Trong toàn bộ quá trình đi và về, vận tốc trung bình là $2{,}38\text{ m/s}$}
+\loigiai{
+\begin{itemchoice}
+    \itemch Lần bơi đầu: $v_1 = \frac{d_1}{t_1} = \frac{50}{20} = 2{,}5\text{ m/s}$.
+    \itemch Lần bơi về, người đó bơi ngược chiều dương nên vận tốc trung bình là $v_2 = \frac{-50}{22} \approx -2{,}27\text{ m/s} \ne 2{,}38\text{ m/s}$.
+    \itemch Điểm cuối trùng với điểm đầu nên độ dịch chuyển tổng hợp bằng 0.
+    \itemch Do độ dịch chuyển bằng 0 nên vận tốc trung bình của cả quá trình bằng 0.
+\end{itemchoice}
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D3-P2-C02} Cho ba vật chuyển động đều. Vật thứ nhất đi được quãng đường $27\text{ km}$ trong 30 phút, vật thứ hai đi quãng đường $48\text{ m}$ trong 3 giây, vật thứ ba đi với tốc độ $60\text{ km/h}$.
+\choiceTF
+{\True Vật thứ nhất đi với tốc độ trung bình $54\text{ km/h}$}
+{\True Vật thứ hai đi với tốc độ trung bình $16\text{ m/s}$}
+{Vật thứ hai chuyển động chậm nhất, vật thứ ba chuyển động nhanh nhất}
+{\True Nếu đi cùng một quãng đường thì vật thứ ba chuyển động ít thời gian nhất}
+\loigiai{
+Quy đổi tốc độ của ba vật ra cùng đơn vị $\text{km/h}$:
+\begin{itemize}
+    \item Vật 1: $v_1 = \frac{27}{0{,}5} = 54\text{ km/h} = 15\text{ m/s}$.
+    \item Vật 2: $v_2 = \frac{48}{3} = 16\text{ m/s} = 57{,}6\text{ km/h}$.
+    \item Vật 3: $v_3 = 60\text{ km/h} \approx 16{,}67\text{ m/s}$.
+\end{itemize}
+\begin{itemchoice}
+    \itemch Tốc độ vật 1: $v_1 = 54\text{ km/h}$.
+    \itemch Tốc độ vật 2: $v_2 = 16\text{ m/s}$.
+    \itemch So sánh tốc độ: $v_1 < v_2 < v_3$ nên vật 1 chuyển động chậm nhất, vật 3 chuyển động nhanh nhất.
+    \itemch Vật 3 có tốc độ lớn nhất nên đi cùng quãng đường sẽ mất ít thời gian nhất ($t = \frac{s}{v}$).
+\end{itemchoice}
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D3-P2-C03} Hai xe ô tô khởi hành cùng một lúc từ hai địa điểm A và B, cùng chuyển động về địa điểm C. Biết xe (1) khởi hành từ A đi với tốc độ $60\text{ km/h}$, xe (2) từ B chuyển động với tốc độ $55\text{ km/h}$ và quãng đường $AC$ dài $120\text{ km}$, $BC$ dài $80\text{ km}$.
+\choiceTF
+{\True Xe (1) chuyển động đến C trong thời gian 2 giờ}
+{\True Xe (2) đến C trước xe (1)}
+{Để hai xe đến C cùng lúc thì xe (2) phải chuyển động với tốc độ $50\text{ km/h}$}
+{Nếu xe (1) và xe (2) cùng khởi hành tại B với tốc độ như ban đầu, thì xe (1) sẽ đến C trước xe (2) 10 phút}
+\loigiai{
+\begin{itemchoice}
+    \itemch Thời gian xe (1) đi đến C: $t_1 = \frac{120}{60} = 2\text{ h}$.
+    \itemch Thời gian xe (2) đi đến C: $t_2 = \frac{80}{55} \approx 1{,}45\text{ h} < 2\text{ h}$ nên xe (2) đến C trước xe (1).
+    \itemch Để hai xe đến C cùng lúc ($t_2 = t_1 = 2\text{ h}$) thì tốc độ xe (2) phải là: $v_2' = \frac{80}{2} = 40\text{ km/h} \ne 50\text{ km/h}$.
+    \itemch Nếu cùng xuất phát tại B đi quãng đường $80\text{ km}$: thời gian xe (1) là $t_1' = \frac{80}{60} = \frac{4}{3}\text{ h} = 80\text{ phút}$; thời gian xe (2) là $t_2' = \frac{80}{55} \approx 87{,}27\text{ phút}$. Hiệu thời gian là $87{,}27 - 80 = 7{,}27\text{ phút} \ne 10\text{ phút}$.
+\end{itemchoice}
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D3-P2-C04} \immini{
+Một người đi bộ đi với tốc độ không đổi dọc theo nửa đường tròn có bán kính $5\text{ m}$, từ A đến B như hình vẽ bên với thời gian đi là $6{,}0\text{ s}$.
+}{
+\includegraphics[width=2.5cm]{fig_c2b2_p80_de3_p2_c04_nua_duong_tron.png}
+}
+\choiceTF
+{Quãng đường người đó đã đi chính là chu vi đường tròn}
+{Độ dịch chuyển của người đó bằng quãng đường người đó đã đi}
+{Tốc độ trung bình của người đó là $\frac{5\pi}{12}\text{ m/s}$}
+{Vận tốc trung bình của người đó là $\frac{5}{6}\text{ m/s}$}
+\loigiai{
+\begin{itemchoice}
+    \itemch Người đó chỉ đi dọc theo nửa đường tròn, nên quãng đường đi được bằng nửa chu vi đường tròn: $s = \pi r = 5\pi\text{ m}$.
+    \itemch Quãng đường là $s = 5\pi \approx 15{,}7\text{ m}$, trong khi độ lớn độ dịch chuyển bằng đường kính $d = 2r = 10\text{ m}$, hai đại lượng này khác nhau.
+    \itemch Tốc độ trung bình: $v_{\text{tb}} = \frac{s}{t} = \frac{5\pi}{6}\text{ m/s} \ne \frac{5\pi}{12}\text{ m/s}$.
+    \itemch Vận tốc trung bình: $v = \frac{d}{t} = \frac{10}{6} = \frac{5}{3}\text{ m/s} \ne \frac{5}{6}\text{ m/s}$.
+\end{itemchoice}
+}
+\end{ex}
+
+\setcounter{ex}{0}
+\subsection*{PHẦN III. Câu hỏi trắc nghiệm trả lời ngắn}
+\textit{Thí sinh trả lời từ câu 1 đến câu 6.}
+
+\begin{ex}\macau{ID: C2B2-D3-P3-C01} Một ô tô chuyển động thẳng đều. Biết rằng ô tô chuyển động theo chiều âm với vận tốc có độ lớn $36\text{ km/h}$ và ở thời điểm $1{,}5\text{ h}$ thì vật có tọa độ $6\text{ km}$. Vị trí của vật sau $1\text{ h}$ là bao nhiêu kilômét?
+
+\shortans{24}
+\loigiai{
+Phương trình chuyển động thẳng đều dọc theo trục $Ox$:
+\[
+x = x_0 + v \cdot t
+\]
+Vì xe chuyển động theo chiều âm nên vận tốc là $v = -36\text{ km/h}$.\\
+Tại thời điểm $t = 1{,}5\text{ h}$, tọa độ $x = 6\text{ km}$:
+\[
+6 = x_0 - 36 \cdot 1{,}5 \implies x_0 = 6 + 54 = 60\text{ km}
+\]
+Vị trí của vật sau $t = 1\text{ h}$:
+\[
+x(1) = 60 - 36 \cdot 1 = 24\text{ km}
+\]
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D3-P3-C02} Một tàu ngầm sử dụng hệ thống phát sóng âm để đo độ sâu của biển. Hệ thống phát ra các sóng âm và đo thời gian quay trở lại của sóng âm sau khi chúng bị phản xạ tại đáy biển. Tại một vị trí trên mặt biển, thời gian mà hệ thống ghi nhận được là $0{,}13\text{ s}$ kể từ khi sóng âm được truyền đi. Biết tốc độ truyền sóng âm trong nước khoảng $1500\text{ m/s}$. Nước biển sâu bao nhiêu mét?
+
+\shortans{97{,}5}
+\loigiai{
+Thời gian sóng âm truyền từ mặt biển xuống đến đáy biển:
+\[
+t' = \frac{t}{2} = \frac{0{,}13}{2} = 0{,}065\text{ s}
+\]
+Độ sâu của đáy biển:
+\[
+h = v \cdot t' = 1500 \cdot 0{,}065 = 97{,}5\text{ m}
+\]
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D3-P3-C03} Một ô tô xuất phát từ A lúc 8 giờ sáng chuyển động thẳng đều tới B lúc 10 giờ 30 phút, đến C lúc 12 giờ 30 phút. Khoảng cách từ A đến B là $175\text{ km}$. Khoảng cách từ B đến C là bao nhiêu kilômét?
+
+\shortans{140}
+\loigiai{
+Thời gian ô tô đi từ A đến B:
+\[
+t_{AB} = 10\text{h}30' - 8\text{h}00' = 2{,}5\text{ h}
+\]
+Tốc độ của xe:
+\[
+v = \frac{s_{AB}}{t_{AB}} = \frac{175}{2{,}5} = 70\text{ km/h}
+\]
+Thời gian ô tô đi từ B đến C:
+\[
+t_{BC} = 12\text{h}30' - 10\text{h}30' = 2{,}0\text{ h}
+\]
+Khoảng cách từ B đến C:
+\[
+s_{BC} = v \cdot t_{BC} = 70 \cdot 2{,}0 = 140\text{ km}
+\]
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D3-P3-C04} Một người bắt đầu cho xe máy chạy trên một đoạn đường thẳng. Trong 10 giây đầu, xe chạy được quãng đường $50\text{ m}$, trong 10 giây tiếp theo xe chạy được quãng đường $100\text{ m}$. Tốc độ trung bình của xe máy trong 20 giây đầu tiên là bao nhiêu $\text{km/h}$?
+
+\shortans{27}
+\loigiai{
+Tổng quãng đường xe đi được trong 20 giây đầu:
+\[
+s = s_1 + s_2 = 50 + 100 = 150\text{ m}
+\]
+Tổng thời gian: $t = 10 + 10 = 20\text{ s}$.\\
+Tốc độ trung bình:
+\[
+v_{\text{tb}} = \frac{s}{t} = \frac{150}{20} = 7{,}5\text{ m/s} = 7{,}5 \cdot 3{,}6 = 27\text{ km/h}
+\]
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D3-P3-C05} Cho một xe ô tô chạy trên một quãng đường trong 5 giờ. Biết 2 giờ đầu xe chạy với tốc độ trung bình $60\text{ km/h}$ và 3 giờ sau xe chạy với tốc độ trung bình $40\text{ km/h}$. Tốc độ trung bình của xe trong suốt thời gian chuyển động là bao nhiêu $\text{km/h}$?
+
+\shortans{48}
+\loigiai{
+Quãng đường đi trong 2 giờ đầu: $s_1 = v_1 t_1 = 60 \cdot 2 = 120\text{ km}$.\\
+Quãng đường đi trong 3 giờ sau: $s_2 = v_2 t_2 = 40 \cdot 3 = 120\text{ km}$.\\
+Tốc độ trung bình trong suốt thời gian chuyển động:
+\[
+v_{\text{tb}} = \frac{s_1 + s_2}{t_1 + t_2} = \frac{120 + 120}{2 + 3} = \frac{240}{5} = 48\text{ km/h}
+\]
+}
+\end{ex}
+
+\begin{ex}\macau{ID: C2B2-D3-P3-C06} Một ô tô chuyển động trên đường thẳng. Tại thời điểm $t_1$, ô tô ở cách vị trí xuất phát $5\text{ km}$. Tại thời điểm $t_2$, ô tô ở cách vị trí xuất phát $12\text{ km}$. Từ $t_1$ đến $t_2$, độ dịch chuyển của ô tô đã thay đổi một đoạn bằng bao nhiêu kilômét?
+
+\shortans{7}
+\loigiai{
+Độ biến thiên độ dịch chuyển của ô tô:
+\[
+\Delta d = d_2 - d_1 = 12 - 5 = 7\text{ km}
+\]
+}
+\end{ex}
+''')
+
+    return "\n\n".join(parts)
+
+def main():
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    target_path = os.path.join(base_dir, 'chapters', 'bai_02_toc_do_van_toc_trang_54_81.tex')
+    content = get_content()
+    
+    os.makedirs(os.path.dirname(target_path), exist_ok=True)
+    with open(target_path, 'w', encoding='utf-8') as f:
+        f.write(content)
+    print(f'Successfully generated {target_path} (length: {len(content)} chars)')
+
+if __name__ == '__main__':
+    main()
