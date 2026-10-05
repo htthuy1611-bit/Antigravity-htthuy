@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 import os, sys, re
 
-tex_path = r'SAN PHAM/VAT LY 10 - Phong Toa Hoc Ki 1 Lop 10 (GIAI)/chapters/bai_01_he_quy_chieu_trang_31_53.tex'
-fig_dir = r'SAN PHAM/VAT LY 10 - Phong Toa Hoc Ki 1 Lop 10 (GIAI)/figures'
+base_dir = os.path.dirname(os.path.abspath(__file__))
+tex_path = os.path.join(base_dir, 'chapters', 'bai_01_he_quy_chieu_trang_31_53.tex')
+fig_dir = os.path.join(base_dir, 'figures')
 
 with open(tex_path, 'r', encoding='utf-8') as f:
     text = f.read()
