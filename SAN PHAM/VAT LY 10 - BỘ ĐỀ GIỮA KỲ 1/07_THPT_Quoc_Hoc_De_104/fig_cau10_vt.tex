@@ -1,0 +1,41 @@
+\documentclass[tikz,border=5pt]{standalone}
+\usepackage[utf8]{vietnam}
+\usepackage{amsmath,amssymb}
+\usepackage{tikz}
+
+\begin{document}
+\begin{tikzpicture}[>=stealth, line join=round, line cap=round, font=\footnotesize, scale=0.95]
+	% Hình 1
+	\begin{scope}[xshift=0cm]
+		\draw[->, thick] (-0.3, 0) -- (2.5, 0) node[below] {$t$};
+		\draw[->, thick] (0, -1.8) -- (0, 2.0) node[left] {$v$};
+		\node[below left] at (0, 0) {$O$};
+		\draw[line width=1.2pt, blue!80!black] (0, 0.6) -- (2.0, 1.6);
+		\node[below] at (1.0, -1.9) {Hình 1};
+	\end{scope}
+	% Hình 2
+	\begin{scope}[xshift=3.8cm]
+		\draw[->, thick] (-0.3, 0) -- (2.5, 0) node[below] {$t$};
+		\draw[->, thick] (0, -1.8) -- (0, 2.0) node[left] {$v$};
+		\node[below left] at (0, 0) {$O$};
+		\draw[line width=1.2pt, red!80!black] (0, 1.6) -- (2.0, 0.6);
+		\node[below] at (1.0, -1.9) {Hình 2};
+	\end{scope}
+	% Hình 3
+	\begin{scope}[xshift=7.6cm]
+		\draw[->, thick] (-0.3, 0) -- (2.5, 0) node[below] {$t$};
+		\draw[->, thick] (0, -1.8) -- (0, 2.0) node[left] {$v$};
+		\node[below left] at (0, 0) {$O$};
+		\draw[line width=1.2pt, blue!80!black] (0, -0.6) -- (2.0, -1.6);
+		\node[below] at (1.0, -1.9) {Hình 3};
+	\end{scope}
+	% Hình 4
+	\begin{scope}[xshift=11.4cm]
+		\draw[->, thick] (-0.3, 0) -- (2.5, 0) node[below] {$t$};
+		\draw[->, thick] (0, -1.8) -- (0, 2.0) node[left] {$v$};
+		\node[below left] at (0, 0) {$O$};
+		\draw[line width=1.2pt, red!80!black] (0, -1.6) -- (2.0, -0.6);
+		\node[below] at (1.0, -1.9) {Hình 4};
+	\end{scope}
+\end{tikzpicture}
+\end{document}

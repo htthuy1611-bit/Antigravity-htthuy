@@ -1,0 +1,24 @@
+\documentclass[tikz,border=5pt]{standalone}
+\usepackage[utf8]{vietnam}
+\usepackage{amsmath,amssymb}
+\usepackage{tikz}
+
+\begin{document}
+\begin{tikzpicture}[font=\footnotesize, line join=round, line cap=round, >=stealth]
+    % Bờ sông
+    \draw[line width=1.2pt, brown!70!black] (-0.5, 0) -- (4.5, 0) node[right, black] {Bờ xuất phát};
+    \draw[line width=1.2pt, brown!70!black] (-0.5, -3) -- (4.5, -3) node[right, black] {Bờ đối diện};
+    % Nước sông
+    \fill[cyan!8] (-0.5, 0) rectangle (4.5, -3);
+    % Véc-tơ d1 (hướng Đông - sang bờ đối diện)
+    \draw[->, line width=1.2pt, blue] (0.5, 0) -- (0.5, -3) node[midway, left] {$\vec{d}_1$ ($50\text{ m}$)};
+    \node[above] at (0.5, 0) {$A$};
+    \node[below left] at (0.5, -3) {$B$};
+    % Véc-tơ d2 (hướng Nam - nước cuốn xuôi dòng)
+    \draw[->, line width=1.2pt, red!80!black] (0.5, -3) -- (3.5, -3) node[midway, below] {$\vec{d}_2$ ($50\text{ m}$)};
+    \node[below right] at (3.5, -3) {$C$};
+    % Véc-tơ d tổng hợp
+    \draw[->, line width=1.5pt, green!50!black] (0.5, 0) -- (3.5, -3) node[midway, above right] {$\vec{d}$};
+    \draw[dashed, gray] (0.5, 0) -- (3.5, 0) -- (3.5, -3);
+\end{tikzpicture}
+\end{document}

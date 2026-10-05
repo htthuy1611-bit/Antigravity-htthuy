@@ -74,8 +74,8 @@
 
 
 
-
-	**Ví dụ 1.** Cân nặng (kg) của 10 học sinh: $49;\; 57;\; 66;\; 45;\; 50;\; 41;\; 57;\; 42;\; 55;\; 52$. Tìm khoảng biến thiên của mẫu số liệu.
+**Ví dụ 1.** 
+	Cân nặng (kg) của 10 học sinh: $49;\; 57;\; 66;\; 45;\; 50;\; 41;\; 57;\; 42;\; 55;\; 52$. Tìm khoảng biến thiên của mẫu số liệu.
 	
 
 **Lời giải.**
@@ -84,17 +84,15 @@
 		Giá trị lớn nhất là $x_{\max} = 66\text{ kg}$. Giá trị nhỏ nhất là $x_{\min} = 41\text{ kg}$.\\
 		Khoảng biến thiên của mẫu số liệu là:
 		\[R = x_{\max} - x_{\min} = 66 - 41 = 25\text{ (kg)}.\]
-	
+	}
 
 
 
 
 
 
-
-
-
-	**Ví dụ 2.** Chiều cao (m) của các bạn học sinh trong một lớp học:
+**Ví dụ 2.** 
+	Chiều cao (m) của các bạn học sinh trong một lớp học:
 	\begin{center}
 	\begin{tabular}{|l|c|c|c|c|c|c|}
 		\hline
@@ -105,25 +103,19 @@
 	\end{tabular}
 	\end{center}
 	Hãy tìm khoảng biến thiên của mẫu số liệu trên.
-	
-
-**Lời giải.**
-
-
+	\loigiai{
 		Giá trị lớn nhất là $x_{\max} = 1{,}65\text{ m}$. Giá trị nhỏ nhất là $x_{\min} = 1{,}60\text{ m}$.\\
 		Khoảng biến thiên của mẫu số liệu là:
 		\[R = 1{,}65 - 1{,}60 = 0{,}05\text{ (m)}.\]
-	
+	}
 
 
 
 
 
 
-
-
-
-	**Ví dụ 3.** Điểm kiểm tra môn Toán của học sinh Tổ 1 và Tổ 2:
+**Ví dụ 3.** 
+	Điểm kiểm tra môn Toán của học sinh Tổ 1 và Tổ 2:
 	
 		
 -  Tổ 1: $6;\; 9;\; 4;\; 2;\; 7;\; 9;\; 6;\; 10$.
@@ -131,17 +123,11 @@
 -  Tổ 2: $4;\; 5;\; 6;\; 3;\; 9;\; 5;\; 8;\; 4$.
 	
 	Tìm khoảng biến thiên trong hai mẫu số liệu và chỉ ra tổ nào học đồng đều hơn.
-	
-
-**Lời giải.**
-
-
+	\loigiai{
 		- Tổ 1: $x_{\max} = 10, x_{\min} = 2 \implies R_1 = 10 - 2 = 8$.\\
 		- Tổ 2: $x_{\max} = 9, x_{\min} = 3 \implies R_2 = 9 - 3 = 6$.\\
 		Vì $R_2 < R_1$ nên độ phân tán điểm số của Tổ 2 nhỏ hơn Tổ 1, do đó học sinh Tổ 2 học đồng đều hơn Tổ 1.
-	
-
-
+	}
 
 
 
@@ -154,8 +140,8 @@
 
 
 
-
-	**Ví dụ 1.** Sản lượng lúa (tạ) của 40 thửa ruộng:
+**Ví dụ 4.** 
+	Sản lượng lúa (tạ) của 40 thửa ruộng:
 	\begin{center}
 	\begin{tabular}{|l|c|c|c|c|c|c|}
 		\hline
@@ -167,11 +153,7 @@
 	\end{center}
 	a) Tính sản lượng trung bình của 40 thửa ruộng.\\
 	b) Tính phương sai và độ lệch chuẩn.
-	
-
-**Lời giải.**
-
-
+	\loigiai{
 		a) Sản lượng trung bình:
 		\[\overline{x} = \frac{20 \cdot 5 + 21 \cdot 8 + 22 \cdot 11 + 23 \cdot 10 + 24 \cdot 6}{40} = \frac{884}{40} = 22{,}1\text{ (tạ)}.\]
 		b) Phương sai:
@@ -179,17 +161,15 @@
 		\[= \frac{5(4{,}41) + 8(1{,}21) + 11(0{,}01) + 10(0{,}81) + 6(3{,}61)}{40} = \frac{61{,}6}{40} = 1{,}54\text{ (tạ}^2\text{)}.\]
 		Độ lệch chuẩn:
 		\[s = \sqrt{1{,}54} \approx 1{,}24\text{ (tạ)}.\]
-	
+	}
 
 
 
 
 
 
-
-
-
-	**Ví dụ 2.** 100 học sinh thi học sinh giỏi Toán (thang điểm 20):
+**Ví dụ 5.** 
+	100 học sinh thi học sinh giỏi Toán (thang điểm 20):
 	\begin{center}
 	\begin{tabular}{|l|c|c|c|c|c|c|c|c|c|c|c|c|}
 		\hline
@@ -201,11 +181,7 @@
 	\end{center}
 	a) Tính số trung bình.\\
 	b) Tìm phương sai và độ lệch chuẩn.
-	
-
-**Lời giải.**
-
-
+	\loigiai{
 		a) Số trung bình:
 		\[\overline{x} = \frac{9(1) + 10(1) + 11(3) + 12(5) + 13(8) + 14(13) + 15(19) + 16(24) + 17(14) + 18(10) + 19(2)}{100}\]
 		\[= \frac{1523}{100} = 15{,}23\text{ (điểm)}.\]
@@ -213,9 +189,7 @@
 		\[s^2 = \frac{1}{100}\sum n_i x_i^2 - (\overline{x})^2 = \frac{23\,509}{100} - (15{,}23)^2 = 235{,}09 - 231{,}9529 = 3{,}1371.\]
 		Độ lệch chuẩn:
 		\[s = \sqrt{3{,}1371} \approx 1{,}77\text{ (điểm)}.\]
-	
-
-
+	}
 
 
 
@@ -228,15 +202,11 @@
 
 
 
-
-	**Ví dụ 1.** Điểm kiểm tra môn Toán của 10 học sinh sau:
+**Ví dụ 6.** 
+	Điểm kiểm tra môn Toán của 10 học sinh sau:
 	\[1;\; 7;\; 10;\; 7;\; 7;\; 6;\; 9;\; 8;\; 10;\; 8.\]
 	Hãy tìm các số liệu bất thường trong mẫu số liệu trên.
-	
-
-**Lời giải.**
-
-
+	\loigiai{
 		Sắp xếp mẫu số liệu theo thứ tự không giảm ($n = 10$):
 		\[1;\; 6;\; 7;\; 7;\; 7;\; 8;\; 8;\; 9;\; 10;\; 10.\]
 		- Trung vị $Q_2 = \dfrac{7 + 8}{2} = 7{,}5$.\\
@@ -248,9 +218,7 @@
 		Đoạn giá trị bình thường là $[4; 12]$.\\
 		Số liệu $1$ nhỏ hơn $4$ nên không thuộc đoạn $[4; 12]$.\\
 		Vậy giá trị bất thường của mẫu số liệu là **1**.
-	
-
-
+	}
 
 
 
@@ -270,23 +238,26 @@
 *\small (Mỗi câu học sinh chỉ chọn một phương án trả lời đúng)*
 \setcounter{ex}{0}
 
-% Câu 1
 
-
-
+**Câu 1.** 
 	Hãy tìm khoảng biến thiên của mẫu số liệu thống kê sau: $22;\; 26;\; 31;\; 15;\; 12;\; 4;\; 18;\; 93;\; 17;\; 64;\; 10$.
 	
 
 @@TAB@@**A.** $33$@@TAB@@**B.** $83$@@TAB@@@@CHON@@**C.** $89$@@CHON@@@@TAB@@**D.** $97$
 
+\loigiai{
+		Giá trị lớn nhất là $93$, giá trị nhỏ nhất là $4$.\\
+		Khoảng biến thiên: $R = 93 - 4 = 89$.\\
+		Chọn **C**.
+	
 
 
 
 
-% Câu 2
 
 
 
+**Câu 2.** 
 	Hai chữ số cuối giải đặc biệt Xổ số miền Bắc trong 9 ngày được ghi lại như sau: $16;\; 11;\; 25;\; 28;\; 45;\; 42;\; 24;\; 33;\; 11$. Hãy tìm khoảng biến thiên của mẫu số liệu trên.
 	
 
@@ -296,10 +267,8 @@
 
 
 
-% Câu 3
 
-
-
+**Câu 3.** 
 	Mẫu số liệu nào dưới đây có khoảng biến thiên là 13?
 	
 
@@ -309,10 +278,8 @@
 
 
 
-% Câu 4
 
-
-
+**Câu 4.** 
 	Mẫu số liệu nào dưới đây có khoảng biến thiên là 53?
 	
 
@@ -322,10 +289,8 @@
 
 
 
-% Câu 5
 
-
-
+**Câu 5.** 
 	Số lượng học sinh có điểm Toán tổng kết cuối học kì I trên 8 ở mỗi lớp của một trường:
 	\[16;\; 11;\; 15;\; 18;\; 21;\; 12;\; 24;\; 23;\; 11;\; 8;\; 9;\; 11;\; 6;\; 27;\; 22;\; 20;\; 35;\; 18.\]
 	Hãy tìm khoảng biến thiên của mẫu số liệu trên.
@@ -337,10 +302,8 @@
 
 
 
-% Câu 6
 
-
-
+**Câu 6.** 
 	Hãy tìm khoảng biến thiên của mẫu số liệu thống kê được cho ở bảng sau:
 	\begin{center}
 	\begin{tabular}{|l|c|c|c|c|c|}
@@ -359,10 +322,8 @@
 
 
 
-% Câu 7
 
-
-
+**Câu 7.** 
 	Sải cánh (cm) của 90 con chim sẻ được thống kê:
 	\begin{center}
 	\begin{tabular}{|l|c|c|c|c|c|c|c|}
@@ -382,10 +343,8 @@
 
 
 
-% Câu 8
 
-
-
+**Câu 8.** 
 	Nhiệt độ cao nhất trong tuần ($^\circ\text{C}$) tại hai thành phố:
 	
 		
@@ -402,10 +361,8 @@
 
 
 
-% Câu 9
 
-
-
+**Câu 9.** 
 	Tuổi của những đứa trẻ:
 	
 		
@@ -422,10 +379,8 @@
 
 
 
-% Câu 10
 
-
-
+**Câu 10.** 
 	Chỉ số IQ và EQ của một nhóm học sinh:
 	
 		
@@ -442,10 +397,8 @@
 
 
 
-% Câu 11
 
-
-
+**Câu 11.** 
 	Độ lệch chuẩn là
 	
 
@@ -455,10 +408,8 @@
 
 
 
-% Câu 12
 
-
-
+**Câu 12.** 
 	Đại lượng đo mức độ biến động, chênh lệch giữa các giá trị trong mẫu số liệu thống kê gọi là
 	
 
@@ -468,10 +419,8 @@
 
 
 
-% Câu 13
 
-
-
+**Câu 13.** 
 	Cho dãy số liệu thống kê: $1, 2, 3, 4, 5, 6, 7, 8$. Độ lệch chuẩn của dãy số liệu gần bằng
 	
 
@@ -481,10 +430,8 @@
 
 
 
-% Câu 14
 
-
-
+**Câu 14.** 
 	Cho mẫu số liệu $\{10, 8, 6, 2, 4\}$. Độ lệch chuẩn của mẫu là
 	
 
@@ -494,10 +441,8 @@
 
 
 
-% Câu 15
 
-
-
+**Câu 15.** 
 	Cho mẫu số liệu thống kê $\{2, 4, 6, 8, 10\}$. Phương sai của mẫu số liệu trên là bao nhiêu?
 	
 
@@ -507,10 +452,8 @@
 
 
 
-% Câu 16
 
-
-
+**Câu 16.** 
 	Số ô tô đi qua một cây cầu trong một tuần đếm được như sau: $83;\; 74;\; 71;\; 79;\; 83;\; 69;\; 92$. Phương sai và độ lệch chuẩn lần lượt là
 	
 
@@ -520,10 +463,8 @@
 
 
 
-% Câu 17
 
-
-
+**Câu 17.** 
 	Tiền thưởng (triệu đồng) cho 43 cán bộ nhân viên:
 	\begin{center}
 	\begin{tabular}{|l|c|c|c|c|c|c|}
@@ -543,10 +484,8 @@
 
 
 
-% Câu 18
 
-
-
+**Câu 18.** 
 	Độ lệch chuẩn của bảng phân bố tần số tiền thưởng ở Câu 17 là
 	
 
@@ -556,10 +495,8 @@
 
 
 
-% Câu 19
 
-
-
+**Câu 19.** 
 	Điểm thi Toán lớp 10A được trình bày trong bảng tần số sau:
 	\begin{center}
 	\begin{tabular}{|l|c|c|c|c|c|}
@@ -579,10 +516,8 @@
 
 
 
-% Câu 20
 
-
-
+**Câu 20.** 
 	Cho dãy số liệu thống kê: $38;\; 18;\; 20;\; 25;\; 18;\; 15;\; 20;\; 22;\; 31$. Phương sai của dãy số liệu trên là
 	
 
@@ -592,10 +527,8 @@
 
 
 
-% Câu 21
 
-
-
+**Câu 21.** 
 	Trên con đường A, tốc độ 30 ô tô được ghi lại trong bảng tần số:
 	\begin{center}
 	\begin{tabular}{|l|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
@@ -615,10 +548,8 @@
 
 
 
-% Câu 22
 
-
-
+**Câu 22.** 
 	Độ lệch chuẩn của tốc độ ô tô ở Câu 21 là
 	
 
@@ -628,10 +559,8 @@
 
 
 
-% Câu 23
 
-
-
+**Câu 23.** 
 	Số lượng khách đến điểm du lịch trong 12 tháng:
 	\[430;\; 550;\; 430;\; 520;\; 550;\; 515;\; 550;\; 110;\; 520;\; 430;\; 550;\; 880.\]
 	Độ lệch chuẩn là
@@ -643,10 +572,8 @@
 
 
 
-% Câu 24
 
-
-
+**Câu 24.** 
 	Một mẫu số liệu thống kê có các tứ phân vị: $Q_1 = 22, Q_2 = 27, Q_3 = 32$. Giá trị nào sau đây là giá trị bất thường của mẫu số liệu?
 	
 
@@ -656,10 +583,8 @@
 
 
 
-% Câu 25
 
-
-
+**Câu 25.** 
 	Hãy tìm các giá trị bất thường của mẫu số liệu: $7;\; 19;\; 6;\; 12;\; 5;\; 17;\; 6;\; 13$.
 	
 
@@ -669,10 +594,8 @@
 
 
 
-% Câu 26
 
-
-
+**Câu 26.** 
 	Hãy tìm các giá trị bất thường của mẫu số liệu: $20;\; 52;\; 86;\; 80;\; 44;\; 49;\; 57;\; 41;\; 44;\; 55$.
 	
 
@@ -682,10 +605,8 @@
 
 
 
-% Câu 27
 
-
-
+**Câu 27.** 
 	Một mẫu số liệu có $Q_1 = 53, Q_2 = 55, Q_3 = 61$. Giá trị nào sau đây không phải là giá trị bất thường?
 	
 
@@ -695,10 +616,8 @@
 
 
 
-% Câu 28
 
-
-
+**Câu 28.** 
 	Mẫu số liệu có $Q_1 = 3, Q_2 = 7, Q_3 = 12$. Giá trị nào là giá trị bất thường?
 	
 
@@ -708,10 +627,8 @@
 
 
 
-% Câu 29
 
-
-
+**Câu 29.** 
 	Tìm các giá trị bất thường của mẫu số liệu:
 	\[10;\; 59;\; 67;\; 72;\; 73;\; 76;\; 88;\; 92;\; 106;\; 111;\; 115;\; 169.\]
 	
@@ -722,10 +639,8 @@
 
 
 
-% Câu 30
 
-
-
+**Câu 30.** 
 	Cho mẫu số liệu thống kê: $-3;\; 5;\; 10;\; 12;\; 14;\; 18;\; 24;\; 26;\; 49;\; 60$. Phát biểu nào sau đây là đúng?
 	
 
@@ -735,10 +650,8 @@
 
 
 
-% Câu 31
 
-
-
+**Câu 31.** 
 	Cho mẫu số liệu: $10;\; 21;\; 21;\; 23;\; 25;\; 26;\; 28;\; 42$. Phát biểu nào sau đây là đúng?
 	
 
@@ -748,10 +661,8 @@
 
 
 
-% Câu 32
 
-
-
+**Câu 32.** 
 	Cho mẫu số liệu: $52;\; 47;\; 55;\; 81;\; 61;\; 49;\; 59$. Phát biểu nào đúng?
 	
 
@@ -761,10 +672,8 @@
 
 
 
-% Câu 33
 
-
-
+**Câu 33.** 
 	Cho mẫu số liệu: $8;\; 10;\; 13;\; 13;\; 14;\; 16;\; 27$. Phát biểu nào đúng?
 	
 
@@ -774,10 +683,8 @@
 
 
 
-% Câu 34
 
-
-
+**Câu 34.** 
 	Cho mẫu số liệu: $44;\; 51;\; 36;\; 19;\; 40;\; 69;\; 49;\; 46$. Phát biểu nào đúng?
 	
 
@@ -787,10 +694,8 @@
 
 
 
-% Câu 35
 
-
-
+**Câu 35.** 
 	Cho mẫu số liệu: $20;\; 22;\; 22;\; 25;\; 28;\; 32;\; 34;\; 43$. Phát biểu nào đúng?
 	
 
@@ -800,10 +705,8 @@
 
 
 
-% Câu 36
 
-
-
+**Câu 36.** 
 	Cho dãy số liệu thống kê: $1, 2, 3, 4, 5, 6, 7$. Phương sai của các số liệu thống kê đã cho là
 	
 
@@ -813,10 +716,8 @@
 
 
 
-% Câu 37
 
-
-
+**Câu 37.** 
 	Sản lượng lúa (tạ) của 40 thửa ruộng: 20 (5), 21 (8), 22 (11), 23 (10), 24 (6). Tính độ lệch chuẩn.
 	
 
@@ -826,10 +727,8 @@
 
 
 
-% Câu 38
 
-
-
+**Câu 38.** 
 	Tiền thưởng (triệu đồng) cho 43 cán bộ nhân viên: 2 (5), 3 (15), 4 (10), 5 (6), 6 (7). Tính độ lệch chuẩn.
 	
 
@@ -839,10 +738,8 @@
 
 
 
-% Câu 39
 
-
-
+**Câu 39.** 
 	Cho dãy số liệu: $1, 2, 3, 4, 5, 6, 7$. Tìm khoảng biến thiên của mẫu số liệu.
 	
 
@@ -852,10 +749,8 @@
 
 
 
-% Câu 40
 
-
-
+**Câu 40.** 
 	Giá trị thành phẩm của 7 công nhân: $180, 190, 190, 200, 210, 210, 220$. Tìm khoảng tứ phân vị của mẫu số liệu.
 	
 
@@ -865,10 +760,8 @@
 
 
 
-% Câu 41
 
-
-
+**Câu 41.** 
 	Tiền thưởng (triệu đồng) có bảng tần số: 2 (5), 3 (15), 4 (10), 5 (6), 6 (7). Phương sai thuộc khoảng nào?
 	
 
@@ -878,10 +771,8 @@
 
 
 
-% Câu 42
 
-
-
+**Câu 42.** 
 	Khách du lịch 12 tháng: 430, 560, 450, 550, 760, 430, 525, 110, 635, 450, 800, 950. Tính độ lệch chuẩn $s$.
 	
 
@@ -891,10 +782,8 @@
 
 
 
-% Câu 43
 
-
-
+**Câu 43.** 
 	Độ lệch chuẩn bằng
 	
 
@@ -904,10 +793,8 @@
 
 
 
-% Câu 44
 
-
-
+**Câu 44.** 
 	Sản lượng lúa 40 thửa ruộng: 20 (5), 21 (8), 22 (11), 23 (10), 24 (6). Tính khoảng tứ phân vị của mẫu số liệu.
 	
 
@@ -917,10 +804,8 @@
 
 
 
-% Câu 45
 
-
-
+**Câu 45.** 
 	Chọn khẳng định sai trong các khẳng định sau:
 	
 
@@ -930,10 +815,8 @@
 
 
 
-% Câu 46
 
-
-
+**Câu 46.** 
 	100 học sinh thi HSG Toán: Điểm từ 9 đến 19. Tính độ lệch chuẩn.
 	
 
@@ -943,10 +826,8 @@
 
 
 
-% Câu 47
 
-
-
+**Câu 47.** 
 	Tuổi 30 bệnh nhân đau mắt hột: từ 12 đến 25 tuổi. Tính khoảng biến thiên của mẫu số liệu.
 	
 
@@ -956,10 +837,8 @@
 
 
 
-% Câu 48
 
-
-
+**Câu 48.** 
 	Điểm trung bình các môn của An và Bình: An có điểm dao động từ 7 đến 9, Bình có điểm dao động từ 5 đến 10. Hỏi ai "học lệch" hơn?
 	
 
@@ -969,10 +848,8 @@
 
 
 
-% Câu 49
 
-
-
+**Câu 49.** 
 	Số sách đọc trong năm: 1 (10), 2 ($x$), 3 (8), 4 (6), 5 ($y$), 6 (3). Tổng: 40. Biết $s^2 \approx 2{,}52$. Tính $x$ và $y$.
 	
 
@@ -982,10 +859,8 @@
 
 
 
-% Câu 50
 
-
-
+**Câu 50.** 
 	Cho dãy số liệu: $x, 21, 22, 23, 24, y$. Tìm $x, y$ biết số trung bình cộng bằng $22{,}5$ và khoảng biến thiên bằng 5.
 	
 
@@ -1002,51 +877,32 @@
 
 
 *\small (Học sinh trình bày chi tiết lời giải các bài toán sau)*
-\setcounter{ex}{0}
-
-% Bài 1
 
 
-
-	**Bài 1.** Hai chữ số cuối số điện thoại của 10 người: $23;\; 58;\; 42;\; 11;\; 69;\; 50;\; 13;\; 57;\; 61;\; 72$. Hãy tìm khoảng biến thiên của mẫu số liệu trên.
-	
-
-**Lời giải.**
-
-
+**Bài 1.** 
+	Hai chữ số cuối số điện thoại của 10 người: $23;\; 58;\; 42;\; 11;\; 69;\; 50;\; 13;\; 57;\; 61;\; 72$. Hãy tìm khoảng biến thiên của mẫu số liệu trên.
+	\loigiai{
 		Giá trị lớn nhất là $72$, giá trị nhỏ nhất là $11$.\\
 		Khoảng biến thiên: $R = x_{\max} - x_{\min} = 72 - 11 = 61$.
-	
+	}
 
 
 
 
 
-
-% Bài 2
-
-
-
-	**Bài 2.** Tuổi thọ trung bình người dân của 11 nước: $69;\; 77;\; 75;\; 83;\; 65;\; 75;\; 74;\; 68;\; 73;\; 72;\; 71$. Hãy tìm khoảng biến thiên của mẫu số liệu trên.
-	
-
-**Lời giải.**
-
-
+**Bài 2.** 
+	Tuổi thọ trung bình người dân của 11 nước: $69;\; 77;\; 75;\; 83;\; 65;\; 75;\; 74;\; 68;\; 73;\; 72;\; 71$. Hãy tìm khoảng biến thiên của mẫu số liệu trên.
+	\loigiai{
 		Giá trị lớn nhất là $83$, nhỏ nhất là $65$.\\
 		Khoảng biến thiên: $R = 83 - 65 = 18\text{ (tuổi)}$.
-	
+	}
 
 
 
 
 
-
-% Bài 3
-
-
-
-	**Bài 3.** Thời gian làm câu đầu tiên trong đề thi tuyển sinh vào lớp 10 của học sinh:
+**Bài 3.** 
+	Thời gian làm câu đầu tiên trong đề thi tuyển sinh vào lớp 10 của học sinh:
 	\begin{center}
 	\begin{tabular}{|l|c|c|c|c|c|c|c|}
 		\hline
@@ -1057,25 +913,17 @@
 	\end{tabular}
 	\end{center}
 	Hãy tìm khoảng biến thiên của mẫu số liệu thống kê trên.
-	
-
-**Lời giải.**
-
-
+	\loigiai{
 		Thời gian làm bài lớn nhất là $15\text{ phút}$, nhỏ nhất là $9\text{ phút}$.\\
 		Khoảng biến thiên: $R = 15 - 9 = 6\text{ (phút)}$.
-	
+	}
 
 
 
 
 
-
-% Bài 4
-
-
-
-	**Bài 4.** Điểm thi học kì 2 môn Toán và Ngữ văn của một nhóm học sinh:
+**Bài 4.** 
+	Điểm thi học kì 2 môn Toán và Ngữ văn của một nhóm học sinh:
 	
 		
 -  Toán: $9;\; 8{,}5;\; 7;\; 6{,}3;\; 5;\; 9{,}5;\; 8$.
@@ -1083,26 +931,18 @@
 -  Ngữ văn: $6;\; 6{,}5;\; 8;\; 7{,}3;\; 5{,}5;\; 8{,}3;\; 6{,}5$.
 	
 	Hãy tìm khoảng biến thiên của hai mẫu số liệu trên. Từ đó chỉ ra mẫu số liệu có độ phân tán lớn hơn.
-	
-
-**Lời giải.**
-
-
+	\loigiai{
 		- Môn Toán: $x_{\max} = 9{,}5; x_{\min} = 5 \implies R_{\text{Toán}} = 9{,}5 - 5 = 4{,}5$.\\
 		- Môn Ngữ văn: $x_{\max} = 8{,}3; x_{\min} = 5{,}5 \implies R_{\text{Văn}} = 8{,}3 - 5{,}5 = 2{,}8$.\\
 		Vì $R_{\text{Toán}} = 4{,}5 > 2{,}8 = R_{\text{Văn}}$ nên mẫu số liệu điểm môn Toán có độ phân tán lớn hơn môn Ngữ văn.
-	
+	}
 
 
 
 
 
-
-% Bài 5
-
-
-
-	**Bài 5.** Số giờ nắng và độ ẩm (\%) trung bình hàng tháng của Hà Nội:
+**Bài 5.** 
+	Số giờ nắng và độ ẩm (\%) trung bình hàng tháng của Hà Nội:
 	\begin{center}
 	\begin{tabular}{|l|c|c|c|c|c|c|c|c|c|c|c|c|}
 		\hline
@@ -1113,26 +953,18 @@
 	\end{tabular}
 	\end{center}
 	Hãy tìm khoảng biến thiên của hai mẫu số liệu và chỉ ra mẫu có độ phân tán lớn hơn.
-	
-
-**Lời giải.**
-
-
+	\loigiai{
 		- Số giờ nắng: Giá trị lớn nhất là $195$, nhỏ nhất là $47 \implies R_{\text{nắng}} = 195 - 47 = 148\text{ (giờ)}$.\\
 		- Độ ẩm: Giá trị lớn nhất là $89{,}4\%$, nhỏ nhất là $81{,}3\% \implies R_{\text{ẩm}} = 89{,}4 - 81{,}3 = 8{,}1\%$.\\
 		Do đó, số giờ nắng có khoảng biến thiên rất lớn, độ phân tán giữa các tháng trong năm lớn hơn nhiều so với độ ẩm.
-	
+	}
 
 
 
 
 
-
-% Bài 6
-
-
-
-	**Bài 6.** Một xạ thủ bắn 30 viên đạn vào bia:
+**Bài 6.** 
+	Một xạ thủ bắn 30 viên đạn vào bia:
 	\begin{center}
 	\begin{tabular}{|l|c|c|c|c|c|c|}
 		\hline
@@ -1144,29 +976,21 @@
 	\end{center}
 	a) Tính điểm trung bình của xạ thủ.\\
 	b) Tìm phương sai và độ lệch chuẩn.
-	
-
-**Lời giải.**
-
-
+	\loigiai{
 		a) Điểm trung bình:
 		\[\overline{x} = \frac{6 \cdot 3 + 7 \cdot 4 + 8 \cdot 8 + 9 \cdot 9 + 10 \cdot 6}{30} = \frac{18 + 28 + 64 + 81 + 60}{30} = \frac{251}{30} \approx 8{,}37\text{ (điểm)}.\]
 		b) Phương sai:
 		\[s^2 = \frac{1}{30}\sum n_i x_i^2 - (\overline{x})^2 = \frac{2147}{30} - (8{,}3667)^2 \approx 71{,}5667 - 70{,}0017 = 1{,}565.\]
 		Độ lệch chuẩn:
 		\[s = \sqrt{1{,}565} \approx 1{,}25\text{ (điểm)}.\]
-	
+	}
 
 
 
 
 
-
-% Bài 7
-
-
-
-	**Bài 7.** Kết quả thi môn Toán của 2 lớp:
+**Bài 7.** 
+	Kết quả thi môn Toán của 2 lớp:
 	
 		
 -  Lớp 10A1: Điểm 5 (3), 6 (7), 7 (12), 8 (14), 9 (3), 10 (1). Tổng: 40 hs.
@@ -1175,75 +999,47 @@
 	
 	a) Tính phương sai, độ lệch chuẩn của từng lớp.\\
 	b) Lớp nào học đồng đều hơn?
-	
-
-**Lời giải.**
-
-
+	\loigiai{
 		- Lớp 10A1: $\overline{x}_1 = 7{,}225; s_1^2 \approx 1{,}32; s_1 \approx 1{,}15$.\\
 		- Lớp 10A2: $\overline{x}_2 = 7{,}25; s_2^2 \approx 0{,}79; s_2 \approx 0{,}89$.\\
 		Vì $s_2 < s_1$ nên lớp 10A2 có kết quả thi môn Toán đồng đều hơn lớp 10A1.
-	
+	}
 
 
 
 
 
-
-% Bài 8
-
-
-
-	**Bài 8.** Tuổi thọ của 30 bóng đèn thắp thử (giờ): các bóng quanh 1178 - 1198 giờ, có 2 bóng là 1568 và 1569. Hãy tìm các số liệu bất thường.
-	
-
-**Lời giải.**
-
-
+**Bài 8.** 
+	Tuổi thọ của 30 bóng đèn thắp thử (giờ): các bóng quanh 1178 - 1198 giờ, có 2 bóng là 1568 và 1569. Hãy tìm các số liệu bất thường.
+	\loigiai{
 		Sắp xếp dãy số: 28 bóng đèn có tuổi thọ nằm trong khoảng từ 1178 đến 1198 giờ, với $Q_1 = 1179$ và $Q_3 = 1187 \implies \Delta_Q = 8$.\\
 		$Q_3 + 1{,}5\Delta_Q = 1187 + 12 = 1199$.\\
 		Hai giá trị $1568$ và $1569$ lớn hơn $1199$ rất nhiều.\\
 		Vậy hai giá trị bất thường là **1568** và **1569** giờ.
-	
+	}
 
 
 
 
 
-
-% Bài 9
-
-
-
-	**Bài 9.** Thời gian hoàn thành sản phẩm (phút) của 20 công nhân: $7, 12, 13, 15, 11, 13, 16, 18, 19, 21, 23, 21, 15, 17, 16, 15, 20, 13, 16, 29$. Tìm số liệu bất thường.
-	
-
-**Lời giải.**
-
-
+**Bài 9.** 
+	Thời gian hoàn thành sản phẩm (phút) của 20 công nhân: $7, 12, 13, 15, 11, 13, 16, 18, 19, 21, 23, 21, 15, 17, 16, 15, 20, 13, 16, 29$. Tìm số liệu bất thường.
+	\loigiai{
 		Sắp xếp ($n = 20$): $7, 11, 12, 13, 13, 13, 15, 15, 15, 16, 16, 16, 17, 18, 19, 20, 21, 21, 23, 29$.\\
 		$Q_1 = 13, Q_3 = 19{,}5 \implies \Delta_Q = 6{,}5$.\\
 		$[13 - 9{,}75; 19{,}5 + 9{,}75] = [3{,}25; 29{,}25]$.\\
 		Mọi giá trị đều nằm trong đoạn này nên không có số liệu bất thường (hoặc giá trị 29 và 7 nằm sát biên).
-	
+	}
 
 
 
 
 
-
-% Bài 10
-
-
-
-	**Bài 10.** Điểm kiểm tra Toán của 21 học sinh lớp 10A:
+**Bài 10.** 
+	Điểm kiểm tra Toán của 21 học sinh lớp 10A:
 	\[10;\; 6;\; 7;\; 7;\; 1;\; 7;\; 6;\; 9;\; 9;\; 10;\; 8;\; 8;\; 7;\; 8;\; 6;\; 7;\; 5;\; 6;\; 7;\; 8;\; 9.\]
 	Hãy tìm các số liệu bất thường trong mẫu số liệu trên.
-	
-
-**Lời giải.**
-
-
+	\loigiai{
 		Sắp xếp ($n = 21$): $1, 5, 6, 6, 6, 6, 7, 7, 7, 7, \mathbf{7}, 7, 8, 8, 8, 8, 9, 9, 9, 10, 10$.\\
 		$Q_2 = 7$.\\
 		Nửa dưới (10 số): $1, 5, 6, 6, 6, 6, 7, 7, 7, 7 \implies Q_1 = 6$.\\
@@ -1252,71 +1048,47 @@
 		$Q_1 - 1{,}5\Delta_Q = 6 - 3{,}75 = 2{,}25$.\\
 		Giá trị $1 < 2{,}25$ nên là giá trị bất thường.\\
 		Vậy giá trị bất thường là **1**.
-	
+	}
 
 
 
 
 
-
-% Bài 11
-
-
-
-	**Bài 11.** Tốc độ (km/h) của 25 chiếc xe qua trạm: các xe từ 40 đến 80 km/h, có 1 xe chạy 20 km/h và 1 xe chạy 135 km/h. Hãy tìm các số liệu bất thường.
-	
-
-**Lời giải.**
-
-
+**Bài 11.** 
+	Tốc độ (km/h) của 25 chiếc xe qua trạm: các xe từ 40 đến 80 km/h, có 1 xe chạy 20 km/h và 1 xe chạy 135 km/h. Hãy tìm các số liệu bất thường.
+	\loigiai{
 		Sắp xếp mẫu số liệu, tính tứ phân vị: $Q_1 = 52, Q_3 = 65 \implies \Delta_Q = 13$.\\
 		$[52 - 19{,}5; 65 + 19{,}5] = [32{,}5; 84{,}5]$.\\
 		Số $20 < 32{,}5$ và số $135 > 84{,}5$ nằm ngoài đoạn bình thường.\\
 		Vậy hai giá trị bất thường là **20 km/h** và **135 km/h**.
-	
+	}
 
 
 
 
 
-
-% Bài 12
-
-
-
-	**Bài 12.** Điểm thi Toán của 450 học sinh: điểm 1 (1), 2 (1), 3 (1), 4 (1), 5 (120), 6 (200), 7 (119), 8 (5), 9 (1), 10 (1). Tìm các số liệu bất thường.
-	
-
-**Lời giải.**
-
-
+**Bài 12.** 
+	Điểm thi Toán của 450 học sinh: điểm 1 (1), 2 (1), 3 (1), 4 (1), 5 (120), 6 (200), 7 (119), 8 (5), 9 (1), 10 (1). Tìm các số liệu bất thường.
+	\loigiai{
 		Do đại đa số học sinh (439/450) tập trung ở điểm 5, 6, 7 nên $Q_1 = 5, Q_3 = 7 \implies \Delta_Q = 2$.\\
 		$[Q_1 - 1{,}5\Delta_Q; Q_3 + 1{,}5\Delta_Q] = [5 - 3; 7 + 3] = [2; 10]$.\\
 		Giá trị $1 < 2$ nằm ngoài đoạn trên.\\
 		Vậy giá trị bất thường là **1**.
-	
+	}
 
 
 
 
 
-
-% Bài 13
-
-
-
-	**Bài 13.** Cho mẫu gồm 15 số dương. Các số đo độ phân tán (khoảng biến thiên $R$, khoảng tứ phân vị $\Delta_Q$, độ lệch chuẩn $s$) thay đổi thế nào nếu:
+**Bài 13.** 
+	Cho mẫu gồm 15 số dương. Các số đo độ phân tán (khoảng biến thiên $R$, khoảng tứ phân vị $\Delta_Q$, độ lệch chuẩn $s$) thay đổi thế nào nếu:
 	
 		
 -  Nhân mỗi giá trị với 3?
 		
 -  Cộng mỗi giá trị với 3?
 	
-	
-
-**Lời giải.**
-
-
+	\loigiai{
 		
 			
 -  Khi nhân mỗi giá trị với 3: các giá trị mới là $x'_i = 3x_i$.\\
@@ -1329,58 +1101,42 @@
 			- $\Delta_Q' = (Q_3 + 3) - (Q_1 + 3) = \Delta_Q$ (không đổi).\\
 			- $s' = s$ (không đổi, vì độ lệch so với trung bình giữ nguyên).
 		
-	
+	}
 
 
 
 
 
-
-% Bài 14
-
-
-
-	**Bài 14.** Sản lượng lúa (tạ) của 40 thửa ruộng: 20 (5), 21 (8), 22 (11), 23 (10), 24 (6).
+**Bài 14.** 
+	Sản lượng lúa (tạ) của 40 thửa ruộng: 20 (5), 21 (8), 22 (11), 23 (10), 24 (6).
 	
 		
 -  Tính sản lượng trung bình của 40 thửa ruộng.
 		
 -  Tính phương sai và độ lệch chuẩn.
 	
-	
-
-**Lời giải.**
-
-
+	\loigiai{
 		
 			
 -  Sản lượng trung bình: $\overline{x} = 22{,}1$ tạ.
 			
 -  Phương sai: $s^2 = 1{,}54$ tạ$^2$. Độ lệch chuẩn: $s = \sqrt{1{,}54} \approx 1{,}24$ tạ.
 		
-	
+	}
 
 
 
 
 
-
-% Bài 15
-
-
-
-	**Bài 15.** Số máy tính bán được trong 7 tháng: $83;\; 79;\; 92;\; 71;\; 69;\; 83;\; 74$.
+**Bài 15.** 
+	Số máy tính bán được trong 7 tháng: $83;\; 79;\; 92;\; 71;\; 69;\; 83;\; 74$.
 	
 		
 -  Tính khoảng biến thiên, khoảng tứ phân vị của mẫu số liệu.
 		
 -  Tính số trung bình, phương sai và độ lệch chuẩn.
 	
-	
-
-**Lời giải.**
-
-
+	\loigiai{
 		Sắp xếp ($n = 7$): $69, 71, 74, 79, 83, 83, 92$.\\
 		
 			
@@ -1390,23 +1146,15 @@
 -  Số trung bình: $\overline{x} = \dfrac{551}{7} \approx 78{,}71$.\\
 			Phương sai: $s^2 \approx 57{,}06$. Độ lệch chuẩn: $s \approx 7{,}55$.
 		
-	
+	}
 
 
 
 
 
-
-% Bài 16
-
-
-
-	**Bài 16.** Điểm thi kết thúc học kì của bạn Hoa: Văn (6,0), Địa (8,0), Lý (7,5), Hóa (8,5), Toán (7,0), Anh văn (7,5). Tìm số trung bình, phương sai và độ lệch chuẩn.
-	
-
-**Lời giải.**
-
-
+**Bài 16.** 
+	Điểm thi kết thúc học kì của bạn Hoa: Văn (6,0), Địa (8,0), Lý (7,5), Hóa (8,5), Toán (7,0), Anh văn (7,5). Tìm số trung bình, phương sai và độ lệch chuẩn.
+	\loigiai{
 		Mẫu số liệu 6 môn: $6{,}0;\; 7{,}0;\; 7{,}5;\; 7{,}5;\; 8{,}0;\; 8{,}5$.\\
 		- Số trung bình:
 		\[\overline{x} = \frac{6{,}0 + 7{,}0 + 7{,}5 + 7{,}5 + 8{,}0 + 8{,}5}{6} = \frac{44{,}5}{6} \approx 7{,}42\text{ (điểm)}.\]
@@ -1414,29 +1162,21 @@
 		\[s^2 = \frac{(6-7{,}42)^2 + (7-7{,}42)^2 + 2(7{,}5-7{,}42)^2 + (8-7{,}42)^2 + (8{,}5-7{,}42)^2}{6} \approx 0{,}62.\]
 		- Độ lệch chuẩn:
 		\[s = \sqrt{0{,}62} \approx 0{,}79\text{ (điểm)}.\]
-	
+	}
 
 
 
 
 
-
-% Bài 17
-
-
-
-	**Bài 17.** Bán xe máy trong các ngày: 0 xe (2 ngày), 1 xe (13 ngày), 2 xe (15 ngày), 3 xe (12 ngày), 4 xe (7 ngày), 5 xe (3 ngày).
+**Bài 17.** 
+	Bán xe máy trong các ngày: 0 xe (2 ngày), 1 xe (13 ngày), 2 xe (15 ngày), 3 xe (12 ngày), 4 xe (7 ngày), 5 xe (3 ngày).
 	
 		
 -  Tính khoảng biến thiên, khoảng tứ phân vị.
 		
 -  Tính số trung bình, phương sai và độ lệch chuẩn.
 	
-	
-
-**Lời giải.**
-
-
+	\loigiai{
 		Tổng số ngày: $n = 52$ ngày.\\
 		
 			
@@ -1446,39 +1186,27 @@
 -  Số trung bình: $\overline{x} = \dfrac{0(2) + 1(13) + 2(15) + 3(12) + 4(7) + 5(3)}{52} = \dfrac{122}{52} \approx 2{,}35$ xe.\\
 			Phương sai: $s^2 \approx 1{,}47$. Độ lệch chuẩn: $s \approx 1{,}21$ xe.
 		
-	
+	}
 
 
 
 
 
-
-% Bài 18
-
-
-
-	**Bài 18.** Tốc độ (km/h) của 20 ô tô: từ 40 đến 110 km/h. Tìm các giá trị bất thường.
-	
-
-**Lời giải.**
-
-
+**Bài 18.** 
+	Tốc độ (km/h) của 20 ô tô: từ 40 đến 110 km/h. Tìm các giá trị bất thường.
+	\loigiai{
 		Sắp xếp dãy số ($n = 20$), tính được: $Q_1 = 66, Q_3 = 82{,}5 \implies \Delta_Q = 16{,}5$.\\
 		$[66 - 24{,}75; 82{,}5 + 24{,}75] = [41{,}25; 107{,}25]$.\\
 		Số $40 < 41{,}25$ và số $110 > 107{,}25$ đều nằm ngoài đoạn bình thường.\\
 		Vậy hai giá trị bất thường là **40 km/h** và **110 km/h**.
-	
+	}
 
 
 
 
 
-
-% Bài 19
-
-
-
-	**Bài 19.** Tốc độ ô tô trên 2 con đường A và B (30 xe mỗi đường):
+**Bài 19.** 
+	Tốc độ ô tô trên 2 con đường A và B (30 xe mỗi đường):
 	
 		
 -  Tính khoảng biến thiên, khoảng tứ phân vị của mỗi con đường.
@@ -1487,11 +1215,7 @@
 		
 -  Theo em chạy xe trên con đường nào an toàn hơn?
 	
-	
-
-**Lời giải.**
-
-
+	\loigiai{
 		
 			
 -  
@@ -1504,29 +1228,21 @@
 			
 -  Con đường B có độ lệch chuẩn và khoảng biến thiên nhỏ hơn nhiều so với con đường A ($s_B < s_A$), các xe lưu thông với tốc độ đồng đều và ít chênh lệch hơn, do đó lưu thông trên **con đường B an toàn hơn**.
 		
-	
+	}
 
 
 
 
 
-
-% Bài 20
-
-
-
-	**Bài 20.** Điểm thi Toán lớp 10A và 10B (mỗi lớp 45 học sinh):
+**Bài 20.** 
+	Điểm thi Toán lớp 10A và 10B (mỗi lớp 45 học sinh):
 	
 		
 -  Tính số trung bình, phương sai, độ lệch chuẩn mỗi lớp.
 		
 -  Lớp nào học đồng đều hơn?
 	
-	
-
-**Lời giải.**
-
-
+	\loigiai{
 		
 			
 -  
@@ -1535,85 +1251,87 @@
 			
 -  Lớp 10B có phương sai và độ lệch chuẩn nhỏ hơn lớp 10A ($s_B < s_A$), nên kết quả học tập của **lớp 10B đồng đều hơn lớp 10A**.
 		
-	
+	}
 
 
 
 
 
-
-% Bài 21
-
-
-
-	**Bài 21.** Lãi hàng tháng (triệu đồng) của cửa hàng A trong 12 tháng:
+**Bài 21.** 
+	Lãi hàng tháng (triệu đồng) của cửa hàng A trong 12 tháng:
 	\[12;\; 15;\; 18;\; 13;\; 18;\; 16;\; 17;\; 14;\; 18;\; 17;\; 20;\; 17.\]
 	Tìm số trung bình, phương sai và độ lệch chuẩn.
-	
-
-**Lời giải.**
-
-
+	\loigiai{
 		Tổng 12 tháng: $195$ triệu đồng.\\
 		- Số trung bình: $\overline{x} = \dfrac{195}{12} = 16{,}25$ triệu đồng.\\
 		- Phương sai: $s^2 \approx 4{,}52$ (triệu đồng)$^2$.\\
 		- Độ lệch chuẩn: $s = \sqrt{4{,}52} \approx 2{,}13$ triệu đồng.
-	
+	}
 
 
 
 
 
-
-% Bài 22
-
-
-
-	**Bài 22.** Cho biểu đồ biểu diễn kết quả học tập của học sinh qua một bài kiểm tra:
+**Bài 22.** 
+	Cho biểu đồ biểu diễn kết quả học tập của học sinh trong một lớp qua một bài kiểm tra:
 	\begin{center}
-	*[Biểu đồ tần số xem trong bản PDF]*
+		
+
+@@IMAGE_BAI22@@
+
+
 	\end{center}
+	Từ biểu đồ trên hãy:
 	
 		
--  Viết mẫu số liệu thống kê kết quả học tập từ biểu đồ đã cho.
+-  Viết mẫu số liệu thống kê kết quả học tập của học sinh một lớp nhận được từ biểu đồ đã cho.
 		
--  Tìm khoảng biến thiên của mẫu số liệu.
+-  Tìm khoảng biến thiên của mẫu số liệu đó.
 		
--  Tìm khoảng tứ phân vị trong mẫu số liệu.
+-  Tìm khoảng tứ phân vị trong mẫu số liệu đó.
 		
--  Tính phương sai và độ lệch chuẩn của mẫu số liệu.
+-  Tính phương sai và độ lệch chuẩn của mẫu số liệu đó.
 	
-	
-
-**Lời giải.**
-
-
+	\loigiai{
 		
 			
--  Từ biểu đồ ta có bảng tần số:
+-  Từ biểu đồ ta có bảng phân bố tần số kết quả học tập của học sinh:
 			\begin{center}
-			\begin{tabular}{|l|c|c|c|c|c|c|c|c|c|}
+			\begin{tabular}{|l|c|c|c|c|c|c|c|c|c|c|}
 				\hline
-				Điểm ($x$) & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & Cộng \\
+				Điểm ($x$) & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & Cộng \\
 				\hline
-				Số học sinh ($m$) & 2 & 4 & 2 & 7 & 8 & 6 & 2 & 1 & 32 \\
+				Số học sinh ($m$) & 1 & 2 & 4 & 2 & 7 & 8 & 6 & 2 & 1 & 33 \\
 				\hline
 			\end{tabular}
 			\end{center}
+			*(Lưu ý: tại điểm $x = 1$, tần số $m = 0$ nên có thể bỏ qua hoặc ghi tần số 0)*.\\
+			Tổng số học sinh tham gia kiểm tra là $n = 33$.
 			
--  Khoảng biến thiên: $R = 10 - 3 = 7$ điểm.
+-  Khoảng biến thiên của mẫu số liệu:
+			\[R = x_{\max} - x_{\min} = 10 - 2 = 8\text{ (điểm)}.\]
 			
--  Tứ phân vị ($n = 32$):
-			$Q_1 = 5{,}5, Q_3 = 7{,}5 \implies \Delta_Q = 7{,}5 - 5{,}5 = 2$ điểm.
+-  Tứ phân vị ($n = 33$ học sinh):
 			
--  
-			- Số trung bình: $\overline{x} = \dfrac{207}{32} \approx 6{,}47$ điểm.\\
-			- Phương sai: $s^2 \approx 2{,}75$.\\
-			- Độ lệch chuẩn: $s = \sqrt{2{,}75} \approx 1{,}66$ điểm.
+				
+-  Vì $n = 33$ lẻ nên trung vị $Q_2$ là điểm của học sinh ở vị trí thứ $\dfrac{33 + 1}{2} = 17$.\\
+				Tần số tích lũy đến điểm 6 là $1 + 2 + 4 + 2 + 7 = 16$ học sinh. Do đó học sinh thứ 17 đạt điểm 7 $\implies Q_2 = 7$ điểm.
+				
+-  Nửa dãy phía dưới gồm 16 học sinh đầu (từ vị trí 1 đến 16). Tứ phân vị thứ nhất $Q_1$ là trung bình cộng của học sinh thứ 8 và thứ 9. Cả hai học sinh này đều đạt điểm 5 $\implies Q_1 = 5$ điểm.
+				
+-  Nửa dãy phía trên gồm 16 học sinh cuối (từ vị trí 18 đến 33). Tứ phân vị thứ ba $Q_3$ là trung bình cộng của học sinh thứ 25 và thứ 26 ($17 + 8 = 25$ và 26). Cả hai học sinh này đều đạt điểm 8 $\implies Q_3 = 8$ điểm.
+			
+			Khoảng tứ phân vị:
+			\[\Delta_Q = Q_3 - Q_1 = 8 - 5 = 3\text{ (điểm)}.\]
+			
+-  Số trung bình:
+			\[\overline{x} = \frac{2(1) + 3(2) + 4(4) + 5(2) + 6(7) + 7(8) + 8(6) + 9(2) + 10(1)}{33} = \frac{208}{33} \approx 6{,}30\text{ (điểm)}.\]
+			Phương sai:
+			\[s^2 = \frac{1}{33}\sum m_i x_i^2 - (\overline{x})^2 = \frac{1426}{33} - \left(\frac{208}{33}\right)^2 \approx 43{,}2121 - 39{,}7319 \approx 3{,}48\text{ (điểm}^2\text{)}.\]
+			Độ lệch chuẩn:
+			\[s = \sqrt{s^2} \approx \sqrt{3{,}48} \approx 1{,}87\text{ (điểm)}.\]
 		
-	
-
-
+	}
 
 
 

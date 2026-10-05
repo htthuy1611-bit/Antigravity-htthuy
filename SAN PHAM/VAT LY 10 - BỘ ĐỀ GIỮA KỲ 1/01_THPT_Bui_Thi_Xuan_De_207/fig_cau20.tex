@@ -1,0 +1,16 @@
+\documentclass[tikz,border=5pt]{standalone}
+\usepackage{amsmath}
+\begin{document}
+\begin{tikzpicture}[>=stealth, line join=round, line cap=round, font=\footnotesize, xscale=0.42, yscale=0.28]
+	\draw[->, thick] (0, 0) -- (13, 0) node[below] {$t\text{ (s)}$};
+	\draw[->, thick] (0, 0) -- (0, 14.5) node[left] {$v\text{ (m/s)}$};
+	\draw[thick, blue!80!black] (0, 2) -- (11.5, 13.5);
+	\draw[dashed] (10, 0) -- (10, 12) -- (0, 12);
+	\fill[black] (10, 12) circle (4.8pt and 7.1pt);
+	\fill[black] (0, 2) circle (4.8pt and 7.1pt);
+	\node[left] at (0, 2) {$2$};
+	\node[left] at (0, 12) {$12$};
+	\node[below] at (10, 0) {$10$};
+	\node[below left] at (0, 0) {$O$};
+\end{tikzpicture}
+\end{document}

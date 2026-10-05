@@ -67,25 +67,23 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 
 
 
-
-	**Ví dụ 1.** Đỉnh Everest được mệnh danh là "nóc nhà của thế giới" với nhiều con số từng công bố như: $8848\text{ m}$; $8848{,}13\text{ m}$; $8844{,}43\text{ m}$; $8850\text{ m}$. Hãy giải thích tại sao các con số này đều là số gần đúng.
+**Ví dụ 1.** 
+	Đỉnh Everest được mệnh danh là "nóc nhà của thế giới" với nhiều con số từng công bố như: $8848\text{ m}$; $8848{,}13\text{ m}$; $8844{,}43\text{ m}$; $8850\text{ m}$. Hãy giải thích tại sao các con số này đều là số gần đúng.
 	
 
 **Lời giải.**
 
 
 		Chiều cao của đỉnh Everest là một đại lượng vật lí biến đổi liên tục theo thời gian (do lớp băng tuyết dày mỏng theo mùa, do sự dịch chuyển của mảng kiến tạo Trái Đất) và kết quả đo đạc phụ thuộc vào công nghệ, thiết bị đo tại từng thời điểm. Do đó, các con số được công bố đều chỉ là các giá trị xấp xỉ chiều cao thực tế tại thời điểm đo, tức là các **số gần đúng**.
-	
+	}
 
 
 
 
 
 
-
-
-
-	**Ví dụ 2.** Xác định các thông tin sau là số đúng hay số gần đúng:
+**Ví dụ 2.** 
+	Xác định các thông tin sau là số đúng hay số gần đúng:
 	
 		
 -  Bán kính đường Xích Đạo của Trái Đất là $6\,378\text{ km}$.
@@ -94,11 +92,7 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 		
 -  $1\text{ m} = 100\text{ cm}$.
 	
-	
-
-**Lời giải.**
-
-
+	\loigiai{
 		
 			
 -  "Bán kính đường Xích Đạo của Trái Đất là $6\,378\text{ km}$" là **số gần đúng** vì bề mặt Trái Đất không phải là hình cầu hoàn hảo và giá trị đo đạc luôn có sai số.
@@ -107,47 +101,35 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 			
 -  "$1\text{ m} = 100\text{ cm}$" là **số đúng** vì đây là định nghĩa quy ước chuẩn trong hệ đo lường quốc tế SI.
 		
-	
+	}
 
 
 
 
 
 
-
-
-
-	**Ví dụ 3.** Gọi $d$ là độ dài đường chéo của hình vuông có cạnh bằng 1. Trong hai số $\sqrt{2}$ và $1{,}41$, số nào là số đúng, số nào là số gần đúng của $d$?
-	
-
-**Lời giải.**
-
-
+**Ví dụ 3.** 
+	Gọi $d$ là độ dài đường chéo của hình vuông có cạnh bằng 1. Trong hai số $\sqrt{2}$ và $1{,}41$, số nào là số đúng, số nào là số gần đúng của $d$?
+	\loigiai{
 		Theo định lí Pythagore, độ dài đường chéo của hình vuông cạnh 1 là $d = \sqrt{1^2 + 1^2} = \sqrt{2}$.\\
 		- Số $\sqrt{2}$ là **số đúng** biểu diễn độ dài chính xác của đường chéo.\\
 		- Số $1{,}41$ là **số gần đúng** của $\sqrt{2}$ (vì $\sqrt{2} = 1{,}41421356...$).
-	
+	}
 
 
 
 
 
 
-
-
-
-	**Ví dụ 4.** Giả sử khối lượng đúng của một hộp kẹo là $0{,}85\text{ kg}$. Hai bạn Bình và An cân hộp kẹo này và ghi nhận kết quả lần lượt là $0{,}8\text{ kg}$ và $1\text{ kg}$.
+**Ví dụ 4.** 
+	Giả sử khối lượng đúng của một hộp kẹo là $0{,}85\text{ kg}$. Hai bạn Bình và An cân hộp kẹo này và ghi nhận kết quả lần lượt là $0{,}8\text{ kg}$ và $1\text{ kg}$.
 	
 		
 -  Tìm sai số tuyệt đối của kết quả cân của mỗi bạn.
 		
 -  Kết quả cân của bạn nào chính xác hơn? Vì sao?
 	
-	
-
-**Lời giải.**
-
-
+	\loigiai{
 		
 			
 -  Sai số tuyệt đối của kết quả cân của bạn Bình:
@@ -157,28 +139,22 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 			
 -  Vì $\Delta_{\text{Bình}} = 0{,}05\text{ kg} < 0{,}15\text{ kg} = \Delta_{\text{An}}$ nên kết quả cân của bạn Bình chính xác hơn kết quả của bạn An.
 		
-	
+	}
 
 
 
 
 
 
-
-
-
-	**Ví dụ 5.** Người ta dùng một đồng hồ bấm giờ có độ chia nhỏ nhất là $0{,}1\text{ giây}$ để đo thời gian hoàn thành cự li bơi của một vận động viên và được kết quả là $27{,}2\text{ giây}$.
+**Ví dụ 5.** 
+	Người ta dùng một đồng hồ bấm giờ có độ chia nhỏ nhất là $0{,}1\text{ giây}$ để đo thời gian hoàn thành cự li bơi của một vận động viên và được kết quả là $27{,}2\text{ giây}$.
 	
 		
 -  Tìm độ chính xác $d$ của phép đo.
 		
 -  Nếu thời gian đúng là $a\text{ giây}$, hãy tìm khoảng giá trị mà $a$ có thể nhận được.
 	
-	
-
-**Lời giải.**
-
-
+	\loigiai{
 		
 			
 -  Sai số dụng cụ thông thường không vượt quá một độ chia nhỏ nhất (hoặc nửa độ chia nhỏ nhất). Theo quy ước thông thường trong đo lường, độ chính xác của phép đo lấy bằng độ chia nhỏ nhất: $d = 0{,}1\text{ s}$ (hoặc lấy bằng nửa độ chia: $d = 0{,}05\text{ s}$).
@@ -187,9 +163,7 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 			\[27{,}2 - 0{,}1 \le a \le 27{,}2 + 0{,}1 \iff 27{,}1 \le a \le 27{,}3\text{ (giây)}.\]
 			Nếu lấy $d = 0{,}05\text{ s}$ (nửa độ chia) thì $27{,}15 \le a \le 27{,}25\text{ (giây)}$.
 		
-	
-
-
+	}
 
 
 
@@ -202,61 +176,43 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 
 
 
-
-	**Ví dụ 1.** Cho $a = 3{,}14$ là số gần đúng của $\overline{a} = \pi$. Biết $\Delta_a = |\pi - 3{,}14| < 0{,}01$. Đánh giá sai số tương đối của $a$.
-	
-
-**Lời giải.**
-
-
+**Ví dụ 6.** 
+	Cho $a = 3{,}14$ là số gần đúng của $\overline{a} = \pi$. Biết $\Delta_a = |\pi - 3{,}14| < 0{,}01$. Đánh giá sai số tương đối của $a$.
+	\loigiai{
 		Ta có độ chính xác $d = 0{,}01$. Sai số tương đối của số gần đúng $a = 3{,}14$ thỏa mãn:
 		\[\delta_a = \frac{\Delta_a}{|a|} \le \frac{d}{|a|} = \frac{0{,}01}{3{,}14} \approx 0{,}00318 = 0{,}318\%.\]
-	
+	}
 
 
 
 
 
 
-
-
-
-	**Ví dụ 2.** Một bồn hoa hình tròn có bán kính $r = 0{,}8\text{ m}$. Bạn Ngân lấy giá trị gần đúng $\pi \approx 3{,}1$ được diện tích $S_1$. Bạn Ánh lấy $\pi \approx 3{,}14$ được diện tích $S_2$. So sánh sai số tuyệt đối $\Delta_{S_1}$ và $\Delta_{S_2}$. Bạn nào cho kết quả chính xác hơn?
-	
-
-**Lời giải.**
-
-
+**Ví dụ 7.** 
+	Một bồn hoa hình tròn có bán kính $r = 0{,}8\text{ m}$. Bạn Ngân lấy giá trị gần đúng $\pi \approx 3{,}1$ được diện tích $S_1$. Bạn Ánh lấy $\pi \approx 3{,}14$ được diện tích $S_2$. So sánh sai số tuyệt đối $\Delta_{S_1}$ và $\Delta_{S_2}$. Bạn nào cho kết quả chính xác hơn?
+	\loigiai{
 		Diện tích đúng của bồn hoa là $S = \pi r^2 = \pi \cdot (0{,}8)^2 = 0{,}64\pi\text{ m}^2$.\\
 		- Kết quả của bạn Ngân: $S_1 = 3{,}1 \cdot 0{,}64 = 1{,}984\text{ m}^2$. Sai số tuyệt đối:
 		\[\Delta_{S_1} = |S - S_1| = 0{,}64 \cdot |\pi - 3{,}1| \approx 0{,}64 \cdot 0{,}04159 = 0{,}0266\text{ m}^2.\]
 		- Kết quả của bạn Ánh: $S_2 = 3{,}14 \cdot 0{,}64 = 2{,}0096\text{ m}^2$. Sai số tuyệt đối:
 		\[\Delta_{S_2} = |S - S_2| = 0{,}64 \cdot |\pi - 3{,}14| \approx 0{,}64 \cdot 0{,}00159 = 0{,}0010\text{ m}^2.\]
 		Vì $\Delta_{S_2} < \Delta_{S_1}$ nên bạn Ánh cho kết quả chính xác hơn bạn Ngân.
-	
+	}
 
 
 
 
 
 
-
-
-
-	**Ví dụ 3.** Một tờ giấy A4 có chiều dài $29{,}7\text{ cm}$ và chiều rộng $21\text{ cm}$. Tính độ dài đường chéo tờ giấy và xác định độ chính xác của kết quả khi làm tròn đến hàng phần mười.
-	
-
-**Lời giải.**
-
-
+**Ví dụ 8.** 
+	Một tờ giấy A4 có chiều dài $29{,}7\text{ cm}$ và chiều rộng $21\text{ cm}$. Tính độ dài đường chéo tờ giấy và xác định độ chính xác của kết quả khi làm tròn đến hàng phần mười.
+	\loigiai{
 		Độ dài đúng của đường chéo là:
 		\[d = \sqrt{29{,}7^2 + 21^2} = \sqrt{882{,}09 + 441} = \sqrt{1323{,}09} \approx 36{,}3743\text{ cm}.\]
 		Làm tròn đến hàng phần mười ta được số gần đúng là $36{,}4\text{ cm}$.\\
 		Sai số tuyệt đối của phép làm tròn không vượt quá nửa đơn vị hàng làm tròn: $\Delta \le 0{,}05\text{ cm}$.\\
 		Vậy độ chính xác của kết quả làm tròn là $d = 0{,}05\text{ cm}$.
-	
-
-
+	}
 
 
 
@@ -269,39 +225,28 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 
 
 
-
-	**Ví dụ 1.** Quy tròn số $3{,}141$ đến hàng phần trăm rồi tính sai số tuyệt đối của số quy tròn.
-	
-
-**Lời giải.**
-
-
+**Ví dụ 9.** 
+	Quy tròn số $3{,}141$ đến hàng phần trăm rồi tính sai số tuyệt đối của số quy tròn.
+	\loigiai{
 		Chữ số hàng phần trăm là $4$, chữ số ngay bên phải là $1 < 5$ nên ta giữ nguyên chữ số hàng phần trăm và bỏ chữ số sau đó.\\
 		Số quy tròn là $3{,}14$.\\
 		Sai số tuyệt đối của số quy tròn:
 		\[\Delta = |3{,}141 - 3{,}14| = 0{,}001.\]
-	
+	}
 
 
 
 
 
 
-
-
-
-	**Ví dụ 2.** 
+**Ví dụ 10.** 
 	
 		
 -  Làm tròn số $2395{,}3$ đến hàng chục, số $18{,}693$ đến hàng phần trăm và số đúng $d \in [5{,}5; 6{,}5)$ đến hàng đơn vị. Đánh giá sai số tuyệt đối của phép làm tròn số đúng $d$.
 		
 -  Cho số gần đúng $a = 2{,}53$ với độ chính xác $d = 0{,}01$. Số đúng $\overline{a}$ thuộc đoạn nào? Nếu làm tròn số $a$ thì nên làm tròn đến hàng nào? Vì sao?
 	
-	
-
-**Lời giải.**
-
-
+	\loigiai{
 		
 			
 -  Làm tròn $2395{,}3$ đến hàng chục: vì chữ số hàng đơn vị là $5$ nên tăng hàng chục thêm 1 đơn vị $\implies 2400$.\\
@@ -313,36 +258,28 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 			\[[2{,}53 - 0{,}01; 2{,}53 + 0{,}01] = [2{,}52; 2{,}54].\]
 			Độ chính xác $d = 0{,}01$ ở hàng phần trăm, do đó chữ số hàng phần trăm trong số gần đúng chưa đáng tin cậy. Vì vậy, ta nên làm tròn số $a$ đến **hàng phần mười** (hàng cao hơn hàng của $d$ một bậc). Khi đó số quy tròn là $2{,}5$.
 		
-	
+	}
 
 
 
 
 
 
-
-
-
-	**Ví dụ 3.** Cho số gần đúng $a = 581\,268$ với độ chính xác $d = 200$. Hãy viết số quy tròn của số $a$.
-	
-
-**Lời giải.**
-
-
+**Ví dụ 11.** 
+	Cho số gần đúng $a = 581\,268$ với độ chính xác $d = 200$. Hãy viết số quy tròn của số $a$.
+	\loigiai{
 		Độ chính xác $d = 200$ thỏa mãn $100 \le d < 1000$, tức là hàng của độ chính xác là hàng trăm. Do đó ta làm tròn số $a$ đến **hàng nghìn**.\\
 		Chữ số hàng nghìn là $1$, chữ số ngay sau nó (hàng trăm) là $2 < 5$ nên giữ nguyên.\\
 		Vậy số quy tròn của $a$ là $581\,000$.
-	
+	}
 
 
 
 
 
 
-
-
-
-	**Ví dụ 4.** Viết số quy tròn của mỗi số sau với độ chính xác $d$:
+**Ví dụ 12.** 
+	Viết số quy tròn của mỗi số sau với độ chính xác $d$:
 	
 		
 -  $2\,841\,331$ với $d = 400$;
@@ -351,11 +288,7 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 		
 -  $1{,}4142135$ với $d = 0{,}001$.
 	
-	
-
-**Lời giải.**
-
-
+	\loigiai{
 		
 			
 -  Với $d = 400$ ($100 \le d < 1000$, hàng trăm), ta làm tròn đến hàng nghìn. Chữ số hàng trăm là $3 < 5$ nên số quy tròn là $2\,841\,000$.
@@ -364,9 +297,7 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 			
 -  Với $d = 0{,}001$ (hàng phần nghìn), ta làm tròn đến hàng phần trăm. Chữ số hàng phần nghìn là $4 < 5$ nên số quy tròn là $1{,}41$.
 		
-	
-
-
+	}
 
 
 
@@ -379,58 +310,40 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 
 
 
-
-	**Ví dụ 1.** Sử dụng máy tính cầm tay, tính $3^7 \cdot \sqrt{14}$ (trong kết quả lấy bốn chữ số ở phần thập phân).
-	
-
-**Lời giải.**
-
-
+**Ví dụ 13.** 
+	Sử dụng máy tính cầm tay, tính $3^7 \cdot \sqrt{14}$ (trong kết quả lấy bốn chữ số ở phần thập phân).
+	\loigiai{
 		Nhập vào máy tính biểu thức $3^7 \times \sqrt{14}$ ta được kết quả hiển thị xấp xỉ:\\
 		$3^7 \cdot \sqrt{14} = 2187 \cdot \sqrt{14} \approx 8182{,}806847...$\\
 		Lấy bốn chữ số ở phần thập phân (làm tròn đến hàng phần chục nghìn): kết quả là **$8182{,**8068$}.
-	
+	}
 
 
 
 
 
 
-
-
-
-	**Ví dụ 2.** Dùng máy tính cầm tay, tính kết quả của phép tính $\sqrt[3]{15} : 5 - 2$ (trong kết quả lấy hai chữ số ở phần thập phân).
-	
-
-**Lời giải.**
-
-
+**Ví dụ 14.** 
+	Dùng máy tính cầm tay, tính kết quả của phép tính $\sqrt[3]{15} : 5 - 2$ (trong kết quả lấy hai chữ số ở phần thập phân).
+	\loigiai{
 		Thực hiện bấm máy tính biểu thức $\sqrt[3]{15} \div 5 - 2$:\\
 		Ta có $\sqrt[3]{15} \approx 2{,}466212 \implies \dfrac{\sqrt[3]{15}}{5} \approx 0{,}493242$.\\
 		Do đó $\sqrt[3]{15} : 5 - 2 \approx 0{,}493242 - 2 = -1{,}506757...$\\
 		Làm tròn đến hai chữ số ở phần thập phân (chữ số thứ ba là $6 \ge 5$): kết quả là **$-1{,**51$}.
-	
+	}
 
 
 
 
 
 
-
-
-
-	**Ví dụ 3.** Gọi $P$ là chu vi của đường tròn bán kính $1\text{ cm}$. Hãy tìm giá trị gần đúng của $P$ (trong kết quả lấy hai chữ số ở phần thập phân).
-	
-
-**Lời giải.**
-
-
+**Ví dụ 15.** 
+	Gọi $P$ là chu vi của đường tròn bán kính $1\text{ cm}$. Hãy tìm giá trị gần đúng của $P$ (trong kết quả lấy hai chữ số ở phần thập phân).
+	\loigiai{
 		Chu vi đường tròn bán kính $R = 1\text{ cm}$ là $P = 2\pi R = 2\pi\text{ cm}$.\\
 		Sử dụng máy tính bấm $2 \times \pi$ ta được $P \approx 6{,}283185...$\\
 		Lấy hai chữ số ở phần thập phân: kết quả là **$6{,**28\text{ cm}$}.
-	
-
-
+	}
 
 
 
@@ -450,23 +363,25 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 *\small (Mỗi câu học sinh chỉ chọn một phương án trả lời đúng)*
 \setcounter{ex}{0}
 
-% Câu 1
 
-
-
+**Câu 1.** 
 	Cho $a$ là số gần đúng của số đúng $\overline{a}$. Khi đó $\Delta_a = |\overline{a} - a|$ được gọi là
 	
 
 @@TAB@@**A.** số quy tròn của $\overline{a@@TAB@@**B.** sai số tương đối của số gần đúng $a$@@TAB@@@@CHON@@**C.** sai số tuyệt đối của số gần đúng $a$@@CHON@@@@TAB@@**D.** số quy tròn của $a$
 
+\loigiai{
+		Theo định nghĩa, sai số tuyệt đối của số gần đúng $a$ là $\Delta_a = |\overline{a} - a|$.\\
+		Chọn **C**.
+	
 
 
 
 
-% Câu 2
 
 
 
+**Câu 2.** 
 	Cho số $a$ là số gần đúng của số $\overline{a}$. Mệnh đề nào sau đây là mệnh đề đúng?
 	
 
@@ -476,10 +391,8 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 
 
 
-% Câu 3
 
-
-
+**Câu 3.** 
 	Cho số $a$ là số gần đúng của $\overline{a}$ với độ chính xác $d$. Mệnh đề nào sau đây là mệnh đề đúng?
 	
 
@@ -489,10 +402,8 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 
 
 
-% Câu 4
 
-
-
+**Câu 4.** 
 	Kết quả làm tròn số $b = 500\sqrt{7}$ đến chữ số thập phân thứ hai là
 	
 
@@ -502,10 +413,8 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 
 
 
-% Câu 5
 
-
-
+**Câu 5.** 
 	Kết quả làm tròn của số $c = 76\,324\,753{,}3695$ đến hàng nghìn là
 	
 
@@ -515,10 +424,8 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 
 
 
-% Câu 6
 
-
-
+**Câu 6.** 
 	Viết số quy tròn của số gần đúng $a = 505\,360{,}996$ biết $\overline{a} = 505\,360{,}996 \pm 100$.
 	
 
@@ -528,10 +435,8 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 
 
 
-% Câu 7
 
-
-
+**Câu 7.** 
 	Viết số quy tròn số gần đúng $b = 3257{,}6254$ với độ chính xác $d = 0{,}01$.
 	
 
@@ -541,10 +446,8 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 
 
 
-% Câu 8
 
-
-
+**Câu 8.** 
 	Cho giá trị gần đúng của số $\pi$ là $x = 3{,}141592653589$ với độ chính xác $10^{-10}$. Hãy viết số quy tròn của $x$.
 	
 
@@ -554,10 +457,8 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 
 
 
-% Câu 9
 
-
-
+**Câu 9.** 
 	Cho $\overline{a} = 1{,}7059 \pm 0{,}001$, kết quả làm tròn số gần đúng $a = 1{,}7059$ là
 	
 
@@ -567,10 +468,8 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 
 
 
-% Câu 10
 
-
-
+**Câu 10.** 
 	Cho $\overline{a} = 123\,564 \pm 100$. Kết quả làm tròn số gần đúng $x = 123\,564$ là
 	
 
@@ -580,10 +479,8 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 
 
 
-% Câu 11
 
-
-
+**Câu 11.** 
 	Số gần đúng $a = 173{,}4592$ có sai số tuyệt đối không vượt quá $0{,}01$. Số quy tròn của $a$ là
 	
 
@@ -593,10 +490,8 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 
 
 
-% Câu 12
 
-
-
+**Câu 12.** 
 	Trong các số dưới đây, giá trị gần đúng của $\sqrt{30} - 5$ với sai số tuyệt đối bé nhất là
 	
 
@@ -606,10 +501,8 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 
 
 
-% Câu 13
 
-
-
+**Câu 13.** 
 	Nếu lấy $3{,}14$ làm giá trị gần đúng cho số $\pi$ thì sai số tuyệt đối không vượt quá
 	
 
@@ -619,10 +512,8 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 
 
 
-% Câu 14
 
-
-
+**Câu 14.** 
 	Nếu lấy $3{,}1416$ làm giá trị gần đúng cho $\pi$ thì sai số tuyệt đối không vượt quá
 	
 
@@ -632,10 +523,8 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 
 
 
-% Câu 15
 
-
-
+**Câu 15.** 
 	Cho giá trị gần đúng của $\dfrac{8}{17}$ là $0{,}47$ thì sai số tuyệt đối không vượt quá
 	
 
@@ -645,10 +534,8 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 
 
 
-% Câu 16
 
-
-
+**Câu 16.** 
 	Cho giá trị gần đúng của $\dfrac{3}{7}$ là $0{,}429$ thì sai số tuyệt đối không vượt quá
 	
 
@@ -658,10 +545,8 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 
 
 
-% Câu 17
 
-
-
+**Câu 17.** 
 	Một vật có thể tích $V = 180{,}37\text{ cm}^3 \pm 0{,}05\text{ cm}^3$. Nếu lấy $180{,}37\text{ cm}^3$ làm giá trị gần đúng cho $V$ thì sai số tương đối của giá trị gần đúng đó không vượt quá
 	
 
@@ -671,10 +556,8 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 
 
 
-% Câu 18
 
-
-
+**Câu 18.** 
 	Số $\overline{a}$ được cho bởi giá trị gần đúng $a = 5{,}7824$ với sai số tương đối không vượt quá $0{,}05\%$. Khi đó, sai số tuyệt đối của $a$ không vượt quá
 	
 
@@ -684,10 +567,8 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 
 
 
-% Câu 19
 
-
-
+**Câu 19.** 
 	Cho $\overline{a} = \dfrac{1}{1 + x}$ ($0 < x < 1$). Giả sử ta lấy $a = 1 - x$ làm giá trị gần đúng của $\overline{a}$. Khi đó, sai số tương đối của $a$ theo $x$ bằng
 	
 
@@ -697,10 +578,8 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 
 
 
-% Câu 20
 
-
-
+**Câu 20.** 
 	Các nhà toán học cổ đại Trung Quốc đã dùng phân số $\dfrac{22}{7}$ để xấp xỉ số $\pi$. Hãy đánh giá sai số tuyệt đối $\Delta$ của giá trị gần đúng này, biết $3{,}1415 < \pi < 3{,}1416$.
 	
 
@@ -710,10 +589,8 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 
 
 
-% Câu 21
 
-
-
+**Câu 21.** 
 	Hình chữ nhật có các cạnh là $x = 2\text{ m} \pm 1\text{ cm}$ và $y = 5\text{ m} \pm 2\text{ cm}$. Diện tích của hình chữ nhật và sai số tương đối của giá trị đó là
 	
 
@@ -730,24 +607,17 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 
 
 *\small (Học sinh trình bày chi tiết lời giải các bài toán sau)*
-\setcounter{ex}{0}
-
-% Bài 1
 
 
-
-	**Bài 1.** Một bao gạo ghi thông tin khối lượng là $5 \pm 0{,}2\text{ kg}$.
+**Bài 1.** 
+	Một bao gạo ghi thông tin khối lượng là $5 \pm 0{,}2\text{ kg}$.
 	
 		
 -  Xác định khối lượng đúng, khối lượng gần đúng và độ chính xác của bao gạo.
 		
 -  Khối lượng thực của bao gạo nằm trong đoạn nào?
 	
-	
-
-**Lời giải.**
-
-
+	\loigiai{
 		
 			
 -  Kí hiệu $\overline{m}$ là khối lượng đúng (thực) của bao gạo.\\
@@ -757,50 +627,34 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 -  Khối lượng thực $\overline{m}$ của bao gạo nằm trong đoạn:
 			\[[5 - 0{,}2; 5 + 0{,}2] = [4{,}8; 5{,}2]\text{ (kg)}.\]
 		
-	
+	}
 
 
 
 
 
-
-% Bài 2
-
-
-
-	**Bài 2.** Một phép đo đường kính nhân tế bào cho kết quả là $5 \pm 0{,}3\ \mu\text{m}$. Đường kính thực của nhân tế bào thuộc đoạn nào?
-	
-
-**Lời giải.**
-
-
+**Bài 2.** 
+	Một phép đo đường kính nhân tế bào cho kết quả là $5 \pm 0{,}3\ \mu\text{m}$. Đường kính thực của nhân tế bào thuộc đoạn nào?
+	\loigiai{
 		Gọi $\overline{D}$ là đường kính thực của nhân tế bào.\\
 		Theo giả thiết, đường kính gần đúng là $D = 5\ \mu\text{m}$ với độ chính xác $d = 0{,}3\ \mu\text{m}$.\\
 		Do đó, đường kính thực của nhân tế bào thuộc đoạn:
 		\[[5 - 0{,}3; 5 + 0{,}3] = [4{,}7; 5{,}3]\ (\mu\text{m}).\]
-	
+	}
 
 
 
 
 
-
-% Bài 3
-
-
-
-	**Bài 3.** Chiều dài một cái cầu là $\ell = 1745{,}25\text{ m} \pm 0{,}01\text{ m}$.
+**Bài 3.** 
+	Chiều dài một cái cầu là $\ell = 1745{,}25\text{ m} \pm 0{,}01\text{ m}$.
 	
 		
 -  Xác định chiều dài đúng, chiều dài gần đúng và độ chính xác của cái cầu.
 		
 -  Chiều dài thực của cái cầu nằm trong đoạn nào?
 	
-	
-
-**Lời giải.**
-
-
+	\loigiai{
 		
 			
 -  Chiều dài đúng của cái cầu được kí hiệu là $\overline{\ell}$.\\
@@ -810,29 +664,21 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 -  Chiều dài thực của cái cầu nằm trong đoạn:
 			\[[1745{,}25 - 0{,}01; 1745{,}25 + 0{,}01] = [1745{,}24; 1745{,}26]\text{ (m)}.\]
 		
-	
+	}
 
 
 
 
 
-
-% Bài 4
-
-
-
-	**Bài 4.** Biết $\sqrt{7} = 2{,}6457513...$
+**Bài 4.** 
+	Biết $\sqrt{7} = 2{,}6457513...$
 	
 		
 -  Làm tròn kết quả đến phần mười và ước lượng sai số tuyệt đối.
 		
 -  Làm tròn kết quả đến phần nghìn và ước lượng sai số tuyệt đối.
 	
-	
-
-**Lời giải.**
-
-
+	\loigiai{
 		
 			
 -  Làm tròn đến hàng phần mười (chữ số thập phân thứ nhất):\\
@@ -845,23 +691,15 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 			Ước lượng sai số tuyệt đối:
 			\[\Delta = |\sqrt{7} - 2{,}646| \approx |2{,}6457513 - 2{,}646| = 0{,}0002487 < 0{,}0005.\]
 		
-	
+	}
 
 
 
 
 
-
-% Bài 5
-
-
-
-	**Bài 5.** Ở Babylon, một tấm đất sét có niên đại khoảng $1900 - 1600$ trước Công nguyên đã ghi lại ước lượng số $\pi$ bằng $\dfrac{25}{8} = 3{,}1250$. Hãy ước lượng sai số tuyệt đối và sai số tương đối của giá trị gần đúng này, biết $3{,}141 < \pi < 3{,}142$.
-	
-
-**Lời giải.**
-
-
+**Bài 5.** 
+	Ở Babylon, một tấm đất sét có niên đại khoảng $1900 - 1600$ trước Công nguyên đã ghi lại ước lượng số $\pi$ bằng $\dfrac{25}{8} = 3{,}1250$. Hãy ước lượng sai số tuyệt đối và sai số tương đối của giá trị gần đúng này, biết $3{,}141 < \pi < 3{,}142$.
+	\loigiai{
 		Ta có số gần đúng $a = 3{,}1250 < \pi$.\\
 		Sai số tuyệt đối là $\Delta = |\pi - 3{,}1250| = \pi - 3{,}1250$.\\
 		Vì $3{,}141 < \pi < 3{,}142$ nên:
@@ -869,23 +707,15 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 		Do đó sai số tuyệt đối được ước lượng là $\Delta < 0{,}0170$.\\
 		Sai số tương đối của giá trị gần đúng thỏa mãn:
 		\[\delta = \frac{\Delta}{|a|} < \frac{0{,}0170}{3{,}1250} = 0{,}00544 = 0{,}544\%.\]
-	
+	}
 
 
 
 
 
-
-% Bài 6
-
-
-
-	**Bài 6.** Cho số gần đúng $a = 6547$ với độ chính xác $d = 100$. Hãy viết số quy tròn của số $a$ và ước lượng sai số tương đối của số quy tròn đó.
-	
-
-**Lời giải.**
-
-
+**Bài 6.** 
+	Cho số gần đúng $a = 6547$ với độ chính xác $d = 100$. Hãy viết số quy tròn của số $a$ và ước lượng sai số tương đối của số quy tròn đó.
+	\loigiai{
 		Vì độ chính xác $d = 100$ là hàng trăm nên ta quy tròn số $a$ đến **hàng nghìn**.\\
 		Chữ số hàng nghìn là $6$, chữ số ngay bên phải là $5 \ge 5$ nên tăng lên 1 đơn vị:\\
 		Số quy tròn là $a^* = 7000$.\\
@@ -894,23 +724,15 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 		\[\Delta_{a^*} = |\overline{a} - 7000| \le |\overline{a} - 6547| + |6547 - 7000| \le 100 + 453 = 553.\]
 		Ước lượng sai số tương đối của số quy tròn:
 		\[\delta_{a^*} = \frac{\Delta_{a^*}}{|a^*|} \le \frac{553}{7000} \approx 0{,}079 = 7{,}9\%.\]
-	
+	}
 
 
 
 
 
-
-% Bài 7
-
-
-
-	**Bài 7.** Cho số gần đúng $a = 23\,748\,023$ với độ chính xác $d = 101$. Hãy viết số quy tròn của số $a$ và ước lượng sai số tương đối của số quy tròn đó.
-	
-
-**Lời giải.**
-
-
+**Bài 7.** 
+	Cho số gần đúng $a = 23\,748\,023$ với độ chính xác $d = 101$. Hãy viết số quy tròn của số $a$ và ước lượng sai số tương đối của số quy tròn đó.
+	\loigiai{
 		Vì $100 \le d = 101 < 1000$ nên hàng của độ chính xác là hàng trăm. Do đó ta quy tròn số $a$ đến **hàng nghìn**.\\
 		Chữ số hàng nghìn là $8$, chữ số hàng trăm là $0 < 5$ nên giữ nguyên chữ số hàng nghìn:\\
 		Số quy tròn là $a^* = 23\,748\,000$.\\
@@ -918,62 +740,42 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 		\[\Delta_{a^*} \le |\overline{a} - a| + |a - a^*| \le 101 + |23\,748\,023 - 23\,748\,000| = 101 + 23 = 124.\]
 		Ước lượng sai số tương đối của số quy tròn:
 		\[\delta_{a^*} \le \frac{124}{23\,748\,000} \approx 5{,}22 \times 10^{-6} \approx 0{,}000522\%.\]
-	
+	}
 
 
 
 
 
-
-% Bài 8
-
-
-
-	**Bài 8.** Cho biết $\sqrt{3} = 1{,}7320508...$ Hãy quy tròn $\sqrt{3}$ đến hàng phần trăm và ước lượng sai số tương đối.
-	
-
-**Lời giải.**
-
-
+**Bài 8.** 
+	Cho biết $\sqrt{3} = 1{,}7320508...$ Hãy quy tròn $\sqrt{3}$ đến hàng phần trăm và ước lượng sai số tương đối.
+	\loigiai{
 		Làm tròn $\sqrt{3}$ đến hàng phần trăm (chữ số thập phân thứ hai):\\
 		Chữ số hàng phần trăm là $3$, chữ số kế tiếp là $2 < 5$ nên số quy tròn là $1{,}73$.\\
 		Sai số tuyệt đối của phép quy tròn:
 		\[\Delta = |\sqrt{3} - 1{,}73| \approx |1{,}7320508 - 1{,}73| = 0{,}0020508 < 0{,}005.\]
 		Sai số tương đối:
 		\[\delta = \frac{\Delta}{1{,}73} < \frac{0{,}005}{1{,}73} \approx 0{,}00289 = 0{,}289\%.\]
-	
+	}
 
 
 
 
 
-
-% Bài 9
-
-
-
-	**Bài 9.** Cho $\overline{a} = \dfrac{1}{1 + x}$ ($0 < x < 1$). Giả sử ta lấy $a = 1 - x$ làm giá trị gần đúng của $\overline{a}$. Hãy tính sai số tương đối của $a$ theo $x$.
-	
-
-**Lời giải.**
-
-
+**Bài 9.** 
+	Cho $\overline{a} = \dfrac{1}{1 + x}$ ($0 < x < 1$). Giả sử ta lấy $a = 1 - x$ làm giá trị gần đúng của $\overline{a}$. Hãy tính sai số tương đối của $a$ theo $x$.
+	\loigiai{
 		Sai số tuyệt đối:
 		\[\Delta_a = |\overline{a} - a| = \left|\frac{1}{1 + x} - (1 - x)\right| = \left|\frac{1 - (1 - x^2)}{1 + x}\right| = \frac{x^2}{1 + x}\text{ (do $0 < x < 1$)}.\]
 		Sai số tương đối:
 		\[\delta_a = \frac{\Delta_a}{|a|} = \frac{\dfrac{x^2}{1 + x}}{1 - x} = \frac{x^2}{(1 + x)(1 - x)} = \frac{x^2}{1 - x^2}.\]
-	
+	}
 
 
 
 
 
-
-% Bài 10
-
-
-
-	**Bài 10.** Làm tròn các số sau đến chữ số hàng chục:
+**Bài 10.** 
+	Làm tròn các số sau đến chữ số hàng chục:
 	
 		
 			
@@ -1018,11 +820,7 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 -  $98765{,}432$
 		
 	
-	
-
-**Lời giải.**
-
-
+	\loigiai{
 		Quy tắc: Nhìn vào chữ số hàng đơn vị (ngay bên phải hàng chục): nếu $< 5$ thì giữ nguyên hàng chục, nếu $\ge 5$ thì tăng hàng chục thêm 1 đơn vị, các chữ số sau hàng chục thay bằng $0$ (bỏ phần thập phân):
 		
 		
@@ -1068,18 +866,14 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 -  t) $98765{,}432 \approx 98\,770$.
 		
 		
-	
+	}
 
 
 
 
 
-
-% Bài 11
-
-
-
-	**Bài 11.** Làm tròn các số sau đến chữ số hàng trăm:
+**Bài 11.** 
+	Làm tròn các số sau đến chữ số hàng trăm:
 	
 		
 			
@@ -1122,11 +916,7 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 -  $9999{,}99$
 		
 	
-	
-
-**Lời giải.**
-
-
+	\loigiai{
 		Quy tắc: Nhìn vào chữ số hàng chục (ngay bên phải hàng trăm):
 		
 		
@@ -1170,18 +960,14 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 -  s) $9999{,}99 \approx 10\,000$.
 		
 		
-	
+	}
 
 
 
 
 
-
-% Bài 12
-
-
-
-	**Bài 12.** Làm tròn các số sau đến chữ số hàng nghìn:
+**Bài 12.** 
+	Làm tròn các số sau đến chữ số hàng nghìn:
 	
 		
 			
@@ -1226,11 +1012,7 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 -  $9999{,}99$
 		
 	
-	
-
-**Lời giải.**
-
-
+	\loigiai{
 		Quy tắc: Nhìn vào chữ số hàng trăm (ngay bên phải hàng nghìn):
 		
 		
@@ -1276,18 +1058,14 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 -  t) $9999{,}99 \approx 10\,000$.
 		
 		
-	
+	}
 
 
 
 
 
-
-% Bài 13
-
-
-
-	**Bài 13.** Làm tròn các số sau đến hàng phần mười:
+**Bài 13.** 
+	Làm tròn các số sau đến hàng phần mười:
 	
 		
 			
@@ -1312,11 +1090,7 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 -  $98765{,}43$
 		
 	
-	
-
-**Lời giải.**
-
-
+	\loigiai{
 		Quy tắc: Nhìn vào chữ số hàng phần trăm:
 		
 		
@@ -1342,18 +1116,14 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 -  j) $98765{,}43 \approx 98765{,}4$.
 		
 		
-	
+	}
 
 
 
 
 
-
-% Bài 14
-
-
-
-	**Bài 14.** Làm tròn các số sau đến hàng phần trăm:
+**Bài 14.** 
+	Làm tròn các số sau đến hàng phần trăm:
 	
 		
 			
@@ -1388,11 +1158,7 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 -  $98{,}7654$
 		
 	
-	
-
-**Lời giải.**
-
-
+	\loigiai{
 		Quy tắc: Nhìn vào chữ số hàng phần nghìn:
 		
 		
@@ -1428,18 +1194,14 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 -  o) $98{,}7654 \approx 98{,}77$.
 		
 		
-	
+	}
 
 
 
 
 
-
-% Bài 15
-
-
-
-	**Bài 15.** Viết số quy tròn của mỗi số sau với độ chính xác $d$:
+**Bài 15.** 
+	Viết số quy tròn của mỗi số sau với độ chính xác $d$:
 	
 		
 -  $1\,234\,567$ với $d = 400$.
@@ -1450,11 +1212,7 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 		
 -  $1{,}7320508...$ với $d = 0{,}0001$.
 	
-	
-
-**Lời giải.**
-
-
+	\loigiai{
 		
 			
 -  Vì $100 \le d = 400 < 1000$ (hàng trăm), ta làm tròn đến hàng nghìn:\\
@@ -1469,18 +1227,14 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 -  Vì $d = 0{,}0001$ (hàng phần chục nghìn), ta làm tròn đến hàng phần nghìn:\\
 			Chữ số hàng phần chục nghìn là $0 < 5 \implies$ số quy tròn là $1{,}732$.
 		
-	
+	}
 
 
 
 
 
-
-% Bài 16
-
-
-
-	**Bài 16.** Hãy viết số quy tròn của:
+**Bài 16.** 
+	Hãy viết số quy tròn của:
 	
 		
 -  $a$ biết $\overline{a} = 1\,951\,890 \pm 200$.
@@ -1489,11 +1243,7 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 		
 -  $c$ biết $\overline{c} = 3{,}1463 \pm 0{,}002$.
 	
-	
-
-**Lời giải.**
-
-
+	\loigiai{
 		
 			
 -  Độ chính xác $d = 200$ (hàng trăm), ta quy tròn $a$ đến hàng nghìn:\\
@@ -1505,38 +1255,26 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 -  Độ chính xác $d = 0{,}002$ (hàng phần nghìn), ta quy tròn $c$ đến hàng phần trăm:\\
 			Chữ số hàng phần nghìn là $6 \ge 5 \implies$ số quy tròn là $3{,}15$.
 		
-	
+	}
 
 
 
 
 
-
-% Bài 17
-
-
-
-	**Bài 17.** Chiều dài một cái cầu là $\ell = 1745{,}25\text{ m} \pm 0{,}01\text{ m}$. Hãy viết số quy tròn của số gần đúng $1745{,}25$.
-	
-
-**Lời giải.**
-
-
+**Bài 17.** 
+	Chiều dài một cái cầu là $\ell = 1745{,}25\text{ m} \pm 0{,}01\text{ m}$. Hãy viết số quy tròn của số gần đúng $1745{,}25$.
+	\loigiai{
 		Độ chính xác $d = 0{,}01\text{ m}$ ở hàng phần trăm, do đó ta quy tròn số gần đúng $\ell = 1745{,}25$ đến **hàng phần mười**.\\
 		Chữ số hàng phần mười là $2$, chữ số ngay sau nó là $5 \ge 5$ nên cộng thêm 1 đơn vị vào hàng phần mười:\\
 		Số quy tròn là **$1745{,**3\text{ m}$}.
-	
+	}
 
 
 
 
 
-
-% Bài 18
-
-
-
-	**Bài 18.** Sử dụng máy tính bỏ túi tính gần đúng các số sau (kết quả lấy 4 chữ số thập phân):
+**Bài 18.** 
+	Sử dụng máy tính bỏ túi tính gần đúng các số sau (kết quả lấy 4 chữ số thập phân):
 	
 		
 			
@@ -1547,11 +1285,7 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 -  $\sqrt[3]{15 \cdot 14^4}$
 		
 	
-	
-
-**Lời giải.**
-
-
+	\loigiai{
 		
 			
 -  $3^7 \cdot \sqrt{14} = 2187 \cdot \sqrt{14} \approx 8182{,}806847... \implies \mathbf{8182{,}8068}$.
@@ -1560,18 +1294,14 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 			
 -  $\sqrt[3]{15 \cdot 14^4} = \sqrt[3]{15 \cdot 38416} = \sqrt[3]{576240} \approx 83{,}214777... \implies \mathbf{83{,}2148}$.
 		
-	
+	}
 
 
 
 
 
-
-% Bài 19
-
-
-
-	**Bài 19.** Thực hiện các phép tính sau trên máy tính cầm tay (trong kết quả lấy 4 chữ số ở phần thập phân):
+**Bài 19.** 
+	Thực hiện các phép tính sau trên máy tính cầm tay (trong kết quả lấy 4 chữ số ở phần thập phân):
 	
 		
 			
@@ -1582,11 +1312,7 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 -  $\dfrac{1{,}5^3}{\sqrt[3]{6{,}8}}$
 		
 	
-	
-
-**Lời giải.**
-
-
+	\loigiai{
 		
 			
 -  $4^6 \cdot \sqrt{0{,}1} = 4096 \cdot \sqrt{0{,}1} \approx 1295{,}27140... \implies \mathbf{1295{,}2714}$.
@@ -1597,9 +1323,7 @@ Trong thực tế, ta thường không biết hoặc khó biết giá trị chí
 			
 -  $\dfrac{1{,}5^3}{\sqrt[3]{6{,}8}} = \dfrac{3{,}375}{\sqrt[3]{6{,}8}} \approx \dfrac{3{,}375}{1{,}894536} \approx 1{,}781439... \implies \mathbf{1{,}7814}$.
 		
-	
-
-
+	}
 
 
 

@@ -1,0 +1,40 @@
+\documentclass[tikz,border=5pt]{standalone}
+\usepackage[utf8]{vietnam}
+\usepackage{amsmath,amssymb}
+\usepackage{tikz}
+
+\begin{document}
+\begin{tikzpicture}[>=stealth, line join=round, line cap=round, font=\footnotesize, scale=1.05]
+	% Trục tọa độ Ox
+	\draw[->, thick] (-0.5, 0) -- (11.2, 0) node[below right] {$x$};
+
+	% Vạch chia và mốc khoảng cách
+	\foreach \x/\l in {0/0, 2/200\text{ m}, 4/400\text{ m}, 6/600\text{ m}, 8/800\text{ m}, 10/1\,000\text{ m}} {
+		\draw[thick] (\x, 0.1) -- (\x, -0.1);
+		\node[below] at (\x, -0.15) {$\l$};
+		\fill[black] (\x, 0) circle (1.5pt);
+	}
+
+	% Đoạn thẳng hành trình
+	\draw[cyan!80!blue, very thick] (0, 0.35) -- (10, 0.35);
+
+	% Nhà (tại x = 0)
+	\filldraw[fill=orange!20, draw=orange!80!black, line width=0.6pt] (-0.4, 0.95) rectangle (0.4, 0.55);
+	\filldraw[fill=red!70!black, draw=red!50!black, line width=0.6pt] (0, 1.35) -- (0.5, 0.95) -- (-0.5, 0.95) -- cycle;
+	\node[above, font=\bfseries] at (0, 1.4) {Nhà};
+
+	% Siêu thị (tại x = 800 m)
+	\filldraw[fill=blue!10, draw=blue!80!black, line width=0.6pt] (7.6, 1.45) rectangle (8.4, 0.55);
+	\node[above, font=\bfseries] at (8, 1.5) {Siêu thị};
+
+	% Trường học (tại x = 1000 m)
+	\filldraw[fill=yellow!15, draw=yellow!80!black, line width=0.6pt] (9.4, 1.35) rectangle (10.6, 0.55);
+	\filldraw[fill=red!50!black, draw=red!30!black] (9.3, 1.45) rectangle (10.7, 1.35);
+	\node[above, font=\bfseries] at (10, 1.5) {Trường học};
+
+	% Mũi tên chặng 1: Nhà -> Trường (1000 m)
+	\draw[->, line width=1pt, blue] (0, -0.9) -- (10, -0.9) node[midway, below] {$s_1 = 1\,000\text{ m (5 phút)}$};
+	% Mũi tên chặng 2: Trường -> Siêu thị (200 m)
+	\draw[->, line width=1pt, red] (10, -1.5) -- (8, -1.5) node[midway, below] {$s_2 = 200\text{ m (2 phút)}$};
+\end{tikzpicture}
+\end{document}

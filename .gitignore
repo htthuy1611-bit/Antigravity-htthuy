@@ -16,3 +16,8 @@
 # Python cache
 __pycache__/
 *.pyc
+
+# Temporary scratch directories
+scratch/
+pdf2word/scratch/
+
