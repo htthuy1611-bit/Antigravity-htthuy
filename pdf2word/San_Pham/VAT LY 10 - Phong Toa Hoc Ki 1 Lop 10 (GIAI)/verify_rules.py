@@ -12,7 +12,8 @@ fig_dir = os.path.join(base_dir, 'figures')
 tex_files = [
     os.path.join(base_dir, 'chapters', 'bai_03_sai_so_trang_01_30.tex'),
     os.path.join(base_dir, 'chapters', 'bai_01_he_quy_chieu_trang_31_53.tex'),
-    os.path.join(base_dir, 'chapters', 'bai_02_toc_do_van_toc_trang_54_81.tex')
+    os.path.join(base_dir, 'chapters', 'bai_02_toc_do_van_toc_trang_54_81.tex'),
+    os.path.join(base_dir, 'chapters', 'bai_03_tinh_tuong_doi_trang_82_107.tex')
 ]
 
 errors = []
