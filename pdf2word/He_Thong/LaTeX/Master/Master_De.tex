@@ -51,55 +51,71 @@
 
 \begin{document}
 
-% Render bảng Tiêu đề theo cấu hình Macro
+% Render bảng Tiêu đề theo cấu hình Macro (tcolorbox đơn giản, ngắn gọn)
 \def\typept{phieubaitap}
 \ifx\headertype\typept
 \noindent
-\begin{tabularx}{\textwidth}{|>{\centering\arraybackslash}p{6.8cm}|>{\centering\arraybackslash}X|}
-\hline
-\textbf{\brandname} & \textbf{\tenkythi} \\
-\ifdefined\brandinfo
-  \brandinfo & \textbf{Môn: \monhoc} \\
-\else
-  \textbf{SĐT: \sdt\ -- \diachi} & \textbf{Môn: \monhoc} \\
-\fi
-\textbf{\tieudetrai} & \textit{Họ và tên: \dotfill} \\
-\hline
-\end{tabularx}
-\vspace{0.2cm}
+\begin{tcolorbox}[
+    colback=blue!2!white,
+    colframe=blue!80!black,
+    arc=3mm,
+    boxrule=1pt,
+    left=6pt, right=6pt, top=5pt, bottom=5pt
+]
+\begin{minipage}[c]{0.43\linewidth}
+\centering
+{\large\bfseries\color{blue!85!black} \brandname}\\[3pt]
+\textbf{GV: \giaovien}\\[2pt]
+\textbf{SĐT: \sdt}
+\end{minipage}%
+\hfill
+{\color{blue!60!black}\vrule width 0.8pt}%
+\hfill
+\begin{minipage}[c]{0.54\linewidth}
+\centering
+{\large\bfseries\color{red!85!black} \tenkythi}\\[2pt]
+\textbf{Môn: \monhoc}\\[2pt]
+\textit{\tieudetrai}
+\end{minipage}
+
+\vspace{3pt}
+\tcbline
+\vspace{2pt}
+\noindent
+\rule{0pt}{11pt}\textbf{Họ và tên:} \dotfill\ \textbf{Lớp:} \makebox[2.5cm]{\dotfill}
+\end{tcolorbox}
+\vspace{0.15cm}
 \else
 \noindent
-\begin{tabular}{|p{6.6cm}|p{6.6cm}|>{\centering\arraybackslash}p{3.2cm}|}
-\hline
-\begin{minipage}{6.6cm}
-\vspace{3pt}
+\begin{tcolorbox}[
+    colback=blue!2!white,
+    colframe=blue!80!black,
+    arc=3mm,
+    boxrule=1pt,
+    left=6pt, right=6pt, top=5pt, bottom=5pt
+]
+\begin{minipage}[c]{0.43\linewidth}
 \centering
-{\large\bfseries\color{blue!80!black} \brandname}\\[3pt]
-\ifdefined\brandinfo
-  \brandinfo
-\else
-  \textbf{SĐT:} \sdt\\[2pt]
-  \textbf{Địa chỉ:} \diachi
-\fi
-\vspace{3pt}
-\end{minipage}
-&
-\multicolumn{2}{p{10.2cm}|}{
-\begin{minipage}{10.2cm}
-\vspace{3pt}
+{\large\bfseries\color{blue!85!black} \brandname}\\[3pt]
+\textbf{GV: \giaovien}\\[2pt]
+\textbf{SĐT: \sdt}
+\end{minipage}%
+\hfill
+{\color{blue!60!black}\vrule width 0.8pt}%
+\hfill
+\begin{minipage}[c]{0.54\linewidth}
 \centering
-{\bfseries\color{red!80!black} \tenkythi\ -- NĂM HỌC \namhoc}\\[3pt]
-\textbf{Môn: \monhoc\ifx\tentruong\empty\else\ -- \tentruong\fi}\\[2pt]
+{\large\bfseries\color{red!85!black} \tenkythi}\\[2pt]
+\textbf{Môn: \monhoc\ifx\tentruong\empty\else\ -- \tentruong\fi\ -- Năm học \namhoc}\\[2pt]
 \textit{Thời gian làm bài: \thoigian}
-\vspace{3pt}
 \end{minipage}
-} \\
-\hline
-\rule{0pt}{13pt}Họ và tên thí sinh: \dotfill\rule[-3pt]{0pt}{3pt} &
-\rule{0pt}{13pt}Số báo danh: \dotfill\rule[-3pt]{0pt}{3pt} &
-\rule{0pt}{13pt}\textbf{Mã đề thi \made}\rule[-3pt]{0pt}{3pt} \\
-\hline
-\end{tabular}
+
+\vspace{3pt}
+\tcbline
+\vspace{2pt}
+\noindent
+\rule{0pt}{11pt}\textbf{Họ và tên thí sinh:} \dotfill\ \textbf{SBD:} \makebox[2.8cm]{\dotfill}\ \textbf{Mã đề thi: \made}
+\end{tcolorbox}
 \vspace{0.15cm}
 \fi
 

@@ -37,14 +37,14 @@ Khi nhận 1 đề mới đưa lên, **BẮT BUỘC PHẢI PHÂN BIỆT ĐƯỢC
 
 ---
 
-## 4. DÙNG MACRO ĐỂ SỬA TIÊU ĐỀ LINH HOẠT
-- Sử dụng các Macro trong `Master_De.tex` và `Master_HDG.tex` để dễ dàng đổi thông tin:
-  - `\brandname`: Tên thương hiệu hiển thị
-  - `\giaovien`: Tên giáo viên
-  - `\sdt`: Số điện thoại
-  - `\diachi`: Địa chỉ
-  - `\brandinfo`: Khối thông tin chi tiết (dành cho nhiều cơ sở)
-  - `\brand`: Thông tin bản quyền footer
+## 4. CẤU TRÚC TIÊU ĐỀ (DÙNG TCOLORBOX ĐƠN GIẢN, NGẮN GỌN)
+- **Tiêu đề đề thi & HDG dùng `tcolorbox` đơn giản, trang nhã**: Bo góc mềm mại (`arc=3mm`), vách ngăn thanh mảnh giữa cột Thương hiệu và cột Kỳ thi.
+- **Ở TIÊU ĐỀ KHÔNG CẦN GHI CÁC CƠ SỞ DẠY, GHI THẬT NGẮN GỌN**:
+  - **Cột trái**: Thương hiệu (`\brandname`), Tên giáo viên (`GV: \giaovien`), Số điện thoại (`SĐT: \sdt`).
+  - **Cột phải**: Tên kỳ thi, Môn học, Trường (nếu có), Năm học, Thời gian / Mã đề thi.
+  - **Bản Đề (Học sinh)**: Có vạch phân cách `\tcbline` và một dòng ngắn gọn: `Họ và tên thí sinh: ... SBD: ... Mã đề thi: ...`
+  - **Bản HDG (Giáo viên)**: Tên hướng dẫn giải chi tiết kèm mã đề thi nổi bật.
+- Tuyệt đối không nhồi nhét địa chỉ các cơ sở vào tiêu đề để tránh vỡ khung hay rườm rà. Thông tin cơ sở/địa chỉ đã được đặt ở Chân trang (Footer) hoặc Bìa tập sách.
 
 ---
 

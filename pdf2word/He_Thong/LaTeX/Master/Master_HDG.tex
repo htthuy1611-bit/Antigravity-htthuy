@@ -50,55 +50,59 @@
 
 \begin{document}
 
-% Render bảng Tiêu đề theo cấu hình Macro
+% Render bảng Tiêu đề theo cấu hình Macro (tcolorbox đơn giản, ngắn gọn)
 \def\typept{phieubaitap}
 \ifx\headertype\typept
 \noindent
-\begin{tabularx}{\textwidth}{|>{\centering\arraybackslash}p{6.8cm}|>{\centering\arraybackslash}X|}
-\hline
-\textbf{\brandname} & \textbf{HƯỚNG DẪN GIẢI CHI TIẾT} \\
-\ifdefined\brandinfo
-  \brandinfo & \textbf{Môn: \monhoc} \\
-\else
-  \textbf{SĐT: \sdt\ -- \diachi} & \textbf{Môn: \monhoc} \\
-\fi
-\textbf{\tieudetrai} & \textit{Giáo viên: \giaovien} \\
-\hline
-\end{tabularx}
-\vspace{0.2cm}
+\begin{tcolorbox}[
+    colback=blue!2!white,
+    colframe=blue!80!black,
+    arc=3mm,
+    boxrule=1pt,
+    left=6pt, right=6pt, top=6pt, bottom=6pt
+]
+\begin{minipage}[c]{0.43\linewidth}
+\centering
+{\large\bfseries\color{blue!85!black} \brandname}\\[3pt]
+\textbf{GV: \giaovien}\\[2pt]
+\textbf{SĐT: \sdt}
+\end{minipage}%
+\hfill
+{\color{blue!60!black}\vrule width 0.8pt}%
+\hfill
+\begin{minipage}[c]{0.54\linewidth}
+\centering
+{\large\bfseries\color{red!85!black} HƯỚNG DẪN GIẢI CHI TIẾT}\\[2pt]
+{\bfseries\color{red!85!black} \tenkythi}\\[2pt]
+\textbf{Môn: \monhoc}
+\end{minipage}
+\end{tcolorbox}
+\vspace{0.15cm}
 \else
 \noindent
-\begin{tabular}{|p{6.6cm}|p{6.6cm}|>{\centering\arraybackslash}p{3.2cm}|}
-\hline
-\begin{minipage}{6.6cm}
-\vspace{3pt}
+\begin{tcolorbox}[
+    colback=blue!2!white,
+    colframe=blue!80!black,
+    arc=3mm,
+    boxrule=1pt,
+    left=6pt, right=6pt, top=6pt, bottom=6pt
+]
+\begin{minipage}[c]{0.43\linewidth}
 \centering
-{\large\bfseries\color{blue!80!black} \brandname}\\[3pt]
-\ifdefined\brandinfo
-  \brandinfo
-\else
-  \textbf{SĐT:} \sdt\\[2pt]
-  \textbf{Địa chỉ:} \diachi
-\fi
-\vspace{3pt}
-\end{minipage}
-&
-\multicolumn{2}{p{10.2cm}|}{
-\begin{minipage}{10.2cm}
-\vspace{3pt}
+{\large\bfseries\color{blue!85!black} \brandname}\\[3pt]
+\textbf{GV: \giaovien}\\[2pt]
+\textbf{SĐT: \sdt}
+\end{minipage}%
+\hfill
+{\color{blue!60!black}\vrule width 0.8pt}%
+\hfill
+\begin{minipage}[c]{0.54\linewidth}
 \centering
-{\bfseries\color{red!80!black} HƯỚNG DẪN GIẢI CHI TIẾT \tenkythi}\\[3pt]
+{\large\bfseries\color{red!85!black} HƯỚNG DẪN GIẢI CHI TIẾT \tenkythi}\\[3pt]
 \textbf{Môn: \monhoc\ifx\tentruong\empty\else\ -- \tentruong\fi}\\[2pt]
-\textit{Năm học \namhoc\ -- Mã đề: \made}
-\vspace{3pt}
+\textit{Năm học \namhoc\ -- \textbf{Mã đề thi: \made}}
 \end{minipage}
-} \\
-\hline
-\rule{0pt}{14pt}\textbf{Giáo viên:} \giaovien &
-\rule{0pt}{14pt}\textbf{Môn học:} \monhoc &
-\rule{0pt}{14pt}\textbf{Mã đề thi \made}\rule[-4pt]{0pt}{4pt} \\
-\hline
-\end{tabular}
+\end{tcolorbox}
 \vspace{0.15cm}
 \fi
 
