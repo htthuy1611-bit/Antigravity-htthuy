@@ -58,6 +58,7 @@ Khi nhận bất kỳ đề bài hay tài liệu nào, **BẮT BUỘC PHẢI PH�
   - **Bản Đề (Học sinh)**: Có vạch phân cách `\tcbline` và một dòng ngắn gọn: `Họ và tên thí sinh: ... SBD: ... Mã đề thi: ...`
   - **Bản HDG (Giáo viên)**: Tên hướng dẫn giải chi tiết kèm mã đề thi nổi bật.
 - Tuyệt đối không nhồi nhét địa chỉ các cơ sở vào tiêu đề để tránh vỡ khung hay rườm rà. Thông tin cơ sở/địa chỉ đã được đặt ở Chân trang (Footer) hoặc Bìa tập sách.
+- **ẨN SỐ TRANG SÁCH GỐC Ở TIÊU ĐỀ BẢN HỌC SINH**: Đối với tiêu đề bài học (`\tieudebaihoc`), thông tin số trang sách gốc `(Trang X -- Y)` chỉ hiển thị ở bản Giáo viên, **TUYỆT ĐỐI ẨN HOÀN TOÀN Ở BẢN HỌC SINH** (thông qua toggle macro `\hienthitrang`) để đảm bảo đề bài độc lập, chuyên nghiệp.
 
 ---
 
@@ -180,11 +181,14 @@ Khi nhận bất kỳ đề bài hay tài liệu nào, **BẮT BUỘC PHẢI PH�
 - **Vấn đề cốt lõi**: Trong sách/đề gốc hay có các đoạn dữ kiện chung: *"Sử dụng thông tin sau cho Câu 3 và Câu 4"*, *"Sử dụng dữ kiện sau cho Câu 13 đến Câu 18"*. Nếu ghi cứng (hardcode) số thứ tự như vậy, khi trích xuất hoặc đảo/xáo trộn đề, số câu sẽ bị sai hoàn toàn, đồng thời nếu tách riêng từng câu sẽ bị thiếu dữ kiện.
 - **YÊU CẦU BẮT BUỘC**:
   1. **TUYỆT ĐỐI KHÔNG HARDCODE SỐ CÂU**: Xóa bỏ hoàn toàn cụm *"cho Câu X và Câu Y"*, *"cho Câu X đến Câu Y"*.
-  2. **DÙNG TIÊU ĐỀ CHUẨN KÈM MÃ CHÙM `\macauchum{...}`**:
+  2. **DÙNG TIÊU ĐỀ CHUẨN KÈM SỐ CÂU TƯƠNG ĐỐI & MÃ CHÙM `\macauchum{...}`**:
+     - Đếm số lượng câu hỏi thuộc chùm (ví dụ $N = 2, 3, 4, 6\dots$).
      - Tiêu chuẩn:
-       `\noindent\textbf{Thông tin dùng chung cho các câu hỏi sau} \macauchum{ID: <MÃ_CHÙM>}: <Nội dung ngữ cảnh/dữ kiện chung>`
+       `\noindent\textbf{Thông tin dùng chung cho N câu hỏi ngay sau} \macauchum{ID: <MÃ_CHÙM>}: <Nội dung ngữ cảnh/dữ kiện chung>`
+       (hoặc: `\noindent\textbf{Sử dụng thông tin sau cho N câu hỏi ngay sau} \macauchum{ID: <MÃ_CHÙM>}: <Nội dung>`)
      - Nếu có hình vẽ minh họa cho dữ kiện chùm:
-       `\immini{\noindent\textbf{Thông tin dùng chung cho các câu hỏi sau} \macauchum{ID: <MÃ_CHÙM>}: <Nội dung>}{\includegraphics[width=...]{...}}`
+       `\immini{\noindent\textbf{Thông tin dùng chung cho N câu hỏi ngay sau} \macauchum{ID: <MÃ_CHÙM>}: <Nội dung>}{\includegraphics[width=...]{...}}`
+     - Tuyệt đối không ghi số thứ tự tuyệt đối (`cho Câu 3 và Câu 4`), mà ghi số lượng câu tương đối (`cho 2 câu hỏi ngay sau`). Khi trích xuất hoặc đảo đề sang bất kỳ vị trí mới nào, lời dẫn vẫn luôn chính xác 100%.
   3. **CẤU TRÚC MÃ CHÙM**:
      - Cấu trúc: `\macauchum{ID: C<Chương>B<Bài>-CH<SốChùm>}` (Ví dụ: `C2B1-CH01`, `C2B1-CH02`,...).
   4. **HIỂN THỊ ĐẶC QUYỀN TRÊN BẢN GIÁO VIÊN, ẨN Ở BẢN HỌC SINH**:

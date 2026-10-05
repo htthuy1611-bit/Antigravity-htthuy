@@ -782,7 +782,7 @@ Một người đi bộ $5{,}0\text{ km}$ trên một con đường thẳng theo
 \subsection*{PHẦN III. Câu hỏi trắc nghiệm trả lời ngắn}
 \textit{Thí sinh trả lời từ câu 1 đến câu 6.}
 
-\noindent\textbf{Thông tin dùng chung cho các câu hỏi sau} \macauchum{ID: C2B1-CH01}: Một người đi xe máy từ nhà đến bến xe bus cách nhà $6\text{ km}$ về phía Đông. Đến bến xe, người đó lên xe bus đi tiếp $20\text{ km}$ về phía Bắc.
+\noindent\textbf{Sử dụng thông tin sau cho 2 câu hỏi ngay sau} \macauchum{ID: C2B1-CH01}: Một người đi xe máy từ nhà đến bến xe bus cách nhà $6\text{ km}$ về phía Đông. Đến bến xe, người đó lên xe bus đi tiếp $20\text{ km}$ về phía Bắc.
 
 \begin{ex}\macau{ID: C2B1-D1-P3-C01} Quãng đường đi được trong cả chuyến đi là bao nhiêu kilômét?
 
@@ -806,7 +806,7 @@ d = \sqrt{d_1^2 + d_2^2} = \sqrt{6^2 + 20^2} = \sqrt{36 + 400} = \sqrt{436} \app
 }
 \end{ex}
 
-\noindent\textbf{Thông tin dùng chung cho các câu hỏi sau} \macauchum{ID: C2B1-CH02}: Bạn A đi xe đạp từ nhà qua trạm xăng, tới siêu thị mua đồ rồi quay về nhà cất đồ, sau đó đi xe đến trường.
+\noindent\textbf{Sử dụng thông tin sau cho 2 câu hỏi ngay sau} \macauchum{ID: C2B1-CH02}: Bạn A đi xe đạp từ nhà qua trạm xăng, tới siêu thị mua đồ rồi quay về nhà cất đồ, sau đó đi xe đến trường.
 \begin{center}
 \includegraphics[width=6.0cm]{fig_c2b1_p44_de1_p3_c03_04_ban_a.png}
 \end{center}
@@ -835,7 +835,7 @@ d = x - x_0 = 1200 - 0 = 1200\text{ m}
 }
 \end{ex}
 
-\noindent\textbf{Thông tin dùng chung cho các câu hỏi sau} \macauchum{ID: C2B1-CH03}: Một thang máy mang một người từ tầng trệt đi xuống tầng hầm sâu $5\text{ m}$ rồi đi lên tầng 3. Biết chiều cao tầng trệt và các tầng lầu là $4\text{ m}$. Chọn gốc tọa độ tại mặt đất (tầng trệt).
+\noindent\textbf{Sử dụng thông tin sau cho 2 câu hỏi ngay sau} \macauchum{ID: C2B1-CH03}: Một thang máy mang một người từ tầng trệt đi xuống tầng hầm sâu $5\text{ m}$ rồi đi lên tầng 3. Biết chiều cao tầng trệt và các tầng lầu là $4\text{ m}$. Chọn gốc tọa độ tại mặt đất (tầng trệt).
 
 \begin{ex}\macau{ID: C2B1-D1-P3-C05} Quãng đường chuyển động khi người này lên tới lầu 3 là bao nhiêu mét?
 
@@ -1029,7 +1029,7 @@ Quãng đường đi được $s = 5\text{ m}$. Độ dịch chuyển có độ 
 }
 \end{ex}
 
-\noindent\textbf{Thông tin dùng chung cho các câu hỏi sau} \macauchum{ID: C2B1-CH04}: Một người di chuyển ở bốn địa điểm: xe buýt đậu bên đường, cây xanh, trường học, công viên.
+\noindent\textbf{Sử dụng dữ kiện sau cho 6 câu hỏi ngay sau} \macauchum{ID: C2B1-CH04}: Một người di chuyển ở bốn địa điểm: xe buýt đậu bên đường, cây xanh, trường học, công viên.
 \begin{center}
 \includegraphics[width=6.0cm]{fig_c2b1_p48_de2_p1_c13_18_bon_dia_diem.png}
 \end{center}
@@ -1192,7 +1192,7 @@ Hai người đạp xe đạp từ A đến C, người thứ nhất đi theo đ
 \textit{Thí sinh trả lời từ câu 1 đến câu 6.}
 
 \immini{
-\noindent\textbf{Thông tin dùng chung cho các câu hỏi sau} \macauchum{ID: C2B1-CH05}: Một người đi bộ với tốc độ không đổi dọc theo nửa đường tròn có bán kính $5{,}0\text{ m}$, từ A đến B như hình vẽ với thời gian đi là $6{,}0\text{ s}$.
+\noindent\textbf{Sử dụng thông tin sau cho 2 câu hỏi ngay sau} \macauchum{ID: C2B1-CH05}: Một người đi bộ với tốc độ không đổi dọc theo nửa đường tròn có bán kính $5{,}0\text{ m}$, từ A đến B như hình vẽ với thời gian đi là $6{,}0\text{ s}$.
 }{
 \includegraphics[width=3.2cm]{fig_c2b1_p52_de2_p3_c01_02_nua_tron.png}
 }
@@ -1221,7 +1221,7 @@ s = \pi r = 3{,}1416 \cdot 5{,}0 \approx 15{,}7\text{ m}
 \end{ex}
 
 \immini{
-\noindent\textbf{Thông tin dùng chung cho các câu hỏi sau} \macauchum{ID: C2B1-CH06}: Hai người đi xe đạp từ A đến C, người thứ nhất đi theo đường từ A đến B, rồi từ B đến C; người thứ hai đi thẳng từ A đến C như hình vẽ. Cả hai đều về đích cùng một lúc.
+\noindent\textbf{Sử dụng thông tin sau cho 2 câu hỏi ngay sau} \macauchum{ID: C2B1-CH06}: Hai người đi xe đạp từ A đến C, người thứ nhất đi theo đường từ A đến B, rồi từ B đến C; người thứ hai đi thẳng từ A đến C như hình vẽ. Cả hai đều về đích cùng một lúc.
 }{
 \includegraphics[width=2.2cm]{fig_c2b1_p52_de2_p3_c03_04_tam_giac.png}
 }
@@ -1249,7 +1249,7 @@ d_2 = AC = \sqrt{AB^2 + BC^2} = \sqrt{4^2 + 4^2} = 4\sqrt{2} \approx 5{,}7\text{
 }
 \end{ex}
 
-\noindent\textbf{Thông tin dùng chung cho các câu hỏi sau} \macauchum{ID: C2B1-CH07}: Một người lái ô tô đi thẳng $6\text{ km}$ theo hướng Tây, sau đó rẽ trái đi thẳng theo hướng Nam $4\text{ km}$ rồi quay sang hướng Đông đi $3\text{ km}$.
+\noindent\textbf{Sử dụng thông tin sau cho 2 câu hỏi ngay sau} \macauchum{ID: C2B1-CH07}: Một người lái ô tô đi thẳng $6\text{ km}$ theo hướng Tây, sau đó rẽ trái đi thẳng theo hướng Nam $4\text{ km}$ rồi quay sang hướng Đông đi $3\text{ km}$.
 
 \begin{ex}\macau{ID: C2B1-D2-P3-C05} Quãng đường đi được của ô tô là bao nhiêu kilômét?
 

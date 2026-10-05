@@ -62,12 +62,15 @@
 \begin{minipage}[c]{0.54\linewidth}
 \centering
 {\large\bfseries\color{red!85!black} #1}\\[2pt]
-{\bfseries\color{blue!80!black} #2}\\[2pt]
-\textit{\small (#3)}
+{\bfseries\color{blue!80!black} #2}%
+\hienthitrang{#3}
 \end{minipage}
 \end{tcolorbox}
 \vspace{0.15cm}
 }
+
+% Macro hiển thị số trang sách gốc ở tiêu đề (ẩn ở bản Học sinh)
+\providecommand{\hienthitrang}[1]{\\[2pt]\textit{\small (#1)}}
 
 % Định nghĩa môi trường bổ trợ
 \makeatletter

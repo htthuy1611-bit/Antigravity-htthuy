@@ -148,15 +148,20 @@ for tex_path in tex_files:
         else:
             total_macau += 1
 
-    # 8. Check Rule 14: No hardcoded question numbers in grouped questions
-    # E.g. "cho Câu X và Câu Y", "cho Câu X đến Câu Y"
+    # 8. Check Rule 14: No hardcoded question numbers and verify relative count
+    # E.g. forbidden: "cho Câu X và Câu Y", "cho Câu X đến Câu Y"
     hardcoded_groups = re.findall(r'(?:Sử dụng|thông tin|dữ kiện).*?cho Câu \d+', text, flags=re.IGNORECASE)
     if hardcoded_groups:
         for hg in hardcoded_groups:
-            errors.append(f'[{fname}] Found hardcoded grouped question text: "{hg}"')
+            errors.append(f'[{fname}] Found hardcoded absolute question text: "{hg}"')
 
     macauchum_matches = re.findall(r'\\macauchum\{ID:[^}]+\}', text)
     total_macauchum += len(macauchum_matches)
+
+    # Verify that all grouped questions use relative count pattern: "cho \d+ câu hỏi ngay sau"
+    relative_counts = re.findall(r'cho \d+ câu hỏi ngay sau', text)
+    if len(relative_counts) != len(macauchum_matches):
+        errors.append(f'[{fname}] Mismatch between \\macauchum ({len(macauchum_matches)}) and "cho N câu hỏi ngay sau" ({len(relative_counts)})')
 
 if errors:
     print('ERRORS FOUND:')

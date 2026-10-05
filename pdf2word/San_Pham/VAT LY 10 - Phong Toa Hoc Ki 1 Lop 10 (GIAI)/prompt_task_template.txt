@@ -32,7 +32,7 @@ Yêu cầu thực hiện:
    - Dùng để phục vụ tìm kiếm, trích xuất và lọc đề sau này theo danh sách mã yêu cầu.
 6. CÂU HỎI CHÙM (\macauchum{...}):
    - TUYỆT ĐỐI KHÔNG hardcode số câu ("cho Câu 3 và Câu 4", "cho Câu 13 đến Câu 18").
-   - BẮT BUỘC dùng mẫu chuẩn kèm mã chùm: \noindent\textbf{Thông tin dùng chung cho các câu hỏi sau} \macauchum{ID: C...-CH...}: <dữ kiện chung>
+   - BẮT BUỘC dùng mẫu chuẩn kèm số câu tương đối và mã chùm: \noindent\textbf{Thông tin dùng chung cho N câu hỏi ngay sau} \macauchum{ID: C...-CH...}: <dữ kiện chung> (ví dụ: "cho 2 câu hỏi ngay sau", "cho 6 câu hỏi ngay sau").
    - Mã chùm \macauchum{...} chỉ hiện ở bản Giáo viên, ẩn ở bản Học sinh. Đảm bảo trích xuất câu hỏi luôn đi kèm ngữ cảnh chung mà không bị sai lệch số thứ tự.
 7. XUẤT BẢN & KIỂM THỬ:
    - Tạo file module con trong thư mục chapters/ đặt tên theo số trang và chuyên đề (ví dụ: bai_X_Y.tex).
