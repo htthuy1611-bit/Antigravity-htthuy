@@ -174,4 +174,29 @@ Khi nhận bất kỳ đề bài hay tài liệu nào, **BẮT BUỘC PHẢI PH�
   - **TUYỆT ĐỐI KHÔNG dùng môi trường `minipage` tự do** bên trong `\begin{ex}` vì nhãn câu (`Câu X.`) sẽ làm tụt dòng hoặc đẩy hình sang trái.
   - **ĐỐI VỚI CÂU HỎI ĐÚNG / SAI (`\choiceTF`)**: BẮT BUỘC chỉ đặt phần dẫn đề vào `\immini`, còn khối `\choiceTF` **PHẢI ĐẶT SAU `\immini`** để các ý a), b), c), d) dàn đều toàn bộ chiều rộng trang giấy (100% full width) và tránh lỗi box của LaTeX.
 
+---
+
+## 14. QUY TẮC XỬ LÝ CÂU HỎI CHÙM (DÙNG CHUNG NGỮ CẢNH / DỮ KIỆN / HÌNH VẼ)
+- **Vấn đề cốt lõi**: Trong sách/đề gốc hay có các đoạn dữ kiện chung: *"Sử dụng thông tin sau cho Câu 3 và Câu 4"*, *"Sử dụng dữ kiện sau cho Câu 13 đến Câu 18"*. Nếu ghi cứng (hardcode) số thứ tự như vậy, khi trích xuất hoặc đảo/xáo trộn đề, số câu sẽ bị sai hoàn toàn, đồng thời nếu tách riêng từng câu sẽ bị thiếu dữ kiện.
+- **YÊU CẦU BẮT BUỘC**:
+  1. **TUYỆT ĐỐI KHÔNG HARDCODE SỐ CÂU**: Xóa bỏ hoàn toàn cụm *"cho Câu X và Câu Y"*, *"cho Câu X đến Câu Y"*.
+  2. **DÙNG TIÊU ĐỀ CHUẨN KÈM MÃ CHÙM `\macauchum{...}`**:
+     - Tiêu chuẩn:
+       `\noindent\textbf{Thông tin dùng chung cho các câu hỏi sau} \macauchum{ID: <MÃ_CHÙM>}: <Nội dung ngữ cảnh/dữ kiện chung>`
+     - Nếu có hình vẽ minh họa cho dữ kiện chùm:
+       `\immini{\noindent\textbf{Thông tin dùng chung cho các câu hỏi sau} \macauchum{ID: <MÃ_CHÙM>}: <Nội dung>}{\includegraphics[width=...]{...}}`
+  3. **CẤU TRÚC MÃ CHÙM**:
+     - Cấu trúc: `\macauchum{ID: C<Chương>B<Bài>-CH<SốChùm>}` (Ví dụ: `C2B1-CH01`, `C2B1-CH02`,...).
+  4. **HIỂN THỊ ĐẶC QUYỀN TRÊN BẢN GIÁO VIÊN, ẨN Ở BẢN HỌC SINH**:
+     - Trong `main_Teacher.tex`:
+       ```latex
+       \newcommand{\macauchum}[1]{{\color{purple!80!black}\bfseries\footnotesize [#1]}\space}
+       ```
+     - Trong `main_Student.tex`:
+       ```latex
+       \newcommand{\macauchum}[1]{}
+       ```
+  5. **MỤC ĐÍCH TRÍCH XUẤT TỰ ĐỘNG**: Khi người dùng yêu cầu trích xuất một câu nằm trong chùm, công cụ trích xuất sẽ tự động lấy kèm khối dữ kiện mang mã `\macauchum` tương ứng, đảm bảo đề thi độc lập không bao giờ bị thiếu dữ kiện ngữ cảnh.
+
+
 

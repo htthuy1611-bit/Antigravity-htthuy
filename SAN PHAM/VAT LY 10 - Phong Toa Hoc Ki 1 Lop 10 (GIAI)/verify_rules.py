@@ -21,6 +21,7 @@ total_choiceTFs = 0
 total_shortans = 0
 total_itemchoice = 0
 total_macau = 0
+total_macauchum = 0
 
 def parse_cmd_args(cmd_name, text):
     results = []
@@ -147,16 +148,28 @@ for tex_path in tex_files:
         else:
             total_macau += 1
 
+    # 8. Check Rule 14: No hardcoded question numbers in grouped questions
+    # E.g. "cho Câu X và Câu Y", "cho Câu X đến Câu Y"
+    hardcoded_groups = re.findall(r'(?:Sử dụng|thông tin|dữ kiện).*?cho Câu \d+', text, flags=re.IGNORECASE)
+    if hardcoded_groups:
+        for hg in hardcoded_groups:
+            errors.append(f'[{fname}] Found hardcoded grouped question text: "{hg}"')
+
+    macauchum_matches = re.findall(r'\\macauchum\{ID:[^}]+\}', text)
+    total_macauchum += len(macauchum_matches)
+
 if errors:
     print('ERRORS FOUND:')
     for e in errors:
         print('  -', e)
     sys.exit(1)
 else:
-    print('ALL SYSTEM RULES (RULES 1 - 13) VERIFIED PERFECTLY! (0 errors)')
+    print('ALL SYSTEM RULES (RULES 1 - 14) VERIFIED PERFECTLY! (0 errors)')
     print(f'  - Total Question IDs (\\macau): {total_macau}')
+    print(f'  - Total Grouped Question IDs (\\macauchum): {total_macauchum}')
     print(f'  - Figures verified: {total_figs}')
     print(f'  - \\choice parsed: {total_choices} (0 ending dots)')
     print(f'  - \\choiceTF parsed: {total_choiceTFs} (0 ending dots)')
     print(f'  - \\shortans verified: {total_shortans} (all with preceding blank line)')
     print(f'  - itemchoice environments: {total_itemchoice} (all 4 items)')
+

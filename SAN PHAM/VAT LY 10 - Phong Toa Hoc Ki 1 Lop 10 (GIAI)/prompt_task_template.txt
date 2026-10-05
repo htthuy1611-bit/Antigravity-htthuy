@@ -30,7 +30,11 @@ Yêu cầu thực hiện:
    - MỌI câu hỏi (\begin{ex}), ví dụ mẫu, bài tập tự luyện BẮT BUỘC có 1 MÃ CÂU HỎI duy nhất \macau{...} (ví dụ: \macau{ID: C...}).
    - MÃ CHỈ HIỆN Ở BẢN GIÁO VIÊN (\main_Teacher.tex), HOÀN TOÀN ẨN Ở BẢN HỌC SINH (\main_Student.tex).
    - Dùng để phục vụ tìm kiếm, trích xuất và lọc đề sau này theo danh sách mã yêu cầu.
-6. XUẤT BẢN & KIỂM THỬ:
+6. CÂU HỎI CHÙM (\macauchum{...}):
+   - TUYỆT ĐỐI KHÔNG hardcode số câu ("cho Câu 3 và Câu 4", "cho Câu 13 đến Câu 18").
+   - BẮT BUỘC dùng mẫu chuẩn kèm mã chùm: \noindent\textbf{Thông tin dùng chung cho các câu hỏi sau} \macauchum{ID: C...-CH...}: <dữ kiện chung>
+   - Mã chùm \macauchum{...} chỉ hiện ở bản Giáo viên, ẩn ở bản Học sinh. Đảm bảo trích xuất câu hỏi luôn đi kèm ngữ cảnh chung mà không bị sai lệch số thứ tự.
+7. XUẤT BẢN & KIỂM THỬ:
    - Tạo file module con trong thư mục chapters/ đặt tên theo số trang và chuyên đề (ví dụ: bai_X_Y.tex).
    - Nạp vào file main_Teacher.tex và main_Student.tex.
    - Biên dịch pdflatex đạt chuẩn 0 lỗi, đảm bảo thầy cô mở TeXstudio nhấn F5 build ra PDF ngay lập tức.
