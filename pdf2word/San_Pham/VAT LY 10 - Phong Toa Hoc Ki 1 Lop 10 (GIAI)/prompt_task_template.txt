@@ -1,0 +1,31 @@
+================================================================================
+MẪU PROMPT GIAO VIỆC DỰ ÁN: LATEX HÓA VẬT LÝ 10 - PHONG TỎA HỌC KÌ 1
+(Copy toàn bộ phần bên dưới khung này, điền [X] và [Y], rồi gửi cho Anti)
+================================================================================
+
+[DỰ ÁN: LATEX HÓA VẬT LÝ 10 - PHONG TỎA HỌC KÌ 1]
+
+Nhiệm vụ đợt này:
+- Nguồn: PDF "VẬT LÝ 10 - Phong Toa Hoc Ki 1 Lop 10 (GIAI)" (tại pdf2word/De_Goc/VẬT LÝ 10 - Phong Toa Hoc Ki 1 Lop 10 (GIAI).pdf)
+- Phạm vi xử lý: Từ trang [X] đến trang [Y]
+- Thư mục lưu sản phẩm: SAN PHAM//VAT LY 10 - Phong Toa Hoc Ki 1 Lop 10 (GIAI)//
+
+Yêu cầu thực hiện:
+1. ĐỌC NỘI DUNG: Trích xuất và phân tích chính xác toàn bộ lý thuyết, ví dụ mẫu, câu hỏi trắc nghiệm/tự luận trong khoảng từ trang [X] đến trang [Y].
+2. BẢN QUYỀN HỆ THỐNG: Môn Vật lý -> Bắt buộc gắn thông tin bản quyền Thầy Ngọc:
+   - Tên thương hiệu: LỚP LÝ THẦY NGỌC
+   - Giáo viên: TRẦN VĂN THIỆN NGỌC -- SĐT: 0935216256
+   - Tiêu đề bài học dùng tcolorbox đơn giản, trang nhã, ngắn gọn (KHÔNG ghi các cơ sở dạy ở tiêu đề).
+   - Chân trang (Footer): Lớp Lý Thầy Ngọc -- SĐT: 0935.216.256 -- CS1: 50/2C Phạm Thị Liên
+3. TÁCH BIỆT 2 CHẾ ĐỘ:
+   - Bản Giáo viên (Teacher): Có đầy đủ đáp án và lời giải chi tiết (\loigiai{...}).
+   - Bản Học sinh (Student): Đầy đủ đề bài, ẩn toàn bộ lời giải chi tiết (được điều khiển qua toggle switch hoặc wrapper riêng).
+4. QUY TẮC XỬ LÝ HÌNH ẢNH:
+   - PDF gốc vector rõ nét: BẮT BUỘC CROP ẢNH độ phân giải cao 300 DPI lưu vào thư mục figures/, chèn bằng \includegraphics. TUYỆT ĐỐI KHÔNG tự ý vẽ lại bằng TikZ để tránh vẽ sai lệch đồ thị hoặc mất nét so với đề gốc.
+   - Bảng biến thiên (BBT): Bắt buộc vẽ lại bằng TikZ / tkz-tab.
+   - TikZ hình học/đồ thị: CHỈ vẽ lại khi ảnh chụp mờ, nghiêng, méo không crop sạch.
+5. XUẤT BẢN & KIỂM THỬ:
+   - Tạo file module con trong thư mục chapters/ đặt tên theo số trang và chuyên đề (ví dụ: bai_X_Y.tex).
+   - Nạp vào file main_Teacher.tex và main_Student.tex.
+   - Biên dịch pdflatex đạt chuẩn 0 lỗi, đảm bảo thầy cô mở TeXstudio nhấn F5 build ra PDF ngay lập tức.
+================================================================================
