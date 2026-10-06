@@ -118,12 +118,13 @@ def generate_chua_bai_wrappers_and_compile():
             with open(cb_tex_path, 'w', encoding='utf-8') as fp:
                 fp.write(chua_bai_text)
 
-            # Compile with pdflatex
+            # Compile with pdflatex (2 passes to resolve LastPage and references)
             print(f"[{col['subject']} -> {subfolder}] Biên dịch {wrapper_base}.tex...")
             res = subprocess.run(["pdflatex", "-interaction=nonstopmode", f"{wrapper_base}.tex"], cwd=exam_dir, capture_output=True, text=True)
             if res.returncode != 0:
-                print(f"  [LỖI] {res.stdout[-400:]}")
+                print(f"  [LỖI Pass 1] {res.stdout[-400:]}")
             else:
+                res2 = subprocess.run(["pdflatex", "-interaction=nonstopmode", f"{wrapper_base}.tex"], cwd=exam_dir, capture_output=True, text=True)
                 cb_pdf = os.path.join(exam_dir, f"{wrapper_base}.pdf")
                 with fitz.open(cb_pdf) as doc:
                     pcount = len(doc)

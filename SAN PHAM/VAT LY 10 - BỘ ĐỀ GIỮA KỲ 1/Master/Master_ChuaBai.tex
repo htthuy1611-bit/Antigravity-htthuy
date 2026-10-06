@@ -26,13 +26,22 @@
 \providecommand{\macau}[1]{{\color{blue!80!black}\bfseries\footnotesize [#1]}\space}
 \providecommand{\macauchum}[1]{{\color{purple!80!black}\bfseries\footnotesize [#1]}\space}
 
-% 4 DÒNG CHẤM DƯỚI MỖI CÂU ĐỂ THẦY CHỮA BÀI ONLINE
+% CHỈ IN 4 DÒNG CHẤM CHO PHẦN TRẢ LỜI NGẮN VÀ TỰ LUẬN (ABCD VÀ ĐÚNG SAI KHÔNG CẦN)
 \renewcommand{\loigiai}[1]{%
-	\par\vspace{3pt}%
-	\noindent\dotfill\par\vspace{5.5pt}%
-	\noindent\dotfill\par\vspace{5.5pt}%
-	\noindent\dotfill\par\vspace{5.5pt}%
-	\noindent\dotfill\par\vspace{6pt}%
+	\ifcase\chType
+		% 0: Trắc nghiệm ABCD -> không in dòng chấm
+		\par\vspace{1pt}%
+	\or
+		% 1: Đúng/Sai -> không in dòng chấm
+		\par\vspace{1pt}%
+	\else
+		% Các trường hợp còn lại (-1: Trả lời ngắn, 9: Tự luận) -> in 4 dòng chấm
+		\par\vspace{3pt}%
+		\noindent\dotfill\par\vspace{5.5pt}%
+		\noindent\dotfill\par\vspace{5.5pt}%
+		\noindent\dotfill\par\vspace{5.5pt}%
+		\noindent\dotfill\par\vspace{6pt}%
+	\fi
 }
 
 \makeatletter

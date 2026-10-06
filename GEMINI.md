@@ -248,7 +248,10 @@ Khi nhận bất kỳ đề bài hay tài liệu nào, **BẮT BUỘC PHẢI PH�
 - **YÊU CẦU BẮT BUỘC**:
   1. **Định dạng khổ giấy**: **Khổ A5 (`a5paper`)** (thay vì A4). Khổ A5 khi chiếu lên màn hình TV tỷ lệ 16:9 sẽ tự động phóng to chữ (zoom to) gấp gần 2 lần so với A4, không bị nhỏ chữ.
   2. **Tất cả các phương án `\choice` chuyển thành `\motcot` (1 cột 4 hàng)**: Cả 4 phương án A, B, C, D phải xếp dọc trên 1 cột 4 hàng để bóp hẹp chiều ngang, tăng kích thước font chữ và tránh bị tràn dòng khi chiếu màn hình xa.
-  3. **4 dòng kẻ chấm `\dotfill` cách đều dưới mỗi câu**: Định nghĩa lại `\loigiai` thành 4 dòng kẻ chấm cách đều nhau `5.5pt` để Thầy viết lời giải.
+  3. **4 dòng kẻ chấm `\dotfill` CHỈ DÀNH CHO PHẦN TRẢ LỜI NGẮN VÀ TỰ LUẬN**:
+     - **TRẮC NGHIỆM ABCD VÀ ĐÚNG/SAI TUYỆT ĐỐI KHÔNG CÓ DÒNG CHẤM**: Thầy khoanh hoặc tích Đ/S trực tiếp trên câu hỏi, không cần dòng kẻ chấm để tránh lãng phí diện tích màn hình TV.
+     - **CHỈ CÓ phần Trắc nghiệm trả lời ngắn và Tự luận** mới in 4 dòng kẻ chấm `\dotfill` cách đều nhau `5.5pt` dưới mỗi câu để Thầy viết các bước giải/trình bày.
+     - Cơ chế xử lý trong `Master_ChuaBai.tex`: Dùng `\ifcase\chType` để tự động phân loại: `\chType=0` (ABCD) và `\chType=1` (Đúng/Sai) thì bỏ qua dòng chấm (`\par\vspace{1pt}`); các trường hợp còn lại (`\chType=-1` trả lời ngắn, `\chType=9` tự luận) mới in 4 dòng chấm.
   4. **Hiển thị mã câu hỏi màu xanh `\macau{ID: ...}`** và ẩn hoàn toàn đáp án đúng.
 ---
 
