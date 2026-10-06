@@ -150,9 +150,9 @@ def generate_cover_chua_bai(col):
         items_tex += f"\\item \\textbf{{{title}}} \\hfill \\textsl{{Trang {cur_page} -- {end_page}}} ({pcount} trang)\\\\[6pt]\n"
         cur_page += pcount
 
-    tex = r"""\documentclass[11pt,a4paper]{article}
+    tex = r"""\documentclass[11pt,a5paper]{article}
 \usepackage[utf8]{vietnam}
-\usepackage[top=1.4cm,bottom=1.6cm,left=1.6cm,right=1.6cm]{geometry}
+\usepackage[top=0.8cm,bottom=1.0cm,left=0.9cm,right=0.9cm]{geometry}
 \usepackage{amsmath,amssymb}
 \usepackage{tikz}
 \usepackage{tcolorbox}
@@ -161,36 +161,36 @@ def generate_cover_chua_bai(col):
 \begin{document}
 \thispagestyle{empty}
 
-\begin{tcolorbox}[colback=blue!5!white,colframe=blue!80!black,arc=4mm,boxrule=1.5pt,center,width=\textwidth]
+\begin{tcolorbox}[colback=blue!5!white,colframe=blue!80!black,arc=3mm,boxrule=1.2pt,center,width=\textwidth]
 \centering
-\vspace{0.15cm}
-{\Large\bfseries\color{blue!85!black} LỚP LÝ THẦY NGỌC}\\[4pt]
-{\small\bfseries SĐT: 0935216256 \quad $\bullet$ \quad Giáo viên: TRẦN VĂN THIỆN NGỌC}\\[3pt]
-{\footnotesize\textbf{CS1:} 50/2C Phạm Thị Liên \quad $\bullet$ \quad \textbf{CS2:} P A15 THPT Nguyễn Huệ \quad $\bullet$ \quad \textbf{CS3:} 24 Đặng Thái Thân}
-\vspace{0.15cm}
+\vspace{0.1cm}
+{\large\bfseries\color{blue!85!black} LỚP LÝ THẦY NGỌC}\\[3pt]
+{\footnotesize\bfseries SĐT: 0935216256 \quad $\bullet$ \quad GV: TRẦN VĂN THIỆN NGỌC}\\[2pt]
+{\scriptsize\textbf{CS1:} 50/2C Phạm Thị Liên \quad $\bullet$ \quad \textbf{CS2:} P A15 THPT Nguyễn Huệ \quad $\bullet$ \quad \textbf{CS3:} 24 Đặng Thái Thân}
+\vspace{0.1cm}
 \end{tcolorbox}
 
-\vspace{0.4cm}
+\vspace{0.25cm}
 
 \begin{center}
-{\huge\bfseries\color{red!85!black} TUYỂN TẬP """ + str(col["total_exams"]) + r""" BỘ ĐỀ THI GIỮA KỲ I}\\[8pt]
-{\LARGE\bfseries\color{blue!80!black} MÔN: """ + col["subject"] + r"""}\\[6pt]
-{\large\bfseries\color{magenta!85!black} (BẢN CHỮA BÀI TRỰC TUYẾN -- 4 DÒNG CHẤM DƯỚI MỖI CÂU)}\\[8pt]
-{\textit{\small Tài liệu dành cho Thầy chữa bài trực tiếp / Livestream ôn luyện học sinh}}
+{\Large\bfseries\color{red!85!black} TUYỂN TẬP """ + str(col["total_exams"]) + r""" BỘ ĐỀ THI GIỮA KỲ I}\\[5pt]
+{\large\bfseries\color{blue!80!black} MÔN: """ + col["subject"] + r"""}\\[4pt]
+{\normalsize\bfseries\color{magenta!85!black} (BẢN CHỮA BÀI TRỰC TUYẾN A5 -- CHIẾU MÀN HÌNH TO RÕ)}\\[5pt]
+{\textit{\scriptsize Tài liệu dành cho Thầy chữa bài trực tiếp / Livestream ôn luyện học sinh}}
 \end{center}
 
-\vspace{0.3cm}
+\vspace{0.2cm}
 
-\begin{tcolorbox}[colback=white,colframe=red!75!black,arc=3mm,boxrule=1.2pt,title={\bfseries\large MỤC LỤC BỘ ĐỀ THI CHỮA BÀI TRỰC TUYẾN},center,width=\textwidth]
-\vspace{0.15cm}
+\begin{tcolorbox}[colback=white,colframe=red!75!black,arc=2.5mm,boxrule=1pt,title={\bfseries\normalsize MỤC LỤC BỘ ĐỀ THI CHỮA BÀI TRỰC TUYẾN (KHỔ A5)},center,width=\textwidth]
+\vspace{0.1cm}
 \begin{enumerate}
 """ + items_tex + r"""\end{enumerate}
-\vspace{0.1cm}
+\vspace{0.05cm}
 \end{tcolorbox}
 
 \vfill
 \begin{center}
-{\footnotesize\color{gray!80!black}\textit{Tài liệu lưu hành nội bộ Lớp Lý Thầy Ngọc -- Chúc các em học tập và ôn luyện đạt kết quả xuất sắc!}}
+{\scriptsize\color{gray!80!black}\textit{Tài liệu lưu hành nội bộ Lớp Lý Thầy Ngọc -- Chúc các em học tập và ôn luyện đạt kết quả xuất sắc!}}
 \end{center}
 
 \end{document}

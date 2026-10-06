@@ -201,6 +201,52 @@ Khi nhận bất kỳ đề bài hay tài liệu nào, **BẮT BUỘC PHẢI PH�
        \newcommand{\macauchum}[1]{}
        ```
   5. **MỤC ĐÍCH TRÍCH XUẤT TỰ ĐỘNG**: Khi người dùng yêu cầu trích xuất một câu nằm trong chùm, công cụ trích xuất sẽ tự động lấy kèm khối dữ kiện mang mã `\macauchum` tương ứng, đảm bảo đề thi độc lập không bao giờ bị thiếu dữ kiện ngữ cảnh.
+---
 
+## 15. QUY TẮC LỜI GIẢI `\itemch`: TUYỆT ĐỐI CHỈ GHI NỘI DUNG GIẢI THÍCH, KHÔNG THỪA NHÃN `a) ĐÚNG / SAI`
+- **Nguyên lý của gói `ex_test.sty`**: Lệnh `\itemch` bên trong môi trường `itemchoice` **ĐÃ TỰ ĐỘNG SINH** nhãn thứ tự và huy hiệu đúng/sai dạng vòng tròn đỏ nổi bật `a) (Đ)` hoặc `a) (S)`.
+- **YÊU CẦU BẮT BUỘC**:
+  - Sau lệnh `\itemch`, **TUYỆT ĐỐI CHỈ GHI TRỰC TIẾP LỜI GIẢI THÍCH**, KHÔNG ĐƯỢC gõ các tiền tố như: `a) SAI:`, `a) ĐÚNG:`, `b) Đúng.`, `b) Sai.`, `Đúng.`, `Sai.`, `ĐÚNG:`, `SAI:`.
+  - **Lý do**: Nếu gõ thêm các tiền tố trên, tài liệu PDF sẽ bị in lặp 2 lần nhãn ngớ ngẩn (ví dụ: `a) (S) a) SAI: ...`). Đồng thời khi hệ thống thực hiện xáo trộn/hoán vị đề (shuffle options), ý `a)` chuyển thành `c)` thì chữ gõ cứng `a)` sẽ làm sai hoàn toàn logic đề thi!
+  - **Ví dụ chuẩn 100%**:
+    ```latex
+    \loigiai{
+    \begin{itemchoice}
+        \itemch Nội năng của khối khí giảm vì khí thực hiện công lên môi trường ngoài.
+        \itemch Theo quy ước dấu của định luật I nhiệt động lực học, nhiệt lượng truyền ra ngoài môi trường nên $Q < 0$.
+        \itemch Khối khí nhận công từ ngoại lực tác dụng nén khí nên $A > 0$.
+        \itemch Áp suất của khối khí tăng theo định luật Boyle khi thể tích giảm ở nhiệt độ không đổi.
+    \end{itemchoice}
+    }
+    ```
 
+---
 
+## 16. QUY TẮC TUYỆT ĐỐI KHÔNG HARDCODE "Chọn A.", "Chọn B.", "Chọn C.", "Chọn D." TRONG LỜI GIẢI
+- **Nguyên lý của gói `ex_test.sty`**: Gói lệnh đã tự động trích xuất đáp án từ thẻ `\True` và hiển thị khối đáp án chuẩn:
+  `Chọn đáp án (D) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . □`
+- **YÊU CẦU BẮT BUỘC**:
+  - Ở cuối nội dung `\loigiai{...}`, **TUYỆT ĐỐI KHÔNG GÕ THÊM** các cụm từ: `Chọn A.`, `Chọn B.`, `Chọn C.`, `Chọn D.`, `Chọn phương án A.`, `Ta chọn B.`,...
+  - Xóa bỏ 100% các dòng này khỏi lời giải để tránh trùng lặp 2 lần đáp án và không làm sai lệch khi xáo trộn phương án.
+
+---
+
+## 17. QUY TẮC CÂU TRẢ LỜI NGẮN: BẮT BUỘC DÙNG `\par\shortans[oly]{...}`
+- **YÊU CẦU BẮT BUỘC**:
+  - Tất cả các câu hỏi trắc nghiệm điền khuyết / trả lời ngắn sử dụng gói `ex_test.sty`, lệnh khai báo đáp án **BẮT BUỘC PHẢI DÙNG ĐÚNG CÚ PHÁP**:
+    ```latex
+    \par\shortans[oly]{<giá_trị_đáp_án>}
+    ```
+  - **Giải thích**: 
+    + Tiền tố `\par` đảm bảo tách dòng triệt để với phần thân câu hỏi bên trên.
+    + Tùy chọn `[oly]` kích hoạt tính năng vẽ 4 ô ly điền số chuẩn theo cấu trúc đề thi tốt nghiệp THPT mới của Bộ Giáo dục & Đào tạo.
+
+---
+
+## 18. QUY TẮC BẢN CHỮA BÀI TRỰC TUYẾN (DÒNG CHẤM CHO GIÁO VIÊN LIVESTREAM / DẠY ONLINE)
+- **Mục đích**: Phục vụ Thầy Ngọc chiếu lên màn hình TV hoặc máy chiếu từ xa trong lớp học và phát trực tuyến (Livestream/Online), giúp các bạn ngồi xa ở các góc phòng vẫn thấy to, rõ nét và Thầy có không gian ghi chú, chữa bài.
+- **YÊU CẦU BẮT BUỘC**:
+  1. **Định dạng khổ giấy**: **Khổ A5 (`a5paper`)** (thay vì A4). Khổ A5 khi chiếu lên màn hình TV tỷ lệ 16:9 sẽ tự động phóng to chữ (zoom to) gấp gần 2 lần so với A4, không bị nhỏ chữ.
+  2. **Tất cả các phương án `\choice` chuyển thành `\motcot` (1 cột 4 hàng)**: Cả 4 phương án A, B, C, D phải xếp dọc trên 1 cột 4 hàng để bóp hẹp chiều ngang, tăng kích thước font chữ và tránh bị tràn dòng khi chiếu màn hình xa.
+  3. **4 dòng kẻ chấm `\dotfill` cách đều dưới mỗi câu**: Định nghĩa lại `\loigiai` thành 4 dòng kẻ chấm cách đều nhau `5.5pt` để Thầy viết lời giải.
+  4. **Hiển thị mã câu hỏi màu xanh `\macau{ID: ...}`** và ẩn hoàn toàn đáp án đúng.
