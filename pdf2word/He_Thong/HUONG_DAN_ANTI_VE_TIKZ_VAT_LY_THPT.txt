@@ -1,0 +1,434 @@
+﻿HƯỚNG DẪN ANTI VẼ TIKZ VẬT LÝ PHỔ THÔNG
+Phiên bản: 1.0 — 06/10/2026
+Dành cho bài giảng, đề kiểm tra và ngân hàng hình Vật lý THPT của thầy Ngọc.
+Mã hóa: UTF-8. Có thể mở bằng Notepad, VS Code hoặc dán vào hướng dẫn dự án.
+
+CÁCH DÙNG NGAY
+Đọc toàn bộ tài liệu này trước khi nhận việc vẽ hình. Mỗi hình mới phải đọc lại các mục tương ứng, đọc nguồn bài và lập brief. Có thể chia tài liệu thành các phần để đưa vào ngữ cảnh khi dung lượng bị giới hạn. Đây là tài liệu hướng dẫn và mẫu kinh nghiệm để Anti tham khảo; việc sao chép file không tự huấn luyện lại trọng số mô hình.
+
+LỆNH GIAO VIỆC MẪU
+“Đọc HUONG_DAN_ANTI_VE_TIKZ_VAT_LY_THPT.txt. Dựng hình đính kèm bằng TikZ, bám nguồn và trạng thái vật lý của bài. Toàn bộ mã trong một begin/end tikzpicture, không định nghĩa ngoài. Lập brief ngắn, dựng cấu trúc trước rồi bổ sung chi tiết; tự compile, render, xem hình và sửa. Không đoán số mờ hoặc kích thước thật. Trả mã inline, bản xem trước và báo rõ phần chưa xác minh. Chưa đăng ký vào ngân hàng hay runtime nếu chưa được giao.”
+
+======================================================================
+1. MỤC TIÊU VÀ THỨ TỰ ƯU TIÊN
+======================================================================
+1) Đúng nội dung và trạng thái vật lý.
+2) Đúng cấu trúc: bộ phận, điểm nối, vùng kín/hở, mặt phân cách.
+3) Đúng tỉ lệ cần thiết, điểm mốc và dữ kiện định lượng.
+4) Rõ khi chèn vào bài giảng và in trắng đen.
+5) Tỉ mỉ, cân đối, đẹp; hiệu ứng trang trí phục vụ việc đọc hình.
+
+Không tự thêm hoặc bỏ bộ phận làm thay đổi bài toán. Không chọn một hình đẹp nhưng mô tả sai thí nghiệm. Không xem “compile PASS” là chứng nhận khoa học. Không mặc định bỏ TikZ chỉ vì ảnh phức tạp: drone, bộ dụng cụ, rơ-le và con dế đều có thể diễn họa bằng các mảng đơn giản ghép lại. Tuy nhiên, ảnh chụp có vi cấu trúc cần đọc chính xác thì có thể phù hợp với ảnh nguồn hơn.
+
+Phân biệt ba mục đích:
+- Minh họa vật thể: cần nhận ra vật, đúng bộ phận, tư thế và bố cục.
+- Sơ đồ nguyên lý: cần đúng điểm nối, lực, tia, hướng, trạng thái hoạt động.
+- Hình định lượng: cần ánh xạ tọa độ từ số liệu, thang đúng, đơn vị đúng; không đọc số từ vạch trang trí.
+
+======================================================================
+2. HỢP ĐỒNG ĐẦU RA: MỘT KHỐI TIKZPICTURE TỰ CHỨA
+======================================================================
+- Snippet bắt đầu bằng \begin{tikzpicture} và kết thúc bằng \end{tikzpicture}.
+- Màu, style, coordinate, phép tính, vòng lặp, scope và định nghĩa cục bộ nằm trong khối.
+- Không phụ thuộc macro, pic hoặc savebox được định nghĩa ngoài hình.
+- Không đưa documentclass, begin document hoặc usepackage vào snippet dán app.
+- Tài liệu chủ vẫn phải nạp TikZ và hỗ trợ font/ngôn ngữ cần dùng.
+- Ưu tiên TikZ nền tảng. Thư viện bổ sung chỉ dùng khi đã xác minh app hỗ trợ; ghi rõ dependency. Không tự dùng pgfplots trong bài thuộc quy tắc dự án hiện hành.
+- Wrapper standalone riêng chỉ phục vụ build/preview. Không gửi nhầm wrapper thay snippet.
+- Scope dùng được trong hình: “không định nghĩa ngoài” không có nghĩa “cấm scope”.
+- Comment giải thích lớp, ý nghĩa tọa độ và giới hạn; tránh đặt chú thích kỹ thuật vào phần hình mà học sinh nhìn thấy.
+
+Khung tối thiểu (điều chỉnh theo từng hình):
+\begin{tikzpicture}[x=1cm,y=1cm,line cap=round,line join=round,
+  line width=.5pt,
+  vat/.style={draw=black,fill=gray!12},
+  chi/.style={draw=black!65,line width=.4pt}]
+  \coordinate (O) at (0,0);
+  % Lớp sau
+  % Bộ phận chính
+  % Chi tiết trước
+  % Mũi tên và nhãn
+\end{tikzpicture}
+
+======================================================================
+3. SOURCE FIRST: ĐỌC NGUỒN TRƯỚC KHI VẼ
+======================================================================
+- Đọc cả ảnh crop và nguyên câu hỏi. Crop cho chi tiết; câu hỏi cho tên bộ phận, dữ kiện, hệ quy chiếu, trạng thái và quy ước.
+- Lập danh sách số, nhãn, đơn vị, điểm nối và bộ phận bắt buộc.
+- Ghi rõ chi tiết nào nhìn thấy, suy ra từ văn bản, diễn họa hoặc không rõ.
+- Chữ/số mờ: UNKNOWN hoặc NEEDS_REVIEW trong brief. Không tự điền số có vẻ hợp lý.
+- Không lấy kích thước pixel ảnh để khẳng định chiều dài dụng cụ thật.
+- Không tự sửa lỗi khoa học của nguồn trong im lặng. Nếu cần, giữ bản SOURCE_REFERENCE và thêm bản PHYSICS_CORRECTED, ghi thay đổi.
+- Không đoán ý nghĩa màu đỏ/xanh. Màu có thể biểu diễn cực, nhiệt độ, pha hoặc chỉ trang trí.
+- Nếu thiếu thông tin ảnh hưởng đáp án, tiếp tục dựng các phần độc lập và nêu phần cần xác minh.
+
+MẪU TIKZ_BRIEF
+Tên hình / nguồn / mục đích:
+Trạng thái vật lý và thời điểm:
+Bộ phận, tọa độ tương đối, điểm mốc:
+Nhãn → bộ phận → điểm cuối đường chỉ:
+Số liệu và đơn vị đã xác minh:
+Chiều vectơ, tia, dòng, trường:
+Mặt phân cách, chỗ nối, vùng kín/hở:
+Thứ tự che khuất:
+Khung tọa độ, bề rộng chèn dự kiến:
+Dependency, engine và font:
+Phần mờ / diễn họa / chưa hiệu chuẩn:
+Kiểm tra cần chạy và trạng thái duyệt:
+
+======================================================================
+4. QUY TRÌNH DỰNG HÌNH TỪ THÔ ĐẾN TINH
+======================================================================
+Bước A — Đọc và phân tích: lập brief, tách hình thành nhóm bộ phận.
+Bước B — Dựng khung: chọn tỉ lệ, đường bao và các điểm mốc chính.
+Bước C — Dựng quan hệ: điểm nối, khớp, mặt phân cách, đường tâm, trạng thái.
+Bước D — Kiểm tra vật lý trước khi trang trí.
+Bước E — Thêm chi tiết: vạch, cuộn dây, ốc vít, gân, mép kính, nét khuất.
+Bước F — Thêm vật liệu nhẹ: chuyển sắc, phản sáng và bóng có chủ đích.
+Bước G — Compile, render và xem; sửa lỗi, render lại nếu mã đã đổi.
+Bước H — Xem đúng kích thước dùng và thử trắng đen khi cần in.
+Bước I — Lưu mã cuối, brief, kết quả kiểm tra và lỗi đã sửa.
+
+Không bắt đầu bằng hàng trăm chi tiết khi đường bao còn sai. Khi hình lệch, sửa tọa độ gốc hoặc quy tắc sinh hình, tránh thêm nhiều miếng vá che lỗi.
+
+======================================================================
+5. TỌA ĐỘ, TỈ LỆ VÀ THU PHÓNG
+======================================================================
+- Chọn hệ tọa độ nhất quán. Ảnh thường tiện dùng y âm để chiều dọc tăng xuống; sơ đồ lực/đồ thị thường tiện dùng y dương lên trên.
+- Nếu y âm, kiểm tra lại dấu góc, chiều mũi tên và công thức lượng giác.
+- Dùng các điểm mốc hoặc tọa độ tên để nhiều bộ phận cùng tham chiếu.
+- Một phép đo định lượng phải có cùng ánh xạ vị trí trong mọi bộ phận liên quan.
+- Giữ tỉ lệ x/y khi cần bảo toàn hình; kéo riêng x hoặc y làm tròn thành ellipse và thay đổi góc.
+- Dữ kiện bài không yêu cầu đúng tỉ lệ vẫn phải trình bày quan hệ rõ; ghi “hình không theo tỉ lệ” khi phù hợp.
+- use as bounding box không phải lệnh cắt hình. Đối tượng ngoài khung có thể ảnh hưởng kích thước; muốn cắt cần clip có chủ đích, tránh cắt nhãn.
+- scale thay đổi tọa độ; độ dày nét không tự thay theo. Node cần kiểm tra riêng; transform shape có thể biến đổi node nhưng không giải quyết mọi vấn đề thu phóng.
+- Không dùng transform canvas như cách sửa nhanh khi chưa hiểu ảnh hưởng khung hình.
+- savebox + scalebox có thể co toàn bộ sản phẩm đã đóng gói, nhưng không phải đầu ra inline mặc định của thầy và không chữa lỗi hình học.
+- Sau thay tỉ lệ, xem lại chữ, nét, mũi tên, bo góc và khoảng cách nhãn.
+
+Mốc trình bày gợi ý, không phải chuẩn bắt buộc: nét chính khoảng .4–.8 pt, nét phụ khoảng .2–.4 pt ở kích thước sử dụng; điều chỉnh theo độ lớn hình và khả năng in. Nét quá mảnh khi thu nhỏ sẽ mất.
+
+======================================================================
+6. ĐƯỜNG CONG, VÒNG LẶP VÀ CÁC LỚP
+======================================================================
+- Dùng đường thẳng cho cấu trúc thẳng; Bézier cho vỏ cong, dây và khớp mềm.
+- Đoạn Bézier xác định bởi điểm đầu/cuối và hai điểm điều khiển. Tại chỗ nối, kiểm tra tiếp tuyến để tránh gãy hoặc lồi lõm bất thường.
+- Các đường lồng nhau nên sinh từ cùng họ tham số, không chỉnh ngẫu nhiên từng đường.
+- Vòng lặp phù hợp vạch chia, vòng dây, nan và gai lặp; phép tính chung giúp giữ bước đều.
+- Không coi mọi bộ phận lặp là giống hệt: phối cảnh và che khuất có thể làm chúng khác nhau.
+- Vẽ lớp phía sau trước, lớp phía trước sau. Dùng phần khuất hợp lý; không dùng vật trắng che giao cắt vật lý sai.
+- Các styles đặt trong hình/scope để không làm thay đổi hình khác.
+
+======================================================================
+7. CƠ HỌC: LỰC, CHUYỂN ĐỘNG, CON LẮC, LÒ XO
+======================================================================
+Sơ đồ lực:
+- Xác định vật đang xét; chỉ vẽ lực tác dụng lên vật đó.
+- Trọng lực đặt tại trọng tâm, hướng xuống theo phương thẳng đứng địa phương.
+- Phản lực pháp tuyến vuông góc bề mặt tiếp xúc; không mặc định thẳng đứng trên mặt nghiêng.
+- Lực căng theo phương dây ở vị trí gắn. Ma sát theo tiếp tuyến, xét xu hướng trượt tương đối; không luôn ngược chiều vận tốc của vật trong mọi tình huống.
+- Phân biệt lực thật với thành phần chiếu. Ghi nhãn hoặc nét khác để không khiến học sinh cộng cả lực và hai thành phần như ba lực độc lập.
+- Cặp lực tương tác tác dụng lên hai vật khác nhau; không tự đưa cả hai vào một sơ đồ lực một vật.
+- Độ dài mũi tên chỉ mang ý nghĩa tỉ lệ nếu đã chọn thang và dùng nhất quán.
+
+Chuyển động:
+- Vận tốc tiếp tuyến quỹ đạo; gia tốc hướng tâm hướng về tâm với chuyển động tròn.
+- Gia tốc toàn phần không nhất thiết trùng hướng tâm khi tốc độ đổi.
+- Phân biệt vectơ dịch chuyển với đường quãng đường; chỉ rõ chiều thời gian nếu vẽ nhiều vị trí.
+- Trục tọa độ và chiều dương phải phù hợp các dấu trong lời giải.
+
+Con lắc/lò xo:
+- Tâm quay, điểm treo, chiều dài dây và góc phải có cùng tọa độ.
+- Đánh dấu góc với đúng phương chuẩn; góc lệch dây thường đo từ phương thẳng đứng, không nhầm với phương ngang.
+- Nét đứt thể hiện vị trí chuẩn hoặc quỹ đạo khi có ý nghĩa rõ.
+- Phân biệt độ dài tự nhiên, độ biến dạng và li độ từ vị trí cân bằng.
+- Lực đàn hồi phục hồi theo biến dạng; không tự coi mọi li độ x đều là biến dạng của lò xo.
+- Lò xo cần gắn đúng hai đầu; vòng đều nhưng không dài/ngắn sai dữ kiện.
+
+======================================================================
+8. ĐỒ THỊ VÀ DAO ĐỘNG
+======================================================================
+- Ghi đại lượng và đơn vị cho trục; không bỏ gốc hoặc dấu âm cần thiết.
+- Xác định miền, tỉ lệ trục, điểm cực trị, giao trục và pha từ dữ kiện.
+- Có thể dựng đồ thị bằng plot TikZ thuần theo quy tắc dự án.
+- Công cụ tính lượng giác PGF mặc định dùng góc theo độ; khi công thức dùng radian phải chuyển đổi hoặc xác định chế độ rõ.
+- Không vẽ sin đẹp bằng mắt rồi gán nhãn thời gian không khớp.
+- x, v, a của dao động điều hòa phải có quan hệ pha đúng; kiểm tra ít nhất các thời điểm đặc biệt.
+- Đường nối các phép đo không được tự coi là mô hình đã xác minh.
+- Tách đường lý thuyết, điểm đo và thanh sai số bằng ký hiệu rõ nếu bài yêu cầu.
+
+======================================================================
+9. SÓNG, GIAO THOA VÀ SÓNG DỪNG
+======================================================================
+- Đọc rõ đồ thị là u theo x tại một thời điểm hay u theo t tại một vị trí.
+- Phân biệt hướng truyền sóng và hướng dao động; mũi tên của phần tử không phải mũi tên truyền sóng.
+- Khoảng cách hai đỉnh liên tiếp theo không gian là bước sóng; hai cực trị trái dấu kề nhau cách nhau nửa bước sóng của sóng hình sin.
+- Sóng dừng: khoảng hai nút kề là nửa bước sóng; nút đến bụng gần nhất là một phần tư bước sóng.
+- Điều kiện hai đầu cố định/tự do quyết định vị trí nút/bụng; không tái dùng sai mẫu đầu dây.
+- Vân giao thoa phụ thuộc pha nguồn và hiệu đường đi; không tự đặt mọi trung trực là cực đại nếu nguồn ngược pha.
+- Phân biệt đỉnh/lõm bằng quy ước nét hoặc nhãn, không dựa riêng vào màu. Trong hình giao thoa, các mặt sóng từ hai nguồn có thể giao nhau; không áp quy tắc cấm giao cắt đường sức sang mặt sóng.
+- Hai đường biểu diễn trạng thái ở hai thời điểm khác nhau có thể giao nhau; phải có chú giải.
+
+======================================================================
+10. ĐIỆN: ĐIỂM NỐI, NHÁNH MẠCH VÀ THIẾT BỊ
+======================================================================
+- Trước khi vẽ, lập danh sách nút và phần tử nối giữa các nút.
+- Song song nghĩa là cùng hai nút; nối tiếp cần kiểm tra nút giữa không có nhánh làm đổi dòng.
+- Giao dây có nối và giao dây không nối phải phân biệt theo quy ước được dùng; thêm chấm nối khi cần. Không kết luận chỉ từ hình vuông hay tròn của bố cục.
+- Khóa đóng/hở phải đúng bài. Khóa hở có khe nhìn thấy, không nối kín bởi nét phụ.
+- Cực nguồn, chiều dòng điện quy ước, mũi tên và ký hiệu phải nhất quán.
+- Vôn kế nối giữa hai điểm cần đo; ampe kế đặt trong nhánh cần đo dòng theo sơ đồ bài.
+- Không làm chập phần tử bởi dây chạy trang trí hoặc viền khung.
+- Hình cấu tạo rơ-le và sơ đồ mạch là hai biểu diễn khác nhau, phải đối chiếu cùng tiếp điểm và cuộn kích.
+- Ký hiệu mạch thuần TikZ hoặc thư viện được phép đều được, nhưng phải nhất quán; không nạp circuitikz nếu app chưa hỗ trợ.
+
+======================================================================
+11. ĐIỆN TRƯỜNG, TỪ TRƯỜNG VÀ ĐƯỜNG SỨC
+======================================================================
+- Các đường sức của cùng trường tại cùng thời điểm trong vùng trường xác định không được cắt nhau. Ở điểm trường bằng không, hướng không xác định; không minh họa giao cắt như có hai hướng trường tại một điểm.
+- Đường sức điện theo chiều lực lên điện tích thử dương; đi ra khỏi điện tích dương và đi vào điện tích âm theo sơ đồ phổ thông.
+- Đường sức từ là các đường khép kín; ngoài thanh nam châm có chiều N → S, bên trong S → N.
+- Cực Bắc của kim thử chỉ theo chiều từ trường tại vị trí kim. Kim cần gần tiếp tuyến đường sức, không chỉ tô màu đúng.
+- Màu đỏ là cực Bắc chỉ khi quy ước đã được xác nhận.
+- Mật độ đường sức chỉ minh họa độ mạnh định tính nếu chưa có mô hình định lượng.
+- Dấu chấm biểu diễn vectơ hướng ra mặt phẳng, dấu nhân hướng vào theo quy ước phổ thông; phải nêu đại lượng nào đang được biểu diễn.
+- Kiểm tra quy tắc bàn tay phù hợp và thứ tự tích có hướng. Với lực từ lên hạt, dấu điện tích ảnh hưởng chiều lực; với dây, dùng chiều dòng quy ước.
+- Điện trường và từ trường cùng được vẽ có thể có đường biểu diễn giao nhau; không lẫn chúng với hai đường sức của cùng trường.
+- Không dùng những vòng ellipse tùy ý để thay trường thanh nam châm rồi tuyên bố chính xác vật lý.
+
+Kiểm tra giao cắt:
+1) Xem sát cực, các điểm nối Bézier và vùng đường sát nhau.
+2) Khi có công cụ, kiểm tra giao các đoạn lấy mẫu; loại trừ các điểm chung được phép đã mô tả rõ.
+3) Lấy mẫu là kiểm tra số, có thể bỏ sót điểm tiếp xúc rất hẹp; tăng độ phân giải theo lỗi nghi ngờ, không gọi là chứng minh tuyệt đối.
+4) Không chỉ xem ảnh bị nam châm/kim che: kiểm tra đường hình học gốc khi cần.
+5) Sau mọi sửa tọa độ đường trường, kiểm tra lại các cặp liên quan.
+
+======================================================================
+12. QUANG HỌC
+======================================================================
+- Tách trục chính, vật, ảnh, mặt quang học và tia.
+- Góc tới/khúc xạ đo với pháp tuyến, không đo với mặt phân cách.
+- Phản xạ: tia tới và tia phản xạ có góc bằng nhau với pháp tuyến.
+- Khúc xạ: kiểm tra môi trường, hướng lệch và điều kiện phản xạ toàn phần theo bài.
+- Tia có mũi tên theo chiều truyền; phần kéo dài dựng ảnh dùng nét đứt, không vẽ như tia sáng thật truyền về phía ảnh ảo.
+- Với thấu kính mỏng: xác định tâm, tiêu điểm hai phía, loại kính và vị trí vật. Tia song song trục, tia qua tâm và tia liên quan tiêu điểm phải có quan hệ đúng trong mô hình đang dùng.
+- Không áp mẫu thấu kính hội tụ sang phân kỳ bằng cách chỉ đổi ký hiệu.
+- Với gương: xét pháp tuyến tại điểm tới; sơ đồ tia gần trục chỉ có độ chính xác của xấp xỉ đó.
+- Nếu ảnh nằm ngoài khung, mở bố cục; không thay đường tia chỉ để nó nằm gọn.
+- Mặt nước/thủy tinh phải rõ ràng; không đưa đường trang trí thành một mặt phân cách mới.
+
+======================================================================
+13. NHIỆT HỌC, CHẤT KHÍ, CHẤT LỎNG
+======================================================================
+- Xác định lượng khí cố định hay đang nạp/xả; không áp đường đẳng nhiệt của lượng khí cố định cho hệ thay đổi lượng khí mà không giải thích.
+- Phân biệt áp suất tuyệt đối và áp suất dư; ghi đơn vị, không suy ra từ dáng áp kế.
+- Trên đồ thị p–V của khí lý tưởng: kiểm tra quá trình, tọa độ trạng thái và chiều tiến trình; không trang trí bằng đường cong không khớp dữ kiện.
+- Pít-tông cố định trong quá trình đẳng tích phải được thể hiện rõ; không thêm mũi tên dịch chuyển.
+- Pít-tông chuyển động cần phân biệt vị trí đầu/cuối, thể tích phần khí, đầu bịt/hở và chỗ tiếp xúc.
+- Cột thủy ngân/nước: xác định các mặt thoáng, độ chênh cao và nhánh thông khí. Không đo độ chênh theo chiều dài ống nghiêng khi công thức dùng chênh cao đứng.
+- Ống chữ U và bình thông nhau: mốc cùng độ cao chỉ có quan hệ áp suất phù hợp khi đúng chất lỏng/trạng thái; không suy từ hình màu.
+- Không vẽ cảm biến ở vị trí bất kỳ rồi gọi là đo trực tiếp nhiệt độ khí. Vị trí lắp, tiếp xúc nhiệt và thời gian đạt ổn định cần bám nguồn.
+- Nếu ảnh chỉ mô tả dụng cụ trước khi đổ nước, không tự thêm một mặt nước định lượng.
+- Số đọc LCD có thể khác số bảng vì ảnh chụp ở thời điểm khác; không tự đổi dữ kiện câu hỏi để khớp ảnh.
+
+Thang đo:
+- Dùng một ánh xạ tọa độ từ giá trị. Ví dụ q → x0 + k(q-q0).
+- Vạch lớn, vạch nhỏ, nhãn số và vị trí chỉ phải cùng ánh xạ.
+- Nhiệt độ cùng vị trí hai thang °C/°F: F = 32 + 1.8 C.
+- Kiểm tra chiều tăng; nguồn có thể xoay/lật dụng cụ.
+- Kiểm tra kim/vạch để đọc số, không chỉ khung mặt đồng hồ.
+- Không dùng vạch minh họa để dạy cách đọc sai số hoặc suy ra thể tích.
+
+======================================================================
+14. VẬT LIỆU, PHỐI CẢNH VÀ HÌNH PHỨC TẠP
+======================================================================
+Kim loại:
+- Chuyển sắc vừa phải theo một hướng chiếu sáng; đường bao vẫn đọc được.
+- Thêm vệt sáng hẹp, mép, ốc và kẹp sau khi cấu trúc đã đúng.
+- Bóng không được làm tiếp điểm mở trông như đã nối kín.
+
+Kính:
+- Vẽ miệng sau, vật bên trong, thành trước và phản sáng theo thứ tự phù hợp.
+- Tách thành kính, đáy dày và chất lỏng; không dùng một lớp mờ che toàn bộ bên trong.
+- Ellipse miệng/đáy cùng phối cảnh; tránh quá nhiều vòng trông thành nhiều đáy.
+- Giữ nét đầu dò, vạch và mực chất lỏng rõ khi in trắng đen.
+
+Dây và cuộn:
+- Dây đầu dò có một đường liên tục từ thiết bị đến đầu dò; không có đoạn thừa kết thúc giữa không gian.
+- Cuộn dây ôm sát lõi, bước quấn đều; phần phía sau vẽ trước lõi, phần phía trước sau lõi.
+- Kiểm tra đầu dây nối với mạch; không biến cuộn dây thành lò xo rời lõi.
+
+Phối cảnh:
+- Các trụ, mặt phẳng và ellipse cần thống nhất góc nhìn.
+- Không áp đối xứng trái/phải khi góc nhìn khiến hai phía khác nhau.
+- Hình minh họa thiết bị có phối cảnh không tự trở thành bản thiết kế cơ khí có kích thước.
+
+Sinh vật:
+- Con dế: dựng đầu–ngực–bụng, râu, cánh và ba cặp chân trước chi tiết.
+- Chân sau có đùi lớn, cẳng nhỏ và gai; khớp nên mềm, không thành khối hộp.
+- Kiểm tra vị trí gắn từng chân, phần che khuất; râu thon dần và cánh có gân.
+- Không khẳng định kiểm định giải phẫu từ ảnh mờ. Ghi “minh họa vector theo tư thế nguồn” khi phù hợp.
+
+======================================================================
+15. CHỮ, NHÃN, MŨI TÊN VÀ KHẢ NĂNG IN
+======================================================================
+- Mỗi nhãn có điểm đích rõ; leader không dừng nhầm ở bộ phận lân cận.
+- Không để nhãn đè số, vạch, đường sức hoặc điểm quan trọng.
+- Leader bình thường không cần mũi tên nếu nguồn dùng nét chỉ; tránh nhầm với lực/tia.
+- Nét đứt, nét liền và màu cần có ý nghĩa nhất quán.
+- Dùng font phù hợp engine. Chữ Việt cần tài liệu chủ hỗ trợ; không chọn một font chỉ có trên máy dựng.
+- Số rất nhỏ có thể bị thay cỡ font khi compile; xem log và bản render.
+- Đọc hình ở đúng kích thước chèn, không chỉ ảnh phóng lớn trên màn hình.
+- Hình nền màu là tùy chọn; kiểm tra tương phản và bản trắng đen.
+- Đơn vị thống nhất, chữ số thập phân theo quy ước tài liệu. Màn hình có thể dùng dấu chấm như thiết bị; văn bản tiếng Việt có thể dùng dấu phẩy.
+
+======================================================================
+16. CHECKLIST NGHIỆM THU
+======================================================================
+A. Nội dung
+[ ] Đã đọc ảnh và nguyên bài.
+[ ] Trạng thái, bộ phận, nhãn, số liệu không bị đổi.
+[ ] Phần không đọc rõ được ghi riêng.
+
+B. Hình học và quan hệ
+[ ] Điểm nối/khớp/mặt phân cách đúng.
+[ ] Vùng che khuất có chủ đích.
+[ ] Dây liên tục; cuộn ôm lõi; kính không che chi tiết cần đọc.
+[ ] Đường sức không giao cắt; kim/tia/vectơ có chiều đúng.
+[ ] Thang và số chỉ dùng cùng ánh xạ nếu định lượng.
+
+C. TikZ
+[ ] Một begin/end tikzpicture; định nghĩa cục bộ.
+[ ] Không thiếu dấu ; hoặc ngoặc; dependency đã xác minh.
+[ ] Build thành công với engine ghi rõ.
+[ ] Render đúng bản mã cuối cùng.
+
+D. Trình bày
+[ ] Đã mở và xem bản render.
+[ ] Đã kiểm tra vùng dễ sai ở độ phóng phù hợp.
+[ ] Chữ/nét rõ ở kích thước thực tế, nhãn không bị cắt.
+[ ] In trắng đen vẫn đọc được khi cần.
+
+E. Báo cáo riêng các trạng thái
+Compile: PASS/FAIL/NOT_RUN.
+Visual review: COMPLETED/NOT_REVIEWED + phát hiện.
+Geometry/topology: kiểm tra nào, kết quả và giới hạn.
+Physical meaning: VERIFIED/PENDING_REVIEW + phạm vi.
+Measurement calibration: VERIFIED/NOT_VERIFIED/NOT_APPLICABLE.
+Teacher approval: trạng thái thực tế, không suy từ compile.
+
+Không báo “PASS 100%” nếu chỉ mới chạy build. Không nói đã thử trên app Windows khi chỉ render bằng TeX Live Linux. Không tự đăng ký mẫu vào APPROVED_BANK hoặc Student Practice.
+
+======================================================================
+17. CHẨN ĐOÁN LỖI VÀ SỬA ĐÚNG CHỖ
+======================================================================
+- TeX lỗi: xem lỗi đầu tiên trong log, kiểm tra dấu ;, ngoặc, tên màu/style và dependency.
+- App JavaScript lỗi trước compile: tách lỗi app khỏi lỗi TikZ. Ví dụ thông báo biến chưa khởi tạo không chứng minh snippet sai.
+- Chữ quá to khi hình nhỏ: kiểm tra scale của node và kích thước font, không bóp méo hình để chữa.
+- Cuộn dây rời lõi: sửa điểm tiếp xúc và thứ tự lớp, không thêm bóng để che.
+- Đường sức cắt nhau: chỉnh họ đường/tọa độ điều khiển; kiểm tra lại mọi cặp bị ảnh hưởng.
+- Dây đứt: nối bằng điểm mốc chung; không ghép hai đầu “gần gần”.
+- Kim đo sai: sửa phép ánh xạ góc/giá trị, không chỉ dịch nhãn.
+- Kính quá mờ hoặc đục: giảm vùng fill, tách nét thành trước/sau và phản sáng.
+- Kích thước PDF bị dư: kiểm tra đối tượng ngoài khung, nhãn và bounding box; không clip tùy tiện.
+- Sau sửa: chạy lại kiểm tra có liên quan và render. Không giữ ảnh preview của phiên bản cũ.
+
+======================================================================
+18. KINH NGHIỆM ĐÃ LƯU TRÊN GIT TỐI 05/10/2026
+======================================================================
+Drone:
+- Mã thầy cung cấp dùng pic/savebox; bản inline chuyển wrapper và giữ hình học.
+- Tay/cánh sau trước thân; camera và đèn chi tiết sau cùng.
+- Vòng kính đồng tâm, phản sáng nhỏ; đối xứng chỉ áp phần thật sự đối xứng.
+- Minh họa tĩnh, không phải bản thiết kế cơ khí hoặc hoạt hình.
+
+Rơ-le:
+- Sửa bước quấn và phần khuất để dây ôm lõi.
+- Giữ tiếp điểm và khóa đang hở; giữ nhãn hai biểu diễn cấu tạo/mạch.
+- Chữ Việt đã build bằng XeLaTeX ở fixture; tài liệu chủ phải hỗ trợ font.
+
+Nam châm:
+- Thầy phát hiện đường sức giao cắt; đã sửa cả bản tham chiếu và bản vật lý.
+- Bản vật lý sửa chiều N → S phía ngoài và cực kim theo quy ước đỏ là Bắc.
+- Kiểm tra số lấy mẫu 500 điểm mỗi cubic trên 10 đường không phát hiện giao cắt; không phải chứng minh hình học tuyệt đối.
+- Bản reference còn giữ lỗi chiều nguồn để đối chiếu; không tái dùng nó như mẫu đúng.
+
+Áp kế–xilanh:
+- Dựng trụ, kẹp, chân và mặt đo theo lớp, giữ nhãn 1–5.
+- Thang xilanh mờ chỉ minh họa; không dùng để đọc thể tích/độ chia nhỏ nhất.
+
+Con dế:
+- Dựng râu, mắt, gân cánh, bụng phân đốt, các chân/khớp/gai.
+- Làm mềm khớp và phần miệng; tránh dạng hộp.
+- Bản vector chưa kiểm định giải phẫu, không phải bản sao ảnh từng nét.
+
+Dế–nhiệt kế:
+- Hai thang cùng công thức đổi °C/°F.
+- Thanh điền xám trang trí không phải giá trị đo.
+
+Xilanh trong cốc:
+- Đọc nguyên câu để xác nhận (1) xilanh có pít-tông, (2) cốc, (3) cảm biến, (4) giá đỡ.
+- Chỉnh leader (3) tới đầu dò, dây cong liên tục; không tự thêm mức nước.
+- Màn hình 22.5 °C lấy từ bảng nhiệt độ ban đầu, không coi là OCR chắc chắn ảnh mờ.
+- Thang thể tích chưa hiệu chuẩn; vị trí đầu dò cần đối chiếu trước khi dùng dạy phương pháp đo nhiệt độ khí.
+
+Kết quả Git ghi nhận 8 snippet compile và kiểm tra inline, có bản render đã xem. Mỗi mẫu vẫn có giới hạn riêng; lời khen của thầy không thay thế kiểm định mọi chi tiết khoa học.
+
+======================================================================
+19. BÀI TẬP LUYỆN CHO ANTI VÀ TIÊU CHÍ CHẤM
+======================================================================
+Luyện theo thứ tự, không vội tăng độ phức tạp:
+1) Vật trên mặt nghiêng và sơ đồ lực: kiểm tra phương lực, điểm đặt, góc.
+2) Con lắc hai vị trí: tâm treo, chiều dài và góc đúng.
+3) Lò xo ở tự nhiên/cân bằng/dao động: không nhầm ba mốc.
+4) Đồ thị x–t và v–t: đúng pha, cực trị, trục và đơn vị.
+5) Mạch có khóa và hai dụng cụ đo: đúng nút và trạng thái.
+6) Thanh nam châm với kim thử: không giao cắt, kim tiếp tuyến, chiều đúng.
+7) Khúc xạ hoặc dựng ảnh thấu kính: đúng pháp tuyến/tia/ảnh thật–ảo.
+8) Ống chữ U hoặc xilanh: đúng mặt phân cách, áp suất và trạng thái.
+9) Rơ-le hoặc dụng cụ nhiều lớp: cuộn/dây/khớp/kính đúng.
+10) Tái dựng mẫu phức tạp ở hai kích thước chèn; kiểm tra chữ và nét.
+
+Với mỗi bài, nộp brief, snippet, preview và checklist. Nếu sai vật lý hoặc quan hệ nối, phải sửa trước khi đánh giá thẩm mỹ. Không dùng tổng điểm thẩm mỹ để bù lỗi khoa học. Khi bài đạt, lưu thành mẫu; khi bị sửa, ghi lỗi cụ thể và cách ngăn tái diễn.
+
+======================================================================
+20. GHI NHỚ LÂU DÀI VÀ ĐỒNG BỘ VỚI DỰ ÁN
+======================================================================
+- Mỗi lỗi tạo một mục: NGUỒN → LỖI → NGUYÊN NHÂN → CÁCH SỬA → KIỂM TRA → MẪU LIÊN QUAN.
+- Ví dụ: đường sức cắt ở góc dưới trái → điểm điều khiển tùy ý → sửa đường lồng nhau → kiểm tra render và lấy mẫu → magnet_physics_inline.tex.
+- Lưu mã cuối khớp preview, engine, dependency, giới hạn và hash khi cần truy vết.
+- Đọc kho mẫu trước khi dựng lại từ đầu, nhưng không mang số liệu/trạng thái của bài cũ sang bài mới.
+- Nếu làm trong repo, đọc AGENTS và quy tắc hiện hành. Không ghi đè Main, nhật ký hoặc cấu hình đang dùng chỉ để thêm kinh nghiệm.
+- Không gán ID Lớp–Chương–Bài–Dạng–Loại–Mức độ khi chưa xác minh taxonomy.
+- Ngân hàng hình kỹ thuật, câu hỏi đã duyệt và runtime đăng ký là các trạng thái khác nhau.
+- File này là hướng dẫn mang sang máy khác; không chứng minh app bên đó đã nạp quy tắc. Cần cấu hình Anti đọc file và kiểm tra nó thực sự áp dụng qua bài thử.
+
+======================================================================
+21. NGUỒN VÀ CÁCH TRUY XUẤT
+======================================================================
+A. Nguồn Git đã đọc trực tiếp ngày 06/10/2026:
+Repo: thienngoc89/TaiLieuBaiGiang2026New
+Nhánh đọc: codex/complex-tikz-rules-20261005
+Bản tổng hợp tối hôm trước: c2483e5a997141bd2dcfc5377e3479d0e84025dc
+Không mặc định các tài liệu này đã nằm trong main.
+
+Quy tắc:
+https://github.com/thienngoc89/TaiLieuBaiGiang2026New/blob/c2483e5a997141bd2dcfc5377e3479d0e84025dc/docs/COMPLEX_TIKZ_AUTHORING_RULES.md
+Mẫu:
+https://github.com/thienngoc89/TaiLieuBaiGiang2026New/tree/c2483e5a997141bd2dcfc5377e3479d0e84025dc/assets/tikz/complex_examples/2026-10-05
+Các tài liệu trong thư mục: README.md, TIKZ_BRIEF.md, validation.json.
+Các mã: drone_inline.tex, relay_inline.tex, magnet_reference_inline.tex, magnet_physics_inline.tex, pressure_apparatus_inline.tex, cricket_inline.tex, cricket_thermometer_inline.tex, syringe_bath_inline.tex.
+Repo riêng tư có thể cần quyền truy cập trên máy khác. Các snippet chưa được nhúng toàn bộ vào TXT này; tài liệu vẫn tự chứa quy trình và checklist, còn mã mẫu lấy từ Git khi có quyền.
+
+B. Tài liệu kỹ thuật PGF/TikZ đối chiếu:
+https://tikz.dev/tikz-paths — cú pháp đường.
+https://tikz.dev/tikz-scopes — phạm vi và style.
+https://tikz.dev/pgffor — vòng lặp.
+https://tikz.dev/tikz-transformations — biến đổi tọa độ.
+https://tikz.dev/tikz-shapes — node và transform shape.
+
+C. Nội dung bổ sung:
+Các checklist cơ học, dao động, sóng, điện, trường, quang và nhiệt là kiến thức phổ thông cùng hướng dẫn tổng hợp của trợ lý; không được ghi là trích nguyên văn từ Git. Các gợi ý độ dày nét và lộ trình luyện là đề xuất thực hành, không phải chuẩn đo lường hoặc quy định chương trình.
+
+KẾT THÚC TÀI LIỆU
+Trước khi nói “đã xong hình”, hãy mở bản render cuối và tự hỏi: học sinh có thể hiểu sai điều gì từ hình này?

@@ -9,6 +9,7 @@ import sys
 import subprocess
 import shutil
 import fitz
+import time
 
 if sys.stdout.encoding.lower() != 'utf-8':
     try:
@@ -87,6 +88,19 @@ EXAM_CONFIGS = [
     }
 ]
 
+def safe_copy(src, dst):
+    if not os.path.exists(src):
+        return
+    try:
+        if os.path.exists(dst):
+            try:
+                os.remove(dst)
+            except Exception:
+                pass
+        shutil.copy2(src, dst)
+    except Exception as e:
+        print(f"  [Warning safe_copy] {e}")
+
 def generate_chua_bai_wrappers_and_compile():
     print("=" * 80)
     print("BƯỚC 1: TẠO WRAPPER VÀ BIÊN DỊCH CÁC ĐỀ CHỮA BÀI (4 DÒNG CHẤM)")
@@ -99,46 +113,55 @@ def generate_chua_bai_wrappers_and_compile():
         for subfolder, wrapper_base, title in col["exams"]:
             exam_dir = os.path.join(grade_dir, subfolder)
             mirror_exam_dir = os.path.join(mirror_grade_dir, subfolder)
-            
-            # Find the existing student wrapper file to extract macros
-            de_files = [f for f in os.listdir(exam_dir) if f.endswith('.tex') and ('_De_' in f or f.endswith('_De.tex'))]
-            if not de_files:
-                raise FileNotFoundError(f"Không tìm thấy file đề trong {exam_dir}")
-            ref_de = os.path.join(exam_dir, de_files[0])
-            with open(ref_de, 'r', encoding='utf-8') as fp:
-                de_text = fp.read()
-
-            # Create ChuaBai wrapper by changing \input to Master_ChuaBai.tex
-            chua_bai_text = de_text.replace(r"\input{../Master/Master_De.tex}", r"\input{../Master/Master_ChuaBai.tex}")
-            if r"\input{../Master/Master_ChuaBai.tex}" not in chua_bai_text:
-                # Fallback if different format
-                chua_bai_text = de_text.replace("Master_De.tex", "Master_ChuaBai.tex")
-
             cb_tex_path = os.path.join(exam_dir, f"{wrapper_base}.tex")
-            with open(cb_tex_path, 'w', encoding='utf-8') as fp:
-                fp.write(chua_bai_text)
+            cb_pdf = os.path.join(exam_dir, f"{wrapper_base}.pdf")
+            
+            # Ensure ans directory exists to prevent TeX emergency stop
+            os.makedirs(os.path.join(exam_dir, "ans"), exist_ok=True)
+
+            if not os.path.exists(cb_tex_path):
+                # Find the existing student wrapper file to extract macros
+                de_files = [f for f in os.listdir(exam_dir) if f.endswith('.tex') and ('_De_' in f or f.endswith('_De.tex'))]
+                if not de_files:
+                    raise FileNotFoundError(f"Không tìm thấy file đề trong {exam_dir}")
+                ref_de = os.path.join(exam_dir, de_files[0])
+                with open(ref_de, 'r', encoding='utf-8') as fp:
+                    de_text = fp.read()
+
+                # Create ChuaBai wrapper by changing \input to Master_ChuaBai.tex
+                chua_bai_text = de_text.replace(r"\input{../Master/Master_De.tex}", r"\input{../Master/Master_ChuaBai.tex}")
+                if r"\input{../Master/Master_ChuaBai.tex}" not in chua_bai_text:
+                    chua_bai_text = de_text.replace("Master_De.tex", "Master_ChuaBai.tex")
+
+                with open(cb_tex_path, 'w', encoding='utf-8') as fp:
+                    fp.write(chua_bai_text)
 
             # Compile with pdflatex (2 passes to resolve LastPage and references)
             print(f"[{col['subject']} -> {subfolder}] Biên dịch {wrapper_base}.tex...")
-            res = subprocess.run(["pdflatex", "-interaction=nonstopmode", f"{wrapper_base}.tex"], cwd=exam_dir, capture_output=True, text=True)
+            time.sleep(0.3)
+            res = subprocess.run(["pdflatex", "-interaction=nonstopmode", f"{wrapper_base}.tex"], cwd=exam_dir, capture_output=True, text=True, encoding='latin-1', errors='replace')
             if res.returncode != 0:
-                print(f"  [LỖI Pass 1] {res.stdout[-400:]}")
-            else:
-                res2 = subprocess.run(["pdflatex", "-interaction=nonstopmode", f"{wrapper_base}.tex"], cwd=exam_dir, capture_output=True, text=True)
-                cb_pdf = os.path.join(exam_dir, f"{wrapper_base}.pdf")
-                with fitz.open(cb_pdf) as doc:
+                print(f"  [LỖI Pass 1] {res.stdout[-300:]}")
+                time.sleep(1.0)
+                # Retry pass 1
+                res = subprocess.run(["pdflatex", "-interaction=nonstopmode", f"{wrapper_base}.tex"], cwd=exam_dir, capture_output=True, text=True, encoding='latin-1', errors='replace')
+            
+            if res.returncode == 0:
+                time.sleep(0.5)
+                res2 = subprocess.run(["pdflatex", "-interaction=nonstopmode", f"{wrapper_base}.tex"], cwd=exam_dir, capture_output=True, text=True, encoding='latin-1', errors='replace')
+                if os.path.exists(cb_pdf):
+                    time.sleep(0.3)
+                    doc = fitz.open(cb_pdf)
                     pcount = len(doc)
-                print(f"  -> Thành công: {pcount} trang")
+                    doc.close()
+                    print(f"  -> Thành công: {pcount} trang")
+            else:
+                print(f"  [ERROR] Không thể biên dịch {wrapper_base}.tex: {res.stdout[-300:]}")
 
             # Mirror to mirror folder
             os.makedirs(mirror_exam_dir, exist_ok=True)
-            shutil.copy2(cb_tex_path, os.path.join(mirror_exam_dir, f"{wrapper_base}.tex"))
-            cb_pdf = os.path.join(exam_dir, f"{wrapper_base}.pdf")
-            if os.path.exists(cb_pdf):
-                try:
-                    shutil.copy2(cb_pdf, os.path.join(mirror_exam_dir, f"{wrapper_base}.pdf"))
-                except Exception as e:
-                    print(f"  [Cảnh báo copy mirror] {e}")
+            safe_copy(cb_tex_path, os.path.join(mirror_exam_dir, f"{wrapper_base}.tex"))
+            safe_copy(cb_pdf, os.path.join(mirror_exam_dir, f"{wrapper_base}.pdf"))
 
 def generate_cover_chua_bai(col):
     tag = f"cover_{col['grade']}_chuabai"
