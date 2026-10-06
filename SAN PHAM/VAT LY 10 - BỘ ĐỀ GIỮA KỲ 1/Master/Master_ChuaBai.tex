@@ -16,8 +16,9 @@
 \usepackage{multicol}
 \usepackage[dethi]{ex_test}
 
-% Bắt buộc 4 phương án luôn xếp dọc trên 1 cột 4 hàng (bóp chiều ngang để chiếu TV to rõ từ xa)
+% Bắt buộc 4 phương án luôn xếp dọc trên 1 cột 4 hàng với nhãn in hoa chuẩn: A. B. C. D.
 \renewcommand{\choice}[5][]{%
+	\gdef\chType{0}\setcounter{dapan}{0}%
 	\motcot{#2}{#3}{#4}{#5}%
 }
 
@@ -52,19 +53,17 @@
 \ifdefined\headertype\else\def\headertype{dethi}\fi
 \ifdefined\brandname\else\def\brandname{LỚP LÝ THẦY NGỌC}\fi
 \ifdefined\sdt\else\def\sdt{0935216256}\fi
-\ifdefined\diachi\else\def\diachi{CS1: 50/2C Phạm Thị Liên}\fi
-\ifdefined\brand\else\def\brand{Lớp Lý Thầy Ngọc -- SĐT: 0935.216.256 -- CS1: 50/2C Phạm Thị Liên}\fi
 \ifdefined\giaovien\else\def\giaovien{TRẦN VĂN THIỆN NGỌC}\fi
 \ifdefined\noidungfile\else\def\noidungfile{noi_dung.tex}\fi
 \ifdefined\figpath\graphicspath{{\figpath}{./}{figures/}}\else\graphicspath{{./}{figures/}}\fi
 
-% Thiết lập Header / Footer gọn đẹp cho khổ A5
+% FOOTER BẢN CHỮA BÀI TRỰC TUYẾN A5: CHỈ GHI THÔNG TIN THẦY VÀ TRANG
 \pagestyle{fancy}
 \fancyhf{}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0.4pt}
-\lfoot{\scriptsize\textsl{\brand}}
-\rfoot{\scriptsize\textsl{Trang \thepage/\pageref{LastPage} -- Bản Chữa bài Mã đề \made}}
+\lfoot{\scriptsize\textsl{\brandname\ -- SĐT: \sdt}}
+\rfoot{\scriptsize\textsl{Trang \thepage/\pageref{LastPage}}}
 \setlength{\parskip}{1pt}
 \setlength{\parindent}{0pt}
 

@@ -250,3 +250,16 @@ Khi nhận bất kỳ đề bài hay tài liệu nào, **BẮT BUỘC PHẢI PH�
   2. **Tất cả các phương án `\choice` chuyển thành `\motcot` (1 cột 4 hàng)**: Cả 4 phương án A, B, C, D phải xếp dọc trên 1 cột 4 hàng để bóp hẹp chiều ngang, tăng kích thước font chữ và tránh bị tràn dòng khi chiếu màn hình xa.
   3. **4 dòng kẻ chấm `\dotfill` cách đều dưới mỗi câu**: Định nghĩa lại `\loigiai` thành 4 dòng kẻ chấm cách đều nhau `5.5pt` để Thầy viết lời giải.
   4. **Hiển thị mã câu hỏi màu xanh `\macau{ID: ...}`** và ẩn hoàn toàn đáp án đúng.
+---
+
+## 19. QUY TẮC ĐỊNH DẠNG NHÃN PHƯƠNG ÁN (A. B. C. D. VS a) b) c) d)) VÀ FOOTER BẢN CHỮA BÀI
+- **PHÂN BIỆT NHÃN PHƯƠNG ÁN RÕ RÀNG**:
+  + **Trắc nghiệm nhiều lựa chọn (`\choice`)**: BẮT BUỘC nhãn là chữ cái in hoa kèm dấu chấm: **`A.` `B.` `C.` `D.`**. Tuyệt đối KHÔNG được in nhãn chữ thường `a)` `b)` `c)` `d)` (trong bản chữa bài `Master_ChuaBai.tex` khi chuyển sang `\motcot` bắt buộc phải kích hoạt `\gdef\chType{0}\setcounter{dapan}{0}` để giữ nguyên nhãn `A. B. C. D.`).
+  + **CHỈ CÓ trắc nghiệm Đúng/Sai (`\choiceTF` / `itemchoice` / `\itemch`) và các ý câu hỏi Tự luận**: mới được dùng nhãn chữ cái thường đóng ngoặc: **`a)` `b)` `c)` `d)`**.
+- **FOOTER BẢN CHỮA BÀI TRỰC TUYẾN A5 CHỈ GHI THÔNG TIN THẦY VÀ TRANG**:
+  + Do khổ giấy A5 có chiều ngang hẹp, chân trang (Footer) của bản chữa bài **TUYỆT ĐỐI KHÔNG ghi địa chỉ cơ sở hay tên mã đề dài dòng** tránh bị đè chữ lên số trang.
+  + **Định dạng chuẩn chân trang**:
+    ```latex
+    \lfoot{\scriptsize\textsl{Lớp Lý Thầy Ngọc -- SĐT: 0935.216.256}}
+    \rfoot{\scriptsize\textsl{Trang \thepage/\pageref{LastPage}}}
+    ```

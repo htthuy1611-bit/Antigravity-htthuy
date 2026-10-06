@@ -125,7 +125,8 @@ def generate_chua_bai_wrappers_and_compile():
                 print(f"  [LỖI] {res.stdout[-400:]}")
             else:
                 cb_pdf = os.path.join(exam_dir, f"{wrapper_base}.pdf")
-                pcount = len(fitz.open(cb_pdf))
+                with fitz.open(cb_pdf) as doc:
+                    pcount = len(doc)
                 print(f"  -> Thành công: {pcount} trang")
 
             # Mirror to mirror folder
@@ -133,7 +134,10 @@ def generate_chua_bai_wrappers_and_compile():
             shutil.copy2(cb_tex_path, os.path.join(mirror_exam_dir, f"{wrapper_base}.tex"))
             cb_pdf = os.path.join(exam_dir, f"{wrapper_base}.pdf")
             if os.path.exists(cb_pdf):
-                shutil.copy2(cb_pdf, os.path.join(mirror_exam_dir, f"{wrapper_base}.pdf"))
+                try:
+                    shutil.copy2(cb_pdf, os.path.join(mirror_exam_dir, f"{wrapper_base}.pdf"))
+                except Exception as e:
+                    print(f"  [Cảnh báo copy mirror] {e}")
 
 def generate_cover_chua_bai(col):
     tag = f"cover_{col['grade']}_chuabai"
@@ -144,8 +148,8 @@ def generate_cover_chua_bai(col):
     items_tex = ""
     for subfolder, wrapper_base, title in col["exams"]:
         cb_pdf = os.path.join(grade_dir, subfolder, f"{wrapper_base}.pdf")
-        doc = fitz.open(cb_pdf)
-        pcount = len(doc)
+        with fitz.open(cb_pdf) as doc:
+            pcount = len(doc)
         end_page = cur_page + pcount - 1
         items_tex += f"\\item \\textbf{{{title}}} \\hfill \\textsl{{Trang {cur_page} -- {end_page}}} ({pcount} trang)\\\\[6pt]\n"
         cur_page += pcount
@@ -222,17 +226,17 @@ def merge_chua_bai_collections():
 
         # 1. Add Cover Page
         toc = [[1, "Trang bìa & Mục lục tuyển tập chữa bài", 1]]
-        c_doc = fitz.open(cover_pdf)
-        master.insert_pdf(c_doc)
+        with fitz.open(cover_pdf) as c_doc:
+            master.insert_pdf(c_doc)
 
         # 2. Add each exam and record bookmark
         cur_page = 2
         for subfolder, wrapper_base, title in col["exams"]:
             sub_pdf = os.path.join(grade_dir, subfolder, f"{wrapper_base}.pdf")
-            s_doc = fitz.open(sub_pdf)
-            toc.append([1, title, cur_page])
-            cur_page += len(s_doc)
-            master.insert_pdf(s_doc)
+            with fitz.open(sub_pdf) as s_doc:
+                toc.append([1, title, cur_page])
+                cur_page += len(s_doc)
+                master.insert_pdf(s_doc)
 
         # Set Bookmarks
         master.set_toc(toc)
@@ -247,13 +251,17 @@ def merge_chua_bai_collections():
 
         # Save
         master.save(main_path, garbage=4, deflate=True)
+        master.close()
         shutil.copy2(main_path, alias_path)
 
         # Mirror
-        shutil.copy2(main_path, os.path.join(mirror_out_dir, col["out_main"]))
-        shutil.copy2(alias_path, os.path.join(mirror_out_dir, col["out_alias"]))
+        try:
+            shutil.copy2(main_path, os.path.join(mirror_out_dir, col["out_main"]))
+            shutil.copy2(alias_path, os.path.join(mirror_out_dir, col["out_alias"]))
+        except Exception as e:
+            print(f"  [Cảnh báo copy mirror bundle] {e}")
 
-        print(f"  [XUẤT BẢN THÀNH CÔNG] {col['subject']} Bản Chữa Bài: {len(master)} trang")
+        print(f"  [XUẤT BẢN THÀNH CÔNG] {col['subject']} Bản Chữa Bài: {cur_page - 1} trang")
         print(f"    -> {main_path}")
         print(f"    -> {alias_path}")
 
